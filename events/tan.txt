@@ -1,0 +1,3162 @@
+﻿add_namespace = TAN
+
+###
+country_event = { # приглос на конфу
+	id = tan.1
+	title = tan.1.t
+	desc = tan.1.d
+	picture = GFX_report_event_stalin_02
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.1.a
+		ai_chance = { factor = 1 }
+		SOV = {
+			country_event = tan.2
+		}
+	}
+
+}
+
+country_event = { # приглос у ссср
+	id = tan.2
+	title = tan.2.t
+	desc = tan.2.d
+	picture = GFX_report_event_stalin_02
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.2.a
+		ai_chance = { factor = 1 }
+		TAN = {
+			country_event = { days = 3 id = tan.3 }
+		}
+	}
+
+}
+
+country_event = { # прибытие
+	id = tan.3
+	title = tan.3.t
+	desc = tan.3.d
+	picture = GFX_report_event_stalin_02
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.3.a
+		ai_chance = { factor = 1 }
+		SOV = {
+			country_event = tan.4
+		}
+	}
+
+}
+
+country_event = { # вопрос независимости
+	id = tan.4
+	title = tan.4.t
+	desc = tan.4.d
+	picture = GFX_report_event_stalin_02
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.4.a
+		ai_chance = { factor = 1 }
+		TAN = {
+			country_event = { days = 1 id = tan.5 }
+		}
+	}
+
+}
+
+country_event = { # незалежнисть
+	id = tan.5
+	title = tan.5.t
+	desc = tan.5.d
+	picture = GFX_report_event_stalin_02
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.5.a
+		ai_chance = { factor = 1 }
+		SOV = {
+			set_autonomy = {
+				target = TAN
+				autonomy_state = autonomy_free
+			}
+		}
+		hidden_effect = {
+			every_enemy_country = {
+				white_peace = ROOT
+			}
+		}
+	}
+
+}
+
+####################################################
+
+country_event = { # признание союзников
+	id = tan.6
+	title = tan.6.t
+	desc = tan.6.d
+
+	is_triggered_only = yes
+	
+	option = { # да
+		name = tan.6.a
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 100
+				TAN = { has_completed_focus = TAN_diplomatic_mission_to_ENG }
+			}
+		}
+		TAN = {
+			country_event = { days = 2 id = tan.7 } 
+		}
+	}
+	option = { # нет
+		name = tan.6.b
+		ai_chance = { factor = 1 }
+		TAN = {
+			country_event = { days = 2 id = tan.8 } 
+		}
+	}
+
+}
+
+country_event = { # да (союзники)
+	id = tan.7
+	title = tan.7.t
+	desc = tan.7.d
+	picture = GFX_report_event_eng_royal_family
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.7.a
+		ai_chance = { factor = 1 }
+		add_recognition = yes
+		add_opinion_modifier = {
+			target = ENG
+			modifier = recognized_us
+		}
+	}
+
+}
+
+country_event = { # нет (союзники)
+	id = tan.8
+	title = tan.8.t
+	desc = tan.8.d
+	picture = GFX_report_event_eng_royal_family
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.8.a
+		ai_chance = { factor = 1 }
+		add_opinion_modifier = {
+			target = ENG
+			modifier = not_recognized_us
+		}
+	}
+
+}
+########################################
+country_event = { # признание японцев
+	id = tan.9
+	title = tan.9.t
+	desc = tan.9.d
+
+	is_triggered_only = yes
+	
+	option = { # да
+		name = tan.9.a
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 100
+				TAN = { has_completed_focus = TAN_diplomatic_mission_to_JAP}
+			}
+		}
+		TAN = {
+			country_event = { days = 2 id = tan.10 } 
+		}
+	}
+	option = { # нет
+		name = tan.9.b
+		ai_chance = { factor = 1 }
+		TAN = {
+			country_event = { days = 2 id = tan.11 } 
+		}
+	}
+
+}
+
+country_event = { # да (японцы)
+	id = tan.10
+	title = tan.10.t
+	desc = tan.10.d
+	picture = GFX_report_event_jap_imperial_family
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.10.a
+		ai_chance = { factor = 1 }
+		add_recognition = yes
+		add_opinion_modifier = {
+			target = JAP
+			modifier = recognized_us
+		}
+	}
+
+}
+
+country_event = { # нет (японцы)
+	id = tan.11
+	title = tan.11.t
+	desc = tan.11.d
+	picture = GFX_report_event_jap_imperial_family
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.11.a
+		ai_chance = { factor = 1 }
+		add_opinion_modifier = {
+			target = JAP
+			modifier = not_recognized_us
+		}
+	}
+
+}
+#######################################
+country_event = { # признание мао
+	id = tan.12
+	title = tan.12.t
+	desc = tan.12.d
+
+	is_triggered_only = yes
+	
+	option = { # да
+		name = tan.12.a
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 100
+				TAN = { has_completed_focus = TAN_diplomatic_mission_to_PRC }
+			}
+		}
+		TAN = {
+			country_event = { days = 2 id = tan.13 } 
+		}
+	}
+	option = { # нет
+		name = tan.12.b
+		ai_chance = { factor = 1 }
+		TAN = {
+			country_event = { days = 2 id = tan.14 } 
+		}
+	}
+
+}
+
+country_event = { # да (мао)
+	id = tan.13
+	title = tan.13.t
+	desc = tan.13.d
+	picture = GFX_report_event_china_politicians_captured
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.13.a
+		ai_chance = { factor = 1 }
+		add_recognition = yes
+		add_opinion_modifier = {
+			target = PRC
+			modifier = recognized_us
+		}
+	}
+
+}
+
+country_event = { # нет (мао)
+	id = tan.14
+	title = tan.14.t
+	desc = tan.14.d
+	picture = GFX_report_event_china_politicians_captured
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.14.a
+		ai_chance = { factor = 1 }
+		add_opinion_modifier = {
+			target = PRC
+			modifier = not_recognized_us
+		}
+	}
+
+}
+################################################
+country_event = { # признание кайши
+	id = tan.15
+	title = tan.15.t
+	desc = tan.15.d
+
+	is_triggered_only = yes
+	
+	option = { # да
+		name = tan.15.a
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 100
+				TAN = { has_completed_focus = TAN_diplomatic_mission_to_CHI }
+			}
+		}
+		TAN = {
+			country_event = { days = 3 id = tan.16 } 
+		}
+	}
+	option = { # нет
+		name = tan.15.b
+		ai_chance = { factor = 1 }
+		TAN = {
+			country_event = { days = 3 id = tan.17 } 
+		}
+	}
+
+}
+
+country_event = { # да (кайши)
+	id = tan.16
+	title = tan.16.t
+	desc = tan.16.d
+	picture = GFX_report_event_china_politicians_captured
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.16.a
+		ai_chance = { factor = 1 }
+		add_recognition = yes
+		add_opinion_modifier = {
+			target = CHI
+			modifier = recognized_us
+		}
+	}
+
+}
+
+country_event = { # нет (кайши)
+	id = tan.17
+	title = tan.17.t
+	desc = tan.17.d
+	picture = GFX_report_event_china_politicians_captured
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.17.a
+		ai_chance = { factor = 1 }
+		add_opinion_modifier = {
+			target = CHI
+			modifier = not_recognized_us
+		}
+	}
+
+}
+########################################
+
+country_event = { # проект конфы
+	id = tan.18
+	title = tan.18.t
+	desc = tan.18.d
+	picture = GFX_report_event_tan_conf 
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.18.a
+		ai_chance = { factor = 1 }
+	}
+
+}
+
+country_event = { # ссср узнал
+	id = tan.19
+	title = tan.19.t
+	desc = tan.19.d
+	picture = GFX_report_event_tan_conf 
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.19.a
+		ai_chance = { factor = 1 }
+		custom_effect_tooltip = tan_declare_war_tt
+		hidden_effect = {
+			set_rule = {
+				can_not_declare_war = no
+			}
+		}
+	}
+
+}
+
+country_event = { # деманд референдум
+	id = tan.20
+	title = tan.20.t
+	desc = tan.20.d
+	picture = GFX_report_event_tan_conf 
+
+	is_triggered_only = yes
+	
+	option = { # успех
+		name = tan.20.a
+		ai_chance = { factor = 2 }
+		TAN = {
+			country_event = { days = 2 id = tan.21 }
+		}
+	}
+	
+	option = { # провал
+		name = tan.20.b
+		ai_chance = { factor = 1 }
+		TAN = {
+			country_event = { days = 2 id = tan.22 }
+		}
+	}
+
+}
+
+country_event = { # успех референдума
+	id = tan.21
+	title = tan.21.t
+	desc = tan.21.d
+	picture = GFX_report_event_tan_conf 
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.21.a
+		ai_chance = { factor = 1 }
+		annex_country = {
+			target = MON
+			transfer_troops = yes
+		}
+		every_state = {
+			limit = {
+				is_core_of = MON
+			}
+			transfer_state_to = TAN
+		}
+	}
+
+}
+
+country_event = { # провал референдума
+	id = tan.22
+	title = tan.22.t
+	desc = tan.22.d
+	picture = GFX_report_event_tan_conf 
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.22.a
+		ai_chance = { factor = 1 }
+		hidden_effect = {
+			SOV = { remove_from_faction = MON }
+			MON = { add_ideas = MON_war }
+		}
+		declare_war_on = {
+			target = MON
+			type = annex_everything
+		}
+		every_state = {
+			limit = {
+				is_core_of = MON
+			}
+			add_claim_by = ROOT
+		}
+	}
+
+}
+
+#############################################
+
+country_event = { # вопрос столицы
+	id = tan.23
+	title = tan.23.t
+	desc = tan.23.d
+	picture = GFX_report_event_tan_conf 
+
+	is_triggered_only = yes
+	
+	option = { # кызыл
+		name = tan.23.a
+		ai_chance = { factor = 1 }
+		set_capital = { state = 329 }
+		if = {
+			limit = {
+				has_idea = TAN_unstable_confederation
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation
+				add_idea = TAN_unstable_confederation2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation2
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation2
+				add_idea = TAN_unstable_confederation3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation3
+			}
+			remove_ideas = TAN_unstable_confederation3
+		}
+	}
+	
+	option = { # улан-батор
+		name = tan.23.b
+		ai_chance = { factor = 1 }
+		set_capital = { state = 330 }
+		if = {
+			limit = {
+				has_idea = TAN_unstable_confederation
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation
+				add_idea = TAN_unstable_confederation2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation2
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation2
+				add_idea = TAN_unstable_confederation3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation3
+			}
+			remove_ideas = TAN_unstable_confederation3
+		}
+	}
+	
+	option = { # 50/50
+		name = tan.23.c
+		ai_chance = { factor = 1 }
+		random_list = {
+			50 = {
+				set_capital = { state = 329 }
+			}
+			50 = {
+				set_capital = { state = 330 }
+			}
+		}
+		if = {
+			limit = {
+				has_idea = TAN_unstable_confederation
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation
+				add_idea = TAN_unstable_confederation2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation2
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation2
+				add_idea = TAN_unstable_confederation3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation3
+			}
+			remove_ideas = TAN_unstable_confederation3
+		}
+	}
+
+}
+
+country_event = { # вопрос лидера
+	id = tan.24
+	title = tan.24.t
+	desc = tan.24.d
+	picture = GFX_report_event_tan_conf 
+
+	is_triggered_only = yes
+	
+	option = { # тувинец
+		name = tan.24.a
+		ai_chance = { factor = 1 }
+		if = {
+			limit = {
+				has_idea = TAN_unstable_confederation
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation
+				add_idea = TAN_unstable_confederation2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation2
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation2
+				add_idea = TAN_unstable_confederation3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation3
+			}
+			remove_ideas = TAN_unstable_confederation3
+		}
+	}
+	
+	option = { # монгол
+		name = tan.24.b
+		ai_chance = { factor = 1 }
+		if = {
+			limit = {
+				date > 1936.3.1
+			}
+			retire_country_leader = yes
+			MON = {
+				MON_khorloogiin_choibalsan = {
+					set_nationality = ROOT
+				}
+			}
+			MON_khorloogiin_choibalsan = {
+				promote_character = {
+					ideology = stalinism
+				}
+			}
+		}
+		else = {
+			retire_country_leader = yes
+			MON = {
+				MON_anandyn_amar = {
+					set_nationality = ROOT
+				}
+			}
+			MON_anandyn_amar = {
+				promote_character = {
+					ideology = marxism
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_idea = TAN_unstable_confederation
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation
+				add_idea = TAN_unstable_confederation2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation2
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation2
+				add_idea = TAN_unstable_confederation3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation3
+			}
+			remove_ideas = TAN_unstable_confederation3
+		}
+	}
+	
+	option = { # 50/50
+		name = tan.24.c
+		ai_chance = { factor = 1 }
+		random_list = {
+			50 = {
+				#
+			}
+			50 = {
+				if = {
+					limit = {
+						date > 1936.3.1
+					}
+					retire_country_leader = yes
+					MON = {
+						MON_khorloogiin_choibalsan = {
+							set_nationality = ROOT
+						}
+					}
+					MON_khorloogiin_choibalsan = {
+						promote_character = {
+							ideology = stalinism
+						}
+					}
+				}
+				else = {
+					retire_country_leader = yes
+					MON = {
+						MON_anandyn_amar = {
+							set_nationality = ROOT
+						}
+					}
+					MON_anandyn_amar = {
+						promote_character = {
+							ideology = marxism
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_idea = TAN_unstable_confederation
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation
+				add_idea = TAN_unstable_confederation2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation2
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation2
+				add_idea = TAN_unstable_confederation3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation3
+			}
+			remove_ideas = TAN_unstable_confederation3
+		}
+	}
+
+}
+
+country_event = { # вопрос коминтерна
+	id = tan.25
+	title = tan.25.t
+	desc = tan.25.d
+	picture = GFX_report_event_tan_conf 
+
+	is_triggered_only = yes
+	
+	option = { # остаемся
+		name = tan.25.a
+		ai_chance = { factor = 1 } 
+		if = {
+			limit = {
+				has_idea = TAN_unstable_confederation
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation
+				add_idea = TAN_unstable_confederation2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation2
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation2
+				add_idea = TAN_unstable_confederation3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation3
+			}
+			remove_ideas = TAN_unstable_confederation3
+		}
+	}
+	
+	option = { # ливаем
+		name = tan.25.b
+		ai_chance = { factor = 1 }
+		SOV = {
+			remove_from_faction = TAN
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = TAN
+			}
+		}
+		if = {
+			limit = {
+				has_idea = TAN_unstable_confederation
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation
+				add_idea = TAN_unstable_confederation2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation2
+			}
+			swap_ideas = {
+				remove_idea = TAN_unstable_confederation2
+				add_idea = TAN_unstable_confederation3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_unstable_confederation3
+			}
+			remove_ideas = TAN_unstable_confederation3
+		}
+	}
+
+}
+
+country_event = { # предложение защиты для синьцзяня
+	id = tan.26
+	title = tan.26.t
+	desc = tan.26.d 
+
+	is_triggered_only = yes
+	
+	option = { # да
+		name = tan.26.a
+		ai_chance = { factor = 2 } 
+		TAN = {
+			country_event = { days = 2 id = tan.27 }
+		}
+	}
+	
+	option = { # нет
+		name = tan.26.b
+		ai_chance = { factor = 1 }
+		TAN = {
+			country_event = { days = 2 id = tan.28 }
+		}
+	}
+
+}
+
+country_event = { # принятие защиты
+	id = tan.27
+	title = tan.27.t
+	desc = tan.27.d 
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.27.a
+		ai_chance = { factor = 1 } 
+		set_autonomy = {
+			target = SIK
+			autonomy_state = autonomy_satellite
+		}
+		transfer_state = 760
+	}
+
+}
+
+country_event = { # отказ от защиты
+	id = tan.28
+	title = tan.28.t
+	desc = tan.28.d 
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.28.a
+		ai_chance = { factor = 1 } 
+		create_wargoal = {
+			type = puppet_wargoal_focus
+			target = SIK
+		}
+	}
+ 
+}
+
+country_event = { # требование внутр монголии
+	id = tan.29
+	title = tan.29.t
+	desc = tan.29.d 
+
+	is_triggered_only = yes
+	
+	option = { # да
+		name = tan.29.a
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 100
+				OR = {
+					tag = MAN
+					tag = MEN
+				}
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_claimed_by = TAN
+			}
+			add_core_of = TAN
+			transfer_state_to = TAN
+		}
+	}
+	
+	option = { # нет
+		name = tan.29.b
+		ai_chance = { factor = 1 }
+		TAN = {
+			create_wargoal = {
+				type = take_state_focus
+				target = ROOT
+			}
+		}
+	}
+
+}
+
+country_event = { # требование бурятии
+	id = tan.30
+	title = tan.30.t
+	desc = tan.30.d 
+
+	is_triggered_only = yes
+	
+	option = { # да
+		name = tan.30.a
+		ai_chance = { factor = 1 } 
+		TAN = { country_event = tan.31 }
+	}
+	
+	option = { # нет
+		name = tan.30.b
+		ai_chance = { factor = 0 } 
+		TAN = { country_event = tan.32 }
+	}
+
+}
+
+country_event = { # отдаёт бурятию
+	id = tan.31 
+	title = tan.31.t
+	desc = tan.31.d 
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.31.a
+		ai_chance = { factor = 1 } 
+		SOV = {
+			every_owned_state = {
+				limit = {
+					is_claimed_by = TAN
+				}
+				transfer_state_to = TAN
+			}
+		}
+	}
+
+}
+
+country_event = { # отказ отдать бурятию
+	id = tan.32
+	title = tan.32.t
+	desc = tan.32.d 
+
+	is_triggered_only = yes
+	
+	option = { # ладно
+		name = tan.32.a
+		ai_chance = { factor = 1 } 
+		
+	}
+	
+	option = { # война
+		name = tan.32.b
+		ai_chance = { factor = 1 } 
+		create_wargoal = {
+			type = take_state_focus
+			target = SOV
+		}
+	}
+
+}
+
+country_event = { # передача кумуля
+	id = tan.33
+	title = tan.33.t
+	desc = tan.33.d 
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TAN
+		SIK = {
+			is_puppet_of = TAN
+			owns_state = 760
+		}
+	}
+	
+	option = {
+		name = tan.33.a
+		ai_chance = { factor = 1 } 
+		transfer_state = 760
+		
+	}
+
+}
+
+country_event = { # арест токи
+	id = tan.34
+	title = tan.34.t
+	desc = tan.34.d 
+	picture = GFX_report_event_tan_coup
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.34.a
+		ai_chance = { factor = 1 } 
+		kill_country_leader = yes
+		add_country_leader_role = {
+			character = TAN_sat_churmit-dazhy
+			promote_leader = yes
+			country_leader = {
+				desc = "CHURMIT_DAZHY_DESC"
+				ideology = marxism
+				expire = "1965.1.1.1"
+			}
+		}
+		hidden_effect = { country_event = { id = tan.83 days = 1 } }
+	}
+
+}
+
+country_event = { # начало девятки
+	id = tan.35
+	title = tan.35.t
+	desc = tan.35.d 
+	picture = GFX_report_event_tan_coup
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.35.a
+		ai_chance = { factor = 1 } 
+		hidden_effect = {
+			country_event = { days = 12 id = tan.36 }
+		}
+		set_variable = {
+			var = tan_count_of_purged
+			value = 0
+		}
+	}
+
+}
+
+country_event = { # чурмит дажы
+	id = tan.36
+	title = tan.36.t
+	desc = tan.36.d 
+	picture = GFX_report_event_tan_coup
+
+	is_triggered_only = yes
+	
+	option = { # смэрть
+		name = tan.36.a 
+		ai_chance = { factor = 1 } 
+		retire_character = TAN_sat_churmit-dazhy
+		remove_trait = {
+			character = TAN_ondar_bair
+			slot = political_advisor
+			trait = secretary
+		}
+		add_trait = {
+			character = TAN_ondar_bair
+			slot = political_advisor
+			trait = prime_minister_dazhy
+		}
+		add_to_variable = {
+			var = tan_count_of_purged
+			value = 1
+		}
+		custom_effect_tooltip = tan_purge_advisor
+		hidden_effect = {
+			country_event = { days = 12 id = tan.37 }
+		}
+	}
+	
+	option = { # жизнь
+		name = tan.36.b
+		ai_chance = { factor = 1 } 
+		add_stability = -0.1
+		add_political_power = -100
+		hidden_effect = {
+			country_event = { days = 12 id = tan.37 }
+		}
+	}
+
+}
+
+country_event = { # хемчик-оол
+	id = tan.37
+	title = tan.37.t
+	desc = tan.37.d 
+	picture = GFX_report_event_tan_coup
+
+	is_triggered_only = yes
+	
+	option = { # смэрть
+		name = tan.37.a 
+		ai_chance = { factor = 1 } 
+		retire_character = TAN_hemchik_ool
+		remove_trait = {
+			character = TAN_oyun_polat
+			slot = political_advisor
+			trait = minister_of_internal_affairs
+		}
+		add_trait = {
+			character = TAN_oyun_polat
+			slot = political_advisor
+			trait = chairman_of_the_presidium
+		}
+		add_to_variable = {
+			var = tan_count_of_purged
+			value = 1
+		}
+		custom_effect_tooltip = tan_purge_advisor
+		hidden_effect = {
+			country_event = { days = 12 id = tan.38 }
+		}
+	}
+	
+	option = { # жизнь 
+		name = tan.37.b
+		ai_chance = { factor = 1 } 
+		add_stability = -0.1
+		add_political_power = -100
+		hidden_effect = {
+			country_event = { days = 12 id = tan.38 }
+		}
+	}
+
+}
+
+country_event = { # оюн
+	id = tan.38
+	title = tan.38.t
+	desc = tan.38.d 
+	picture = GFX_report_event_tan_coup
+
+	is_triggered_only = yes
+	
+	option = { # смэрть
+		name = tan.38.a 
+		ai_chance = { factor = 1 } 
+		retire_character = TAN_tanchay_oyun
+		add_to_variable = {
+			var = tan_count_of_purged
+			value = 1
+		}
+		custom_effect_tooltip = tan_purge_advisor
+		hidden_effect = {
+			country_event = { days = 12 id = tan.39 }
+		}
+	}
+	
+	option = { # жизнь 
+		name = tan.38.b
+		ai_chance = { factor = 1 } 
+		add_stability = -0.1
+		add_political_power = -100
+		hidden_effect = {
+			country_event = { days = 12 id = tan.39 }
+		}
+	}
+
+}
+
+country_event = { # кара-сал
+	id = tan.39
+	title = tan.39.t
+	desc = tan.39.d 
+	picture = GFX_report_event_tan_coup
+
+	is_triggered_only = yes
+	
+	option = { # смэрть
+		name = tan.39.a 
+		ai_chance = { factor = 1 } 
+		retire_character = TAN_pirinley_kara_sal
+		add_to_variable = {
+			var = tan_count_of_purged
+			value = 1
+		}
+		custom_effect_tooltip = tan_purge_advisor
+	}
+	
+	option = { # жизнь 
+		name = tan.39.b
+		ai_chance = { factor = 1 } 
+		add_stability = -0.1
+		add_political_power = -100
+	}
+
+}
+
+country_event = { # приглос кости 
+	id = tan.40
+	title = tan.40.t
+	desc = tan.40.d 
+	picture = GFX_report_event_tan_rodz
+
+	is_triggered_only = yes
+	
+	option = { # окэй
+		name = tan.40.a 
+		ai_chance = { factor = 2 } 
+		TAN = {
+			country_event = { days = 2 id = tan.41 }
+		}
+	}
+	
+	option = { # нет 
+		name = tan.40.b
+		ai_chance = { factor = 1 } 
+		TAN = {
+			country_event = { days = 2 id = tan.42 }
+		}
+	}
+
+}
+
+country_event = { # костя прибыл
+	id = tan.41
+	title = tan.41.t
+	desc = tan.41.d 
+	picture = GFX_report_event_tan_rodz
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.41.a
+		ai_chance = { factor = 2 } 
+		set_country_flag = invited_rodzaevsky
+		SOV = {
+			SOV_konstantin_rodzayevsky = {
+				set_nationality = ROOT
+			}
+		}
+		add_country_leader_role = {
+			character = SOV_konstantin_rodzayevsky
+			promote_leader = yes
+			country_leader = {
+				ideology = tan_rodzaevism
+				expire = "1965.1.1.1"
+			}
+		}
+		SOV_konstantin_rodzayevsky = {
+			promote_character = {
+				ideology = tan_rodzaevism
+			}
+		}
+		add_advisor_role = {
+			character = SOV_konstantin_rodzayevsky
+			advisor = {
+				slot = political_advisor
+				cost = 50
+				idea_token = SOV_konstantin_rodzayevsky
+				traits = {
+					fascist_demagogue
+				}
+				allowed = {
+					always = yes
+				}
+			}
+			activate = no
+		}
+		set_party_name = {
+			ideology = fascism 
+			long_name = TAN_fascism_party_rodz_long 
+			name = TAN_fascism_party_rodz 
+		}
+	}
+
+}
+
+country_event = { # маньчжуры отказали
+	id = tan.42
+	title = tan.42.t
+	desc = tan.42.d 
+	picture = GFX_report_event_tan_rodz
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.42.a 
+		ai_chance = { factor = 2 } 
+		random_list = {
+			50 = {
+				country_event = tan.43
+			}
+			50 = {
+				country_event = tan.44
+			}
+		}
+	}
+
+}
+
+country_event = { # костя убежал
+	id = tan.43
+	title = tan.43.t
+	desc = tan.43.d 
+	picture = GFX_report_event_tan_rodz
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.43.a 
+		ai_chance = { factor = 2 } 
+		set_country_flag = invited_rodzaevsky
+		SOV = {
+			SOV_konstantin_rodzayevsky = {
+				set_nationality = ROOT
+			}
+		}
+		add_country_leader_role = {
+			character = SOV_konstantin_rodzayevsky
+			promote_leader = yes
+			country_leader = {
+				ideology = tan_rodzaevism
+				expire = "1965.1.1.1"
+			}
+		}
+		SOV_konstantin_rodzayevsky = {
+			promote_character = {
+				ideology = tan_rodzaevism
+			}
+		}
+		add_advisor_role = {
+			character = SOV_konstantin_rodzayevsky
+			advisor = {
+				slot = political_advisor
+				cost = 50
+				idea_token = SOV_konstantin_rodzayevsky
+				traits = {
+					fascist_demagogue
+				}
+				allowed = {
+					always = yes
+				}
+			}
+			activate = no
+		}
+		set_party_name = {
+			ideology = fascism 
+			long_name = TAN_fascism_party_rodz_long 
+			name = TAN_fascism_party_rodz 
+		}
+	}
+
+}
+
+country_event = { # собрание совета
+	id = tan.44
+	title = tan.44.t
+	desc = tan.44.d 
+	picture = GFX_report_event_hungary_parliament
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.44.a 
+		ai_chance = { factor = 2 } 
+		set_party_name = {
+			ideology = fascism 
+			long_name = TAN_fascism_party_council_long 
+			name = TAN_fascism_party_council 
+		}
+		add_country_leader_role = {
+			character = TAN_fascist_council
+			promote_leader = yes
+			country_leader = {
+				ideology = fascism_ideology
+				expire = "1965.1.1.1"
+			}
+		}
+	}
+
+}
+
+country_event = { # раздел монголии
+	id = tan.45
+	title = tan.45.t
+	desc = tan.45.d 
+
+	is_triggered_only = yes
+	
+	option = { # да
+		name = tan.45.a 
+		ai_chance = { factor = 2 } 
+		TAN = {
+			country_event = { days = 2 id = tan.46 }
+		}
+	}
+	
+	option = { # нет
+		name = tan.45.b
+		ai_chance = { factor = 1 } 
+		TAN = {
+			country_event = { days = 2 id = tan.47 }
+		}
+	}
+
+}
+
+country_event = { # соглашение о разделе
+	id = tan.46
+	title = tan.46.t
+	desc = tan.46.d 
+	picture = GFX_report_event_chinese_soldiers
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.46.a 
+		ai_chance = { factor = 1 } 
+		TAN = {
+			transfer_state = 818
+			transfer_state = 820
+			transfer_state = 330
+		}
+		MEN = {
+			transfer_state = 817
+			transfer_state = 819
+		}
+	}
+
+}
+
+country_event = { # отказ о разделе
+	id = tan.47
+	title = tan.47.t
+	desc = tan.47.d 
+	picture = GFX_report_event_chinese_soldiers
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.47.a 
+		ai_chance = { factor = 1 } 
+		hidden_effect = {
+			SOV = { remove_from_faction = MON }
+			MON = { add_ideas = MON_war }
+		}
+		declare_war_on = {
+			target = MON
+			type = annex_everything
+		}
+	}
+
+}
+
+country_event = { # отдать провки восточной монголии
+	id = tan.48
+	title = tan.48.t
+	desc = tan.48.d 
+	picture = GFX_report_event_generic_sign_treaty2
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TAN
+		has_completed_focus = TAN_divide_mongolia
+		owns_state = 812
+		owns_state = 330
+	}
+	
+	option = { 
+		name = tan.48.a 
+		ai_chance = { factor = 1 } 
+		MEN = {
+			transfer_state = 817
+			transfer_state = 819
+		}
+	}
+
+}
+
+country_event = { # вива ля революшьон - гв
+	id = tan.49
+	title = tan.49.t
+	desc = tan.49.d 
+	picture = GFX_report_event_ger_civil_war
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.49.a 
+		ai_chance = { factor = 1 } 
+		set_country_flag = TAN_civil_war_happened
+		hidden_effect = {
+			SOV = {
+				set_autonomy = {
+					target = TAN
+					autonomy_state = autonomy_free
+				}
+				remove_from_faction = TAN
+			}
+			every_enemy_country = {
+				white_peace = ROOT
+			}
+		}
+		start_civil_war = {
+			ruling_party = democratic
+			ideology = communism
+			size = 1
+			capital = 838
+			states = { 
+				838 837
+			}
+			keep_unit_leaders = {
+				1000 1001 1002 1003 1004 1005
+			}
+		}
+		hidden_effect = {
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+				last_election = "1934.09.17"
+				election_frequency = 48
+			}
+			remove_dynamic_modifier = { modifier = TAN_army_dm_communism }
+			remove_dynamic_modifier = { modifier = TAN_army_dm_anarchy }
+			add_dynamic_modifier = { modifier = TAN_army_dm_national }
+			add_manpower = 5000
+			add_ideas = partial_economic_mobilisation
+			load_oob = "TAN_civilwar_dem"
+			random_other_country = {
+				limit = {
+					original_tag = TAN
+					has_government = communism
+				}
+				load_oob = "TAN_civilwar_com"
+			}
+		}
+	}
+
+}
+
+country_event = { # вива ля революшьон - переворот
+	id = tan.50
+	title = tan.50.t
+	desc = tan.50.d 
+	picture = GFX_report_event_saf_coup
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.50.a
+		ai_chance = { factor = 1 } 
+		hidden_effect = {
+			SOV = {
+				set_autonomy = {
+					target = TAN
+					autonomy_state = autonomy_free
+				}
+				remove_from_faction = TAN
+			}
+			every_enemy_country = {
+				white_peace = ROOT
+			}
+			remove_dynamic_modifier = { modifier = TAN_army_dm_communism }
+			remove_dynamic_modifier = { modifier = TAN_army_dm_anarchy }
+			add_dynamic_modifier = { modifier = TAN_army_dm_national }
+		}
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+			last_election = "1934.09.17"
+			election_frequency = 48
+		}
+		add_country_leader_role = {
+			character = TAN_sat_churmit-dazhy
+			promote_leader = yes
+			country_leader = {
+				desc = "CHURMIT_DAZHY_DESC"
+				ideology = marxism
+				expire = "1965.1.1.1"
+			}
+		}
+	}
+
+}
+
+country_event = { # речь консервы
+	id = tan.51
+	title = tan.51.t
+	desc = tan.51.d 
+	picture = GFX_report_event_FDR_speech
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.51.a
+		ai_chance = { factor = 1 } 
+		add_to_variable = {
+			var = con_support
+			value = 1
+		}
+		custom_effect_tooltip = TAN_add_support_cons
+	}
+
+}
+
+country_event = { # речь соцдема
+	id = tan.52
+	title = tan.52.t
+	desc = tan.52.d 
+	picture = GFX_report_event_german_politician_speech
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.52.a
+		ai_chance = { factor = 1 } 
+		add_to_variable = {
+			var = soc_dems_support
+			value = 1
+		}
+		custom_effect_tooltip = TAN_add_support_soc_dems
+	}
+
+}
+
+country_event = { # дебаты
+	id = tan.53
+	title = tan.53.t
+	desc = tan.53.d 
+	picture = GFX_report_event_asian_politicians
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.53.a
+		ai_chance = { factor = 1 } 
+		trigger = {
+			check_variable = { soc_dems_support < con_support }
+		}
+		add_to_variable = {
+			var = soc_dems_support
+			value = 1
+		}
+		custom_effect_tooltip = TAN_add_support_soc_dems
+		add_to_variable = {
+			var = con_support
+			value = -1
+		}
+		custom_effect_tooltip = TAN_decrease_support_cons
+	}
+	
+	option = {
+		name = tan.53.b
+		ai_chance = { factor = 1 } 
+		trigger = {
+			check_variable = { soc_dems_support > con_support }
+		}
+		add_to_variable = {
+			var = con_support
+			value = 1
+		}
+		custom_effect_tooltip = TAN_add_support_cons
+		add_to_variable = {
+			var = soc_dems_support
+			value = -1
+		}
+		custom_effect_tooltip = TAN_decrease_support_soc_dems
+	}
+	
+	option = {
+		name = tan.53.c
+		ai_chance = { factor = 1 } 
+		trigger = {
+			check_variable = { soc_dems_support = con_support }
+		}
+		add_to_variable = {
+			var = con_support
+			value = -1
+		}
+		custom_effect_tooltip = TAN_decrease_support_cons
+		add_to_variable = {
+			var = soc_dems_support
+			value = -1
+		}
+		custom_effect_tooltip = TAN_decrease_support_soc_dems
+	}
+
+}
+
+country_event = { # выборы: кандидаты пидоры
+	id = tan.54
+	title = tan.54.t
+	desc = tan.54.d 
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = { # соцдемы
+		name = tan.54.a
+		ai_chance = { factor = 1 } 
+		trigger = {
+			OR = {
+				check_variable = { soc_dems_support > con_support }
+				check_variable = { soc_dems_support = con_support }
+			}
+		}
+		set_country_flag = TAN_elections_end
+		set_party_name = {
+			ideology = democratic 
+			long_name = TAN_democratic_party_socdems_long 
+			name = TAN_democratic_party_socdems 
+		}
+		add_country_leader_role = {
+			character = TAN_little_khural
+			promote_leader = yes
+			country_leader = {
+				ideology = tan_social_democratic
+				expire = "1965.1.1.1"
+			}
+		}
+		complete_national_focus = TAN_social_democrats_victory
+	}
+	
+	option = { # коны
+		name = tan.54.b
+		ai_chance = { factor = 1 } 
+		trigger = {
+			OR = {
+				check_variable = { soc_dems_support < con_support }
+				check_variable = { soc_dems_support = con_support }
+			}
+		}
+		set_country_flag = TAN_elections_end
+		set_party_name = {
+			ideology = democratic 
+			long_name = TAN_democratic_party_cons_long 
+			name = TAN_democratic_party_cons
+		}
+		add_country_leader_role = {
+			character = TAN_little_khural
+			promote_leader = yes
+			country_leader = {
+				ideology = tan_conservatism
+				expire = "1965.1.1.1"
+			}
+		}
+		complete_national_focus = TAN_conservative_victory
+	}
+	
+	option = { # хемчик-оол
+		name = tan.54.c
+		ai_chance = { factor = 1 } 
+		trigger = {
+			has_country_flag = TAN_candidate_hemchik
+			OR = {
+				check_variable = { soc_dems_support > con_support }
+				check_variable = { soc_dems_support = con_support }
+			}
+		}
+		set_country_flag = TAN_elections_end
+		set_party_name = {
+			ideology = democratic 
+			long_name = TAN_democratic_party_socdems_long 
+			name = TAN_democratic_party_socdems 
+		}
+		add_country_leader_role = {
+			character = TAN_hemchik_ool
+			promote_leader = yes
+			country_leader = {
+				desc = "HEMCHIK_OOL_DESC"
+				ideology = tan_social_democratic
+				expire = "1965.1.1.1"
+			}
+		}
+		complete_national_focus = TAN_hemchik_victory
+	}
+	
+	option = { # кара-сал
+		name = tan.54.e
+		ai_chance = { factor = 1 } 
+		trigger = {
+			has_country_flag = TAN_candidate_kara_sal
+			OR = {
+				check_variable = { soc_dems_support < con_support }
+				check_variable = { soc_dems_support = con_support }
+			}
+		}
+		set_country_flag = TAN_elections_end
+		set_party_name = {
+			ideology = democratic 
+			long_name = TAN_democratic_party_cons_long 
+			name = TAN_democratic_party_cons
+		}
+		add_country_leader_role = {
+			character = TAN_pirinley_kara_sal
+			promote_leader = yes
+			country_leader = {
+				desc = "KARA_SAL_DESC"
+				ideology = tan_conservatism
+				traits = {
+					first_prosecutor
+				}
+				expire = "1965.1.1.1"
+			}
+		}
+		complete_national_focus = TAN_kara_sal_victory
+	}
+
+}
+
+country_event = { # хемчика в президенты
+	id = tan.55
+	title = tan.55.t
+	desc = tan.55.d 
+	picture = GFX_report_event_tan_hemchik
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.55.a
+		ai_chance = { factor = 1 } 
+		set_country_flag = TAN_candidate_hemchik
+		custom_effect_tooltip = TAN_hemchik_candidate_tt
+		add_ideas = hemchik_ool
+	}
+	
+	option = { 
+		name = tan.55.b
+		ai_chance = { factor = 1 } 
+		
+	}
+
+}
+
+country_event = { # союз с китай/бриты/ссср
+	id = tan.56
+	title = tan.56.t
+	desc = tan.56.d
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.56.a
+		ai_chance = { factor = 100 } 
+		TAN = {
+			add_to_faction = ROOT
+		}
+	}
+	
+	option = { 
+		name = tan.56.b
+		ai_chance = { factor = 0 } 
+		
+	}
+
+}
+
+country_event = { # главный враг коммунист
+	id = tan.57
+	title = tan.57.t
+	desc = tan.57.d
+	picture = GFX_report_event_china_politicians_captured
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.57.a
+		ai_chance = { factor = 1 }
+		trigger = {
+			has_completed_focus = TAN_alliance_with_britain
+		}
+		set_country_flag = TAN_sov_enemy
+		custom_effect_tooltip = TAN_sov_enemy_tt
+	}
+	
+	option = { 
+		name = tan.57.b
+		ai_chance = { factor = 1 }
+		trigger = {
+			has_completed_focus = TAN_alliance_with_china
+		}
+		set_country_flag = TAN_prc_enemy
+		custom_effect_tooltip = TAN_prc_enemy_tt
+	}
+
+}
+
+country_event = { # приглос клике ма
+	id = tan.58
+	title = tan.58.t
+	desc = tan.58.d
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.58.a
+		ai_chance = { factor = 1 }
+		TAN = { country_event = { days = 3 id = tan.59 } }
+
+	}
+	
+	option = { 
+		name = tan.58.b
+		ai_chance = { factor = 0 }
+
+	}
+
+}
+
+country_event = { # клика ма соглашение
+	id = tan.59
+	title = tan.59.t
+	desc = tan.59.d
+	picture = GFX_report_event_chinese_soldiers
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.59.a
+		ai_chance = { factor = 1 }
+		TAN = {
+			add_to_faction = XSM
+		}
+	}
+
+}
+
+country_event = { # приглос шаньси
+	id = tan.60
+	title = tan.60.t
+	desc = tan.60.d
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.60.a
+		ai_chance = { factor = 1 }
+		TAN = { country_event = { days = 3 id = tan.61 } }
+
+	}
+	
+	option = { 
+		name = tan.60.b
+		ai_chance = { factor = 0 }
+
+	}
+
+}
+
+country_event = { # шаньси соглашение
+	id = tan.61
+	title = tan.61.t
+	desc = tan.61.d
+	picture = GFX_report_event_chinese_soldiers
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.61.a
+		ai_chance = { factor = 1 }
+		TAN = {
+			add_to_faction = SHX
+		}
+	}
+
+}
+
+country_event = { # отношения с ссср
+	id = tan.62
+	title = tan.62.t
+	desc = tan.62.d
+	picture = GFX_report_event_chinese_soldiers
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.62.a
+		ai_chance = { factor = 1 }
+		diplomatic_relation = {
+			country = TAN
+			relation = non_aggression_pact
+			active = yes
+		}
+		diplomatic_relation = {
+			country = TAN
+			relation = military_access
+			active = yes
+		}
+	}
+	
+	option = { 
+		name = tan.62.b
+		ai_chance = { factor = 0 }
+		
+	}
+
+}
+
+country_event = { # главный враг фашик
+	id = tan.63
+	title = tan.63.t
+	desc = tan.63.d
+	picture = GFX_report_event_china_politicians_captured
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.63.a
+		ai_chance = { factor = 1 }
+		trigger = {
+			GER = { has_government = fascism }
+		}
+		set_country_flag = TAN_ger_enemy
+		custom_effect_tooltip = TAN_ger_enemy_tt
+	}
+	
+	option = { 
+		name = tan.63.b
+		ai_chance = { factor = 1 }
+		trigger = {
+			JAP = { has_government = fascism }
+		}
+		set_country_flag = TAN_jap_enemy
+		custom_effect_tooltip = TAN_jap_enemy_tt
+	}
+
+}
+
+country_event = { # кандидат на трон
+	id = tan.64
+	title = tan.64.t
+	desc = tan.64.d
+	picture = GFX_report_event_por_return_of_the_monarchy
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.64.a
+		ai_chance = { factor = 1 }
+		MEN = { country_event = tan.65 }
+	}
+	
+	option = { 
+		name = tan.64.b
+		ai_chance = { factor = 1 }
+		ENG = { country_event = tan.66 }
+	}
+
+}
+
+country_event = { # де ван (даркхолм)
+	id = tan.65
+	title = tan.65.t
+	desc = tan.65.d
+	picture = GFX_report_event_por_return_of_the_monarchy
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.65.a
+		ai_chance = { factor = 1 }
+		TAN = { country_event = { days = 5 id = tan.67 } }
+	}
+
+}
+
+country_event = { # всеволод романов
+	id = tan.66
+	title = tan.66.t
+	desc = tan.66.d
+	picture = GFX_report_event_por_return_of_the_monarchy
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.66.a
+		ai_chance = { factor = 1 }
+		TAN = { country_event = { days = 5 id = tan.68 } }
+	}
+
+}
+
+country_event = { # де ван прибыл
+	id = tan.67
+	title = tan.67.t
+	desc = tan.67.d
+	picture = GFX_report_event_por_return_of_the_monarchy
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.67.a
+		ai_chance = { factor = 1 }
+		MEN = {
+			MEN_prince_demchugdongrub = {
+				set_nationality = ROOT
+			}
+		}
+		add_country_leader_role = {
+			Character = MEN_prince_demchugdongrub
+			Promote_leader = yes
+			Country_leader = {
+				ideology = tan_monarchy
+				traits = {
+					spirit_of_genghis
+				}
+			}
+		}
+		MEN_prince_demchugdongrub = {
+			promote_character = {
+				ideology = tan_monarchy
+			}
+		}
+		set_party_name = {
+			ideology = neutrality 
+			long_name = TAN_neutrality_party_demchugdongrub_long 
+			name = TAN_neutrality_party_demchugdongrub 
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.2
+		}
+		complete_national_focus = TAN_de_van
+	}
+
+}
+
+country_event = { # всеволодя прибыл
+	id = tan.68
+	title = tan.68.t
+	desc = tan.68.d
+	picture = GFX_report_event_por_return_of_the_monarchy
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.68.a
+		ai_chance = { factor = 1 }
+		SOV = {
+			SOV_tsar_vsevolod_ivanovich = {
+				set_nationality = ROOT
+			}
+		}
+		add_country_leader_role = {
+			Character = SOV_tsar_vsevolod_ivanovich
+			Promote_leader = yes
+			Country_leader = {
+				ideology = tan_monarchy
+				traits = {
+					
+				}
+			}
+		}
+		SOV_tsar_vsevolod_ivanovich = {
+			promote_character = {
+				ideology = tan_monarchy
+			}
+		}
+		set_party_name = {
+			ideology = neutrality 
+			long_name = TAN_neutrality_party_romanov_long 
+			name = TAN_neutrality_party_romanov 
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.2
+		}
+		complete_national_focus = TAN_vsevolod
+	}
+
+}
+
+country_event = { # автономный тибет
+	id = tan.69
+	title = tan.69.t
+	desc = tan.69.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.69.a
+		ai_chance = { factor = 1 }
+		TAN = { country_event = { days = 3 id = tan.70 } }
+	}
+	
+	option = { 
+		name = tan.69.b
+		ai_chance = { factor = 1 }
+		TAN = { country_event = { days = 3 id = tan.71 } }
+	}
+
+}
+
+country_event = { # oke
+	id = tan.70
+	title = tan.70.t
+	desc = tan.70.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.70.a
+		ai_chance = { factor = 1 }
+		TAN = {
+			set_autonomy = {
+				target = TIB
+				autonomy_state = autonomy_satellite
+			}
+		}
+	}
+
+}
+
+country_event = { # no fuc off
+	id = tan.71
+	title = tan.71.t
+	desc = tan.71.d
+	picture = GFX_report_event_second_vienna_award_pact
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.71.a
+		ai_chance = { factor = 1 }
+		declare_war_on = {
+			target = TIB
+			type = annex_everything
+		}
+	}
+
+}
+
+country_event = { # подчинение китая
+	id = tan.72
+	title = tan.72.t
+	desc = tan.72.d
+	picture = GFX_report_event_second_vienna_award_pact
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = tan.72.a
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 100
+				tag = MAN
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_core_of = ROOT
+			}
+			add_core_of = TAN
+		}
+		TAN = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+	}
+	
+	option = { 
+		name = tan.72.b
+		ai_chance = { factor = 5 }
+		every_owned_state = {
+			limit = {
+				is_core_of = ROOT
+			}
+			add_core_of = TAN
+		}
+		TAN = {
+			create_wargoal = {
+				type = annex_everything
+				target = ROOT
+			}
+		}
+	}
+
+}
+
+country_event = { # /kill Puyi
+	id = tan.73
+	title = tan.73.t
+	desc = tan.73.d
+	picture = GFX_report_event_second_vienna_award_pact
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.73.a
+		ai_chance = { factor = 10 }
+		MAN = {
+			retire_character = MAN_aisin_gioro_puyi
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+		}
+		hidden_effect = {
+			country_event = { days = 7 id = tan.74 }
+		}
+	}
+
+}
+
+country_event = { # annex MAN
+	id = tan.74
+	title = tan.74.t
+	desc = tan.74.d
+	picture = GFX_report_event_second_vienna_award_pact
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.74.a
+		ai_chance = { factor = 10 }
+		annex_country = {
+			target = MAN
+			transfer_troops = yes
+		}
+		every_state = {
+			limit = {
+				is_core_of = MAN
+			}
+			add_core_of = ROOT
+		}
+	}
+
+}
+
+country_event = { # /kill de_van
+	id = tan.75
+	title = tan.75.t
+	desc = tan.75.d
+	picture = GFX_report_event_second_vienna_award_pact
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.75.a
+		ai_chance = { factor = 10 }		
+		MEN = {
+			retire_character = MEN_prince_demchugdongrub
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+		}
+		hidden_effect = {
+			country_event = { days = 7 id = tan.76 }
+		}
+	}
+
+}
+
+country_event = { # annex MEN
+	id = tan.76
+	title = tan.76.t
+	desc = tan.76.d
+	picture = GFX_report_event_second_vienna_award_pact
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.76.a
+		ai_chance = { factor = 10 }
+		annex_country = {
+			target = MEN
+			transfer_troops = yes
+		}
+		every_state = {
+			limit = {
+				is_core_of = MEN
+			}
+			add_core_of = ROOT
+		}
+	}
+
+}
+
+country_event = { # переход артура
+	id = tan.77
+	title = tan.77.t
+	desc = tan.77.d
+	picture = GFX_report_event_second_vienna_award_pact
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.77.a
+		ai_chance = { factor = 10 }
+		transfer_state = 745
+		745 = { add_core_of = ROOT }
+		745 = { set_state_name = port_arthur }
+	}
+
+}
+
+country_event = { # не переход артура
+	id = tan.78
+	title = tan.78.t
+	desc = tan.78.d
+	picture = GFX_report_event_second_vienna_award_pact
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.78.a
+		ai_chance = { factor = 10 }
+		add_political_power = -25
+		745 = { add_core_of = ROOT }
+	}
+
+}
+
+country_event = { # переход владика
+	id = tan.79
+	title = tan.79.t
+	desc = tan.79.d
+	picture = GFX_report_event_second_vienna_award_pact
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.79.a
+		ai_chance = { factor = 10 }
+		transfer_state = 408
+		408 = { add_core_of = ROOT }
+	}
+
+}
+
+country_event = { # не переход артура
+	id = tan.80
+	title = tan.80.t
+	desc = tan.80.d
+	picture = GFX_report_event_second_vienna_award_pact
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.80.a
+		ai_chance = { factor = 10 }
+		add_political_power = -25
+		408 = { add_core_of = ROOT }
+	}
+
+}
+
+country_event = { # временный генсек
+	id = tan.81
+	title = tan.81.t
+	desc = tan.81.d
+	picture = GFX_report_event_tan_coup
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.81.a
+		ai_chance = { factor = 10 }
+		complete_national_focus = TAN_interim_gensec
+		add_stability = 0.05
+	}
+	
+	option = {
+		name = tan.81.b
+		ai_chance = { factor = 10 }
+		add_political_power = -25
+		uncomplete_national_focus = {
+			focus = TAN_conspiracy_against_toka
+			uncomplete_children = yes
+			refund_political_power = no
+		}
+		unlock_national_focus = TAN_churmit-dazhy_coup
+	}
+
+}
+
+country_event = { # выбор нового генсека
+	id = tan.82
+	title = tan.82.t
+	desc = tan.82.d
+	picture = GFX_report_event_tan_coup
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.82.a
+		ai_chance = { factor = 10 }
+		complete_national_focus = TAN_gensec_general
+		SOV = {
+			SOV_aleksandr_vasilevsky = {
+				set_nationality = ROOT
+			}
+		}
+		add_country_leader_role = {
+			character = SOV_aleksandr_vasilevsky
+			promote_leader = yes
+			country_leader = {
+				ideology = stalinism
+			}
+		}
+		set_cosmetic_tag = TRAA
+	}
+	
+	option = {
+		name = tan.82.b
+		ai_chance = { factor = 10 }
+		complete_national_focus = TAN_gensec_woman
+		add_country_leader_role = {
+			character = TAN_hertek_anchimaa_toka
+			promote_leader = yes
+			country_leader = {
+				ideology = marxism
+			}
+		}
+	}
+
+}
+
+country_event = { # борьба за власть
+	id = tan.83
+	title = tan.83.t
+	desc = tan.83.d
+	picture = GFX_report_event_tan_coup
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.83.a
+		ai_chance = { factor = 10 }
+		set_country_flag = TAN_churmit_dazhy_win
+	}
+	
+	option = {
+		name = tan.83.b
+		ai_chance = { factor = 10 }
+		set_country_flag = TAN_hemchik_ool_win
+		complete_national_focus = TAN_hemchik_ool_coup
+		add_country_leader_role = {
+			character = TAN_hemchik_ool
+			promote_leader = yes
+			country_leader = {
+				desc = "HEMCHIK_OOL_DESC"
+				ideology = marxism
+			}
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+	
+	option = {
+		name = tan.83.c
+		ai_chance = { factor = 10 }
+		set_country_flag = TAN_kara_sal_win
+		complete_national_focus = TAN_kara_sal_coup
+		add_country_leader_role = {
+			character = TAN_pirinley_kara_sal
+			promote_leader = yes
+			country_leader = {
+				desc = "KARA_SAL_DESC"
+				ideology = marxism
+				traits = {
+					first_prosecutor
+				}
+			}
+		}
+		mark_focus_tree_layout_dirty = yes
+	}
+
+}
+
+country_event = { # кара-сала в президенты
+	id = tan.84
+	title = tan.84.t
+	desc = tan.84.d
+	picture = GFX_report_event_tan_kara_sal
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.84.a
+		ai_chance = { factor = 10 }
+		set_country_flag = TAN_candidate_kara_sal
+		custom_effect_tooltip = TAN_kara_sal_candidate_tt
+		add_ideas = kara_sal
+	}
+	
+	option = {
+		name = tan.84.b
+		ai_chance = { factor = 10 }
+		
+	}
+
+}
+
+country_event = { # ТАП
+	id = tan.85
+	title = tan.85.t
+	desc = tan.85.d
+	picture = GFX_report_event_spr_anarchists
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.85.a
+		ai_chance = { factor = 10 }
+		set_party_name = {
+			ideology = neutrality 
+			long_name = TAN_neutrality_party_anarchy_long 
+			name = TAN_neutrality_party_anarchy 
+		}
+		add_country_leader_role = {
+			character = TAN_anarchy_commune
+			promote_leader = yes
+			country_leader = {
+				ideology = anarchism
+				expire = "1965.1.1.1"
+				traits = { anarchist_zeal }
+			}
+		}
+		hidden_effect = { country_event = { days = 7 id = tan.86 } }
+	}
+
+}
+
+country_event = { # восстание
+	id = tan.86
+	title = tan.86.t
+	desc = tan.86.d
+	picture = GFX_report_event_spr_anarchist_uprising2
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.86.a
+		ai_chance = { factor = 10 }
+		hidden_effect = {
+			SOV = {
+				set_autonomy = {
+					target = TAN
+					autonomy_state = autonomy_free
+				}
+				remove_from_faction = TAN
+			}
+			every_enemy_country = {
+				white_peace = ROOT
+			}
+		}
+		start_civil_war = {
+			ruling_party = neutrality
+			ideology = communism
+			size = 1
+			capital = 329
+			states = { 
+				329 835 837
+			}
+			keep_unit_leaders = {
+				1000 1001 1002 1003 1004 1005
+			}
+		}
+		hidden_effect = {
+			set_cosmetic_tag = TAN_ANARCHY
+			uncomplete_national_focus = {
+				focus = TAN_democratic_principles
+				uncomplete_children = yes
+				refund_political_power = no
+			}
+			complete_national_focus = TAN_free_way
+			add_manpower = 5000
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.5
+			}
+			add_ideas = {
+				partial_economic_mobilisation
+				volunteer_only
+				TAN_anarchist_society
+			}
+			remove_dynamic_modifier = { modifier = TAN_army_dm_communism }
+			remove_dynamic_modifier = { modifier = TAN_army_dm_national }
+			add_dynamic_modifier = { modifier = TAN_army_dm_anarchy }
+			remove_ideas = {
+				TAN_democracy_support
+			}
+			load_oob = "TAN_civilwar_anarchy"
+			random_other_country = {
+				limit = {
+					original_tag = TAN
+					has_government = communism
+				}
+				load_oob = "TAN_civilwar_com2"
+			}
+		}
+	}
+
+}
+
+country_event = { # столица перенос
+	id = tan.87
+	title = tan.87.t
+	desc = tan.87.d
+	picture = GFX_report_event_tan_kyzyl
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.87.a
+		ai_chance = { factor = 10 }
+		add_victory_points = {
+			province = 10627
+			value = -3
+		}
+		add_victory_points = {
+			province = 1676
+			value = 3
+		}
+		set_capital = {state = 838}
+	}
+	
+	option = {
+		name = tan.87.b
+		ai_chance = { factor = 10 }
+		
+	}
+
+}
+
+country_event = { # партизаны
+	id = tan.88
+	title = tan.88.t
+	desc = tan.88.d
+	picture = GFX_report_event_albanian_partisans
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.88.a
+		ai_chance = { factor = 10 }
+		SOV = { add_ideas = TAN_partisans }
+		division_template = {
+			name = "Partizanskaya Diviziya"
+			is_locked = yes
+
+			division_names_group = TAN_INF_01
+
+			regiments = {
+				infantry  = { x = 0 y = 0 }
+				infantry  = { x = 1 y = 0 }
+				infantry  = { x = 2 y = 0 }
+				infantry  = { x = 0 y = 1 }
+				infantry  = { x = 1 y = 1 }
+				infantry  = { x = 2 y = 1 }
+			}
+		}
+		random_state = {
+			limit = {
+				SOV = { owns_state = PREV }
+				is_core_of = ROOT
+			}
+			create_unit = {
+				division = "division_template = \"Partizanskaya Diviziya\"  start_experience_factor = 0.2"
+				owner = ROOT
+			}
+		}
+		random_state = {
+			limit = {
+				SOV = { owns_state = PREV }
+				is_core_of = ROOT
+			}
+			create_unit = {
+				division = "division_template = \"Partizanskaya Diviziya\"  start_experience_factor = 0.2"
+				owner = ROOT
+			}
+		}
+		random_state = {
+			limit = {
+				SOV = { owns_state = PREV }
+				is_core_of = ROOT
+			}
+			create_unit = {
+				division = "division_template = \"Partizanskaya Diviziya\"  start_experience_factor = 0.2"
+				owner = ROOT
+			}
+		}
+		random_state = {
+			limit = {
+				SOV = { owns_state = PREV }
+				is_core_of = ROOT
+			}
+			create_unit = {
+				division = "division_template = \"Partizanskaya Diviziya\"  start_experience_factor = 0.2"
+				owner = ROOT
+			}
+		}
+		random_state = {
+			limit = {
+				SOV = { owns_state = PREV }
+				is_core_of = ROOT
+			}
+			create_unit = {
+				division = "division_template = \"Partizanskaya Diviziya\"  start_experience_factor = 0.2"
+				owner = ROOT
+			}
+		}
+	}
+
+}
+
+country_event = { # наследие каландаришвили
+	id = tan.89
+	title = tan.89.t
+	desc = tan.89.d
+	picture = GFX_report_event_tan_ded
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.89.a
+		ai_chance = { factor = 10 }
+		add_ideas = TAN_legacy_of_kalandarishvili
+	}
+
+}
+
+country_event = { # выборы: кандидаты всё ещё пидоры
+	id = tan.90
+	title = tan.90.t
+	desc = tan.90.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.90.a
+		ai_chance = { factor = 10 }
+		add_country_leader_role = {
+			character = TAN_hertek_anchimaa_toka
+			promote_leader = yes
+			country_leader = {
+				ideology = marxism
+			}
+		}
+	}
+	
+	option = {
+		name = tan.90.b
+		ai_chance = { factor = 10 }
+		add_country_leader_role = {
+			character = TAN_sat_churmit-dazhy
+			promote_leader = yes
+			country_leader = {
+				desc = "CHURMIT_DAZHY_DESC"
+				ideology = marxism
+			}
+		}
+	}
+	
+	option = {
+		name = tan.90.c
+		ai_chance = { factor = 10 }
+		add_country_leader_role = {
+			character = TAN_hemchik_ool
+			promote_leader = yes
+			country_leader = {
+				desc = "HEMCHIK_OOL_DESC"
+				ideology = marxism
+			}
+		}
+	}
+	
+	option = {
+		name = tan.90.e
+		ai_chance = { factor = 10 }
+		add_country_leader_role = {
+			character = TAN_pirinley_kara_sal
+			promote_leader = yes
+			country_leader = {
+				desc = "KARA_SAL_DESC"
+				ideology = marxism
+				traits = {
+					first_prosecutor
+				}
+			}
+		}
+	}
+
+}
+
+country_event = { # майдан: начало
+	id = tan.91
+	title = tan.91.t
+	desc = tan.91.d
+	picture = GFX_report_event_generic_rally2
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.91.a
+		ai_chance = { factor = 10 }
+		329 = {
+			add_manpower = -15
+		}
+		add_political_power = -10
+		hidden_effect = { country_event = { days = 2 id = tan.92 } }
+	}
+	
+	option = {
+		name = tan.91.b
+		ai_chance = { factor = 10 }
+		add_stability = -0.05
+		hidden_effect = { country_event = { days = 2 id = tan.92 } }
+	}
+
+}
+
+country_event = { # майдан: завязка
+	id = tan.92
+	title = tan.92.t
+	desc = tan.92.d
+	picture = GFX_report_event_generic_rally
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.92.a
+		ai_chance = { factor = 10 }
+		trigger = {
+			has_completed_focus = TAN_leader_kechil_ool
+		}
+		random_list = {
+			30 = {
+				TAN_tyulyush_kechil_ool = {
+					add_timed_unit_leader_trait = {
+						trait = wounded
+						days = 365
+					}
+				}
+			}
+			70 = {
+				add_stability = 0.05
+			}
+		}
+		hidden_effect = { country_event = { days = 2 id = tan.93 } }
+	}
+	
+	option = {
+		name = tan.92.b
+		ai_chance = { factor = 10 }
+		add_stability = -0.1
+		hidden_effect = { country_event = { days = 2 id = tan.93 } }
+	}
+
+}
+
+country_event = { # майдан: кульминация
+	id = tan.93
+	title = tan.93.t
+	desc = tan.93.d
+	picture = GFX_report_event_generic_riot
+
+	is_triggered_only = yes
+	
+	option = {
+		name = tan.93.a
+		ai_chance = { factor = 10 }
+		set_country_flag = TAN_riot
+		every_owned_state = {
+			limit = {
+				NOT = { state = 329 }
+			}
+			set_demilitarized_zone = yes
+		}
+		activate_mission = rebel_raids
+	}
+
+}
+
+##############################################
+
+country_event = { # день незалежности
+	id = tan.1000
+	title = tan.1000.t
+	desc = tan.1000.d
+	picture = GFX_report_event_tan_army
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = { country_event = { days = 365 id = tan.1000 } }
+	}
+
+	option = {
+		name = tan.1000.a
+		add_political_power = 5
+	}
+
+}
+
+country_event = { # свержение амара
+	id = tan.1001
+	title = tan.1001.t
+	desc = tan.1001.d 
+	picture = GFX_report_event_mon_coup
+
+	is_triggered_only = yes
+
+	option = {
+		name = tan.1001.a
+		if = {
+			limit = {
+				has_completed_focus = TAN_case_of_nine
+			}
+			add_political_power = 5
+		}
+		else_if = {
+			limit = {
+				has_completed_focus = TAN_churmit-dazhy_coup
+			}
+			add_political_power = -5
+		}
+		else = {
+			#
+		}
+	}
+
+}
+
+country_event = { # черная смэрть
+	id = tan.1002
+	title = tan.1002.t
+	desc = tan.1002.d 
+	picture = GFX_report_event_tan_army
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TAN
+		is_in_faction_with = SOV
+		has_war_with = GER
+		SOV = { has_war_with = GER }
+		divisions_in_state = {
+			size > 0
+			state = 93
+		}
+	}
+
+	option = {
+		name = tan.1002.a
+		add_war_support = 0.1
+	}
+
+}
+
+country_event = { # переименование кызыла
+	id = tan.1003
+	title = tan.1003.t
+	desc = tan.1003.d 
+	picture = GFX_report_event_tan_kyzyl
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TAN
+		controls_state = 329
+		NOT = { has_government = communism }
+	}
+
+	option = {
+		name = tan.1003.a
+		set_province_name = { id = 10627 name = Khem_Beldyr }
+		329 = { set_state_name = Khem_Beldyr }
+	}
+	
+	option = {
+		name = tan.1003.b
+		set_province_name = { id = 10627 name = Belotsarsk }
+		329 = { set_state_name = Belotsarsk }
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.03
+		}
+	}
+	
+	option = {
+		name = tan.1003.c
+		add_popularity = {
+			ideology = communism
+			popularity = 0.01
+		}
+	}
+
+}
+
+country_event = { # флаг со свастноном
+	id = tan.1004
+	title = tan.1004.t
+	desc = tan.1004.d 
+	picture = GFX_report_event_tan_flag_rodz
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = TAN
+		has_country_leader = {
+			character = SOV_konstantin_rodzayevsky
+			ruling_only = yes
+		}
+	}
+
+	option = {
+		name = tan.1004.a
+		set_cosmetic_tag = TAN_rodz
+	}
+	
+	option = {
+		name = tan.1004.b
+		
+	}
+
+}

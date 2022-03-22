@@ -1,0 +1,48 @@
+﻿division_template = {
+	name = "Kavaleriyskaya Diviziya"
+
+	division_names_group = TAN_CAV_01
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+}
+
+division_template = {
+	name = "Strelkovaya Diviziya"
+
+	division_names_group = TAN_INF_01
+
+	regiments = {
+		infantry  = { x = 0 y = 0 }
+		infantry  = { x = 0 y = 1 }
+		infantry  = { x = 1 y = 0 }
+		infantry  = { x = 1 y = 1 }
+	}
+}
+
+
+units = {
+	division = {
+		name = "1ya Kavaleriyskaya Diviziya"
+		location = 10627
+		division_template = "Kavaleriyskaya Diviziya"		
+		start_equipment_factor = 1
+	}
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "TAN"
+		}
+		requested_factories = 1
+		progress = 0.86
+		efficiency = 100
+	}
+}

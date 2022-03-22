@@ -1,0 +1,27 @@
+
+state={
+	id=838
+	name="STATE_838"
+	manpower = 18249
+	resources={
+		
+	}
+	
+	state_category = rural
+
+	history={
+		owner = TAN
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+		}
+		victory_points = {
+			1676 2
+		}
+		add_core_of = TAN
+	}
+
+	provinces={
+		1676 7804 7819
+	}
+}

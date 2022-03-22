@@ -1,0 +1,8 @@
+﻿units = {
+	division = {
+		name = "1ya Strelkovaya Diviziya"
+		location = 1676
+		division_template = "Strelkovaya Diviziya"		
+		start_equipment_factor = 0.1
+	}
+}

@@ -1,0 +1,2906 @@
+equipment_purchase = {
+
+
+	buy_infantry_equipment = {
+
+		icon = generic_prepare_civil_war 
+
+		available = {
+			SOV = { has_war = no }
+			is_in_faction_with = SOV
+			has_equipment = {
+				infantry_equipment < 10001
+			}
+		}
+		
+		cost = 5
+		
+		modifier = {
+			consumer_goods_factor = 0.02
+			autonomy_gain = -0.5
+        }
+          days_remove = 15
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 300
+				producer = SOV
+			}
+		}
+	}
+	
+	buy_artillery_equipment = {
+
+		icon = GFX_decision_artillery
+
+		available = {
+			SOV = { has_war = no }
+			is_in_faction_with = SOV
+			has_equipment = {
+				artillery_equipment < 10001
+			}
+		}
+		
+		cost = 5
+		
+		modifier = {		
+			consumer_goods_factor = 0.02
+			autonomy_gain = -0.5
+        }
+          days_remove = 15
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 300
+				producer = SOV
+			}
+		}
+	}
+	 
+	buy_support_equipment = { 
+
+		icon = GFX_decision_support_equipment
+
+		available = {
+			SOV = { has_war = no }
+			is_in_faction_with = SOV
+			has_equipment = {
+				support_equipment < 10001
+			}
+		}
+		
+		cost = 5
+		
+		modifier = {
+			consumer_goods_factor = 0.02
+			autonomy_gain = -0.5
+        }
+          days_remove = 15
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 300
+				producer = SOV
+			}
+		}
+	}
+
+}
+
+proof_independence = {
+
+	tan_build_infrastructure = {
+
+		icon = GFX_road
+
+		available = {
+			is_puppet_of = SOV
+			num_of_civilian_factories_available_for_projects > 0
+
+		}
+		
+		
+		cost = 50
+		
+		modifier = {
+			civilian_factory_use = 1
+			autonomy_gain = 0.5
+        }
+          days_remove = 30
+		
+		remove_effect = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	expansion_of_sites = {
+
+		icon = GFX_cement_mixer
+
+		available = {
+			is_puppet_of = SOV
+			num_of_civilian_factories_available_for_projects > 0
+		}
+		
+		fire_only_once = yes
+		
+		cost = 100
+		
+		modifier = {
+			civilian_factory_use = 1
+			autonomy_gain = 1.5
+        }
+          days_remove = 60
+		
+		remove_effect = {
+			329 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			835 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			836 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			837 = {
+				add_extra_state_shared_building_slots = 1
+			}
+			838 = {
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
+	tan_construction_of_civil_factories = {
+
+		icon = GFX_factories
+
+		available = {
+			is_puppet_of = SOV
+			num_of_civilian_factories_available_for_projects > 0
+		}
+		
+		
+		cost = 75
+		
+		modifier = {
+			civilian_factory_use = 1
+			autonomy_gain = 1
+        }
+          days_remove = 60
+		
+		remove_effect = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	
+	tan_construction_of_arms_factories = { 
+
+		icon = GFX_factories
+
+		available = {
+			is_puppet_of = SOV
+			num_of_civilian_factories_available_for_projects > 0
+		} 
+		
+		
+		cost = 75
+		
+		modifier = {
+			civilian_factory_use = 1
+			autonomy_gain = 1
+        }
+          days_remove = 60
+		
+		remove_effect = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	
+    influence_of_the_ussr = { 
+	
+		icon = GFX_decision_oppression
+	
+        allowed = {always=no}
+		
+        available = {
+            is_puppet = no
+        }
+		
+		days_remove = 2
+		
+        is_good = no
+        selectable_mission = no
+        days_mission_timeout = 120
+		
+        timeout_effect = {
+            add_autonomy_score = {
+				value = -10 
+			}
+			hidden_effect = {
+				activate_mission = influence_of_the_ussr
+			}
+        }
+		
+        complete_effect = {
+			
+        }
+		
+    }
+	
+}
+
+help_ussr = {
+	
+	TAN_supply_of_warm_clothes = {
+
+		icon = GFX_decision_generic_army_support
+
+		available = {
+			SOV = { 
+				has_war = yes
+				NOT = { has_idea = TAN_supply_of_warm_clothes_idea }
+			}
+		} 
+				
+		cost = 25
+		
+		complete_effect = {
+			SOV = {
+				add_timed_idea = {
+					idea = TAN_supply_of_warm_clothes_idea
+					days = 60
+				}				
+			}
+		}
+	}
+	
+	TAN_health_care = {
+
+		icon = GFX_generic_healthcare
+ 
+		available = {
+			SOV = { 
+				has_war = yes
+				NOT = { has_idea = TAN_health_care_idea }
+			} 
+		} 
+				
+		cost = 25
+		
+		complete_effect = {
+			SOV = {
+				add_timed_idea = {
+					idea = TAN_health_care_idea
+					days = 60
+				}				
+			}
+		}
+	}
+	
+	
+
+}
+
+recruitment_program = {
+	
+	hire_mercenaries = { 
+
+		icon = GFX_decision_generic_political_discourse
+
+		available = {
+			has_manpower < 100000
+		} 
+				
+		cost = 20
+		fixed_random_seed = no
+		
+		modifier = {
+			political_power_gain = -0.15
+        }
+        days_remove = 30
+		
+		remove_effect = {
+		
+			random_list = {
+				60 = { 
+					add_manpower = 5000
+				}
+				25 = {
+					add_manpower = 2500
+				}
+				15 = {
+					add_manpower = 1000
+				}
+			}
+			
+		}
+	}
+
+
+
+
+}
+
+nationalisation = {
+	
+	nationalisate_mongolia = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			
+		} 
+		
+		fire_only_once = yes
+		
+		visible = {
+			owns_state = 330
+			NOT = { 330 = { is_core_of = TAN } }
+			owns_state = 817
+			NOT = { 817 = { is_core_of = TAN } }
+			owns_state = 818
+			NOT = { 818 = { is_core_of = TAN } }
+			owns_state = 819
+			NOT = { 819 = { is_core_of = TAN } }
+			owns_state = 820
+			NOT = { 820 = { is_core_of = TAN } }
+			NOT = {
+				has_country_leader = {
+					character = TAN_anarchy_commune
+					ruling_only = yes
+				}
+			}
+		}
+		
+		highlight_states = {
+			state = 330
+		}
+				
+		cost = 100
+		
+		modifier = {
+			political_power_cost = 0.05
+        }
+          days_remove = 60
+		
+		remove_effect = {
+		
+			add_state_core = 330
+			add_state_core = 817
+			add_state_core = 818
+			add_state_core = 819
+			add_state_core = 820
+			
+		}
+	}
+	
+	nationalisate_kumul = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			
+		} 
+		
+		fire_only_once = yes
+		
+		visible = {
+			owns_state = 760
+			NOT = { 760 = { is_core_of = TAN } }
+		}
+		
+		highlight_states = {
+			state = 760
+		}
+				
+		cost = 100
+		
+		modifier = {
+			political_power_cost = 0.05
+        }
+          days_remove = 20
+		
+		remove_effect = {
+		
+			add_state_core = 760
+			
+		}
+	}
+	
+	nationalisate_dzungaria = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			
+		} 
+		
+		fire_only_once = yes
+		
+		visible = {
+			owns_state = 618
+			NOT = { 618 = { is_core_of = TAN } }
+		}
+		
+		highlight_states = {
+			state = 618
+		}
+				
+		cost = 100
+		
+		modifier = {
+			political_power_cost = 0.05
+        }
+          days_remove = 20
+		
+		remove_effect = {
+		
+			add_state_core = 618
+			
+		}
+	}
+	
+	nationalisate_gorno_altaysk = { 
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			
+		} 
+		
+		fire_only_once = yes
+		
+		visible = {
+			owns_state = 654
+			NOT = { 654 = { is_core_of = TAN } }
+		}
+		
+		highlight_states = {
+			state = 654
+		}
+				
+		cost = 100
+		
+		modifier = {
+			political_power_cost = 0.05
+        }
+          days_remove = 20
+		
+		remove_effect = {
+		
+			add_state_core = 654
+			
+		}
+	}
+	
+	nationalisate_buratia = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			
+		} 
+		
+		fire_only_once = yes
+		
+		visible = {
+			owns_state = 566
+			NOT = { 566 = { is_core_of = TAN } }
+			owns_state = 564
+			NOT = { 564 = { is_core_of = TAN } }
+			owns_state = 563
+			NOT = { 563 = { is_core_of = TAN } }
+		}
+		
+		highlight_states = {
+			state = 564
+		}
+				
+		cost = 100
+		
+		modifier = {
+			political_power_cost = 0.05
+        }
+          days_remove = 60
+		
+		remove_effect = {
+		
+			add_state_core = 566
+			add_state_core = 564
+			add_state_core = 563
+			
+		}
+	}
+	
+	nationalisate_upper_mongolia = {
+
+		icon = GFX_decision_generic_form_nation
+
+		available = {
+			owns_state = 756
+			owns_state = 616
+			owns_state = 621
+			owns_state = 746
+			owns_state = 612
+			owns_state = 611
+			owns_state = 761
+		} 
+		
+		fire_only_once = yes
+		
+		visible = {
+			OR = {
+				owns_state = 756
+				owns_state = 616
+				owns_state = 621
+				owns_state = 746
+				owns_state = 612
+				owns_state = 611
+				owns_state = 761
+			}
+			OR = {
+				NOT = { 756 = { is_core_of = TAN } }
+				NOT = { 616 = { is_core_of = TAN } }
+				NOT = { 621 = { is_core_of = TAN } }
+				NOT = { 746 = { is_core_of = TAN } }
+				NOT = { 612 = { is_core_of = TAN } }
+				NOT = { 611 = { is_core_of = TAN } }
+				NOT = { 761 = { is_core_of = TAN } }
+			}
+		}
+		
+		highlight_states = {
+			state = 621
+		}
+				
+		cost = 150
+		
+		modifier = {
+			political_power_cost = 0.1
+        }
+          days_remove = 60
+		
+		remove_effect = {
+		
+			add_state_core = 756
+			add_state_core = 616
+			add_state_core = 621
+			add_state_core = 746
+			add_state_core = 612
+			add_state_core = 611
+			add_state_core = 761
+			
+		}
+	}
+
+
+
+
+}
+
+fascist_alliance = {
+	
+	attack_mongolia = {
+
+		icon = GFX_decision_generic_prepare_civil_war
+
+		available = {
+			has_completed_focus = TAN_deal_with_mongolia
+		} 
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_completed_focus = TAN_with_emphasis_on_submission
+		}
+				
+		cost = 10
+		
+          days_remove = 20
+		
+		remove_effect = {
+			
+			hidden_effect = {
+				SOV = { remove_from_faction = MON }
+				MON = { add_ideas = MON_war }
+			}
+			declare_war_on = {
+				target = MON
+				type = annex_everything
+			}
+			
+		}
+	}
+	
+	coup_in_mongolia = {
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		available = {
+			has_completed_focus = TAN_deal_with_mongolia
+			MON = {
+				fascism > 0.25
+			}
+		} 
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_completed_focus = TAN_with_an_emphasis_on_alliance
+		}
+				
+		cost = 50
+		
+		complete_effect = {			
+			MON = {
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+					last_election = "1935.12.17"
+					election_frequency = 48
+				}
+				hidden_effect = {
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.5
+					}
+				}
+			}		
+			TAN = {
+				add_to_faction = MON
+			}
+		}
+	}
+	
+	attack_xinjiang = {
+
+		icon = GFX_decision_generic_prepare_civil_war
+
+		available = {
+			has_completed_focus = TAN_deal_with_xinjiang
+		} 
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_completed_focus = TAN_with_emphasis_on_submission
+		}
+				
+		cost = 10
+		
+          days_remove = 20
+		
+		remove_effect = {
+		
+			declare_war_on = {
+				target = SIK
+				type = annex_everything
+			}
+			
+		}
+	}
+	
+	coup_in_xinjiang = { 
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		available = {
+			has_completed_focus = TAN_deal_with_xinjiang
+			SIK = {
+				fascism > 0.25
+			}
+		} 
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_completed_focus = TAN_with_an_emphasis_on_alliance
+		}
+				
+		cost = 50
+		
+		complete_effect = {			
+			SIK = {
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+					last_election = "1935.12.17"
+					election_frequency = 48
+				}
+				hidden_effect = {
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.5
+					}
+				}
+			}		
+			TAN = {
+				add_to_faction = SIK
+			}
+		}
+	}
+	
+	declare_uprising_in_buratia = {  
+
+		icon = GFX_decision_generic_civil_support
+
+		available = {
+			has_completed_focus = TAN_uprising_in_buratia
+			has_equipment = {
+				infantry_equipment > 499
+			}
+		} 
+		
+		fire_only_once = yes
+		
+		visible = {
+			OR = {
+				has_completed_focus = TAN_with_an_emphasis_on_alliance
+				has_completed_focus = TAN_with_emphasis_on_submission
+			}
+		}
+				
+		cost = 50
+		
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -500
+			}
+		}
+		
+		days_remove = 30
+		
+		remove_effect = {			
+			BUR = {
+				hidden_effect = {
+					transfer_state = 564
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 1000
+						producer = BUR
+					}
+					load_oob = "BUR_1936"
+				}
+				declare_war_on = {
+					target = SOV
+					type = annex_everything
+				}
+			}	
+			if = {
+				limit = {
+					has_completed_focus = TAN_with_emphasis_on_submission
+				}
+				transfer_state = 654
+			}
+		}
+	}
+}
+
+elections_in_tuva = {
+
+	finance_social_democrats = {
+
+		icon = GFX_cash_flow
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_max_support
+				check_variable = {
+					soc_dems_support < 5
+				}
+			}
+		}
+		
+		visible = {
+			has_completed_focus = TAN_support_the_social_democrats
+		}
+				
+		cost = 10
+		days_remove = 30
+		
+		complete_effect = {
+			add_to_variable = {
+				var = soc_dems_support
+				value = 1
+			}
+			custom_effect_tooltip = TAN_add_support_soc_dems
+			hidden_effect = {
+				if = {
+					limit = {
+						check_variable = { soc_dems_support > con_support }
+					}
+					random_list = {
+						50 = {
+							country_event = {
+								id = tan.51
+								days = 10
+								random_days = 5
+							}
+						}
+						50 = {
+							country_event = {
+								id = tan.53
+								days = 10
+								random_days = 5
+							}
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = { soc_dems_support < con_support }
+					}
+					random_list = {
+						50 = {
+							country_event = {
+								id = tan.52
+								days = 10
+								random_days = 5
+							}
+						}
+						50 = {
+							country_event = {
+								id = tan.53
+								days = 10
+								random_days = 5
+							}
+						}
+					}
+				}
+				else = {
+					random_list = {
+						45 = {
+							country_event = {
+								id = tan.52
+								days = 10
+								random_days = 5
+							}
+						}
+						45 = {
+							country_event = {
+								id = tan.51
+								days = 10
+								random_days = 5
+							}
+						}
+						10 = {
+							country_event = {
+								id = tan.53
+								days = 10
+								random_days = 5
+							}
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+	finance_conservatives = {
+
+		icon = GFX_cash_flow
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_max_support
+				check_variable = {
+					con_support < 5
+				}
+			}
+		}
+		
+		visible = {
+			has_completed_focus = TAN_support_conservatives
+		}
+				
+		cost = 10
+		days_remove = 30
+		
+		complete_effect = {
+			add_to_variable = {
+				var = con_support
+				value = 1
+			}
+			custom_effect_tooltip = TAN_add_support_cons
+			hidden_effect = {
+				if = {
+					limit = {
+						check_variable = { soc_dems_support > con_support }
+					}
+					random_list = {
+						50 = {
+							country_event = {
+								id = tan.51
+								days = 10
+								random_days = 5
+							}
+						}
+						50 = {
+							country_event = {
+								id = tan.53
+								days = 10
+								random_days = 5
+							}
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = { soc_dems_support < con_support }
+					}
+					random_list = {
+						50 = {
+							country_event = {
+								id = tan.52
+								days = 10
+								random_days = 5
+							}
+						}
+						50 = {
+							country_event = {
+								id = tan.53
+								days = 10
+								random_days = 5
+							}
+						}
+					}
+				}
+				else = {
+					random_list = {
+						45 = {
+							country_event = {
+								id = tan.52
+								days = 10
+								random_days = 5
+							}
+						}
+						45 = {
+							country_event = {
+								id = tan.51
+								days = 10
+								random_days = 5
+							}
+						}
+						10 = {
+							country_event = {
+								id = tan.53
+								days = 10
+								random_days = 5
+							}
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+	slander_social_democrats = {
+
+		icon = GFX_decision_oppression
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_min_support
+				check_variable = {
+					soc_dems_support > 0
+				}
+			}
+		}
+		
+		visible = {
+			has_completed_focus = TAN_support_conservatives
+		}
+				
+		cost = 20
+		days_remove = 60
+		
+		complete_effect = {
+			add_to_variable = {
+				var = soc_dems_support
+				value = -1
+			}
+			custom_effect_tooltip = TAN_decrease_support_soc_dems
+			hidden_effect = {
+				if = {
+					limit = {
+						check_variable = { soc_dems_support > con_support }
+					}
+					random_list = {
+						50 = {
+							country_event = {
+								id = tan.51
+								days = 10
+								random_days = 5
+							}
+						}
+						50 = {
+							country_event = {
+								id = tan.53
+								days = 10
+								random_days = 5
+							}
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = { soc_dems_support < con_support }
+					}
+					random_list = {
+						50 = {
+							country_event = {
+								id = tan.52
+								days = 10
+								random_days = 5
+							}
+						}
+						50 = {
+							country_event = {
+								id = tan.53
+								days = 10
+								random_days = 5
+							}
+						}
+					}
+				}
+				else = {
+					random_list = {
+						45 = {
+							country_event = {
+								id = tan.52
+								days = 10
+								random_days = 5
+							}
+						}
+						45 = {
+							country_event = {
+								id = tan.51
+								days = 10
+								random_days = 5
+							}
+						}
+						10 = {
+							country_event = {
+								id = tan.53
+								days = 10
+								random_days = 5
+							}
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+	slander_conservatives = {
+
+		icon = GFX_decision_oppression
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = not_min_support
+				check_variable = {
+					con_support > 0
+				}
+			}
+		}
+		
+		visible = {
+			has_completed_focus = TAN_support_the_social_democrats
+		}
+				
+		cost = 20
+		days_remove = 60
+		
+		complete_effect = {
+			add_to_variable = {
+				var = con_support
+				value = -1
+			}
+			custom_effect_tooltip = TAN_decrease_support_cons
+			hidden_effect = {
+				if = {
+					limit = {
+						check_variable = { soc_dems_support > con_support }
+					}
+					random_list = {
+						50 = {
+							country_event = {
+								id = tan.51
+								days = 10
+								random_days = 5
+							}
+						}
+						50 = {
+							country_event = {
+								id = tan.53
+								days = 10
+								random_days = 5
+							}
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = { soc_dems_support < con_support }
+					}
+					random_list = {
+						50 = {
+							country_event = {
+								id = tan.52
+								days = 10
+								random_days = 5
+							}
+						}
+						50 = {
+							country_event = {
+								id = tan.53
+								days = 10
+								random_days = 5
+							}
+						}
+					}
+				}
+				else = {
+					random_list = {
+						45 = {
+							country_event = {
+								id = tan.52
+								days = 10
+								random_days = 5
+							}
+						}
+						45 = {
+							country_event = {
+								id = tan.51
+								days = 10
+								random_days = 5
+							}
+						}
+						10 = {
+							country_event = {
+								id = tan.53
+								days = 10
+								random_days = 5
+							}
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+}
+
+crush_opposition = {
+
+	suppress_the_fascists = {
+
+		icon = GFX_decision_oppression
+
+		visible = {
+			fascism > 0.05
+		}
+				
+		cost = suppress_the_fascists_cost
+		
+		modifier = {
+			fascism_drift = -0.05
+        }
+        days_remove = 30
+		days_re_enable = 10
+		
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { suppress_the_fascists_cost > 9 suppress_the_fascists_cost < 20 }
+				}
+				add_stability = -0.02
+			}
+			else_if = {
+				limit = {
+					check_variable = { suppress_the_fascists_cost > 19 suppress_the_fascists_cost < 30 }
+				}
+				add_stability = -0.03
+			}
+			else_if = {
+				limit = {
+					check_variable = { suppress_the_fascists_cost > 29 suppress_the_fascists_cost < 40 }
+				}
+				add_stability = -0.04
+			}
+			else_if = {
+				limit = {
+					check_variable = { suppress_the_fascists_cost > 39 }
+				}
+				add_stability = -0.05
+			}
+		}
+		
+		remove_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.1
+			}
+			add_to_variable = {
+				var = suppress_the_fascists_cost
+				value = 10
+			}
+		}
+	}
+	
+	suppress_the_communists = {
+
+		icon = GFX_decision_oppression
+
+		visible = {
+			communism > 0.05
+		}
+				
+		cost = suppress_the_communists_cost
+		
+		modifier = {
+			communism_drift = -0.05
+        }
+        days_remove = 30
+		days_re_enable = 10
+		
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { suppress_the_communists_cost > 9 suppress_the_communists_cost < 20 }
+				}
+				add_stability = -0.02
+			}
+			else_if = {
+				limit = {
+					check_variable = { suppress_the_communists_cost > 19 suppress_the_communists_cost < 30 }
+				}
+				add_stability = -0.03
+			}
+			else_if = {
+				limit = {
+					check_variable = { suppress_the_communists_cost > 29 suppress_the_communists_cost < 40 }
+				}
+				add_stability = -0.04
+			}
+			else_if = {
+				limit = {
+					check_variable = { suppress_the_communists_cost > 39 }
+				}
+				add_stability = -0.05
+			}
+		}
+		
+		remove_effect = {
+			add_popularity = {
+				ideology = communism
+				popularity = -0.1
+			}
+			add_to_variable = {
+				var = suppress_the_communists_cost
+				value = 10
+			}
+		}
+	}
+	
+	suppress_the_neutrals = {
+
+		icon = GFX_decision_oppression
+
+		visible = {
+			neutrality > 0.05
+		}
+		
+		cost = suppress_the_neutrals_cost
+		
+		modifier = {
+			neutrality_drift = -0.05
+        }
+        days_remove = 30
+		days_re_enable = 10
+		
+		complete_effect = {
+			if = {
+				limit = {
+					check_variable = { suppress_the_neutrals_cost > 9 suppress_the_neutrals_cost < 20 }
+				}
+				add_stability = -0.02
+			}
+			else_if = {
+				limit = {
+					check_variable = { suppress_the_neutrals_cost > 19 suppress_the_neutrals_cost < 30 }
+				}
+				add_stability = -0.03
+			}
+			else_if = {
+				limit = {
+					check_variable = { suppress_the_neutrals_cost > 29 suppress_the_neutrals_cost < 40 }
+				}
+				add_stability = -0.04
+			}
+			else_if = {
+				limit = {
+					check_variable = { suppress_the_neutrals_cost > 39 }
+				}
+				add_stability = -0.05
+			}
+		}
+		
+		remove_effect = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.1
+			}
+			add_to_variable = {
+				var = suppress_the_neutrals_cost
+				value = 10
+			}
+		}
+	}
+	
+}
+
+assassination_on_toka = {
+	
+	plan_preparation = {
+
+		icon = GFX_decision_generic_operation
+
+		visible = {
+			
+		}
+		
+		cost = 25
+		
+		modifier = {
+			political_power_gain = -0.1
+        }
+        days_remove = 30
+		fire_only_once = yes
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			set_country_flag = TAN_plan
+		}
+	}
+	
+	persuade_churmit_dazhy = {
+
+		icon = GFX_decision_generic_political_discourse
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TAN_plan_tt		
+				has_country_flag = TAN_plan
+			}
+			NOT = { has_decision = persuade_military }
+		}
+		visible = {
+			NOT = { has_decision = persuade_military }
+			NOT = {
+				OR = {
+					has_idea = TAN_mongush_suvak
+					has_idea = churmit_dazhy
+				}
+			}
+		}
+		
+		cost = 25
+		
+		modifier = {
+			political_power_gain = -0.1
+        }
+        days_remove = 10
+		fire_only_once = yes
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			add_ideas = churmit_dazhy
+			add_political_power = -50
+		}
+	}
+	
+	persuade_military = {
+
+		icon = GFX_decision_generic_army_support
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TAN_plan_tt		
+				has_country_flag = TAN_plan
+			}
+			NOT = { has_decision = persuade_churmit_dazhy }
+		}
+		visible = {
+			NOT = { has_decision = persuade_churmit_dazhy }
+			NOT = {
+				OR = {
+					has_idea = TAN_mongush_suvak
+					has_idea = churmit_dazhy
+				}
+			}
+		}
+		
+		cost = 25
+		
+		modifier = {
+			political_power_gain = -0.1
+        }
+        days_remove = 10
+		fire_only_once = yes
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			add_ideas = TAN_mongush_suvak
+			army_experience = -10
+		}
+	}
+	
+	mercenary_recruitment = {
+
+		icon = GFX_decision_onmap_recruit_operative
+
+		available = {
+			OR = {
+				has_idea = churmit_dazhy
+				has_idea = TAN_mongush_suvak
+			}
+		}
+		
+		cost = 25
+		
+		modifier = {
+			political_power_gain = -0.1
+        }
+        days_remove = 10
+		fire_only_once = yes
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			add_political_power = -10
+			set_country_flag = TAN_killer_found
+		}
+	}
+	
+	issuance_of_weapons = {
+
+		icon = GFX_decision_ger_military_buildup
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TAN_killer_found_tt		
+				has_country_flag = TAN_killer_found
+			}
+		}
+		
+		cost = 25
+		
+		modifier = {
+			political_power_gain = -0.1
+        }
+        days_remove = 10
+		fire_only_once = yes
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -10
+			}
+			add_political_power = -10
+			set_country_flag = TAN_all_done
+		}
+	}
+	
+	tokas_speech = {
+
+		icon = GFX_decision_hol_radio_oranje
+		
+		allowed = {always=no}	
+
+		available = {
+			NOT = {
+				has_country_leader = {
+					character = TAN_salchak_toka
+					ruling_only = yes
+				}
+			}
+		}
+		
+		is_good = yes
+        selectable_mission = no
+        days_mission_timeout = 60
+		
+        timeout_effect = {
+			activate_mission = day_of_speech
+        }
+	}
+	
+	day_of_speech = {
+
+		icon = GFX_decision_eng_blackshirt_speech
+		
+		allowed = {always=no}	
+
+		available = {
+			NOT = {
+				has_country_leader = {
+					character = TAN_salchak_toka
+					ruling_only = yes
+				}
+			}
+		}
+		
+		is_good = no
+        selectable_mission = no
+        days_mission_timeout = 1
+		
+        timeout_effect = {
+			activate_mission = tokas_speech
+        }
+	}
+	
+	kill_toka = {
+
+		icon = GFX_decision_generic_assassination
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TAN_all_done_tt	
+				has_country_flag = TAN_all_done
+			}
+			has_active_mission = day_of_speech
+		}
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			kill_country_leader = yes
+			add_country_leader_role = {
+				character = TAN_sat_churmit-dazhy
+				promote_leader = yes
+				country_leader = {
+					desc = "CHURMIT_DAZHY_DESC"
+					ideology = marxism
+					expire = "1965.1.1.1"
+				}
+			}
+			add_stability = -0.1
+		}
+	}
+
+}
+
+international_recognition = {
+	
+	TAN_improved_relations = {
+	
+		icon = GFX_decision_generic_political_discourse
+	
+		allowed = {tag = TAN}
+		
+		cost = 25
+		
+		target_trigger = {
+			FROM = {
+				OR = {
+					tag = ENG
+					tag = JAP
+					tag = CHI
+					tag = PRC
+				}
+			}
+		}
+		
+		visible = {
+			if = {
+				limit = {
+					FROM = { tag = ENG }
+				}
+				NOT = { has_country_flag = TAN_eng_recognized }
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = JAP }
+				}
+				NOT = { has_country_flag = TAN_jap_recognized }
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = CHI }
+				}
+				NOT = { has_country_flag = TAN_chi_recognized }
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = PRC }
+				}
+				NOT = { has_country_flag = TAN_prc_recognized }
+			}
+		}
+		
+		available = {
+			if = {
+				limit = {
+					FROM = { tag = ENG }
+				}
+				has_completed_focus = TAN_recognition_of_britain
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = JAP }
+				}
+				has_completed_focus = TAN_recognition_of_japan
+			}
+			else_if = {
+				limit = {
+					FROM = { OR = { tag = CHI tag = PRC } }
+				}
+				has_completed_focus = TAN_recognition_of_china
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 0
+				}
+			}
+		}
+		
+		modifier = {
+			political_power_factor = 0.15
+			improve_relations_maintain_cost_factor = -0.5
+        }
+        days_remove = 30
+		days_re_enable = 10
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			FROM = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = improved_diplomatic_relations
+				}
+			}
+			if = {
+				limit = {
+					FROM = { tag = ENG }
+				}
+				custom_effect_tooltip = TAN_add_recognition_eng_tt
+				add_to_variable = {
+					var = recognition_eng_var
+					value = 1
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = JAP }
+				}
+				custom_effect_tooltip = TAN_add_recognition_jap_tt
+				add_to_variable = {
+					var = recognition_jap_var
+					value = 1
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = CHI }
+				}
+				custom_effect_tooltip = TAN_add_recognition_chi_tt
+				add_to_variable = {
+					var = recognition_chi_var
+					value = 1
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = PRC }
+				}
+				custom_effect_tooltip = TAN_add_recognition_prc_tt
+				add_to_variable = {
+					var = recognition_prc_var
+					value = 1
+				}
+			}
+		}
+		
+	}
+	
+	TAN_increase_in_trade = {
+	
+		icon = GFX_decision_hol_attract_foreign_investors
+	
+		allowed = {tag = TAN}
+		
+		cost = 25
+		
+		target_trigger = {
+			FROM = {
+				OR = {
+					tag = ENG
+					tag = JAP
+					tag = CHI
+					tag = PRC
+				}
+			}
+		}
+		
+		visible = {
+			if = {
+				limit = {
+					FROM = { tag = ENG }
+				}
+				NOT = { has_country_flag = TAN_eng_recognized }
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = JAP }
+				}
+				NOT = { has_country_flag = TAN_jap_recognized }
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = CHI }
+				}
+				NOT = { has_country_flag = TAN_chi_recognized }
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = PRC }
+				}
+				NOT = { has_country_flag = TAN_prc_recognized }
+			}
+		}
+		
+		available = {
+			if = {
+				limit = {
+					FROM = { tag = ENG }
+				}
+				has_completed_focus = TAN_recognition_of_britain
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = JAP }
+				}
+				has_completed_focus = TAN_recognition_of_japan
+			}
+			else_if = {
+				limit = {
+					FROM = { OR = { tag = CHI tag = PRC } }
+				}
+				has_completed_focus = TAN_recognition_of_china
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 0
+				}
+			}
+		}
+		
+		modifier = {
+			political_power_factor = 0.15
+			trade_opinion_factor = 0.5
+		}
+        days_remove = 30
+		days_re_enable = 10
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			FROM = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = unholy_alliance_trade
+				}
+			}
+			if = {
+				limit = {
+					FROM = { tag = ENG }
+				}
+				custom_effect_tooltip = TAN_add_recognition_eng_tt
+				add_to_variable = {
+					var = recognition_eng_var
+					value = 1
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = JAP }
+				}
+				custom_effect_tooltip = TAN_add_recognition_jap_tt
+				add_to_variable = {
+					var = recognition_jap_var
+					value = 1
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = CHI }
+				}
+				custom_effect_tooltip = TAN_add_recognition_chi_tt
+				add_to_variable = {
+					var = recognition_chi_var
+					value = 1
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = PRC }
+				}
+				custom_effect_tooltip = TAN_add_recognition_prc_tt
+				add_to_variable = {
+					var = recognition_prc_var
+					value = 1
+				}
+			}
+		}
+		
+	}
+	
+	TAN_recognition_of = {
+	
+		icon = GFX_decision_eng_trade_unions_support
+	
+		allowed = {tag = TAN}
+		
+		target_trigger = {
+			FROM = {
+				OR = {
+					tag = ENG
+					tag = JAP
+					tag = CHI
+					tag = PRC
+				}
+			}
+		}
+		
+		fire_only_once = yes
+		
+		available = {
+			if = {
+				limit = {
+					FROM = { tag = ENG }
+				}
+				has_completed_focus = TAN_recognition_of_britain
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = JAP }
+				}
+				has_completed_focus = TAN_recognition_of_japan
+			}
+			else_if = {
+				limit = {
+					FROM = { OR = { tag = CHI tag = PRC } }
+				}
+				has_completed_focus = TAN_recognition_of_china
+			}
+			FROM = {
+				has_opinion = {
+					target = ROOT
+					value > 99
+				}
+			}
+			if = {
+				limit = {
+					FROM = { tag = ENG }
+				}
+				custom_trigger_tooltip = {
+					tooltip = TAN_recognition_check_tt		
+					check_variable = { recognition_eng_var > 9 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = JAP }
+				}
+				custom_trigger_tooltip = {
+					tooltip = TAN_recognition_check_tt		
+					check_variable = { recognition_jap_var > 9 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = CHI }
+				}
+				custom_trigger_tooltip = {
+					tooltip = TAN_recognition_check_tt		
+					check_variable = { recognition_chi_var > 9 }
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = PRC }
+				}
+				custom_trigger_tooltip = {
+					tooltip = TAN_recognition_check_tt		
+					check_variable = { recognition_prc_var > 9 }
+				}
+			}
+		}
+		
+		complete_effect = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = recognized_us
+			}
+			if = {
+				limit = {
+					FROM = { tag = ENG }
+				}
+				set_country_flag = TAN_eng_recognized
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = JAP }
+				}
+				set_country_flag = TAN_jap_recognized
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = CHI }
+				}
+				set_country_flag = TAN_chi_recognized
+			}
+			else_if = {
+				limit = {
+					FROM = { tag = PRC }
+				}
+				set_country_flag = TAN_prc_recognized
+			}
+			add_recognition = yes
+		}
+		
+	}
+
+}
+
+political_actions = {
+	
+	transfer_capital = {
+	
+		icon = GFX_decision_eng_trade_unions_demand
+		
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				OR = {
+					state = 608
+					state = 328
+				}
+			}
+		}
+
+		available = {
+			owns_state = FROM
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			if = {
+				limit = {
+					FROM = { state = 608 }
+				}
+				has_completed_focus = TAN_new_mongol_empire
+			}
+			else_if = {
+				limit = {
+					FROM = { state = 328 }
+				}
+				has_completed_focus = TAN_zheltorossiya
+			}
+		}
+		
+		highlight_states = {
+			state = FROM
+		}
+		
+		complete_effect = {
+			
+			set_capital = {state = FROM}
+			if = {
+				limit = {
+					FROM = { state = 328 }
+				}
+				set_victory_points = {
+					province = 10433
+					value = 5
+				}
+			}
+			add_stability = 0.1
+			
+		}
+	}
+	
+	make_peace = {
+	
+		icon = GFX_decision_eng_trade_unions_support
+
+		available = {
+			if = {
+				limit = {
+					has_completed_focus = TAN_zheltorossiya
+				}
+				SOV = { surrender_progress > 0.3 }
+			}
+			else = {
+				SOV = { surrender_progress > 0.03 }
+			}
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			OR = {
+				has_completed_focus = TAN_liberate_peoples_of_central_asia
+				has_completed_focus = TAN_preserve_the_legacy_of_grandfather
+				has_completed_focus = TAN_last_enemy
+			}
+		}
+		
+		complete_effect = {
+		
+			white_peace = SOV
+			
+			if = {
+				limit = {
+					has_completed_focus = TAN_liberate_peoples_of_central_asia
+				}
+				every_state = {
+					limit = {
+						OR = {
+							is_core_of = KAZ
+							is_core_of = UZB
+							is_core_of = KYR
+							is_core_of = TMS
+							is_core_of = TAJ
+						}
+					}
+					transfer_state_to = TAN
+				}
+				remove_ideas = TAN_war_of_liberation
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = TAN_preserve_the_legacy_of_grandfather
+				}
+				every_state = {
+					limit = {
+						OR = {
+							state = 567
+							state = 566
+							state = 564
+						}
+					}
+					transfer_state_to = TAN
+				}
+				remove_ideas = TAN_war_of_liberation
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = TAN_last_enemy
+				}
+				if = {
+					limit = {
+						has_completed_focus = TAN_new_mongol_empire
+					}
+					every_state = {
+						limit = {
+							OR = {
+								is_core_of = FER
+								is_core_of = YAK
+								is_core_of = BUR
+								state = 566
+								state = 565
+								state = 575
+								state = 567
+								state = 576
+								state = 516
+								state = 568
+							}
+						}
+						transfer_state_to = TAN
+					}
+					SOV = { add_ideas = TAN_tribute_payment }
+					add_ideas = TAN_tribute_payment2
+				}
+				else_if = {
+					limit = {
+						has_completed_focus = TAN_zheltorossiya
+					}
+					SOV = {
+						every_character = {
+							limit = {
+								OR = {
+									is_corps_commander = yes
+									is_field_marshal = yes
+								}
+							}
+							set_nationality = ROOT
+						}
+					}
+					annex_country = {
+						target = SOV
+						transfer_troops = yes
+					}
+					set_cosmetic_tag = SOV
+				}
+			}
+			
+		}
+	}
+	
+}
+
+preparing_a_coup = {
+
+	persuade_the_general = {
+		
+		icon = GFX_decision_generic_army_support
+
+		available = {
+			
+		}
+		
+		visible = {
+			any_character = {
+				is_unit_leader = yes
+				NOT = { has_character_flag = TAN_conspirator }
+			}
+		}
+		
+		days_remove = 15
+		
+		custom_cost_trigger = {
+			command_power > 9
+		}
+		custom_cost_text = decision_cost_CP_10
+		
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -10
+			}
+		}
+		
+		remove_effect = {
+			
+			random_character = {
+				limit = {
+					is_unit_leader = yes
+					NOT = { has_character_flag = TAN_conspirator }
+				}
+				set_character_flag = TAN_conspirator
+				custom_effect_tooltip = TAN_random_persuade_tt
+			}
+			if = {
+				limit = {
+					has_completed_focus = TAN_turn_to_right
+				}
+				if = {
+					limit = {
+						fascism < 0.5
+					}
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.03
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						neutrality < 0.5
+					}
+					add_popularity = {
+						ideology = neutrality
+						popularity = 0.03
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { coup_percent_var < 100 }
+				}
+				custom_effect_tooltip = TAN_add_10_percent_tt
+				add_to_variable = {
+					var = coup_percent_var
+					value = 10
+				}
+				clamp_variable = {
+					var = coup_percent_var
+					min = 0
+					max = 100
+				}
+			}
+		}
+	}
+	
+	persuade_the_politician = {
+		
+		icon = GFX_decision_generic_political_discourse
+
+		available = {
+			
+		}
+		
+		visible = {
+			any_character = {
+				is_character_slot = political_advisor
+				NOT = { has_character_flag = TAN_conspirator }
+			}
+		}
+		
+		days_remove = 15
+		
+		custom_cost_trigger = {
+			command_power > 9
+		}
+		custom_cost_text = decision_cost_CP_10
+		
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -10
+			}
+		}
+		
+		remove_effect = {
+			
+			random_character = {
+				limit = {
+					is_character_slot = political_advisor
+					NOT = { has_character_flag = TAN_conspirator }
+				}
+				set_character_flag = TAN_conspirator
+				custom_effect_tooltip = TAN_random_persuade_tt
+			}
+			if = {
+				limit = {
+					neutrality < 0.5
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.03
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { coup_percent_var < 100 }
+				}
+				custom_effect_tooltip = TAN_add_10_percent_tt
+				add_to_variable = {
+					var = coup_percent_var
+					value = 10
+				}
+				clamp_variable = {
+					var = coup_percent_var
+					min = 0
+					max = 100
+				}
+			}
+		}
+	}
+	
+	grab_a_weapon = {
+		
+		icon = GFX_decision_generic_prepare_civil_war
+
+		available = {
+			has_equipment = {
+				infantry_equipment < 20001
+			}
+		}
+		
+		visible = {
+			has_equipment = {
+				infantry_equipment < 20001
+			}
+		}
+		
+		days_remove = 20
+		days_re_enable = 10
+		
+		cost = 20
+		
+		remove_effect = {
+			
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 200
+			}
+			if = {
+				limit = {
+					check_variable = { coup_percent_var < 100 }
+				}
+				custom_effect_tooltip = TAN_add_5_percent_tt
+				add_to_variable = {
+					var = coup_percent_var
+					value = 5
+				}
+				clamp_variable = {
+					var = coup_percent_var
+					min = 0
+					max = 100
+				}
+			}
+			
+		}
+	}
+	
+}
+
+mutiny_suppression = {
+	
+	crush_rebellion = {
+		
+		icon = GFX_decision_oppression
+		
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				is_demilitarized_zone = yes
+			}
+		}
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 19
+			}
+		}
+		
+		visible = {
+			FROM = {
+				check_variable = {
+					TAN_suppressed_region_var < 3 
+				}
+			}
+		}
+		
+		days_remove = 5
+		days_re_enable = 10
+		on_map_mode = map_only
+		
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -5
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -20
+			}
+		}
+		
+		fixed_random_seed = no
+		
+		remove_effect = {
+			
+			if = {
+				limit = {
+					FROM = {
+						check_variable = {
+							TAN_suppressed_region_var = 0 
+						}
+					}	
+				}
+				random_list = {
+					50 = {
+						FROM = {
+							add_to_variable = {
+								var = TAN_suppressed_region_var
+								value = 1
+							}
+							clamp_variable = {
+								var = TAN_suppressed_region_var
+								min = 0
+								max = 3
+							}
+						}
+						custom_effect_tooltip = TAN_suppressed_region_tt
+					}
+					50 = {
+						FROM = {
+							add_to_variable = {
+								var = TAN_suppressed_region_var
+								value = -1
+							}
+							clamp_variable = {
+								var = TAN_suppressed_region_var
+								min = 0
+								max = 3
+							}
+						}
+						custom_effect_tooltip = TAN_suppressed_region2_tt
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = {
+						check_variable = {
+							TAN_suppressed_region_var = 1 
+						}
+					}	
+				}
+				random_list = {
+					60 = {
+						FROM = {
+							add_to_variable = {
+								var = TAN_suppressed_region_var
+								value = 1
+							}
+							clamp_variable = {
+								var = TAN_suppressed_region_var
+								min = 0
+								max = 3
+							}
+						}
+						custom_effect_tooltip = TAN_suppressed_region_tt
+					}
+					40 = {
+						FROM = {
+							add_to_variable = {
+								var = TAN_suppressed_region_var
+								value = -1
+							}
+							clamp_variable = {
+								var = TAN_suppressed_region_var
+								min = 0
+								max = 3
+							}
+						}
+						custom_effect_tooltip = TAN_suppressed_region2_tt
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = {
+						check_variable = {
+							TAN_suppressed_region_var = 2 
+						}
+					}	
+				}
+				random_list = {
+					70 = {
+						FROM = {
+							add_to_variable = {
+								var = TAN_suppressed_region_var
+								value = 1
+							}
+							clamp_variable = {
+								var = TAN_suppressed_region_var
+								min = 0
+								max = 3
+							}
+						}
+						custom_effect_tooltip = TAN_suppressed_region_tt
+					}
+					30 = {
+						FROM = {
+							add_to_variable = {
+								var = TAN_suppressed_region_var
+								value = -1
+							}
+							clamp_variable = {
+								var = TAN_suppressed_region_var
+								min = 0
+								max = 3
+							}
+						}
+						custom_effect_tooltip = TAN_suppressed_region2_tt
+					}
+				}
+			}
+		}
+	}
+	
+	destroy_rebellion = {
+		
+		icon = GFX_decision_generic_civil_support
+		
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				is_demilitarized_zone = yes
+			}
+		}
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 199
+			}
+		}
+		
+		visible = {
+			FROM = {
+				check_variable = {
+					TAN_suppressed_region_var = 3 
+				}
+			}
+		}
+		
+		fire_only_once = yes
+		on_map_mode = map_only
+		
+		complete_effect = {
+		
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -200
+			}
+			
+			FROM = {
+				set_demilitarized_zone = no
+			}
+			
+		}
+		
+	}
+	
+	rebel_raids = {
+
+		icon = GFX_decision_generic_nationalism
+		
+		allowed = {always=no}	
+
+		available = {
+			835 = {
+				is_demilitarized_zone = no
+			}
+			836 = {
+				is_demilitarized_zone = no
+			}
+			837 = {
+				is_demilitarized_zone = no
+			}
+			838 = {
+				is_demilitarized_zone = no
+			}
+		}
+		
+		is_good = no
+        selectable_mission = no
+        days_mission_timeout = 15
+		
+        timeout_effect = {
+			hidden_effect = { activate_mission = rebel_raids }
+			random_list = {
+				33 = {
+					random_owned_state = {
+						limit = {
+							is_demilitarized_zone = yes
+							infrastructure > 0
+						}
+						damage_building = {
+							type = infrastructure
+							damage = 0.25
+						}
+					}
+				}
+				33 = {
+					random_owned_state = {
+						limit = {
+							is_demilitarized_zone = yes
+							industrial_complex > 0
+						}
+						damage_building = {
+							type = industrial_complex
+							damage = 0.25
+						}
+					}
+				}
+				33 = {
+					random_owned_state = {
+						limit = {
+							is_demilitarized_zone = yes
+							arms_factory > 0
+						}
+						damage_building = {
+							type = arms_factory
+							damage = 0.25
+						}
+					}
+				}
+			}
+        }
+	}
+	
+}
+
+army_improvement = {
+	
+	arrange_training = {
+		
+		icon = GFX_decision_eng_blackshirt_march
+
+		available = {
+			land_doctrine_level > 0
+			has_equipment = {
+				infantry_equipment > 9
+			}
+		}
+		
+		visible = {
+			check_variable = {
+				TAN_army_attack_factor_var < 0 
+			}
+			check_variable = {
+				TAN_army_defence_factor_var < 0
+			}
+		}
+		
+		days_remove = 30
+		days_re_enable = 10
+		
+		custom_cost_trigger = {
+			has_army_experience > 4
+		}
+		custom_cost_text = decision_cost_XP_5
+		
+		complete_effect = {
+			hidden_effect = {
+				army_experience = -5
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -10
+			}
+		}
+		
+		remove_effect = {
+			
+			add_to_variable = {
+				var = TAN_army_attack_factor_var
+				value = 0.05
+			}
+			clamp_variable = {
+				var = TAN_army_attack_factor_var
+				min = -0.2
+				max = 0
+			}
+			custom_effect_tooltip = add_attack_tt
+			
+			add_to_variable = {
+				var = TAN_army_defence_factor_var
+				value = 0.05
+			}
+			clamp_variable = {
+				var = TAN_army_defence_factor_var
+				min = -0.2
+				max = 0
+			}
+			custom_effect_tooltip = add_defence_tt
+			
+			force_update_dynamic_modifier = yes
+			
+		}
+		
+	}
+	
+	exploring_different_terrain = {
+		
+		icon = GFX_decision_border_war
+
+		available = {
+			land_doctrine_level > 0
+			has_equipment = {
+				infantry_equipment > 19
+			}
+		}
+		
+		visible = {
+			check_variable = {
+				TAN_attrition_var > 0 
+			}
+		}
+		
+		days_remove = 20
+		days_re_enable = 10
+		
+		custom_cost_trigger = {
+			has_army_experience > 4
+		}
+		custom_cost_text = decision_cost_XP_5
+		
+		complete_effect = {
+			hidden_effect = {
+				army_experience = -5
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -20
+			}
+		}
+		
+		modifier = {
+			attrition = 0.5
+		}
+		
+		remove_effect = {
+			
+			add_to_variable = {
+				var = TAN_attrition_var
+				value = -0.03
+			}
+			clamp_variable = {
+				var = TAN_attrition_var
+				min = 0
+				max = 0.15
+			}
+			custom_effect_tooltip = add_attrition_tt
+			
+			force_update_dynamic_modifier = yes
+			
+		}
+		
+	}
+	
+	improving_army_conditions = {
+		
+		icon = GFX_decision_generic_military
+
+		available = {
+			land_doctrine_level > 0
+			has_equipment = {
+				infantry_equipment > 9
+			}
+		}
+		
+		visible = {
+			check_variable = {
+				TAN_army_morale_factor_var < 0 
+			}
+		}
+		
+		days_remove = 30
+		days_re_enable = 10
+		
+		custom_cost_trigger = {
+			has_army_experience > 4
+		}
+		custom_cost_text = decision_cost_XP_5
+		
+		complete_effect = {
+			hidden_effect = {
+				army_experience = -5
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -10
+			}
+		}
+		
+		modifier = {
+			political_power_gain = -0.1
+		}
+		
+		remove_effect = {
+			
+			add_to_variable = {
+				var = TAN_army_morale_factor_var
+				value = 0.05
+			}
+			clamp_variable = {
+				var = TAN_army_morale_factor_var
+				min = -0.5
+				max = 0
+			}
+			custom_effect_tooltip = add_morale_tt
+			
+			force_update_dynamic_modifier = yes
+			
+		}
+		
+	}
+	
+	military_study = {
+		
+		icon = GFX_decision_hol_draw_up_staff_plans
+
+		available = {
+		
+		}
+		
+		visible = {
+			check_variable = {
+				TAN_experience_gain_army_factor_var < 0 
+			}
+		}
+		
+		days_remove = 90
+		
+		cost = 30
+		
+		complete_effect = {
+		
+		}
+		
+		remove_effect = {
+			
+			add_to_variable = {
+				var = TAN_experience_gain_army_factor_var
+				value = 0.05
+			}
+			clamp_variable = {
+				var = TAN_experience_gain_army_factor_var
+				min = -0.1
+				max = 0
+			}
+			custom_effect_tooltip = add_xp_gain_tt
+			
+			force_update_dynamic_modifier = yes
+			
+		}
+		
+	}
+	
+}

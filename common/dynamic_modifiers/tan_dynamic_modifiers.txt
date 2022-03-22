@@ -1,0 +1,32 @@
+TAN_army_dm_communism = {
+	
+	icon = GFX_idea_TAN_army_dm_communism
+	
+	army_attack_factor = TAN_army_attack_factor_var
+	army_defence_factor = TAN_army_defence_factor_var
+	army_morale_factor = TAN_army_morale_factor_var
+	attrition = TAN_attrition_var
+	experience_gain_army_factor = TAN_experience_gain_army_factor_var
+}
+
+TAN_army_dm_national = {
+	
+	icon = GFX_idea_TAN_army_dm_national
+	
+	army_attack_factor = TAN_army_attack_factor_var
+	army_defence_factor = TAN_army_defence_factor_var
+	army_morale_factor = TAN_army_morale_factor_var
+	attrition = TAN_attrition_var
+	experience_gain_army_factor = TAN_experience_gain_army_factor_var
+}
+
+TAN_army_dm_anarchy = {
+	
+	icon = GFX_idea_TAN_army_dm_anarchy
+	
+	army_attack_factor = TAN_army_attack_factor_var
+	army_defence_factor = TAN_army_defence_factor_var
+	army_morale_factor = TAN_army_morale_factor_var
+	attrition = TAN_attrition_var
+	experience_gain_army_factor = TAN_experience_gain_army_factor_var
+}

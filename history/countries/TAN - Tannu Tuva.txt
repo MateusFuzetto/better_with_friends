@@ -1,0 +1,61 @@
+﻿capital = 329
+
+oob = "TAN_1936"
+
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1
+	gw_artillery = 1
+}
+
+recruit_character = TAN_salchak_toka
+recruit_character = TAN_hertek_anchimaa_toka
+recruit_character = TAN_little_khural
+recruit_character = TAN_fascist_council
+recruit_character = TAN_anarchy_commune
+recruit_character = TAN_military_junta
+recruit_character = TAN_sat_churmit-dazhy
+recruit_character = TAN_hemchik_ool
+recruit_character = TAN_tanchay_oyun
+recruit_character = TAN_pirinley_kara_sal
+recruit_character = TAN_ondar_bair
+recruit_character = TAN_oyun_polat
+recruit_character = TAN_nikolay_tovarishchtay
+recruit_character = TAN_salchak_lopsan
+recruit_character = TAN_tyulyush_kechil_ool
+recruit_character = TAN_churguy_ool_homushku
+recruit_character = TAN_gessen_shooma
+recruit_character = TAN_mongush_suvak
+recruit_character = TAN_oyun_lakpa
+recruit_character = TAN_semen_seveen
+
+TAN_sat_churmit-dazhy = { set_character_flag = TAN_prisoned_flag }
+TAN_hemchik_ool = { set_character_flag = TAN_prisoned_flag }
+TAN_ondar_bair = { set_character_flag = TAN_prisoned_flag }
+
+add_ideas = {
+	TAN_limited_recognition
+	TAN_nomadic_society
+	TAN_agriculture
+}
+
+set_variable = { var = TAN_army_attack_factor_var value = -0.2}
+set_variable = { var = TAN_army_defence_factor_var value = -0.2}
+set_variable = { var = TAN_army_morale_factor_var value = -0.5}
+set_variable = { var = TAN_attrition_var value = 0.15}
+set_variable = { var = TAN_experience_gain_army_factor_var value = -0.1}
+
+add_dynamic_modifier = { modifier = TAN_army_dm_communism }
+
+country_event = { days = 225 id = tan.1000 } #независимость 14 августа
+
+set_politics = {
+	ruling_party = communism
+	elections_allowed = no
+}
+set_popularities = {
+	communism = 80
+	democratic = 14
+	fascism = 4
+	neutrality = 2
+}

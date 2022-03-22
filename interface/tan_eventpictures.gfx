@@ -1,0 +1,53 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_report_event_tan_conf"
+		texturefile = "gfx/event_pictures/report_event_tan_conf.png"
+	}
+	
+	spriteType = {
+		name = "GFX_report_event_tan_coup"
+		texturefile = "gfx/event_pictures/report_event_tan_coup.png"
+	}
+	
+	spriteType = {
+		name = "GFX_report_event_mon_coup"
+		texturefile = "gfx/event_pictures/report_event_mon_coup.png"
+	}
+	
+	spriteType = {
+		name = "GFX_report_event_tan_rodz"
+		texturefile = "gfx/event_pictures/report_event_tan_rodz.png"
+	}
+	
+	spriteType = {
+		name = "GFX_report_event_tan_kyzyl"
+		texturefile = "gfx/event_pictures/report_event_tan_kyzyl.png"
+	}
+	
+	spriteType = {
+		name = "GFX_report_event_tan_hemchik"
+		texturefile = "gfx/event_pictures/report_event_tan_hemchik.png"
+	}
+	
+	spriteType = {
+		name = "GFX_report_event_tan_flag_rodz"
+		texturefile = "gfx/event_pictures/report_event_tan_flag_rodz.png"
+	}
+	
+	spriteType = {
+		name = "GFX_report_event_tan_army"
+		texturefile = "gfx/event_pictures/report_event_tan_army.png"
+	}
+	
+	spriteType = {
+		name = "GFX_report_event_tan_kara_sal"
+		texturefile = "gfx/event_pictures/report_event_tan_kara_sal.png"
+	}
+	
+	spriteType = {
+		name = "GFX_report_event_tan_ded"
+		texturefile = "gfx/event_pictures/report_event_tan_ded.png"
+	}
+	
+}

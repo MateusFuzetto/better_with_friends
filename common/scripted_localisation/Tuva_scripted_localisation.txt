@@ -1,0 +1,505 @@
+defined_text = {
+	name = TAN_support_socdems_status
+	text = {
+		trigger = {
+			check_variable = { soc_dems_support > 4 }
+		}
+		localization_key = TAN_support_socdems_status_5
+	}
+	text = {
+		trigger = {
+			check_variable = { soc_dems_support = 4 }
+		}
+		localization_key = TAN_support_socdems_status_4
+	}
+	text = {
+		trigger = {
+			check_variable = { soc_dems_support = 3 }
+		}
+		localization_key = TAN_support_socdems_status_3
+	}
+	text = {
+		trigger = {
+			check_variable = { soc_dems_support = 2 }
+		}
+		localization_key = TAN_support_socdems_status_2
+	}
+	text = {
+		trigger = {
+			check_variable = { soc_dems_support = 1 }
+		}
+		localization_key = TAN_support_socdems_status_1
+	}
+	text = {
+		trigger = {
+			check_variable = { soc_dems_support < 1 }
+		}
+		localization_key = TAN_support_socdems_status_0
+	}
+}
+
+defined_text = {
+	name = TAN_support_cons_status
+	text = {
+		trigger = {
+			check_variable = { con_support > 4 }
+		}
+		localization_key = TAN_support_cons_status_5
+	}
+	text = {
+		trigger = {
+			check_variable = { con_support = 4 }
+		}
+		localization_key = TAN_support_cons_status_4
+	}
+	text = {
+		trigger = {
+			check_variable = { con_support = 3 }
+		}
+		localization_key = TAN_support_cons_status_3
+	}
+	text = {
+		trigger = {
+			check_variable = { con_support = 2 }
+		}
+		localization_key = TAN_support_cons_status_2
+	}
+	text = {
+		trigger = {
+			check_variable = { con_support = 1 }
+		}
+		localization_key = TAN_support_cons_status_1
+	}
+	text = {
+		trigger = {
+			check_variable = { con_support < 1 }
+		}
+		localization_key = TAN_support_cons_status_0
+	}
+}
+
+defined_text = {
+	name = TAN_recognition_status_eng
+	text = {
+		trigger = {
+			has_country_flag = TAN_eng_recognized
+		}
+		localization_key = TAN_recognition_status_max
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_eng_var > 9 }
+		}
+		localization_key = TAN_recognition_status_10
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_eng_var = 9 }
+		}
+		localization_key = TAN_recognition_status_9
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_eng_var = 8 }
+		}
+		localization_key = TAN_recognition_status_8
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_eng_var = 7 }
+		}
+		localization_key = TAN_recognition_status_7
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_eng_var = 6 }
+		}
+		localization_key = TAN_recognition_status_6
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_eng_var = 5 }
+		}
+		localization_key = TAN_recognition_status_5
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_eng_var = 4 }
+		}
+		localization_key = TAN_recognition_status_4
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_eng_var = 3 }
+		}
+		localization_key = TAN_recognition_status_3
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_eng_var = 2 }
+		}
+		localization_key = TAN_recognition_status_2
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_eng_var = 1 }
+		}
+		localization_key = TAN_recognition_status_1
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_eng_var < 1 }
+		}
+		localization_key = TAN_recognition_status_0
+	}
+}
+
+defined_text = {
+	name = TAN_recognition_status_jap
+	text = {
+		trigger = {
+			has_country_flag = TAN_jap_recognized
+		}
+		localization_key = TAN_recognition_status_max
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_jap_var > 9 }
+		}
+		localization_key = TAN_recognition_status_10
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_jap_var = 9 }
+		}
+		localization_key = TAN_recognition_status_9
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_jap_var = 8 }
+		}
+		localization_key = TAN_recognition_status_8
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_jap_var = 7 }
+		}
+		localization_key = TAN_recognition_status_7
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_jap_var = 6 }
+		}
+		localization_key = TAN_recognition_status_6
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_jap_var = 5 }
+		}
+		localization_key = TAN_recognition_status_5
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_jap_var = 4 }
+		}
+		localization_key = TAN_recognition_status_4
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_jap_var = 3 }
+		}
+		localization_key = TAN_recognition_status_3
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_jap_var = 2 }
+		}
+		localization_key = TAN_recognition_status_2
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_jap_var = 1 }
+		}
+		localization_key = TAN_recognition_status_1
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_jap_var < 1 }
+		}
+		localization_key = TAN_recognition_status_0
+	}
+}
+
+defined_text = {
+	name = TAN_recognition_status_chi
+	text = {
+		trigger = {
+			has_country_flag = TAN_chi_recognized
+		}
+		localization_key = TAN_recognition_status_max
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_chi_var > 9 }
+		}
+		localization_key = TAN_recognition_status_10
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_chi_var = 9 }
+		}
+		localization_key = TAN_recognition_status_9
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_chi_var = 8 }
+		}
+		localization_key = TAN_recognition_status_8
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_chi_var = 7 }
+		}
+		localization_key = TAN_recognition_status_7
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_chi_var = 6 }
+		}
+		localization_key = TAN_recognition_status_6
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_chi_var = 5 }
+		}
+		localization_key = TAN_recognition_status_5
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_chi_var = 4 }
+		}
+		localization_key = TAN_recognition_status_4
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_chi_var = 3 }
+		}
+		localization_key = TAN_recognition_status_3
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_chi_var = 2 }
+		}
+		localization_key = TAN_recognition_status_2
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_chi_var = 1 }
+		}
+		localization_key = TAN_recognition_status_1
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_chi_var < 1 }
+		}
+		localization_key = TAN_recognition_status_0
+	}
+}
+
+defined_text = {
+	name = TAN_recognition_status_prc
+	text = {
+		trigger = {
+			has_country_flag = TAN_prc_recognized
+		}
+		localization_key = TAN_recognition_status_max
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_prc_var > 9 }
+		}
+		localization_key = TAN_recognition_status_10
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_prc_var = 9 }
+		}
+		localization_key = TAN_recognition_status_9
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_prc_var = 8 }
+		}
+		localization_key = TAN_recognition_status_8
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_prc_var = 7 }
+		}
+		localization_key = TAN_recognition_status_7
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_prc_var = 6 }
+		}
+		localization_key = TAN_recognition_status_6
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_prc_var = 5 }
+		}
+		localization_key = TAN_recognition_status_5
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_prc_var = 4 }
+		}
+		localization_key = TAN_recognition_status_4
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_prc_var = 3 }
+		}
+		localization_key = TAN_recognition_status_3
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_prc_var = 2 }
+		}
+		localization_key = TAN_recognition_status_2
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_prc_var = 1 }
+		}
+		localization_key = TAN_recognition_status_1
+	}
+	text = {
+		trigger = {
+			check_variable = { recognition_prc_var < 1 }
+		}
+		localization_key = TAN_recognition_status_0
+	}
+}
+
+defined_text = {
+	name = TAN_coup_percent
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = TAN_coup_percent_key
+	}
+}
+
+defined_text = {
+	name = TAN_suppression_level_835
+	text = {
+		trigger = {
+			835 = { check_variable = { TAN_suppressed_region_var = 3 } }
+		}
+		localization_key = TAN_suppression_level_3
+	}
+	text = {
+		trigger = {
+			835 = { check_variable = { TAN_suppressed_region_var = 2 } }
+		}
+		localization_key = TAN_suppression_level_2
+	}
+	text = {
+		trigger = {
+			835 = { check_variable = { TAN_suppressed_region_var = 1 } }
+		}
+		localization_key = TAN_suppression_level_1
+	}
+	text = {
+		trigger = {
+			835 = { check_variable = { TAN_suppressed_region_var = 0 } }
+		}
+		localization_key = TAN_suppression_level_0
+	}
+}
+
+defined_text = {
+	name = TAN_suppression_level_836
+	text = {
+		trigger = {
+			836 = { check_variable = { TAN_suppressed_region_var = 3 } }
+		}
+		localization_key = TAN_suppression_level_3
+	}
+	text = {
+		trigger = {
+			836 = { check_variable = { TAN_suppressed_region_var = 2 } }
+		}
+		localization_key = TAN_suppression_level_2
+	}
+	text = {
+		trigger = {
+			836 = { check_variable = { TAN_suppressed_region_var = 1 } }
+		}
+		localization_key = TAN_suppression_level_1
+	}
+	text = {
+		trigger = {
+			836 = { check_variable = { TAN_suppressed_region_var = 0 } }
+		}
+		localization_key = TAN_suppression_level_0
+	}
+}
+
+defined_text = {
+	name = TAN_suppression_level_837
+	text = {
+		trigger = {
+			837 = { check_variable = { TAN_suppressed_region_var = 3 } }
+		}
+		localization_key = TAN_suppression_level_3
+	}
+	text = {
+		trigger = {
+			837 = { check_variable = { TAN_suppressed_region_var = 2 } }
+		}
+		localization_key = TAN_suppression_level_2
+	}
+	text = {
+		trigger = {
+			837 = { check_variable = { TAN_suppressed_region_var = 1 } }
+		}
+		localization_key = TAN_suppression_level_1
+	}
+	text = {
+		trigger = {
+			837 = { check_variable = { TAN_suppressed_region_var = 0 } }
+		}
+		localization_key = TAN_suppression_level_0
+	}
+}
+
+defined_text = {
+	name = TAN_suppression_level_838
+	text = {
+		trigger = {
+			838 = { check_variable = { TAN_suppressed_region_var = 3 } }
+		}
+		localization_key = TAN_suppression_level_3
+	}
+	text = {
+		trigger = {
+			838 = { check_variable = { TAN_suppressed_region_var = 2 } }
+		}
+		localization_key = TAN_suppression_level_2
+	}
+	text = {
+		trigger = {
+			838 = { check_variable = { TAN_suppressed_region_var = 1 } }
+		}
+		localization_key = TAN_suppression_level_1
+	}
+	text = {
+		trigger = {
+			838 = { check_variable = { TAN_suppressed_region_var = 0 } }
+		}
+		localization_key = TAN_suppression_level_0
+	}
+}

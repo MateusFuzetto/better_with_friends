@@ -1,0 +1,513 @@
+characters={
+
+	TAN_salchak_toka = {
+		name = TAN_salchak_toka
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TAN/portrait_tan_salchak_toka.png"
+			}
+		}
+		country_leader = {
+			desc = "SALCHAK_TOKA_DESC"
+			ideology = stalinism
+			traits = { writer }
+			expire = "1965.1.1.1"
+		}
+	}
+	
+	TAN_hertek_anchimaa_toka = {
+		name = TAN_hertek_anchimaa_toka
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TAN/portrait_tan_hertek_anchimaa_toka.png"
+			}
+		}
+	}
+	
+	TAN_little_khural = {
+		name = TAN_little_khural
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TAN/portrait_tan_council.png"
+			}
+		}
+		country_leader = {
+			ideology = tan_liberalism
+			expire = "1965.1.1.1"
+		}
+	}
+	
+	TAN_fascist_council = {
+		name = TAN_fascist_council
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TAN/portrait_tan_council.png"
+			}
+		}
+	}
+	
+	TAN_anarchy_commune = {
+		name = TAN_anarchy_commune
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TAN/portrait_tan_commune.png"
+			}
+		}
+	}
+	
+	TAN_military_junta = {
+		name = TAN_military_junta
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TAN/portrait_tan_junta.png"
+			}
+		}
+	}
+	
+	TAN_sat_churmit-dazhy = {
+		name = TAN_sat_churmit-dazhy
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TAN/portrait_tan_sat_churmit-dazhi.png"
+			}
+			army = {
+				large = "gfx/leaders/TAN/portrait_tan_sat_churmit-dazhi.png"
+				small = "gfx/interface/ideas/TAN_sat_churmit-dazhi_advisor.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = churmit_dazhy
+			allowed = {
+				original_tag = TAN
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = SOV_imprisoned_flag
+					}
+					NOT = { has_character_flag = SOV_imprisoned_flag } #For flavor purposes only -> Removed in the appropriate focus/event/dec
+				}
+			}
+			cost = 100
+			traits = {
+				prime_minister_dazhy
+			}
+		}
+	}
+	
+	TAN_hemchik_ool = {
+		name = TAN_hemchik_ool
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TAN/portrait_tan_hemchik_ool.png"
+			}
+			army = {
+				small = "gfx/interface/ideas/TAN_hemchik_ool_advisor.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = hemchik_ool
+			allowed = {
+				original_tag = TAN
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = SOV_imprisoned_flag
+					}
+					NOT = { has_character_flag = SOV_imprisoned_flag } #For flavor purposes only -> Removed in the appropriate focus/event/dec
+				}
+			}
+			cost = 100
+			traits = {
+				chairman_of_the_presidium
+			}
+		}
+	}
+	
+	TAN_tanchay_oyun = {
+		name = TAN_tanchay_oyun
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/TAN_tanchay_oyun_advisor.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = tanchay_oyun
+			allowed = {
+				original_tag = TAN
+			}
+			cost = 100
+			traits = {
+				chairman_of_bank
+			}
+		}
+	}
+	
+	TAN_pirinley_kara_sal = {
+		name = TAN_pirinley_kara_sal
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/TAN/portrait_tan_pirinley_kara_sal.png"
+			}
+			army = {
+				small = "gfx/interface/ideas/TAN_pirinley_kara_sal_advisor.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = kara_sal
+			allowed = {
+				original_tag = TAN
+			}
+			available = {
+				NOT = {
+					has_country_leader = {
+						character = TAN_pirinley_kara_sal
+						ruling_only = yes
+					}
+				}
+			}
+			cost = 100
+			traits = {
+				first_prosecutor
+			}
+		}
+	}
+	
+	TAN_ondar_bair = {
+		name = TAN_ondar_bair
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/TAN_ondar_bair_advisor.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = TAN_ondar_bair
+			allowed = {
+				original_tag = TAN
+			}
+			available = {
+				if = {
+					limit = {
+						has_character_flag = SOV_imprisoned_flag
+					}
+					NOT = { has_character_flag = SOV_imprisoned_flag } #For flavor purposes only -> Removed in the appropriate focus/event/dec
+				}
+			}
+			cost = 100
+			traits = {
+				secretary
+			}
+		}
+	}
+	
+	TAN_oyun_polat = {
+		name = TAN_oyun_polat
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/TAN_oyun_polat_advisor.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = TAN_oyun_polat
+			allowed = {
+				original_tag = TAN
+			}
+			cost = 100
+			traits = {
+				minister_of_internal_affairs
+			}
+		}
+	}
+	
+	TAN_nikolay_tovarishchtay = {
+		name = TAN_nikolay_tovarishchtay
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/TAN_nikolay_tovarishchtay_advisor.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = TAN_nikolay_tovarishchtay
+			allowed = {
+				original_tag = TAN
+			}
+			cost = 100
+			traits = {
+				minister_of_livestock
+			}
+		}
+	}
+	
+	TAN_salchak_lopsan = {
+		name = TAN_salchak_lopsan
+		allowed_civil_war = {
+			always = yes
+		}
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/TAN_salchak_lopsan_advisor.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = TAN_salchak_lopsan
+			allowed = {
+				original_tag = TAN
+			}
+			cost = 100
+			traits = {
+				minister_of_culture
+			}
+		}
+	}
+	
+	TAN_gessen_shooma={
+		advisor={
+			slot = high_command
+			idea_token = TAN_gessen_shooma
+			ledger = army
+				allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					army_chief_organizational_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1
+				}
+		}
+		corps_commander = {
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+			legacy_id = 1000
+		}
+		name = TAN_gessen_shooma
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_land_2.dds"
+				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_2.dds"
+			}
+		}
+	}
+	TAN_mongush_suvak={
+		advisor={
+			slot = high_command
+			idea_token = TAN_mongush_suvak
+			ledger = army
+				allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					army_chief_maneuver_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1
+				}
+		}
+		corps_commander = {
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+			legacy_id = 1001
+		}
+
+		name = TAN_mongush_suvak
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_land_3.dds"
+				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_3.dds"
+			}
+		}
+	}
+	TAN_oyun_lakpa={
+		advisor={
+			slot = high_command
+			idea_token = TAN_oyun_lakpa
+			ledger = army
+				allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					army_chief_reform_3
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1
+				}
+		}
+		corps_commander = {
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+			legacy_id = 1002
+		}
+
+		name = TAN_oyun_lakpa
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_land_4.dds"
+				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_4.dds"
+			}
+		}
+	}
+	TAN_tyulyush_kechil_ool = {
+		advisor={	
+			slot = army_chief
+			idea_token = TAN_tyulyush_kechil_ool
+			allowed = {
+					original_tag = TAN
+				}
+				traits = {
+					army_chief_offensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1
+				}
+		}
+		corps_commander = {
+			traits = { cavalry_officer }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 4
+			planning_skill = 5
+			logistics_skill = 4
+			legacy_id = 1003
+		}
+
+		name = TAN_tyulyush_kechil_ool
+		portraits={
+			civilian = {
+				large = "gfx/leaders/TAN/portrait_tan_tyulyush_kechil_ool.png"
+			}
+			army = {
+				large = "gfx/leaders/TAN/portrait_tan_tyulyush_kechil_ool.png"
+				small = "gfx/interface/ideas/TAN_tyulyush_kechil_ool_advisor.png"
+			}
+		}
+	}
+	TAN_semen_seveen={
+		advisor={
+			cost = 50			
+			slot = theorist
+			idea_token = TAN_semen_seveen
+			ledger = army
+			allowed = {
+				original_tag = TAN
+			}	
+			traits = {
+				military_theorist
+			}
+		}
+		corps_commander = {
+			skill = 1
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 1
+			legacy_id = 1005
+		}
+
+		name = TAN_semen_seveen
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_land_1.dds"
+				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_1.dds"
+			}
+		}
+	}
+	
+	TAN_churguy_ool_homushku={
+		advisor={
+			slot = army_chief
+			idea_token = TAN_churguy_ool_homushku
+			allowed = {
+				original_tag = TAN
+			}
+			available = {
+				has_completed_focus = TAN_tank_project
+			}
+			traits = {
+				army_armored_1
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		corps_commander = {
+			traits = { armor_officer }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 5
+			legacy_id = 1004
+		}
+
+		name = TAN_churguy_ool_homushku
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_land_5.dds"
+				large = "gfx/leaders/Asia/Portrait_Asia_Generic_land_5.dds"
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,38 @@
+add_recognition = {
+	custom_effect_tooltip = TAN_limited_recognition_cett
+	hidden_effect = {
+		if = {
+			limit = {
+				has_idea = TAN_limited_recognition
+			}
+			swap_ideas = {
+				remove_idea = TAN_limited_recognition
+				add_idea = TAN_limited_recognition2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_limited_recognition2
+			}
+			swap_ideas = {
+				remove_idea = TAN_limited_recognition2
+				add_idea = TAN_limited_recognition3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_limited_recognition3
+			}
+			swap_ideas = {
+				remove_idea = TAN_limited_recognition3
+				add_idea = TAN_limited_recognition4
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = TAN_limited_recognition4
+			}
+			remove_ideas = TAN_limited_recognition4
+		}
+	}
+}
