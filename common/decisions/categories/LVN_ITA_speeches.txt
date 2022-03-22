@@ -1,0 +1,16 @@
+###############
+#### ITALY ####
+###############
+
+ITA_speeches_category = {
+	icon = generic_propaganda
+
+	picture = GFX_decision_cat_generic_benito
+
+	allowed = {
+		original_tag = ITA
+		has_global_flag = speeches_enabled #mod to turn off speech function for now
+	} 
+	
+	
+}

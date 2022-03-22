@@ -1,0 +1,129 @@
+﻿add_namespace = pci_news
+
+# End of the War
+news_event = {
+	id = pci_news.1
+	title = {
+		text = pci_news.1.t_stalin
+		trigger = {
+			PCI = { has_completed_focus = PCI_stalin }
+		}
+	}
+
+	title = {
+		text = pci_news.1.t_indy
+		trigger = {
+			PCI = { has_completed_focus = PCI_red_italy }
+		}
+	}
+	
+	desc = {
+		text = pci_news.2.desc_stalin
+		trigger = {
+			PCI = { has_completed_focus = PCI_stalin }
+		}
+	}
+	desc = {
+		text = pci_news.2.desc_indy
+		trigger = {
+			PCI = { has_completed_focus = PCI_red_italy }
+		}
+	}
+
+	picture = GFX_news_event_034
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			PCI = {
+				#add_timed_idea = { idea = SPA_recovering_from_civil_war days = 1825 }
+				if = {
+					limit = {
+						has_completed_focus = PCI_stalin
+					}
+					SOV = {
+						country_event = { id = pci_events.1 hours = 6 }
+					}
+					country_event = { id = pci_events.2 hours = 6 }
+				}
+			}
+		}
+	}
+	
+	option = { #Notification event for us
+		name = pci_news.1.a
+		trigger = { tag = PCI }
+		
+	}
+
+	option = { #Notification event for SOV, Stalinist
+		name = pci_news.1.b
+		trigger = { 
+			tag = SOV
+			PCI = { has_completed_focus = PCI_stalin }
+		}
+		
+	}
+	
+	option = { #Notification event for SOV, non Stalinist
+		name = pci_news.1.c
+		trigger = { 
+			tag = SOV
+			PCI = { has_completed_focus = PCI_red_italy }
+		}
+		
+	}
+	
+	option = { #Notification event for any other communist country, not Soviet Union
+		name = pci_news.1.d
+		trigger = { 
+			NOT = {
+				tag = SOV
+				tag = PCI
+			}
+			has_government = communism
+		}
+		
+	}
+	
+	option = { #Notification event for any fascist country
+		name = pci_news.1.e
+		trigger = { 
+			NOT = {
+				tag = SOV
+				tag = PCI
+			}
+			has_government = fascism
+		}
+		
+	}
+	
+	option = { #Notification event for any democratic country
+		name = pci_news.1.f
+		trigger = { 
+			NOT = {
+				tag = SOV
+				tag = PCI
+			}
+			has_government = democratic
+		}
+		
+	}
+	
+	option = { #Notification event for any non-aligned country
+		name = pci_news.1.g
+		trigger = { 
+			NOT = {
+				tag = SOV
+				tag = PCI
+			}
+			has_government = neutrality
+		}
+		
+	}
+}
+
+

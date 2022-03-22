@@ -1,0 +1,2671 @@
+ITALIA_military_command = {
+
+	ITA_aftermath_ethiopian_offensive = {			
+			
+		allowed = { original_tag = ITA }
+		
+		available = { 
+			has_war_with = ETH
+		}
+		
+		visible = { 
+			has_war_with = ETH
+			has_government = fascism
+			date < 1936.04.01
+			NOT = { has_global_flag = ETH_bonus_ended } 
+		} 
+		
+		target_trigger = {
+			FROM = {
+				tag = ETH
+			}
+		}
+		
+		priority = 100
+		
+		fire_only_once = yes
+			
+		targeted_modifier = {
+			tag = ETH
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+		
+		days_remove = 90
+		
+		
+		complete_effect = {
+			swap_ideas = {
+				remove_idea = ITA_international_condemnation
+				add_idea = ITA_international_condemnation_2
+			}
+			set_global_flag = ETH_bonus_ended	
+		}	
+		
+	}
+
+	ITA_march_of_the_iron_will = {			
+			
+		allowed = { original_tag = ITA }
+		
+		available = { 
+			has_war_with = ETH
+			ETH = {
+				surrender_progress > 0.5
+			}
+		}
+		
+		visible = { 
+			has_war_with = ETH
+			has_government = fascism
+		} 
+		
+		target_trigger = {
+			FROM = {
+				tag = ETH
+			}
+		}
+		
+		priority = 100
+		
+		fire_only_once = yes
+			
+		targeted_modifier = {
+			tag = ETH
+			attack_bonus_against = 0.15
+			defense_bonus_against = 0.15
+		}
+		
+		modifier = {
+			experience_gain_army_factor = 0.10
+		}
+		
+		days_remove = 90
+		
+		
+		complete_effect = {
+			add_war_support = 0.1
+			add_command_power = 25
+			add_political_power	= 50		
+		}	
+		
+	}	
+	
+	ITA_sack_the_old_guard = {
+
+		icon = generic_army_support
+
+		available = {
+			has_war = yes
+		}
+
+		visible = {
+			has_idea = emilio_de_bono
+		}
+
+		fire_only_once = yes
+
+		days_remove = 10
+
+		cost = 30
+
+		ai_will_do = {
+			factor = 10 
+		}
+
+		complete_effect = {
+			set_global_flag = LVN_de_bono_sacked
+			remove_ideas = emilio_de_bono
+			every_unit_leader = {
+				limit = {
+					has_unit_leader_flag = this_is_bono
+				}
+					unit_leader_event = { id = italia_ita.22 hours = 12 }
+			}
+			custom_effect_tooltip = ita_military_readiness_05_tt
+			add_to_variable = { var = ita_ready_military_progress value = 5 }
+			custom_effect_tooltip = king_is_concerned
+			add_to_variable = { var = king_opinion_level value = -2 }
+		}
+	}
+
+	ITA_amedeo = {
+		cost = 0
+		icon = GFX_decision_generic_military
+		
+		allowed = { TAG = ITA }
+		
+		available = {
+			has_country_flag = italia_new_officers_ready 
+		}
+		
+		visible = { 
+			original_tag = ITA
+			OR = {
+				has_government = neutrality
+				has_idea = italia_victor_emmanuel 
+				has_idea = king_umberto 
+			}
+			has_country_flag = LVN_war_with_major
+		}
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			add_corps_commander_role = {
+				Character = ITA_Amedeo_Guillet
+				traits = { cavalry_officer cavalry_leader trait_reckless commando guerilla_fighter }
+				skill = 4
+				attack_skill = 5
+				defense_skill = 2
+				planning_skill = 3
+				logistics_skill = 5
+			}
+		}
+		
+	}
+	
+	ITA_bettoni = {
+		cost = 0
+		icon = GFX_decision_generic_military
+		
+		allowed = { TAG = ITA }
+		
+		available = {
+			has_country_flag = italia_cavalleria_charge 
+		}
+		
+		visible = { 
+			original_tag = ITA
+			OR = {
+				has_government = neutrality
+				has_idea = italia_victor_emmanuel 
+				has_idea = king_umberto 
+			}
+			has_country_flag = LVN_war_with_major
+		}
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			set_global_flag = LVN_bettoni_recruited
+			show_unit_leaders_tooltip = ITA_bettoni
+		}
+		
+	}
+	
+	italia_recall_garibaldi = { 
+		icon = GFX_decision_generic_military
+		cost = 25
+
+		available = {
+			original_tag = ITA
+			has_completed_focus = italia_topple_duce
+		}
+
+		visible = {
+			original_tag = ITA
+			date < 1944.1.1
+			NOT = {	has_country_flag = ITA_fascist_war }
+			NOT = {	has_country_flag = ITA_communist_war }
+			has_completed_focus = italia_topple_duce
+			NOT = { has_country_leader = { name = "Pius XII" ruling_only = yes } }
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 5
+				has_war = no 
+			}			
+			modifier = {
+				factor = 3
+				has_war = yes
+			}
+		}
+
+		complete_effect = {
+			show_unit_leaders_tooltip = ITA_Giuseppe_Garibaldi
+			set_global_flag = we_brought_back_garibaldi
+		}
+	}
+		
+	italia_recall_paolo = { 
+		icon = GFX_decision_generic_naval
+		cost = 25
+
+		available = {
+			OR = {
+				has_idea = italia_victor_emmanuel
+				has_idea = king_umberto
+				has_country_leader = { name = "Victor Emmanuel III" ruling_only = yes }
+				has_country_leader = { name = "Umberto II" ruling_only = yes }
+			}
+		}
+
+		visible = {
+			tag = ITA
+			date < 1946.1.1
+			has_completed_focus = italia_topple_duce
+			has_government = neutrality
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1		
+			modifier = {
+				factor = 3
+				has_war = yes
+			}
+		}
+
+		complete_effect = {
+			show_unit_leaders_tooltip = ITA_paolo_thaon_di_revel
+			set_global_flag = LVN_revel_recruited
+		}
+	}
+	
+	italia_recall_rizzo = { 
+		icon = GFX_decision_generic_naval
+		cost = 25
+
+		available = {
+			any_enemy_country = {
+				is_major = yes 
+			}
+			OR = {
+				has_government = fascism 
+				has_government = neutrality 
+			}
+		}
+
+		visible = {
+			has_war = yes 
+			tag = ITA
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1		
+			modifier = {
+				factor = 3
+				has_war = yes
+			}
+		}
+
+		complete_effect = {
+			show_unit_leaders_tooltip = ITA_Luigi_Rizzo
+			set_global_flag = LVN_Rizzo_recalled
+			custom_effect_tooltip = available_military_high_command
+			show_ideas_tooltip = luigi_rizzo
+		}
+	}
+
+	
+	ITA_frattini = {
+		cost = 0
+		icon = GFX_decision_generic_military
+		
+		allowed = { original_tag = ITA }
+		
+		available = {
+			has_army_experience > 10
+		}
+		
+		visible = { 
+			TAG = ITA
+			has_completed_focus = italia_airborne_focus
+			has_country_flag = LVN_war_with_major
+		}
+		
+		fire_only_once = yes
+		
+		complete_effect = {
+			show_unit_leaders_tooltip = ITA_Enrico_Frattini
+			set_global_flag = frattini_recruited
+		}
+		
+	}
+	
+	
+	ITA_rommel = { 
+	
+		cost = 50
+		icon = GFX_decision_rommel
+		
+		allowed = { TAG = ITA }
+		
+		available = {
+			has_war_with = ENG
+			is_in_faction_with = GER
+			custom_trigger_tooltip = {
+				tooltip = italia_rommel_northafrica_tt
+			AND = {
+				OR = {
+					has_war_with = ENG
+					has_war_with = FRA
+				}				
+				any_state = {
+					region = 126	
+					is_controlled_by = ROOT }
+				OR = {
+				any_state = {
+					OR = {
+					region = 126
+					region = 128 }
+					is_controlled_by = FRA }
+				any_state = {
+					OR = {
+					region = 126
+					region = 128 }
+					is_controlled_by = ENG }
+					}
+				}
+			}
+				
+		}
+
+		visible = {
+			has_war = yes
+			is_in_faction_with = GER
+			is_ai = no
+		}
+
+		fire_only_once = yes
+
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 5
+				has_war = no 
+			}			
+			modifier = {
+				factor = 3
+				has_war = yes
+			}
+		}
+
+		complete_effect = {
+			GER = {
+				add_political_power = 50 
+			}
+			custom_effect_tooltip = rommel_tt
+			hidden_effect = {
+				GER = {
+					GER_erwin_rommel = {
+						set_nationality = ITA
+						set_character_flag = LVN_rommel_flag
+						set_unit_leader_flag = GER_Rommel
+						add_unit_leader_trait = trait_german
+					}
+				}
+			}
+		}
+
+	}
+	
+	ITA_borghese = { 
+	
+		cost = 50
+		icon = GFX_decision_generic_naval
+		
+		allowed = { original_tag = ITA }
+		
+		available = {
+			has_navy_experience > 10
+		}
+				
+
+		visible = {
+			has_navy_experience > 5
+			has_country_flag = LVN_war_with_major
+			has_government = fascism
+			NOT = { has_global_flag = made_borghese_admiral }
+		}
+
+		fire_only_once = yes
+
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		complete_effect = {
+			set_global_flag = made_borghese_admiral
+			add_naval_commander_role = {
+				Character = ITA_junio_valerio_borghese
+				traits = { bold seawolf green_water_expert }
+				skill = 4
+				attack_skill = 5
+				defense_skill = 2
+				planning_skill = 3
+				logistics_skill = 2
+			}
+		}
+		
+	}
+
+	
+}
+
+operations = {
+
+	LVN_secure_rome = {
+		icon = generic_prepare_civil_war
+		
+		priority = 1000
+
+		available = {
+			divisions_in_state = {
+				type = infantry
+				size > 2
+				state = 2
+			}
+			divisions_in_state = {
+				type = armor
+				size > 0
+				state = 2
+			}
+		} 
+
+		days_mission_timeout = 17
+
+		is_good = no
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ITA 	
+		}
+		
+
+		activation = {
+			has_country_flag = blocked #we activate manually	
+		}
+
+		timeout_effect = {
+			ITA = { country_event = italia_ita.125 }
+		}
+		
+		complete_effect = {
+			ITA = { country_event = italia_ita.124 }
+		}
+	
+	} #Closing Bracket
+
+	italia_operation_herkules = {
+		icon = generic_operation
+		allowed = {
+			original_tag = ITA }
+			
+		available = {
+			has_war_with = ENG
+			ENG = { controls_state = 116 }
+			has_completed_focus = italia_airborne_focus
+		}
+		visible = {
+			original_tag = ITA
+			has_war_with = ENG
+			ENG = { controls_state = 116 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 180
+		targeted_modifier = {
+			tag = ENG
+			attack_bonus_against = 0.05
+			defense_bonus_against = 0.05
+		}
+		modifier = {
+			paradrop_organization_factor = 0.5
+			paratrooper_aa_defense = 0.5
+			paratrooper_count_per_plane = 0.5
+		}
+	}
+	
+}#Closing bracket	
+
+political_actions = {
+
+	italia_remove_mussolini_decision = {
+	
+		cost = 300
+		icon = GFX_decision_mussolini
+		priority = 1000
+		allowed = { tag = ITA }
+		available = { 
+			has_completed_focus = ITA_italy_first
+		}
+		
+		visible = { has_country_leader = { name = "Benito Mussolini" ruling_only = yes } }
+	
+		fire_only_once = yes
+		
+		ai_will_do = { factor = 0 }
+		
+		days_remove = 3
+		
+		modifier = {
+			political_power_factor = -1
+		}
+		
+		complete_effect = {
+			set_country_flag = removing_mussolini_decision
+			if = {
+				limit = {
+					NOT = { has_global_flag = italia_balbo_dead }
+				}
+				add_stability = -0.2
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.15
+				}
+			}
+			else_if = {
+				add_stability = -0.25
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.20
+				}
+			}		
+		}
+		
+		remove_effect = {
+			country_event = italia_ita.81
+		}
+	
+	}
+	
+	lvn_mafalda_agreement_decision = {
+	
+		cost = 100
+		icon = GFX_decision_mussolini
+		priority = 1000
+		allowed = { tag = ITA }
+		available = { 
+			has_completed_focus = ITA_italy_first
+			GER = {
+				has_opinion = {
+					target = ROOT
+					value > 60
+				}
+			}
+		}
+		
+		visible = { 
+			has_global_flag = mafalda_arrested
+			is_in_faction_with = GER
+		}
+	
+		fire_only_once = yes
+		
+		ai_will_do = { factor = 1 }
+		
+		days_remove = 10
+		
+		remove_effect = {
+			country_event = italia_ita.2121
+		}
+	
+	}
+	
+	
+}#Closing bracket
+
+LVN_join_industry_decisions = {
+
+	ita_fra_industry_cooperation_mission = {
+	priority = 2
+	icon = GFX_decision_generic_industry
+	
+	allowed = { 
+		OR = {
+			original_tag = ITA
+			original_tag = FRA
+		}
+	}
+	
+	available = {
+			hidden_trigger = {
+				has_country_flag = we_did_it_we_really_did
+				}
+	}
+	
+	activation = {
+		always = no #activated by event
+	}
+	
+	days_mission_timeout = 90
+		
+	#is_good = yes
+	
+	modifier = {
+		civilian_factory_use = 1
+		}
+
+	days_remove = 15
+	
+	timeout_effect = {
+		LVN_ita_fra_industry_effect = yes
+		set_country_flag = LVN_industry_mission_complete
+	}
+}
+	
+	industry_cooperation_escalate_mil = {
+	
+		icon = GFX_decision_generic_industry
+		
+		priority = 1
+		
+		ai_will_do = {
+			factor = 0
+		}
+		
+	
+		available = {
+			#has_active_mission = ita_fra_industry_cooperation_mission
+		}
+	
+		visible = { 
+			check_variable = { LVN_ita_fra_factories < 5 }
+			has_active_mission = ita_fra_industry_cooperation_mission
+		}
+	
+		cost = 50
+	
+		modifier = {
+			civilian_factory_use = 1
+		}
+
+		days_re_enable = 5
+		days_remove = 10
+	
+		complete_effect = {
+			add_to_variable = {
+				var = LVN_ita_fra_factories
+				value = 1
+			}
+			add_days_mission_timeout = {
+				mission = ita_fra_industry_cooperation_mission
+				days = 10
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						FRA = {
+							has_active_mission = ita_fra_industry_cooperation_mission
+							}
+						}
+					FRA = {
+						add_days_mission_timeout = {
+						mission = ita_fra_industry_cooperation_mission
+						days = 10
+						}	
+					}
+				}
+			}
+	
+		}
+		
+		remove_effect = {
+			add_political_power = 10
+		}
+	}	
+
+}#Join Industry Closing Bracket
+
+economy_decisions = {	
+	italia_southern_decision_abruzzo = {
+	
+	allowed = { original_tag = ITA }
+	
+	available = {
+		controls_state = 157
+		has_completed_focus = italia_invest_southern_italy
+		NOT = { has_country_flag = italia_southern_investment_selected }
+	}
+		
+	visible = {
+		157 = { has_dynamic_modifier = { modifier = ITA_weak_southern_industry } }		
+	}
+	
+	highlight_states = {
+		highlight_state_targets = {
+			state = 157
+		}
+	}
+		
+	fire_only_once = yes
+	
+	modifier = {
+		civilian_factory_use = 2
+		}
+
+	days_remove = 90
+	
+	complete_effect = {
+		set_country_flag = italia_southern_investment_selected
+	}
+	
+	remove_effect = { 
+		hidden_effect = {
+			157 = { 
+				save_event_target_as = LVN_industry_state_target
+				set_state_flag = abruzzo_industrialized 
+				state_event = { id =  italia_ita.119 trigger_for = controller }
+			} 
+		}
+		157 = {	
+		remove_dynamic_modifier = { modifier = ITA_weak_southern_industry } 
+			}
+		157 = { custom_effect_tooltip = improved_southern_bonus_tt }
+		hidden_effect = {
+		157 = {
+		add_dynamic_modifier = {
+			modifier = ITA_invested_southern_industry
+			days = 180
+					}
+				}
+			}
+		clr_country_flag = italia_southern_investment_selected
+		}
+	}
+	
+	
+	italia_southern_decision_campania = {
+	
+	allowed = { original_tag = ITA }
+	
+	available = {
+		controls_state = 117
+		has_completed_focus = italia_invest_southern_italy
+		NOT = { has_country_flag = italia_southern_investment_selected }
+		}
+		
+	visible = {
+		117 = { has_dynamic_modifier = { modifier = ITA_weak_southern_industry } }
+		}
+		
+	highlight_states = {
+		highlight_state_targets = {
+			state = 117
+		}
+	}
+		
+	fire_only_once = yes
+	
+	modifier = {
+		civilian_factory_use = 2
+		}
+
+	complete_effect = {
+		set_country_flag = italia_southern_investment_selected
+	}
+	
+	days_remove = 90
+		
+	remove_effect = { 
+		hidden_effect = {
+			117 = { 
+				save_event_target_as = LVN_industry_state_target
+				set_state_flag = abruzzo_industrialized 
+				state_event = { id =  italia_ita.119 trigger_for = controller }
+			} 
+		} 
+		117 = {	
+		remove_dynamic_modifier = { modifier = ITA_weak_southern_industry } 
+			}
+		117 = { custom_effect_tooltip = improved_southern_bonus_tt }
+		hidden_effect = {
+		117 = {
+		add_dynamic_modifier = {
+			modifier = ITA_invested_southern_industry
+			days = 180
+					}
+				}		
+			} 
+		clr_country_flag = italia_southern_investment_selected
+		}		
+
+	}
+		
+	italia_southern_decision_calabria = {
+	
+	allowed = { original_tag = ITA }
+	
+	available = {
+		controls_state = 156
+		has_completed_focus = italia_invest_southern_italy
+		NOT = { has_country_flag = italia_southern_investment_selected }
+		}
+		
+	visible = {
+		156 = { has_dynamic_modifier = { modifier = ITA_weak_southern_industry } }
+		}
+		
+	highlight_states = {
+		highlight_state_targets = {
+			state = 156
+		}
+	}
+		
+	fire_only_once = yes
+	
+	modifier = {
+		civilian_factory_use = 2
+		}
+		
+	complete_effect = {
+		set_country_flag = italia_southern_investment_selected
+	}
+
+	days_remove = 90
+		
+	remove_effect = { 
+		hidden_effect = {
+			156 = { 
+				save_event_target_as = LVN_industry_state_target
+				set_state_flag = abruzzo_industrialized 
+				state_event = { id =  italia_ita.119 trigger_for = controller }
+			} 
+		}
+		156 = {
+		remove_dynamic_modifier = { modifier = ITA_weak_southern_industry }
+			}
+		156 = { custom_effect_tooltip = improved_southern_bonus_tt }
+		hidden_effect = {
+		156 = {
+		add_dynamic_modifier = {
+			modifier = ITA_invested_southern_industry
+			days = 180
+					}
+				}
+			} 
+		clr_country_flag = italia_southern_investment_selected
+		}
+	}
+	
+	italia_southern_decision_sicily = {
+	
+	allowed = { original_tag = ITA }
+	
+	available = {
+		controls_state =  115
+		has_completed_focus = italia_invest_southern_italy
+		NOT = { has_country_flag = italia_southern_investment_selected }
+		}
+		
+	visible = {
+		115 = { has_dynamic_modifier = { modifier = ITA_weak_southern_industry } }
+	}
+	
+	highlight_states = {
+		highlight_state_targets = {
+			state = 115
+		}
+	}
+		
+	fire_only_once = yes
+	
+	complete_effect = {
+		set_country_flag = italia_southern_investment_selected
+	}
+	
+	modifier = {
+		civilian_factory_use = 2
+		}
+
+	days_remove = 90
+		
+	remove_effect = {
+		hidden_effect = { 
+			115 = {
+				save_event_target_as = LVN_industry_state_target
+				set_state_flag = sicily_industrialized 
+				state_event = { id =  italia_ita.119 trigger_for = controller }
+			} 
+		}
+		115 = {	
+			remove_dynamic_modifier = { modifier = ITA_weak_southern_industry } 
+		}
+		115 = { custom_effect_tooltip = improved_southern_bonus_tt }
+		hidden_effect = {
+		115 = {
+		add_dynamic_modifier = {
+			modifier = ITA_invested_southern_industry
+			days = 180
+					}
+				}
+			}
+		clr_country_flag = italia_southern_investment_selected		
+		}
+	}
+}
+
+
+
+LVN_referendum_category = {
+
+	LVN_appeal_to_catholics = {
+	#form socialist in gov
+		icon = GFX_decision_eng_trade_unions_demand
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_referendum
+			NOT = { has_country_flag = referendum_complete }
+		}
+		
+		available = {
+			NOT = { has_government = fascism }
+			NOT = { has_government = communism }
+			has_war = no
+			check_variable = { LVN_republic_party > 20 }
+		}
+		
+		priority = 9
+		
+		fire_only_once = yes
+		
+		cost = 5 
+		
+		complete_effect = {
+			add_popularity = {
+			    ideology = democratic
+			    popularity = 0.10
+			}
+			add_popularity = {
+			    ideology = neutrality
+			    popularity = 0.05
+			}
+			custom_effect_tooltip = ita_republic_30_tt
+			hidden_effect = {
+				set_variable = { LVN_republic_party = 30 }
+			}
+		}	
+	}
+	
+	LVN_ref_form_kings_coalition = {
+	#Final check for King's Party
+		icon = GFX_decision_eng_trade_unions_demand
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_referendum
+			NOT = { has_country_flag = referendum_complete }
+		}
+		
+		available = {
+			NOT = { has_government = fascism }
+			NOT = { has_government = communism }
+			has_war = no
+			check_variable = { LVN_kings_party > 20 }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 10
+		
+		priority = 10
+		
+		complete_effect = {
+			set_party_name = { 
+				ideology = democratic 
+				long_name = ITA_liberal_party_long
+				name = ITA_liberal_party
+			}
+			set_party_name = { 
+				ideology = neutrality
+				long_name = ita_monarchy_party_long
+				name = ita_monarchy_party
+			}
+			create_country_leader = {
+				name = "Benedetto Croce"
+				desc = "POLITICS_VICTOR_EMMANUEL_III_DESC"
+				picture = "Portrait_ITA_Benedetto_Croce.dds"
+				expire = "1965.1.1"
+				ideology = conservatism
+				traits = {
+
+					}
+			}
+			if = {
+				limit = {
+					not = { has_idea = ITA_luigi_einaudi }
+				}
+				add_ideas = ITA_luigi_einaudi
+			}
+			custom_effect_tooltip = ita_monarchy_30_tt
+			hidden_effect = {
+				set_variable = { LVN_kings_party = 30 }
+			}
+		}
+	}
+
+	LVN_appeal_southern_workers = {
+	#form socialist in gov
+		icon = GFX_decision_eng_trade_unions_demand
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_referendum
+			NOT = { has_country_flag = referendum_complete }
+		}
+		
+		available = {
+			NOT = { has_government = fascism }
+			has_war = no
+			check_variable = { LVN_socialists_party > 20 }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+		
+		priority = 9
+		
+		complete_effect = {
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.05
+			}
+			custom_effect_tooltip = ita_socialism_30_tt
+			hidden_effect = {
+				set_variable = { LVN_socialists_party = 30 }
+			}
+		}	
+	}
+	
+	LVN_communist_socialist_cooperation = {
+	#extremely good for socialist
+		icon = GFX_decision_generic_nationalism
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_referendum
+			NOT = { has_country_flag = referendum_complete }
+		}
+		
+		available = {
+			NOT = { has_government = fascism }
+			has_war = no
+			check_variable = { LVN_socialists_party > 19 }
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+		
+		complete_effect = {
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.15
+			}
+			custom_effect_tooltip = ita_socialism_10_tt
+			hidden_effect = {
+				add_to_variable = { LVN_socialists_party = 10 }
+			}
+		}	
+	}
+	
+	LVN_ref_stop_foreign_influence = {
+	#Good for socialists, a little for dems
+		icon = GFX_decision_eng_trade_union_support
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_referendum
+			NOT = { has_country_flag = referendum_complete }
+		}
+		
+		available = {
+			NOT = { has_government = fascism }
+			NOT = { has_government = communism }
+			has_war = no
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+		
+		complete_effect = {
+		if = {
+			limit = {
+				is_in_faction = yes
+			}
+			every_other_country = {
+				limit = { is_in_faction_with = ROOT }
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = refused_help
+				}
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+					is_faction_leader = yes
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = withdrew_advisors
+				}
+			}
+			leave_faction = yes
+		}
+		every_other_country  = {
+			limit = { has_government = democratic }
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = different_party_types
+			}
+		}
+		custom_effect_tooltip = ita_socialism_05_tt
+		custom_effect_tooltip = ita_republic_05_tt
+		hidden_effect = {
+			add_to_variable = { LVN_republic_party = 5 }
+			add_to_variable = { LVN_socialists_party = 5 }
+		}
+		}	
+	}
+	
+	LVN_ref_socialist_propaganda = {
+	#Good for socialists
+		icon = GFX_decision_eng_propaganda_campaigns
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		priority = 2
+		
+		visible = {
+			has_completed_focus = italia_referendum
+			NOT = { has_country_flag = referendum_complete }
+		}
+		
+		available = {
+			NOT = { has_government = fascism }
+			has_war = no
+		}
+		
+		days_re_enable = 70
+		
+		cost = 25
+		
+		complete_effect = {
+		country_event = { id = LVNref.4 days = 1 }
+		custom_effect_tooltip = ita_socialism_05_tt
+			hidden_effect = {
+				add_to_variable = { LVN_socialists_party = 5 }
+			}
+		}
+	}
+	
+	LVN_ref_promises_of_peace = {
+	#Good for socialism and democracy
+		
+		icon = GFX_decision_generic_political_discourse
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_referendum
+			NOT = { has_country_flag = referendum_complete }
+		}
+		
+		available = {
+			NOT = { has_government = fascism }
+			NOT = { has_government = communism }
+			has_war = no
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+		add_ideas = neutrality_idea
+		custom_effect_tooltip = ita_republic_05_tt
+		hidden_effect = {
+			add_to_variable = { LVN_republic_party = 5 }
+		}
+		}
+	}
+	
+	LVN_ref_republican_propaganda = {
+	#Good for democracy
+		
+		icon = GFX_decision_eng_blackshirt_march
+		
+		priority = 3
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_referendum
+			NOT = { has_country_flag = referendum_complete }
+		}
+		
+		available = {
+			NOT = { has_government = fascism }
+			NOT = { has_government = communism }
+			has_war = no
+		}
+		
+		days_re_enable = 70
+		
+		cost = 25
+		
+		complete_effect = {
+		country_event = { id = LVNref.5 days = 1 }
+		custom_effect_tooltip = ita_republic_05_tt
+		hidden_effect = {
+			add_to_variable = { LVN_republic_party = 5 }
+		}
+		}
+	}
+	
+	LVN_ref_support_from_allies = {
+	#Good for historical path
+		icon = GFX_decision_ger_mefo_bills
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_referendum
+			NOT = { has_country_flag = referendum_complete }
+		}
+		
+		available = {
+			NOT = { has_government = fascism }
+			NOT = { has_government = communism }
+			OR = {	
+				is_in_faction_with = ENG
+				is_in_faction_with = USA
+			}
+			OR = {	
+				ENG = {
+					is_faction_leader = yes
+					num_faction_members > 2
+				}
+				USA = {
+					is_faction_leader = yes
+					num_faction_members > 2
+				}
+			}
+			has_war = no
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			country_event = { id = LVNref.6 days = 1 }
+			custom_effect_tooltip = ita_monarchy_05_tt
+			custom_effect_tooltip = ita_republic_05_tt
+			hidden_effect = {
+				add_to_variable = { LVN_kings_party = 5 }
+				add_to_variable = { LVN_republic_party = 5 }
+			}
+		}
+	}
+	
+	LVN_rally_the_right = {
+	#Good for historical path
+		icon = GFX_decision_generic_nationalism
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_referendum
+			NOT = { has_country_flag = referendum_complete }
+		}
+		
+		available = {
+			NOT = { has_government = fascism }
+			NOT = { has_government = communism }
+			has_war = no
+		}
+		
+		fire_only_once = yes
+		
+		cost = 25
+		
+		complete_effect = {
+			custom_effect_tooltip = ita_monarchy_05_tt
+			hidden_effect = {
+				add_to_variable = { LVN_kings_party = 5 }
+			}
+		}
+	}
+	
+	LVN_ref_kings_propaganda = {
+	#Good for King's party
+		icon = GFX_decision_eng_propaganda_campaigns
+		
+		priority = 4
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_referendum
+			NOT = { has_country_flag = referendum_complete }
+		}
+		
+		available = {
+			NOT = { has_government = fascism }
+			NOT = { has_government = communism }
+			has_war = no
+		}
+		
+		days_re_enable = 70
+		
+		cost = 25
+		
+		complete_effect = {
+		country_event = { id = LVNref.2 days = 1 }
+		custom_effect_tooltip = ita_monarchy_10_tt
+			hidden_effect = {
+				add_to_variable = { LVN_kings_party = 10 }
+			}
+		}
+	}
+	
+	LVN_ref_bulwark_communism = {
+	#Good for King's party and democracy
+		icon = GFX_decision_generic_civil_support
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_referendum
+			NOT = { has_country_flag = referendum_complete }
+		}
+		
+		available = {
+			NOT = { has_government = fascism }
+			NOT = { has_government = communism }
+			has_war = no
+		}
+		
+		fire_only_once = yes
+
+		cost = 15
+		
+		complete_effect = {
+			set_country_flag = vowed_no_communists_gov
+			custom_effect_tooltip = ita_monarchy_05_tt
+			custom_effect_tooltip = ita_republic_05_tt
+			hidden_effect = {
+				add_to_variable = { LVN_kings_party = 5 }
+				add_to_variable = { LVN_republic_party = 5 }
+			}
+		}
+	}
+
+
+}#End of referendum category
+
+LVN_amnesty_togliatti_cat = {
+
+	LVN_amnesty_peace_and_unity_speech = {
+	
+		priority = 20
+		
+		icon = GFX_decision_eng_propaganda_campaigns
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_amnesty_togliatti
+		}
+		
+		available = {
+		}
+		
+		days_re_enable = 35
+		days_remove = 35
+		
+		activation = {
+			always = no #activated by event
+		}
+			
+		#is_good = yes
+		
+		cost = 75
+		
+		remove_effect = {
+			add_popularity = {
+			    ideology = democratic
+			    popularity = 0.05
+			}
+			add_stability = 0.05
+		}
+	}
+
+	LVN_amnesty_communist_fighters = {
+	
+		priority = 19
+		
+		icon = GFX_decision_amnesty_togliatti_individual
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_amnesty_togliatti
+			has_completed_focus = italia_utilitze_garibaldi
+		}
+		
+		available = {
+			has_completed_focus = italia_utilitze_garibaldi
+		}
+		
+		days_re_enable = 14
+		days_remove = 70
+		
+		activation = {
+			always = no #activated by event
+		}
+			
+		#is_good = yes
+		
+		cost = 100
+		
+		remove_effect = {
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.4
+			}
+			add_stability = 0.05
+			add_manpower = 4000
+		}
+	}
+	
+	LVN_amnesty_fascist_fighters = {
+	
+		priority = 18
+		
+		icon = GFX_decision_amnesty_togliatti_individual 
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_amnesty_togliatti
+		}
+		
+		available = {
+		}
+		
+		days_re_enable = 14
+		days_remove = 70
+		
+		activation = {
+			always = no #activated by event
+		}
+			
+		#is_good = yes
+		
+		cost = 100
+		
+		remove_effect = {
+			add_popularity = {
+			    ideology = democratic
+			    popularity = -0.05
+			}
+			add_stability = 0.05
+			add_manpower = 2000
+		}
+	}
+
+	LVN_amnesty_giovanni_marinelli = {
+	
+		priority = 1
+		
+		icon = GFX_decision_amnesty_togliatti_individual 
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_amnesty_togliatti
+			NOT = {has_global_flag = verona_gr_2_purged}
+		}
+		
+		available = {
+		}
+		
+		fire_only_once = yes
+		days_remove = 14
+		
+		activation = {
+			always = no #activated by event
+		}
+			
+		#is_good = yes
+		
+		cost = 100
+		
+		remove_effect = {
+			set_country_flag = LVN_amnesty_togliatti_marinelli_flag
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.1
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = ITA_giovanni_marinelli
+		}
+	}
+	
+	LVN_amnesty_dino_grandi = {
+	
+		priority = 9
+		
+		icon = GFX_decision_amnesty_togliatti_individual
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_amnesty_togliatti
+		}
+		
+		available = {
+		}
+		
+		fire_only_once = yes
+		days_remove = 14
+		
+		activation = {
+			always = no #activated by event
+		}
+			
+		#is_good = yes
+		
+		cost = 100
+		
+		remove_effect = {
+			set_country_flag = LVN_amnesty_togliatti_grandi_flag
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.1
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = ITA_dino_grandi 
+		}
+	}
+	
+	LVN_amnesty_giacomo_acerbo = {
+	
+		priority = 1
+		
+		icon = GFX_decision_amnesty_togliatti_individual
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_amnesty_togliatti
+		}
+		
+		available = {
+		}
+		
+		fire_only_once = yes
+		days_remove = 14
+		
+		activation = {
+			always = no #activated by event
+		}
+			
+		#is_good = yes
+		
+		cost = 100
+		
+		remove_effect = {
+			set_country_flag = LVN_amnesty_togliatti_acerbo_flag
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.1
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = giacomo_acerbo
+		}
+	}
+	
+	LVN_amnesty_gino_boccasile = {
+	
+		priority = 10
+		
+		icon = GFX_decision_amnesty_togliatti_individual
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_amnesty_togliatti
+		}
+		
+		available = {
+		}
+		
+		fire_only_once = yes
+		days_remove = 14
+		
+		activation = {
+			always = no #activated by event
+		}
+			
+		#is_good = yes
+		
+		cost = 0
+		
+		remove_effect = {
+			set_country_flag = LVN_amnesty_togliatti_boccasile_flag
+			add_stability = 0.05
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = gino_boccasile
+		}
+	}
+	
+	LVN_amnesty_giuseppe_bottai = {
+	
+		priority = 1
+		
+		icon = GFX_decision_amnesty_togliatti_individual
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_amnesty_togliatti
+		}
+		
+		available = {
+		}
+		
+		fire_only_once = yes
+		days_remove = 14
+		
+		activation = {
+			always = no #activated by event
+		}
+			
+		#is_good = yes
+		
+		cost = 100
+		
+		remove_effect = {
+			set_country_flag = LVN_amnesty_togliatti_bottai_flag
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.1
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = giuseppe_bottai
+		}
+	}
+	
+	LVN_amnesty_adelchi_serena = {
+	
+		priority = 1
+		
+		icon = GFX_decision_amnesty_togliatti_individual
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_amnesty_togliatti
+		}
+		
+		available = {
+		}
+		
+		fire_only_once = yes
+		days_remove = 14
+		
+		activation = {
+			always = no #activated by event
+		}
+			
+		#is_good = yes
+		
+		cost = 100
+		
+		remove_effect = {
+			set_country_flag = LVN_amnesty_togliatti_adelchi_flag
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.1
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = adelchi_serena
+		}
+	}
+	
+	LVN_amnesty_guido_jung = {
+	
+		priority = 1
+		
+		icon = GFX_decision_amnesty_togliatti_individual
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_amnesty_togliatti
+		}
+		
+		available = {
+		}
+		
+		fire_only_once = yes
+		days_remove = 14
+		
+		activation = {
+			always = no #activated by event
+		}
+			
+		#is_good = yes
+		
+		cost = 100
+		
+		remove_effect = {
+			set_country_flag = LVN_amnesty_togliatti_jung_flag
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.1
+			}
+			add_stability = 0.05
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = guido_jung
+		}
+	}
+	
+	LVN_amnesty_alberto_pariani = {
+	
+		priority = 1
+		
+		icon = GFX_decision_generic_army_support
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_amnesty_togliatti
+		}
+		
+		available = {
+			has_army_experience > 15
+		}
+		
+		fire_only_once = yes
+		days_remove = 14
+		
+		activation = {
+			always = no #activated by event
+		}
+			
+		#is_good = yes
+		
+		cost = 100
+		
+		remove_effect = {
+			set_country_flag = LVN_amnesty_togliatti_pariani_flag
+			army_experience = -15
+			custom_effect_tooltip = available_theorist
+			show_ideas_tooltip = alberto_pariani
+		}
+	}
+
+}#amnesty Togliatti Closing Bracket
+
+LVN_agip_category = {
+	
+	ITA_decision_fund_anic_refineries = {
+		
+		icon = GFX_decision_oil
+		
+		priority = 4
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_completed_focus = italia_synthetic_fuels
+		}
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 5
+			NOT = {has_country_flag = ITA_we_are_investing_in_oil_right_now_flag}
+		}
+		
+		fire_only_once = no
+		
+		days_remove = 120
+		
+		days_re_enable = 120
+			
+		is_good = yes
+		
+		modifier = {
+			civilian_factory_use = 5
+		}
+		
+		cost = 90
+		
+		complete_effect = {
+			set_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+		}
+		
+		remove_effect = {
+			clr_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+			random_owned_controlled_state = {
+					limit = {
+						is_core_of = ITA	
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = synthetic_refinery
+						level = 1
+						instant_build = yes
+					}
+			}
+		}
+	}
+	
+	ITA_decision_albania_oil_aipa = {
+		
+		icon = GFX_decision_oil
+		
+		priority = 3
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			44 = {is_controlled_by_ROOT_or_subject = yes}
+		}
+		
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				state = 44
+			}
+		}
+		
+		on_map_mode = map_and_decisions_view
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			44 = {is_controlled_by_ROOT_or_subject = yes}
+			NOT = {has_country_flag = ITA_we_are_investing_in_oil_right_now_flag}
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 70
+			
+		is_good = yes
+		
+		modifier = {
+			civilian_factory_use = 2
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			set_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+		}
+		
+		remove_effect = {
+			clr_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+			set_country_flag = ITA_we_can_start_oil_production_albania_flag
+			44 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = synthetic_refinery
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	ITA_decision_albania_oil = {
+		
+		icon = GFX_decision_oil
+		
+		priority = 2
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_country_flag = ITA_we_can_start_oil_production_albania_flag
+			44 = {is_controlled_by_ROOT_or_subject = yes}
+		}
+		
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				state = 44
+			}
+		}
+		
+		on_map_mode = map_and_decisions_view
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			44 = {is_controlled_by_ROOT_or_subject = yes}
+			NOT = {has_country_flag = ITA_we_are_investing_in_oil_right_now_flag}
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 70
+			
+		is_good = yes
+		
+		modifier = {
+			civilian_factory_use = 2
+		}
+		
+		cost = 50
+		
+		complete_effect = {
+			set_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+		}
+		
+		remove_effect = {
+			clr_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+			add_resource = {
+				type = oil
+				amount = 3
+				state = 44
+			}
+		}
+	}
+	
+	ITA_decision_albania_oil_2 = {
+		
+		icon = GFX_decision_oil
+		
+		priority = 2
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_country_flag = ITA_we_can_start_oil_production_albania_flag
+			44 = {is_controlled_by_ROOT_or_subject = yes}
+		}
+		
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				state = 44
+			}
+		}
+		
+		on_map_mode = map_and_decisions_view
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 5
+			has_tech = excavation3
+			44 = {is_controlled_by_ROOT_or_subject = yes}
+			NOT = {has_country_flag = ITA_we_are_investing_in_oil_right_now_flag}
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 90
+			
+		is_good = yes
+		
+		modifier = {
+			civilian_factory_use = 5
+		}
+		
+		cost = 90
+		
+		complete_effect = {
+			set_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+		}
+		
+		remove_effect = {
+			clr_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+			add_resource = {
+				type = oil
+				amount = 5
+				state = 44
+			}
+		}
+	}
+	
+	ITA_decision_albania_oil_3 = {
+		
+		icon = GFX_decision_oil
+		
+		priority = 2
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_country_flag = ITA_we_can_start_oil_production_albania_flag
+			44 = {is_controlled_by_ROOT_or_subject = yes}
+		}
+		
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				state = 44
+			}
+		}
+		
+		on_map_mode = map_and_decisions_view
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 5
+			has_tech = excavation3
+			44 = {is_controlled_by_ROOT_or_subject = yes}
+			NOT = {has_country_flag = ITA_we_are_investing_in_oil_right_now_flag}
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 150
+			
+		is_good = yes
+		
+		modifier = {
+			civilian_factory_use = 5
+		}
+		
+		cost = 120
+		
+		complete_effect = {
+			set_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+		}
+		
+		remove_effect = {
+			clr_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+			add_resource = {
+				type = oil
+				amount = 8
+				state = 44
+			}
+		}
+	}
+	
+	ITA_decision_libya_oil = {
+	
+		icon = GFX_decision_oil
+		
+		priority = 1
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+		
+		}
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			450 = {is_controlled_by_ROOT_or_subject = yes}
+			662 = {is_controlled_by_ROOT_or_subject = yes}
+			NOT = {has_country_flag = ITA_we_are_investing_in_oil_right_now_flag}
+		}
+		
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				state = 450
+			}
+		}
+		
+		on_map_mode = map_and_decisions_view
+		
+		fire_only_once = yes
+		
+		days_remove = 70
+			
+		is_good = yes
+		
+		modifier = {
+			civilian_factory_use = 2
+		}
+		
+		cost = 100
+		
+		complete_effect = {
+			set_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+		}
+		
+		remove_effect = {
+			set_country_flag = ITA_investment_oil_lba_1_flag
+			clr_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+			450 = {
+				if = {
+					limit = {is_controlled_by_ROOT_or_subject = yes}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = synthetic_refinery
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+	ITA_decision_libya_oil_2 = {
+		
+		icon = GFX_decision_oil
+		
+		priority = 1
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_country_flag = ITA_investment_oil_lba_1_flag
+		}
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 3
+			has_tech = excavation2
+			450 = {is_controlled_by_ROOT_or_subject = yes}
+			662 = {is_controlled_by_ROOT_or_subject = yes}
+			NOT = {has_country_flag = ITA_we_are_investing_in_oil_right_now_flag}
+		}
+		
+		
+		fire_only_once = yes
+		
+		days_remove = 70
+			
+		is_good = yes
+		
+		modifier = {
+			civilian_factory_use = 3
+		}
+		
+		cost = 50
+		
+		complete_effect = {
+			set_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+			clr_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+		}
+		
+		remove_effect = {
+			clr_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+			set_country_flag = ITA_investment_oil_lba_2_flag
+			add_resource = {
+				type = oil
+				amount = 4
+				state = 662
+			}
+		}
+	}
+	
+	ITA_decision_libya_oil_3 = {
+		
+		icon = GFX_decision_oil
+		
+		priority = 1
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_country_flag = ITA_investment_oil_lba_2_flag
+		}
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 4
+			has_tech = excavation3
+			450 = {is_controlled_by_ROOT_or_subject = yes}
+			662 = {is_controlled_by_ROOT_or_subject = yes}
+			NOT = {has_country_flag = ITA_we_are_investing_in_oil_right_now_flag}
+		}
+		
+		fire_only_once = yes
+		
+		days_remove = 70
+			
+		is_good = yes
+		
+		modifier = {
+			civilian_factory_use = 4
+		}
+		
+		cost = 50
+		
+		complete_effect = {
+			set_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+			clr_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+		}
+		
+		remove_effect = {
+			clr_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+			add_resource = {
+				type = oil
+				amount = 8
+				state = 662
+			}
+		}
+	}
+	
+	ITA_decision_egypt_oil = {
+	
+		icon = GFX_decision_oil
+		
+		priority = 1
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			447 = {is_controlled_by_ROOT_or_subject = yes}
+		}
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 4
+			has_tech = excavation2
+			447 = {is_controlled_by_ROOT_or_subject = yes}
+			446 = {is_controlled_by_ROOT_or_subject = yes}
+			NOT = {has_country_flag = ITA_we_are_investing_in_oil_right_now_flag}
+		}
+		
+		
+		fire_only_once = yes
+		
+		days_remove = 70
+			
+		is_good = yes
+		
+		modifier = {
+			civilian_factory_use = 4
+		}
+		
+		cost = 100
+		
+		complete_effect = {
+			set_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+		}
+		
+		remove_effect = {
+			clr_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+			add_resource = {
+				type = oil
+				amount = 8
+				state = 447
+			}
+		}
+	}
+	
+	ITA_decision_syria_prospecting_oil = {
+	
+		icon = GFX_decision_oil
+		
+		priority = 1
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			680 = {is_controlled_by_ROOT_or_subject = yes}
+		}
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 5
+			has_tech = excavation4
+			680 = {is_controlled_by_ROOT_or_subject = yes}
+			NOT = {has_country_flag = ITA_we_are_investing_in_oil_right_now_flag}
+		}
+		
+		
+		fire_only_once = yes
+		
+		days_remove = 120
+			
+		is_good = yes
+		
+		modifier = {
+			civilian_factory_use = 5
+		}
+		
+		cost = 90
+		
+		complete_effect = {
+			set_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+		}
+		
+		remove_effect = {
+			set_country_flag = ITA_prospect_for_oil_syria_flag
+			custom_effect_tooltip = LVN_search_for_oil
+		}
+	}
+	
+	ITA_decision_syria_prospecting_oil_2 = {
+	
+		icon = GFX_decision_oil
+		
+		priority = 1
+		
+		allowed = { 
+			original_tag = ITA
+		}
+		
+		visible = {
+			680 = {is_controlled_by_ROOT_or_subject = yes}
+			has_country_flag = ITA_prospect_for_oil_syria_flag
+		}
+		
+		available = {
+			num_of_civilian_factories_available_for_projects > 10
+			has_country_flag = ITA_prospect_for_oil_syria_flag
+			680 = {is_controlled_by_ROOT_or_subject = yes}
+			NOT = {has_country_flag = ITA_we_are_investing_in_oil_right_now_flag}
+		}
+		
+		
+		fire_only_once = yes
+		
+		days_remove = 140
+			
+		is_good = yes
+		
+		modifier = {
+			civilian_factory_use = 10
+		}
+		
+		cost = 120
+		
+		complete_effect = {
+			set_country_flag = ITA_we_are_investing_in_oil_right_now_flag
+		}
+		
+		remove_effect = {
+			set_country_flag = ITA_prospect_for_oil_syria_flag
+			add_resource = {
+				type = oil
+				amount = 24
+				state = 680
+			}
+		}
+	}
+
+}#End of AGIP Category
+
+LVN_civil_war_category = {
+
+	LVN_support_me_please_I_suck = {
+	
+		priority = 10
+		
+		allowed = { 
+			always = no #activated
+		}
+		
+		visible = {
+			has_civil_war = yes	
+		}
+		
+		available = {
+			has_civil_war = yes
+			if = {
+				limit = {
+					FROM = {
+						OR = {
+							original_tag = GRE
+							original_tag = TUR 
+						}
+					}
+				}
+				NOT = { has_country_flag = LVN_we_promised_islands }
+			}
+			FROM = { 
+				has_war = no #because they will be able to send volunteers
+				NOT = { is_in_faction_with = ROOT }
+				is_subject = no
+				has_opinion = {
+					target = ROOT
+					value > 50
+				}
+			}
+		}
+		
+		fire_only_once = yes
+		days_remove = 10
+			
+		is_good = yes
+		
+		cost = 100
+		
+		complete_effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = TUR 
+					}
+				}
+				ROOT = { set_country_flag = LVN_we_promised_islands }
+				FROM = { country_event = LVNcw.14 }
+				custom_effect_tooltip = LVN_gre_tur_support_tt
+			}
+			if = {
+				limit = {
+					FROM = {
+						original_tag = GRE 
+					}
+				}
+				ROOT = { set_country_flag = LVN_we_promised_islands }
+				FROM = { country_event = LVNcw.14 }
+				custom_effect_tooltip = LVN_gre_tur_support_tt
+			}
+			if = {
+				limit = {
+					FROM = {
+						original_tag = YUG 
+					}
+				}
+				FROM = { country_event = LVNcw.14 }
+				custom_effect_tooltip = LVN_yug_support_tt
+			}
+		}
+	}
+	
+	LVN_cw_foreign_weapons = {
+	
+		priority = 1
+		
+		allowed = { 
+			always = no #activated
+		}
+		
+		visible = {
+			has_civil_war = yes	
+			FROM = {
+				OR = {
+					has_equipment = {
+						infantry_equipment > 100
+					}
+					has_equipment = {
+						artillery_equipment > 50
+					}
+				}
+			}
+			if = {
+				limit = { tag = POL }
+				ROOT = { has_country_leader = { name = "Pius XII" ruling_only = yes } }
+			}
+		}
+		
+		available = {
+			FROM = { 
+				NOT = { has_war_with = ROOT }
+				NOT = { is_in_faction_with = ROOT }
+				is_subject = no
+				has_opinion = {
+					target = ROOT
+					value > 20
+				}
+			}
+		}
+		
+		fire_only_once = yes
+		days_remove = 14
+			
+		is_good = yes
+		
+		cost = 100
+		
+		remove_effect = {
+			if = {
+				limit = {
+					FROM = { has_tech = advanced_infantry_weapons }
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_3
+					amount = 250
+					producer = FROM
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { has_tech = improved_infantry_weapons }
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_2
+					amount = 250
+					producer = FROM
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { has_tech = infantry_weapons1 }
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 250
+					producer = FROM
+				}
+			}
+			if = {
+				limit = {
+					FROM = { has_tech = artillery4 }
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_3
+					amount = 100
+					producer = FROM
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { has_tech = artillery1 }
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_2
+					amount = 100
+					producer = FROM
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { has_tech = gw_artillery }
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_1
+					amount = 100
+					producer = FROM
+				}
+			}
+		}
+	}
+
+}#End of civil war category 

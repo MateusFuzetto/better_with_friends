@@ -1,0 +1,139 @@
+spriteTypes = {	
+	
+
+	spriteType = {
+		name = "GFX_decision_cat_italia_empire"
+		texturefile = "gfx/interface/decisions/decision_cat_italia_empire.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_amnesty_togliatti"
+		texturefile = "gfx/interface/decisions/decision_cat_amnesty_togliatti.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_amnesty_togliatti_individual"
+		texturefile = "gfx/interface/decisions/decision_amnesty_togliatti_individual.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_category_amnesty_togliatti"
+		texturefile = "gfx/interface/decisions/decision_category_amnesty_togliatti.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_pope_blessing"
+		texturefile = "gfx/interface/decisions/decision_cat_pope_blessing.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_lvn_civil_war"
+		texturefile = "gfx/interface/decisions/decision_cat_lvn_civil_war.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_icon_pope"
+		texturefile = "gfx/interface/decisions/decision_icon_pope.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_italia_kingpope"
+		texturefile = "gfx/interface/decisions/decision_cat_italia_kingpope.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_rome_conference"
+		texturefile = "gfx/interface/decisions/decision_cat_rome_conference.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_agip"
+		texturefile = "gfx/interface/decisions/decision_cat_agip.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_ita_armistice"
+		texturefile = "gfx/interface/decisions/decision_cat_ita_armistice.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_ita_nat_spain"
+		texturefile = "gfx/interface/decisions/decision_cat_ita_nat_spain.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_italia_readiness"
+		texturefile = "gfx/interface/decisions/decision_cat_italia_readiness.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_mare_nostrum"
+		texturefile = "gfx/interface/decisions/decision_cat_mare_nostrum.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_RSI_suppress_partisans"
+		texturefile = "gfx/interface/decisions/decision_cat_RSI_suppress_partisans.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_RSI_x_mas"
+		texturefile = "gfx/interface/decisions/decision_cat_RSI_x_mas.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_category_italia_king_ui"
+		texturefile = "gfx/interface/decisions/decision_category_italia_king_ui.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_category_italia_king"
+		texturefile = "gfx/interface/decisions/decision_category_italia_king.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_lvn_referendum"
+		texturefile = "gfx/interface/decisions/decision_cat_lvn_referendum.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_cat_italia_king_icon"
+		texturefile = "gfx/interface/decisions/decision_cat_italia_king_icon.dds"
+	}
+
+	spriteType = {
+		name = "GFX_decision_category_italia_pope_ui"
+		texturefile = "gfx/interface/decisions/decision_category_italia_pope_ui.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_category_italia_crown_prince_ui"
+		texturefile = "gfx/interface/decisions/decision_category_italia_crown_prince_ui.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_category_italia_savoy_crown_ui"
+		texturefile = "gfx/interface/decisions/decision_category_italia_savoy_crown_ui.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_savoy"
+		texturefile = "gfx/interface/decisions/decision_savoy.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_mussolini"
+		texturefile = "gfx/interface/decisions/decision_mussolini.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_rommel"
+		texturefile = "gfx/interface/decisions/decision_rommel.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_decision_generic_rifle"
+		texturefile = "gfx/interface/decisions/decision_generic_rifle.dds"
+	}
+		
+}

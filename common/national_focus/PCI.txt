@@ -1,0 +1,4049 @@
+focus_tree = {
+	id = PCI_italian_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 1
+			original_tag = ITA
+			
+		}
+	}
+	
+	default = no
+	
+	focus = {
+		id = PCI_revolutionary_zeal
+		icon = GFX_goal_generic_war_with_comintern
+		available = {
+			NOT = { has_completed_focus = PCI_soviet_aid }
+		}
+		bypass = {
+		}
+		
+		x = 20
+		y = 0
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_ideas = { PCI_revolutionary_zeal }
+		}
+	}
+	
+	focus = {
+		id = PCI_workers_army
+		icon = GFX_focus_YUG_pan_slavic_congress
+		x = 4
+		y = 0
+		relative_position_id = PCI_revolutionary_zeal
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_ideas = PCI_red_militias_spirit
+		}
+	}
+	
+	focus = {
+		id = PCI_soviet_aid
+		icon = GFX_focus_PCI_soviet_support
+		available = {
+			NOT = { has_completed_focus = PCI_revolutionary_zeal }
+			NOT = { has_war_with = SOV }
+			SOV = { has_government = communism }
+		}
+		
+		x = 4
+		y = 0
+		relative_position_id = PCI_workers_army
+		cost = 5
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 3
+				is_historical_focus_on = no
+				SOV = {
+					is_ai = no
+				}
+			}
+			modifier = {
+				factor = 3
+				surrender_progress > 0.4
+				is_historical_focus_on = no
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				SOV = {
+					is_ai = yes
+				}
+			}
+			modifier = {
+				factor = 0
+				surrender_progress < 0.4
+				any_country = {
+					NOT = { tag = SOV }
+					ROOT = {
+						has_volunteers_amount_from = {
+						    tag = PREV
+						    count > 0
+						}
+					}
+				}
+			}
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_popularity = {
+			    ideology = communism
+			    popularity = 0.05
+			}
+			SOV = {
+				add_timed_idea = { idea = ITA_civil_war_commitments days = 730 }
+				add_opinion_modifier = { target = ROOT modifier = ITA_civil_war_commitment_opinion }
+			}
+			custom_effect_tooltip = SPR_expand_soviet_aid_tt
+		}
+	}
+	
+#stalin path 
+	focus = {
+		id = PCI_stalin
+		icon = GFX_focus_generic_stalin
+		prerequisite = { focus = PCI_soviet_aid }
+		prerequisite = { focus = PCI_workers_army }
+		mutually_exclusive = { focus = PCI_red_italy }
+		available = {
+			Not = { has_war_with = SOV }
+			SOV = { 
+				has_country_leader = {
+					character = SOV_iosif_stalin
+					ruling_only = yes
+				}
+			}
+			is_subject = no
+		}
+		bypass = {
+		}
+		
+		x = -2
+		y = 1
+		relative_position_id = PCI_soviet_aid
+		cost = 10
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			custom_effect_tooltip = PCI_independance_sov_tt
+			set_cosmetic_tag = PCI_soviet_communism
+			create_country_leader = {
+				name = "Palmiro Togliatti"
+				desc = "POLITICS_Palmiro_Togliatti_DESC"
+				picture = "GFX_portrait_ita_palmiro_togliatti"
+				expire = "1965.1.1"
+				ideology = stalinism
+				traits = {
+		
+					}
+			}
+			SOV = {
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = ROOT
+					value = 300
+				}
+				add_ai_strategy = {
+					type = befriend  
+					id = ROOT
+					value = 300
+				}
+			}
+			if = {
+				limit = {
+					SOV = {
+						is_faction_leader = yes
+						has_government = communism
+					}
+				}
+				SOV = {
+					country_event = lvn_generic.3
+				}
+			}
+			else_if = {
+				limit = {
+					SOV = {
+						is_faction_leader = no
+						is_in_faction = yes
+					}
+				}
+				random_other_country = {
+					limit = {
+						is_faction_leader = yes
+						is_in_faction_with = SOV
+					}
+					country_event = lvn_generic.3
+				}
+			}
+			add_ideas = PCI_nkvd_supervision_idea
+		}
+	}
+	
+	focus = {
+		id = PCI_recovery_aid
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = PCI_stalin }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 5
+		y = 1
+		relative_position_id = PCI_stalin
+		cost = 10
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+
+		completion_reward = {
+			add_timed_idea = { idea = PCI_soviet_industrial_aid days = 365 }
+		}
+	}
+	
+	focus = {
+		id = PCI_five_year_plan
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = PCI_recovery_aid }
+		available = {
+		}
+		bypass = {
+		}
+
+		x = 0
+		y = 1
+		relative_position_id = PCI_recovery_aid
+		cost = 10
+
+		ai_will_do = {
+			factor = 100
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_timed_idea = { idea = PCI_five_year_plan_idea days = 1825 }
+		}
+	}
+	
+	focus = {
+		id = PCI_cooperation_nkvd
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = PCI_five_year_plan }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_five_year_plan
+		cost = 5
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_POLITICAL}
+		
+		completion_reward = {
+			if = { 
+				limit = { has_dlc = "La Resistance" }
+				swap_ideas = { 
+					remove_idea = PCI_nkvd_supervision_idea
+					add_idea = PCI_nkvd_cooperation_idea_dlc
+				}
+			}
+			else = { 
+				swap_ideas = { 
+					remove_idea = PCI_nkvd_supervision_idea
+					add_idea = PCI_nkvd_cooperation_idea 
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_research_collaboration
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = { focus = PCI_recovery_aid }
+		available = {
+			OR = {
+				is_in_faction_with = SOV
+				has_civil_war = yes
+			}
+		}
+		bypass = {
+		}
+
+		x = 10
+		y = 1
+		relative_position_id = PCI_recovery_aid
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			if = { limit = { amount_research_slots < 5 }
+			add_research_slot = 1 }
+			add_to_tech_sharing_group = ITA_SOV_research_group
+			SOV = {
+				add_to_tech_sharing_group = ITA_SOV_research_group
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_research_sharing_soviet
+		icon = GFX_focus_research2
+		prerequisite = { focus = PCI_research_collaboration }
+		available = {
+			is_in_faction_with = SOV
+			has_civil_war = no
+		}
+		bypass = {
+		}
+	
+		x = 0
+		y = 1
+		relative_position_id = PCI_research_collaboration
+		cost = 10
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+
+		completion_reward = {
+			add_to_tech_sharing_group = PCI_kar_sharing_group
+			SOV = {add_to_tech_sharing_group = PCI_kar_sharing_group}
+			custom_effect_tooltip = PCI_soviet_designers_tt
+		}
+	}
+	
+	focus = {
+		id = PCI_enhance_research_sharing
+		icon = GFX_goal_tfv_generic_tech_sharing
+		prerequisite = { focus = PCI_research_sharing_soviet }
+		available = {
+			is_in_faction_with = SOV
+		}
+		bypass = {
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_research_sharing_soviet
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			modify_tech_sharing_bonus = {
+				id = PCI_kar_sharing_group bonus = 0.05
+			}
+			SOV = {country_event = { id = pci_events.10 } }
+		}
+	}
+	
+	focus = {
+		id = PCI_reborn_industrial_sector
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = PCI_recovery_aid }
+		available = {
+			PCI = {
+				has_full_control_of_state = 159
+				has_full_control_of_state = 160
+				has_full_control_of_state = 161
+				has_full_control_of_state = 162
+				has_full_control_of_state = 2
+				has_full_control_of_state = 157
+			}
+		}
+		bypass = {
+		}
+		
+		x = 7
+		y = 1
+		relative_position_id = PCI_recovery_aid
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = PCI_reborn_economy_idea
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_clear_swamps
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = PCI_reborn_industrial_sector }
+		available = {
+			has_civil_war = no
+		}
+		bypass = {
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = PCI_reborn_industrial_sector
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			every_owned_state = {
+				limit = { 
+					is_core_of = ROOT 
+					is_fully_controlled_by = ROOT
+					set_temp_variable = { state_num_factory = industrial_complex_level }
+					add_to_temp_variable = { state_num_factory = arms_factory_level }
+					add_to_temp_variable = { state_num_factory = building_level@dockyard }
+					check_variable = { state_num_factory > 5 }
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_all_road_lead_rome
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = PCI_clear_swamps }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_clear_swamps
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			every_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_private_sector_investment
+		icon = GFX_goal_generic_consumer_goods
+		prerequisite = { focus = PCI_reborn_industrial_sector }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = -1
+		y = 1
+		relative_position_id = PCI_reborn_industrial_sector
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			add_stability = 0.10
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_the_southern_issue
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		prerequisite = { focus = PCI_private_sector_investment }
+		available = {
+			PCI = {
+				has_full_control_of_state = 117
+				has_full_control_of_state = 156
+				has_full_control_of_state = 115
+			}
+		}
+		bypass = {
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_private_sector_investment
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			#mafia issue in the future
+			swap_ideas =  {
+				remove_idea = PCI_reborn_economy_idea
+				add_idea = PCI_reborn_economy_idea2
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_communist_industrial_revolution
+		icon = GFX_focus_ITA_Mezzogiorno
+		prerequisite = { focus = PCI_all_road_lead_rome }
+		prerequisite = { focus = PCI_the_southern_issue }
+		available = {
+			ITA = {has_completed_focus = PCI_five_year_plan}
+			NOT = { has_idea = PCI_five_year_plan_idea }
+		}
+		bypass = {
+		}
+		
+		x = -1
+		y = 1
+		relative_position_id = PCI_all_road_lead_rome
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			swap_ideas =  {
+				remove_idea = PCI_reborn_economy_idea2
+				add_idea = PCI_reborn_economy_idea3
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PCI_information_soviet_spyring
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = PCI_all_road_lead_rome }
+		prerequisite = { focus = PCI_enhance_research_sharing }
+		available = {
+			is_subject = no
+			is_in_faction_with = SOV
+			USA = {has_completed_focus = USA_manhattan_project}
+		}
+		bypass = {
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = PCI_all_road_lead_rome 
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = PCI_spy_project
+				bonus = 1.0
+				uses = 1
+				category = nuclear
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_italian_missile_program
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = PCI_information_soviet_spyring }
+		available = {
+			is_subject = no
+			is_in_faction_with = SOV
+			GER = {
+				has_government = communism
+			}
+		}
+		bypass = {
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_information_soviet_spyring
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = PCI_rocketry_focus
+				bonus = 1.0
+				uses = 1
+				category = rocketry
+			}
+			add_tech_bonus = {
+				name = PCI_rocketry_focus
+				bonus = 1.0
+				uses = 1
+				category = jet_technology
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_tow_stalin_line_politics
+		icon = GFX_focus_fra_loyalty_stalin
+		prerequisite = { focus = PCI_five_year_plan }
+		available = {
+			has_civil_war = no
+		}
+		bypass = {
+		}
+		
+		x = 1
+		y = 2
+		relative_position_id = PCI_five_year_plan
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT }
+
+		completion_reward = {
+			add_political_power = 150
+			add_war_support = 0.10
+		}
+	}
+	
+	focus = {
+		id = PCI_soviet_military_aid
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = PCI_tow_stalin_line_politics }
+		mutually_exclusive = { focus = PCI_own_military_industries }
+		available = {
+			is_in_faction_with = SOV
+		}
+		bypass = {
+		}
+		
+		x = 2
+		y = 1
+		relative_position_id = PCI_tow_stalin_line_politics
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			#mod rescript purchase decisions, placeholder for now
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 250
+				producer = SOV 
+			}
+			add_equipment_to_stockpile = {
+				type = fighter_equipment
+				amount = 150
+				producer = SOV 
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_own_military_industries
+		icon = GFX_goal_generic_production2
+		prerequisite = { focus = PCI_private_sector_investment }
+		mutually_exclusive = { focus = PCI_soviet_military_aid }
+		available = {
+			has_civil_war = no
+		}
+		bypass = {
+		}
+		
+		x = 2
+		y = 0
+		relative_position_id = PCI_soviet_military_aid
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_WAR_SUPPORT }
+
+		completion_reward = {
+			add_war_support = 0.10
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_arms_expansion_programs
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = PCI_soviet_military_aid focus = PCI_own_military_industries }
+		available = {
+			has_war = yes
+		}
+		bypass = {
+		}
+		
+		x = -1
+		y = 1
+		relative_position_id = PCI_own_military_industries
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_friend_east_china
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		prerequisite = { focus = PCI_tow_stalin_line_politics }
+		available = {
+			country_exists = PRC
+		}
+		bypass = {
+		}
+		
+		x = 1
+		y = 2
+		relative_position_id = PCI_tow_stalin_line_politics
+		cost = 10
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			set_rule = { can_send_volunteers = yes }
+			PRC	= {
+				add_opinion_modifier = {
+					target = PCI
+					modifier = PCI_helping_PRC
+				}
+			}
+			hidden_effect = {	
+				add_ai_strategy = {
+					type = befriend
+					id = PRC
+					value = 100
+				}
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = PRC
+					value = 100
+				}
+			}
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = PCI_secure_china_against_ennemies
+		icon = GFX_focus_usa_focus_on_asia
+		prerequisite = { focus = PCI_friend_east_china }
+		available = {
+			is_subject = no
+			is_in_faction_with = SOV
+			country_exists = PRC
+			NOT = {
+				SOV = { has_non_aggression_pact_with = JAP }
+				}
+		}
+
+		bypass = {
+
+		}
+		
+		x = 0
+		y = 2
+		relative_position_id = PCI_friend_east_china
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			if = {
+				limit = {
+					JAP = {
+						not = { has_government = communism }
+						not = { is_in_faction_with = ROOT }
+					}
+				}
+				create_wargoal = {
+					target = JAP
+					type = topple_government
+					expire = 0
+				}
+			}
+			custom_effect_tooltip = PCI_protect_china_tt
+			hidden_effect = {
+				every_country = {				
+					limit = {
+						NOT = { has_government = communism } 
+						NOT = { is_in_faction_with = PCI }
+						NOT = { has_war_with = PCI }
+						NOT = { 
+							original_tag = RAJ
+							original_tag = NEP
+							original_tag = BHU
+						}
+						capital_scope = { is_on_continent = asia } 
+					}
+					PCI = {
+						declare_war_on = {
+						target = PREV
+						type = puppet_wargoal_focus }
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_northern_fortifications
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = { focus = PCI_tow_stalin_line_politics }
+		available = {
+			has_full_control_of_state = 736
+			has_full_control_of_state = 160
+			has_full_control_of_state = 39
+			has_full_control_of_state = 158
+		}
+		bypass = {
+		}
+		
+		x = -1
+		y = 2
+		relative_position_id = PCI_tow_stalin_line_politics
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			custom_effect_tooltip = PCI_prepare_defense_north_tt
+			hidden_effect = {
+				736 = {
+					add_building_construction = {
+						type = bunker
+						province = {
+							id = 11595
+							id = 599
+						}
+						level = 3
+						instant_build = yes
+					}
+				}
+				160 = {
+					add_building_construction = {
+						type = bunker
+						province = {
+							id = 9613
+							id = 3657
+						}
+						level = 3
+						instant_build = yes
+					}
+				}
+				39 = {
+					add_building_construction = {
+						type = bunker
+						province = {
+							id = 11615
+							id = 9630
+							id = 6675
+						}
+						level = 3
+						instant_build = yes
+					}
+				}
+				158 = {
+					add_building_construction = {
+						type = bunker
+						province = {
+							id = 611
+							id = 6780
+							id = 9738
+							id = 11721
+							id = 11891
+						}
+						level = 3
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	
+#italian communism = best communism 
+	focus = {
+		id = PCI_red_italy
+		icon = GFX_focus_PCI_own_revolution
+		prerequisite = { focus = PCI_revolutionary_zeal }
+		prerequisite = { focus = PCI_workers_army }
+		mutually_exclusive = { focus = PCI_stalin }
+		available = {
+			is_subject = no
+		}
+		bypass = {
+		}
+		
+		x = 2
+		y = 1
+		relative_position_id = PCI_revolutionary_zeal
+		cost = 10
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			SOV = {
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = ROOT
+					value = -1000
+				}
+				add_ai_strategy = {
+					type = alliance 
+					id = ROOT
+					value = -1000
+				}
+				add_ai_strategy = {
+					type = befriend  
+					id = ROOT
+					value = -1000
+				}
+			}
+					
+			set_cosmetic_tag = PCI_gramsci_communism
+			if  = {
+				limit = {
+					has_global_flag = gramsci_is_dead 
+				}
+				promote_character = PCI_amedeo_bordiga
+			}
+			else_if = {
+				limit = { NOT = { has_global_flag = gramsci_is_dead } }
+				promote_character = PCI_antonio_gramsci				
+			}
+			add_stability = 0.2
+			add_war_support = 0.2
+		}
+	}
+	
+	focus = {
+		id = PCI_agricultural_communes
+		icon = GFX_focus_prc_agrarian_socialism
+		prerequisite = { focus = PCI_red_italy }
+		
+		x = -5
+		y = 1
+		relative_position_id = PCI_red_italy
+		cost = 5
+		
+		ai_will_do = {
+			base = 1
+		}
+		
+		available_if_capitulated = yes
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			add_ideas = PCI_farmer_managed_communes
+		}
+	}
+	
+	focus = {
+		id = PCI_develop_the_communes
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = PCI_agricultural_communes }
+		
+		x = -6
+		y = 1
+		relative_position_id = PCI_agricultural_communes 
+		cost = 10
+		
+		ai_will_do = {
+			base = 1
+		}
+		
+		available_if_capitulated = yes
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
+		
+		completion_reward = {
+			add_stability = 0.10
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}		
+		}
+	}
+	
+	focus = {
+		id = PCI_civic_culture
+		icon = GFX_focus_ITA_socialist_coalition
+		prerequisite = { focus = PCI_develop_the_communes }
+		available = { 
+			has_civil_war = no
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_develop_the_communes
+		cost = 10
+		
+		ai_will_do = {
+			base = 1
+		}
+		
+		available_if_capitulated = yes
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
+		
+		completion_reward = {
+			add_stability = 0.10
+			add_ideas = PCI_civic_culture_idea
+		}
+	}
+	
+	focus = {
+		id = PCI_council_of_internal_defence
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = PCI_civic_culture }
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_civic_culture
+		cost = 10
+		
+		ai_will_do = {
+			base = 1
+		}
+		
+		available_if_capitulated = yes
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
+		
+		completion_reward = {
+			add_stability = 0.10
+			add_ideas = PCI_council_defense_idea
+			#related to mafia in future
+		}
+	}
+	
+	focus = {
+		id = PCI_equal_redistribution
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = PCI_council_of_internal_defence }
+		available = {
+			has_completed_focus = PCI_eliminate_elite
+		}
+		
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_council_of_internal_defence 
+		cost = 10
+		
+		ai_will_do = {
+			base = 1
+		}
+		
+		available_if_capitulated = yes
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
+		
+		completion_reward = {
+			add_stability = 0.10
+			add_war_support = 0.10
+			add_timed_idea = { idea = PCI_land_redistribution days = 720 }
+		}
+	}
+	
+	focus = {
+		id = PCI_new_roads
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = PCI_develop_the_communes }
+		available = { 
+			has_civil_war = no
+		}
+		
+		
+		x = -2
+		y = 1
+		relative_position_id = PCI_develop_the_communes
+		cost = 10
+		
+		ai_will_do = {
+			base = 1
+		}
+		
+		available_if_capitulated = yes
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			every_owned_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_ordine_nuovo
+		icon = GFX_focus_PCI_nuevo
+		prerequisite = { focus =  PCI_new_roads }
+		prerequisite = { focus =  PCI_civic_culture }
+		
+		available = { has_completed_focus = PCI_collectivise_industries }
+		
+		x = 0
+		y = 1
+		relative_position_id =  PCI_new_roads
+		cost = 10
+		
+		ai_will_do = {
+			base = 1
+		}
+		
+		available_if_capitulated = yes
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = PCI_collectivised_industries
+				add_idea = PCI_collectivised_industries2
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_collectivise_industries
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = PCI_agricultural_communes }
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_agricultural_communes
+		cost = 10
+		
+		ai_will_do = {
+			base = 1
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+				add_ideas = PCI_collectivised_industries
+				random_owned_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+	}
+	
+	focus = {
+		id = PCI_intelligence_council
+		icon = GFX_focus_PCI_intelligence
+		prerequisite = { focus = PCI_collectivise_industries }
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_collectivise_industries
+		cost = 5
+		
+		ai_will_do = {
+			base = 1
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			if = { 
+				limit = { has_dlc = "La Resistance" }
+				add_ideas = PCI_intelligence_council_idea_dlc
+			}
+			else = { 
+				add_ideas = PCI_intelligence_council_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_research_council
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = { focus = PCI_develop_the_communes }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 2
+		y = 1
+		relative_position_id = PCI_develop_the_communes
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			if = { limit = { amount_research_slots < 5 }
+			add_research_slot = 1 }
+			add_to_tech_sharing_group = ITA_SOV_research_group
+			SOV = {
+				add_to_tech_sharing_group = ITA_SOV_research_group
+			}
+			#unlock all council designers
+		}
+	}
+	
+	focus = {
+		id = PCI_bury_grudges_past_pci
+		icon = GFX_focus_PCI_treaty
+		prerequisite = { focus = PCI_collectivise_industries }
+		available = { has_civil_war = no }
+		
+		x = -2
+		y = 1
+		relative_position_id = PCI_collectivise_industries
+		cost = 5
+		
+		ai_will_do = {
+			base = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			add_political_power = 120
+			YUG = {
+				add_opinion_modifier = {	
+					target = PCI
+					modifier = PCI_bury_grudges
+				}
+			}
+			ALB = {
+				add_opinion_modifier = {	
+					target = PCI
+					modifier = PCI_bury_grudges
+				}
+			}
+			GRE = {
+				add_opinion_modifier = {	
+					target = PCI
+					modifier = PCI_bury_grudges
+				}
+			}
+			YUG = {
+				add_ai_strategy = {
+					type = befriend
+					id = PCI
+					value = 100
+				}
+				add_ai_strategy = {
+					type = alliance
+					id = PCI
+					value = 100
+				}
+			}
+			ALB = {
+				add_ai_strategy = {
+					type = befriend
+					id = PCI
+					value = 100
+				}
+				add_ai_strategy = {
+					type = alliance
+					id = PCI
+					value = 100
+				}
+			}
+			GRE = {
+				add_ai_strategy = {
+					type = befriend
+					id = PCI
+					value = 100
+				}
+				add_ai_strategy = {
+					type = alliance
+					id = PCI
+					value = 100
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PCI_back_tito
+		icon = GFX_focus_PCI_tito
+		prerequisite = { focus = PCI_bury_grudges_past_pci }
+		available = { 
+			is_subject = no
+			country_exists = YUG
+		}
+		bypass = { 
+			YUG ={ has_government = communism }
+		}
+		
+		x = 0
+		y = 2
+		relative_position_id = PCI_bury_grudges_past_pci
+		cost = 5
+		
+		ai_will_do = {
+			base = 1
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			custom_effect_tooltip = PCI_abandon_claims_yugo_tt
+			hidden_effect = {
+				if = {
+					limit = {
+						any_state = {
+							is_core_of = YUG
+							is_claimed_by = PCI
+							}
+						}
+					every_state = {
+						limit = {
+							is_core_of = YUG
+							is_claimed_by = PCI
+						}
+						remove_claim_by = PCI
+					}
+				}
+			}
+						
+			custom_effect_tooltip = PCI_help_tito_tt #this will come at a cost for the communist party of Yugo tooltip
+			if = { 
+				limit = { 
+					YUG = { 
+						OR = { 
+							has_government = communism
+							has_completed_focus = YUG_recognize_the_soviet_union
+						}
+					}
+				}
+				YUG = { country_event = { id = lvn_generic.4 days = 1 } }
+			}
+			else_if = {
+				limit = {
+					YUG = { 
+						OR = { 
+							NOT = { 
+								has_government = communism
+								has_completed_focus = YUG_recognize_the_soviet_union
+							}
+						}
+					}
+				}
+				YUG = { country_event = { id = pci_events.5 hours = 5 } }
+			} 
+		}
+	}
+	
+	focus = {
+		id = PCI_back_hoxha
+		icon = GFX_focus_PCI_albania
+		prerequisite = { focus = PCI_bury_grudges_past_pci }
+		available = { 
+			is_subject = no
+			country_exists = ALB
+		}
+		
+		bypass = { 
+			ALB ={ has_government = communism }
+		}
+		
+		x = -2
+		y = 2
+		relative_position_id = PCI_bury_grudges_past_pci
+		cost = 5
+		
+		ai_will_do = {
+			base = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			if = {
+				limit = {
+					ALB = {
+						is_guaranteed_by = ROOT }
+					}
+				diplomatic_relation = {
+					country = ALB
+					relation = guarantee
+					active = no
+				}
+			}
+					
+			if = { 
+				limit = { 
+					ALB = { has_government = communism }
+					}
+				ALB = { country_event = { id = lvn_generic.4 days = 1 } }
+			}
+			else_if = {
+				limit = {
+					ALB = {
+						NOT = { has_government = communism }
+						}
+					}
+				ALB = { country_event = { id = pci_events.8 hours = 5 } }
+			} 
+			custom_effect_tooltip = PCI_help_albania_tt
+		}
+	}
+	
+	focus = {
+		id = PCI_back_zachariadis
+		icon = GFX_focus_PCI_greece
+		prerequisite = { focus = PCI_bury_grudges_past_pci }
+		available = { 
+			is_subject = no
+			country_exists = GRE
+		}
+		bypass = { 
+			GRE ={ has_government = communism }
+		}
+		
+		x = 2
+		y = 2
+		relative_position_id = PCI_bury_grudges_past_pci
+		cost = 5
+		
+		ai_will_do = {
+			base = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+	
+			if = { 
+				limit = { 
+					GRE = { has_government = communism }
+					}
+				GRE = { country_event = { id = lvn_generic.4 days = 1 } }
+			}
+			else_if = {
+				limit = {
+					GRE = {
+						NOT = { has_government = communism }
+						}
+					}
+				GRE = { country_event = { id = pci_events.9 hours = 5 } }
+			} 
+			custom_effect_tooltip = PCI_help_zachariadis_tt
+		}
+
+	}
+	
+	focus = {
+		id = PCI_european_socialist_republic
+		icon = GFX_focus_PCI_world_revolution
+		prerequisite = { focus = PCI_back_tito focus = PCI_back_hoxha focus = PCI_back_zachariadis }
+		available = {
+			OR ={
+				GRE ={ has_government = communism }
+				ALB ={ has_government = communism }
+				YUG ={ has_government = communism }
+			}
+			is_subject = no
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_back_tito
+		cost = 10
+		
+		ai_will_do = {
+			base = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			add_political_power = 150
+			#start chain decisions to form the European Socialist Republic tooltip
+			set_rule = { can_create_factions = yes }
+			create_faction = ITA_communist_faction
+			#invites Yugo, Alb and Greece
+		}
+	}
+	
+	focus = {
+		id = PCI_close_shared_economy
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = PCI_european_socialist_republic }
+		available = { is_subject = no }
+		
+		x = -1
+		y = 1
+		relative_position_id = PCI_european_socialist_republic
+		cost = 5
+		
+		ai_will_do = {
+			base = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			add_ideas = PCI_shared_economy
+			add_ideas = closed_economy
+			hidden_effect = {
+				every_other_country = {
+					limit = {
+						is_in_faction_with = ROOT
+					}
+					add_ideas = PCI_shared_economy
+					add_ideas = closed_economy
+				}
+			}
+			custom_effect_tooltip = PCI_shared_economy_tt
+		}
+	}
+	
+	focus = {
+		id = PCI_european_council_research
+		icon = GFX_focus_PCI_council
+		prerequisite = { focus = PCI_european_socialist_republic }
+		available = { is_subject = no }
+		
+		x = 2
+		y = 0
+		relative_position_id = PCI_close_shared_economy
+		cost = 10
+		
+		ai_will_do = {
+			base = 1
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		completion_reward = {
+			add_to_tech_sharing_group = PCI_ecr
+			every_other_country = {
+				limit = {
+					is_in_faction_with = PCI
+					has_government = communism
+				}
+			add_to_tech_sharing_group = PCI_ecr
+			}
+		}
+	} 
+	
+	focus = {
+		id = PCI_bordigism
+		icon = GFX_focus_PCI_bordigism
+		prerequisite = { focus = PCI_european_socialist_republic }
+		
+		x = 0
+		y = 2
+		relative_position_id = PCI_european_socialist_republic
+		cost = 5
+		ai_will_do = {
+			base = 1
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			add_ideas = PCI_vanguard_left_communism
+			if = {
+				limit = {
+					NOT = { has_country_leader = { name = "Amadeo Bordiga" ruling_only = yes } }
+				}
+				retire_character = PCI_antonio_gramsci
+				promote_character = PCI_amedeo_bordiga
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_unification_association
+		icon = GFX_focus_PCI_federation
+		prerequisite = { focus = PCI_bordigism }
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_bordigism
+		cost = 10
+		
+		ai_will_do = {
+			base = 1
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ROOT
+				}
+			country_event = { id = pci_events.6 days = 3 }
+			}
+		}
+	}
+
+#shared tree 
+	
+	focus = {
+		id = PCI_help_spanish_cause
+		icon = GFX_focus_spr_no_pasaran
+		prerequisite = { focus = PCI_stalin focus = PCI_red_italy }
+		available = {
+			has_civil_war = no
+			has_global_flag = spanish_civil_war
+			any_country_with_original_tag = {
+				original_tag_to_check = SPR 
+				OR = {
+					has_government = democratic 
+					has_government = communism
+				}
+			}
+		}
+		bypass = {
+			OR = {
+				has_global_flag = scw_over
+				AND = {	
+					has_global_flag = spanish_civil_war
+					NOT = {
+						any_country_with_original_tag = {
+							original_tag_to_check = SPR 
+							has_civil_war = yes 
+						}
+					}
+				}
+			}		
+		}
+		
+		x = -2
+		y = 1
+		relative_position_id = PCI_stalin
+		cost = 5
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = {FOCUS_FILTER_POLITICAL}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+				SPD = {
+					add_opinion_modifier = {
+					    target = PCI
+					    modifier = PCI_helped_in_civil_war
+					}
+					add_manpower = 3000
+					ROOT = {
+						set_variable = { PCI_spanish_tag_aided = PREV }
+					}
+					add_ai_strategy = {
+						type = befriend
+						id = PCI
+						value = 100
+					}
+				}
+				add_ai_strategy = {
+					type = send_volunteers_desire
+					id = SPD
+					value = 100
+				}
+			}
+			else = {
+				random_country = {
+					limit = {
+						original_tag = SPR
+						has_civil_war = yes
+						OR = {
+							has_government = communism
+							has_government = democratic
+						}
+					}
+					add_opinion_modifier = {
+					    target = PCI
+					    modifier = PCI_helped_in_civil_war
+					}
+					add_manpower = 3000
+					ROOT = {
+						set_variable = { PCI_spanish_tag_aided = PREV }
+						add_ai_strategy = {
+							type = send_volunteers_desire
+							id = PREV
+							value = 100
+						}
+					}
+				}
+			}
+			add_manpower = -3000
+			add_ideas = PCI_volunteers_in_spain_republican
+			set_rule = { can_send_volunteers = yes }
+			add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = PCI_church_riches
+		icon = GFX_focus_ITA_seize_church_property
+		prerequisite = { focus = PCI_stalin focus = PCI_red_italy }	
+		available = {
+			has_civil_war = no
+			controls_state = 2
+		}
+		bypass = {
+		}
+	
+		x = 1
+		y = 2
+		relative_position_id = PCI_red_italy
+		cost = 5
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_POLITICAL}
+		
+		completion_reward = {
+			add_stability = -0.20
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			add_timed_idea = { idea = SPR_appropriate_church_riches days = 730 }
+		}
+	}
+	
+	focus = {
+		id = PCI_eliminate_elite
+		icon = GFX_focus_PCI_peasant
+		prerequisite = { focus = PCI_stalin focus = PCI_red_italy }
+		available = {
+			has_civil_war = no
+		}
+		bypass = {
+		}
+		
+		x = -1
+		y = 2
+		relative_position_id = PCI_stalin
+		cost = 5
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		
+		completion_reward = {
+			add_stability = -0.20
+			add_timed_idea = { idea = PCI_appropriate_lands days = 720 }
+		}
+	}
+	
+	focus = {
+		id = PCI_secular_state
+		icon = GFX_focus_mex_triumph_over_the_cristeros
+		prerequisite = { focus = PCI_church_riches }
+		prerequisite = { focus = PCI_eliminate_elite }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = PCI_church_riches
+		cost = 5
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_POLITICAL}
+		
+		completion_reward = {
+			add_stability = -0.1
+			add_popularity = {
+				ideology = communism
+				popularity = -0.05
+			}
+			add_political_power = 200
+		}
+	}
+	
+#army focuses
+
+	focus = {
+		id = PCI_appeal_more_autonomy
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = PCI_five_year_plan }
+		prerequisite = { focus = PCI_eliminate_elite }
+		available = {
+			has_civil_war = no
+		}
+		bypass = {
+		}
+		
+		x = -2
+		y = 1
+		relative_position_id = PCI_five_year_plan
+		cost = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_POLITICAL}
+		
+		completion_reward = {
+			custom_effect_tooltip = we_become_ssr_tt
+			hidden_effect = {
+				SOV = {
+					set_autonomy = {
+						target = ROOT
+						autonomy_state = autonomy_lvnssr
+						}
+					}
+				}
+		}
+	}
+	
+	focus = {
+		id = PCI_rebuild_for_war
+		icon = GFX_focus_PCI_army
+		prerequisite = { focus = PCI_collectivise_industries }
+		prerequisite = { focus = PCI_church_riches }
+		available = { has_civil_war = no }
+		
+		x = 2
+		y = 1
+		relative_position_id = PCI_collectivise_industries
+		cost = 10
+		
+		ai_will_do = {
+			base = 1
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+				army_experience = 15
+				navy_experience = 25
+				air_experience = 25
+				random_owned_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+		}
+	}
+	
+	focus = {
+		id = PCI_investment_army
+		icon = GFX_focus_PCI_comm_army
+		prerequisite = { focus = PCI_rebuild_for_war focus = PCI_appeal_more_autonomy }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = PCI_rebuild_for_war
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		
+		completion_reward = {
+			army_experience = 15
+			add_doctrine_cost_reduction = {
+				name = PCI_army_investment
+			    cost_reduction = 0.5
+			    uses = 2
+				category = land_doctrine
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_ardito_del_popolo
+		icon = GFX_focus_PCI_destroy_fascism
+		prerequisite = { focus = PCI_investment_army }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = -1
+		y = 1
+		relative_position_id = PCI_investment_army
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_POLITICAL}
+		
+		completion_reward = {
+			army_experience = 10
+			add_ideas = PCI_ardito_del_popolo_idea
+		}
+	}
+	
+	focus = {
+		id = PCI_people_army
+		icon = GFX_focus_PCI_officers
+		prerequisite = { focus = PCI_ardito_del_popolo focus = PCI_communist_marines }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_ardito_del_popolo
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+			army_experience = 10
+			add_tech_bonus = {
+				name = PCI_people_army
+			    bonus = 1.0
+			    uses = 2
+			    category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_communist_tank_program
+		icon = GFX_focus_PCI_tanks
+		prerequisite = { focus = PCI_ardito_del_popolo focus = PCI_communist_marines }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 2
+		y = 1
+		relative_position_id = PCI_ardito_del_popolo
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+			if = {
+				limit = {
+					is_in_faction_with = SOV 
+				}
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+						SOV = {			
+							OR = {
+								has_tech = improved_medium_tank_chassis
+								has_tech = improved_medium_tank
+							}
+						}
+					}
+					create_equipment_variant = {
+						name = "T-34I"
+						type = medium_tank_chassis_2
+						parent_version = 0
+						modules = {
+							main_armament_slot = tank_small_cannon_2
+							turret_type_slot = tank_medium_two_man_tank_turret
+							suspension_type_slot = tank_christie_suspension
+							armor_type_slot = tank_welded_armor
+							engine_type_slot = tank_diesel_engine
+							special_type_slot_1 = sloped_armor
+						}
+						upgrades = {
+							tank_nsb_engine_upgrade = 10
+							tank_nsb_armor_upgrade = 7
+						}
+						icon = "gfx/interface/technologies/SOV_imp_main_tank.dds"
+					}
+					create_equipment_variant = {
+						name = "BT-7I"
+						type = light_tank_chassis_2
+						parent_version = 0
+						modules = {
+							main_armament_slot = tank_small_cannon_2
+							turret_type_slot = tank_light_two_man_tank_turret
+							suspension_type_slot = tank_christie_suspension
+							armor_type_slot = tank_welded_armor
+							engine_type_slot = tank_gasoline_engine
+						}
+						upgrades = {
+							tank_nsb_engine_upgrade = 9
+							tank_nsb_armor_upgrade = 2
+						}
+						icon = "gfx/interface/technologies/SOV_imp_light_tank.dds"
+					}
+				}
+				else_if = {
+					limit = {
+						has_dlc = "No Step Back"
+					}
+					create_equipment_variant = {
+						name = "T-28I"
+						type = medium_tank_chassis_0
+						parent_version = 0
+						modules = {
+							main_armament_slot = tank_close_support_gun
+							turret_type_slot = tank_medium_three_man_tank_turret
+							suspension_type_slot = tank_bogie_suspension
+							armor_type_slot = tank_riveted_armor
+							engine_type_slot = tank_gasoline_engine
+							special_type_slot_1 = tank_radio_1
+							special_type_slot_2 = secondary_turret_hmg
+							special_type_slot_3 = secondary_turret_hmg
+						}
+						upgrades = {
+							tank_nsb_armor_upgrade = 3
+							tank_nsb_engine_upgrade = 8
+						}
+						icon = "gfx/interface/technologies/SOV_basic_heavy_tank.dds"
+					}
+					create_equipment_variant = {
+						name = "BT-5I"
+						type = light_tank_chassis_1
+						parent_version = 1
+						modules = {
+							main_armament_slot = tank_small_cannon_2
+							turret_type_slot = tank_light_one_man_tank_turret
+							suspension_type_slot = tank_christie_suspension
+							armor_type_slot = tank_riveted_armor
+							engine_type_slot = tank_gasoline_engine
+						}
+						upgrades = {
+							tank_nsb_engine_upgrade = 7
+							tank_nsb_armor_upgrade = 1
+						}
+						icon = "gfx/interface/technologies/SOV_imp_light_tank.dds"
+					}		
+				}
+				else = {
+					add_tech_bonus = {
+						name = pci_tank_focus1
+						bonus = 0.5
+						uses = 1
+						category = cat_medium_armor
+					}
+					add_tech_bonus = {
+						name = pci_tank_focus2
+						bonus = 0.5
+						uses = 1
+						category = cat_heavy_armor
+					}
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = pci_tank_focus1
+					bonus = 0.5
+					uses = 1
+					category = cat_medium_armor
+				}
+				add_tech_bonus = {
+					name = pci_tank_focus2
+					bonus = 0.5
+					uses = 1
+					category = cat_heavy_armor
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_italy_red_army
+		icon = GFX_focus_PCI_wave
+		prerequisite = { focus = PCI_people_army }
+		prerequisite = { focus = PCI_communist_tank_program }
+		available = {
+		}
+		bypass = {
+		}
+
+		x = 1
+		y = 1
+		relative_position_id = PCI_people_army
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_POLITICAL}
+		
+		completion_reward = {
+			army_experience = 15
+			add_ideas = PCI_comando_comitato_idea
+		}
+	}
+	
+	focus = {
+		id = PCI_investment_navy
+		icon = GFX_focus_generic_steady_sailing
+		prerequisite = { focus = PCI_rebuild_for_war focus = PCI_appeal_more_autonomy }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 4
+		y = 0
+		relative_position_id = PCI_investment_army
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+			navy_experience = 25
+			add_doctrine_cost_reduction = {
+				name = PCI_navy_investment
+			    cost_reduction = 0.5
+			    uses = 2
+				category = naval_doctrine
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_vanguard_soviet_navy
+		icon = GFX_focus_PCI_navy_vanguard
+		prerequisite = { focus = PCI_investment_navy }
+		mutually_exclusive = { focus = PCI_submit_soviet_naval_domination }
+		available = {
+		}
+		bypass = {
+		}
+
+		x = -1
+		y = 1
+		relative_position_id = PCI_investment_navy
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+			navy_experience = 10
+			add_tech_bonus = {
+				name = PCI_vanguard_soviet_fleet
+			    bonus = 1.0
+			    uses = 2
+			    category = cl_tech
+			    category = ca_tech
+				category = bb_tech
+				category = cv_tech
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_submit_soviet_naval_domination
+		icon = GFX_focus_hol_legacy_of_the_de_zeven_provincien_mutiny
+		prerequisite = { focus = PCI_investment_navy }
+		mutually_exclusive = { focus = PCI_vanguard_soviet_navy }
+		available = {
+		}
+		bypass = {
+		}
+
+		x = 1
+		y = 1
+		relative_position_id = PCI_investment_navy
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+			if = {
+				limit = { is_in_faction_with = SOV }
+				SOV = { add_ideas = PCI_naval_expertise }
+			}
+			navy_experience = 10
+			add_tech_bonus = {
+				name = PCI_small_fleet
+			    bonus = 1.0
+			    uses = 2
+			    category = ss_tech
+			    category = dd_tech
+			}
+			add_tech_bonus = {
+				name = PCI_small_fleet
+			    bonus = 1.0
+			    uses = 2
+			    category = naval_equipment
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_powerful_red_fleet_med
+		icon = GFX_focus_generic_strength_in_numbers
+		prerequisite = { focus = PCI_vanguard_soviet_navy }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_vanguard_soviet_navy
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+			custom_effect_tooltip = PCI_building_ships_tt
+			hidden_effect = {
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					add_equipment_production = {
+						equipment = {
+							type = ship_hull_heavy_2
+							creator = "ITA" 
+							version_name = "Littorio Class"
+						}
+						name = "Italia" 
+						requested_factories = 1
+						progress = 0.45
+						amount = 1
+					}
+					add_equipment_production = {
+						equipment = {
+							type = ship_hull_heavy_2
+							creator = "ITA" 
+							version_name = "Littorio Class"
+						}
+						name = "Biennio Rosso" 
+						requested_factories = 1
+						progress = 0.35
+						amount = 1
+					}
+				}
+				if = {
+						limit = {
+							not = { has_tech = early_ship_hull_carrier }
+						}
+						hidden_effect = {
+						set_technology = {
+							early_ship_hull_carrier = 1
+							}
+						}
+				}
+				if = {
+						limit = {
+							not = { has_tech = basic_ship_hull_carrier }
+						}
+						hidden_effect = {
+						set_technology = {
+							basic_ship_hull_carrier = 1
+							}
+						}
+				}
+				create_equipment_variant = {
+					name = "Aquila Class"
+					type = ship_hull_carrier_2
+					name_group = ITA_CV_HISTORICAL
+					parent_version = 0
+					modules = {
+						fixed_ship_deck_slot_1 = ship_deck_space
+						fixed_ship_deck_slot_2 = ship_deck_space
+						fixed_ship_anti_air_slot = ship_anti_air_1
+						fixed_ship_radar_slot = empty
+						fixed_ship_engine_slot = carrier_ship_engine_2
+						fixed_ship_secondaries_slot = dp_ship_secondaries
+						front_1_custom_slot = empty
+					}
+				}
+				add_equipment_production = {
+					equipment = {
+							type = ship_hull_carrier_2
+							creator = "ITA" 
+							version_name = "Aquila Class"
+					}
+					name = "Ascia" 
+					requested_factories = 1
+					progress = 0.25
+					amount = 1
+				}
+			}
+			add_ideas = PCI_vanguard_communist_navies 
+		}
+	}
+	
+	focus = {
+		id = PCI_small_vessel_investment
+		icon = GFX_goal_generic_navy_submarine	
+		prerequisite = { focus = PCI_submit_soviet_naval_domination }
+		available = {
+		}
+		bypass = {
+		}
+	
+		x = 0
+		y = 1
+		relative_position_id = PCI_submit_soviet_naval_domination
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = PCI_small_fleet
+			    bonus = 1.0
+			    uses = 1
+			    category = ss_tech
+			}
+			set_technology = { cruiser_submarines = 1 }
+			add_ideas = PCI_fleet_in_number_idea
+		}
+	}
+	
+	focus = {
+		id = PCI_italy_red_fleet
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = PCI_powerful_red_fleet_med focus = PCI_small_vessel_investment }
+		
+		icon = GFX_focus_PCI_navy
+		x = 1
+		y = 1
+		relative_position_id = PCI_powerful_red_fleet_med
+		cost = 5
+		
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_POLITICAL}
+		
+		completion_reward = {
+			navy_experience = 35
+			custom_effect_tooltip = PCI_final_decision_tt
+			hidden_effect = {
+				if = { 
+					limit = { 
+						has_idea = PCI_vanguard_communist_navies
+					}
+					swap_ideas = { 
+						remove_idea = PCI_vanguard_communist_navies
+						add_idea = PCI_vanguard_communist_navies_2
+					}
+				}
+				else_if = { 
+					limit = { 
+						has_idea = PCI_fleet_in_number_idea
+					}
+					swap_ideas = { 
+						remove_idea = PCI_fleet_in_number_idea
+						add_idea = PCI_fleet_in_number_idea_2
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_communist_marines
+		icon = GFX_focus_generic_think_big
+		prerequisite = { focus = PCI_investment_army }
+		prerequisite = { focus = PCI_investment_navy }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = PCI_investment_army
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = PCI_marine
+			    bonus = 1.0
+			    uses = 2
+			    category = marine_tech
+				category = tp_tech
+			}
+			#creates 1 division of marine (San Marino Brigata d'Assalto) in Rome
+		}
+	}
+	
+	focus = {
+		id = PCI_investment_airforce
+		icon = GFX_focus_PCI_air
+		prerequisite = { focus = PCI_rebuild_for_war focus = PCI_appeal_more_autonomy }
+		available = {
+		}
+		bypass = {
+		}
+
+		x = 4
+		y = 0
+		relative_position_id = PCI_investment_navy
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY}
+		
+		completion_reward = {
+			air_experience = 25
+			add_doctrine_cost_reduction = {
+				name = PCI_air_investment
+			    cost_reduction = 0.5
+			    uses = 2
+				category = air_doctrine
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_ground_command
+		icon = GFX_goal_generic_CAS	
+		prerequisite = { focus = PCI_investment_airforce }
+		mutually_exclusive = { focus = PCI_terror_command }
+		available = {
+		}
+		bypass = {
+		}
+
+		x = -1
+		y = 1
+		relative_position_id = PCI_investment_airforce
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+			add_ideas = PCI_command_ground 
+			add_tech_bonus = {
+				name = PCI_ground_command_bonus
+			    bonus = 1.0
+			    uses = 1
+				category = cas_bomber
+			}
+			add_tech_bonus = {
+				name = PCI_ground_command_bonus
+			    bonus = 1.0
+			    uses = 1
+				category = light_fighter
+			}
+			add_tech_bonus = {
+				name = PCI_ground_command_bonus
+			    bonus = 1.0
+			    uses = 2
+				category = cat_battlefield_support
+			}
+			custom_effect_tooltip = PCI_land_air_collab_tt
+		}
+	}
+	
+	focus = {
+		id = PCI_terror_command
+		icon =  GFX_goal_generic_air_bomber
+		prerequisite = { focus = PCI_investment_airforce }
+		mutually_exclusive = { focus = PCI_ground_command }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = PCI_investment_airforce
+		cost = 5
+		
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+			add_ideas = PCI_command_sky
+			add_tech_bonus = {
+				name = PCI_terror_command_bonus
+			    bonus = 1.0
+			    uses = 2
+				category = tactical_bomber
+				category = cat_strategic_bomber
+			}
+			add_tech_bonus = {
+				name = PCI_terror_command_bonus
+			    bonus = 1.0
+			    uses = 2
+				category = strategic_destruction_tree
+			}
+			custom_effect_tooltip = PCI_independant_airforce_tt
+		}
+	}
+	
+	focus = {
+		id = PCI_cooperation_air_army_navy
+		icon = GFX_focus_PCI_integrated_air
+		prerequisite = { focus = PCI_ground_command }
+		available = {
+			controls_state = 114
+			controls_state = 156
+			controls_state = 164
+			controls_state = 162
+			controls_state = 736
+		}
+		bypass = {
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_ground_command
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY}
+		
+		completion_reward = {
+				114 = {
+						add_building_construction = {
+							type = air_base
+							level = 3
+							instant_build = yes
+						}
+				}
+				156 = {
+						add_building_construction = {
+							type = air_base
+							level = 3
+							instant_build = yes
+						}
+				}
+				164 = {
+						add_building_construction = {
+							type = air_base
+							level = 4
+							instant_build = yes
+						}
+				}
+				162 = {
+						add_building_construction = {
+							type = air_base
+							level = 4
+							instant_build = yes
+						}
+				}
+				736 = {
+						add_building_construction = {
+							type = air_base
+							level = 4
+							instant_build = yes
+						}
+				}
+				add_tech_bonus = {
+					name = PCI_ground_command_bonus
+					bonus = 1.0
+					uses = 1
+					category = cas_bomber
+				}
+				add_tech_bonus = {
+					name = PCI_ground_command_bonus
+					bonus = 1.0
+					uses = 2
+					category = naval_air
+					category = naval_bomber
+				}
+				add_tech_bonus = {
+					name = PCI_ground_command_bonus
+					bonus = 1.0
+					uses = 1
+					category = cat_scout_plane
+				}
+		}
+	}
+	
+	focus = {
+		id = PCI_escort_air_fleets
+		icon = GFX_focus_usa_escort_fighters
+		prerequisite = { focus = PCI_terror_command }
+		available = {
+		}
+		bypass = {
+		}
+	
+		x = 0
+		y = 1
+		relative_position_id = PCI_terror_command
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+				add_tech_bonus = {
+					name = PCI_ground_command_bonus
+					bonus = 1.0
+					uses = 1
+					category = tactical_bomber
+					category = cat_strategic_bomber
+				}
+				add_tech_bonus = {
+					name = PCI_ground_command_bonus
+					bonus = 1.0
+					uses = 1
+					category = cat_heavy_fighter
+				}
+				add_tech_bonus = {
+					name = PCI_ground_command_bonus
+					bonus = 1.0
+					uses = 1
+					category = cat_scout_plane
+				}
+		}
+	}
+	
+	focus = {
+		id = PCI_italy_red_airforce
+		icon = GFX_focus_PCI_communist_airforce
+		prerequisite = { focus = PCI_cooperation_air_army_navy focus = PCI_escort_air_fleets }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = PCI_cooperation_air_army_navy
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+			air_experience = 50
+			custom_effect_tooltip = PCI_final_decision_tt
+			hidden_effect = {
+				if = { 
+					limit = { 
+						has_idea = PCI_command_ground 
+					}
+					swap_ideas = { 
+						remove_idea = PCI_command_ground
+						add_idea = PCI_integrated_airforce
+					}
+				}
+				else_if = { 
+					limit = { 
+						has_idea = PCI_command_sky
+					}
+					swap_ideas = { 
+						remove_idea = PCI_command_sky
+						add_idea = PCI_command_sky_2
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_supremo_comando_comitato
+		icon = GFX_focus_PCI_bold_hammer
+		prerequisite = { focus = PCI_italy_red_army }
+		prerequisite = { focus = PCI_italy_red_fleet }
+		prerequisite = { focus = PCI_italy_red_airforce }
+		available = {
+		}
+		bypass = {
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_italy_red_fleet
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		
+		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH}
+		
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = PCI_comando_comitato_idea
+				add_idea = PCI_supremo_comando_comitato_idea
+			}
+			if = { limit = { amount_research_slots < 5 }
+			add_research_slot = 1 }
+		}
+	}
+
+#international diplomacy - your faction
+	focus = {
+		id = PCI_molotov_nenni_pact
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		prerequisite = { focus = PCI_northern_fortifications }
+		prerequisite = { focus = PCI_supremo_comando_comitato }
+		available = {
+			is_subject = yes
+			is_in_faction_with = SOV
+		}
+		bypass = {
+		}
+
+		x = 0
+		y = 3
+		relative_position_id = PCI_northern_fortifications
+		cost = 5
+		
+		ai_will_do = {
+			factor = 100
+		}		
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			SOV = { country_event = { id = pci_events.3 hours = 7 } }
+		}
+	}
+	
+	focus = {
+		id = PCI_vanguard_communism
+		icon = GFX_focus_PCI_vanguard_bolshevism
+		prerequisite = { focus = PCI_molotov_nenni_pact }
+		available = {
+			is_in_faction_with = SOV
+		}
+		bypass = {
+		}
+		
+		x = -5
+		y = 1
+		relative_position_id = PCI_molotov_nenni_pact
+		cost = 10
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_ideas = PCI_vanguard_bolchevism
+		}
+	}
+	
+	focus = {
+		id = PCI_bearer_revolution
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		prerequisite = { focus = PCI_unification_association }
+		available = {
+			is_subject = no
+		}
+		bypass = {
+		}
+		
+		x = 5
+		y = 1
+		relative_position_id = PCI_unification_association
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			add_political_power = 120
+			swap_ideas = {
+				remove_idea = PCI_vanguard_left_communism
+				add_idea = PCI_bearer_revolution_idea
+			}
+		}
+	}
+
+	focus = {
+		id = PCI_destabilize_central_south_america
+		icon = GFX_focus_por_latin_american_communism
+		prerequisite = { focus = PCI_bearer_revolution }
+		available = {
+			NOT = { has_country_flag = PCI_caved_to_america }
+			has_government = communism
+			OR = {
+				country_exists = BRA country_exists = MEX
+				country_exists = COL country_exists = ARG
+				country_exists = PRU country_exists = VEN
+				country_exists = CHL country_exists = GUA
+				country_exists = ECU country_exists = CUB
+				country_exists = BOL country_exists = HAI
+				country_exists = DOM country_exists = HON
+				country_exists = PAR country_exists = ELS
+				country_exists = NIC country_exists = COS
+				country_exists = PAN country_exists = URG
+			}				
+		}
+		bypass = {
+		}
+		
+		x = -1
+		y = 1
+		relative_position_id = PCI_bearer_revolution
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+		
+		select_effect = {
+			if = {
+				limit = {
+					NOT = { has_war_with = USA }
+					NOT = { is_in_faction_with = USA }
+					USA = {
+						NOT = { has_government = communism }
+					}
+				}
+				country_event = { id = pci_events.15 days = 5 random = 10 } #Monroe Doctrine
+			}
+		}
+		
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					OR = {
+						TAG = BRA TAG = MEX
+						TAG = COL TAG = ARG
+						TAG = PRU TAG = VEN
+						TAG = CHL TAG = GUA
+						TAG = ECU TAG = CUB
+						TAG = BOL TAG = HAI
+						TAG = DOM TAG = HON
+						TAG = PAR TAG = ELS
+						TAG = NIC TAG = COS
+						TAG = PAN TAG = URG
+					}
+					has_government = communism
+				}
+				add_opinion_modifier = {
+					target = POR
+					modifier = POR_iberian_communism
+				}
+			}
+			every_other_country = {
+				limit = {
+					OR = {
+						TAG = BRA
+						TAG = COL TAG = ARG
+						TAG = PRU TAG = VEN
+						TAG = CHL TAG = GUA
+						TAG = ECU TAG = CUB
+						TAG = BOL TAG = HAI
+						TAG = DOM TAG = HON
+						TAG = PAR TAG = ELS
+						TAG = NIC TAG = COS
+						TAG = PAN TAG = URG
+					}
+					NOT = { has_government = communism }
+				}
+				add_popularity = {
+				    ideology = communism
+				    popularity = 0.05
+				}
+				add_timed_idea = {
+					idea = communist_influence
+					days = 730
+				}	
+			}
+			#add_ideas = POR_spread_communism_overseas look up this idea
+			if = {
+				limit = { 
+					has_idea = PCI_intelligence_council_idea 
+				}
+				swap_ideas = { 
+					remove_idea = PCI_intelligence_council_idea
+					add_idea = PCI_intelligence_council_idea_2
+				}
+			}
+			else_if = {
+				limit = { 
+					has_idea = PCI_intelligence_council_idea_dlc 
+				}
+				swap_ideas = { 
+					remove_idea = PCI_intelligence_council_idea_dlc
+					add_idea = PCI_intelligence_council_idea_dlc_2
+				}
+			}
+			#USA gets event 'Italy Communist Influence in South America' - their protest gives us 2 choices : back out and not get any decisions or pay 150pp for the trouble
+		}
+	}
+	
+	focus = {
+		id = PCI_back_trotsky
+		icon = GFX_focus_mex_jefe_maximo
+		prerequisite = { focus = PCI_destabilize_central_south_america }
+		available = {
+			is_subject = no
+			country_exists = MEX
+			MEX = {
+				is_subject = no
+				NOT = { has_government = communism }
+			}	
+		}
+		
+		x = -2
+		y = 1
+		relative_position_id = PCI_destabilize_central_south_america
+		cost = 5
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			MEX = {
+				add_timed_idea = { idea = communist_influence days = 730 }
+			}
+			if = {
+				limit = {
+					NOT = { has_global_flag = flag_trotsky_has_returned_to_ussr_from_mexico }
+					NOT = { has_global_flag = trotsky_dead }
+				}
+				MEX = {
+					create_country_leader = {
+						name = "Leon Trotsky"
+						desc = "POLITICS_LEON_TROTSKY_DESC"
+						picture = "gfx/leaders/SOV/Portrait_Leon_Trotsky.dds"
+						expire = "1965.1.1"
+						ideology = leninism
+						traits = {
+							exiled_revolutionary
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_global_flag = flag_trotsky_has_returned_to_ussr_from_mexico
+						has_global_flag = trotsky_dead
+					}
+				}
+				MEX = {
+					create_country_leader = {
+						name = "Hernán Laborde"
+						desc = "POLITICS_HERNAN_LABORDE_DESC"
+						picture = "GFX_Portrait_MEX_Hernan_Laborde"
+						expire = "1965.1.1"
+						ideology = leninism
+						traits = {
+							devoted_trotskyist
+						}
+					}
+					country_event = { id = pci_events.14 days = 10 }
+				}
+			}
+
+			#Mexico is invited to our faction once communist 
+			
+
+			#communism takes power, election wont be held
+			#Mexico is invited to our faction 
+			
+			#USA gets event 'Intervention against Communism' which give them topple government against communist Mexico
+		}
+	}
+	
+	focus = {
+		id = PCI_paraguay_chaco_struggle
+		icon = GFX_focus_PCI_chaco
+		prerequisite = { focus = PCI_destabilize_central_south_america }
+		available = {
+			is_subject = no
+			country_exists = PAR
+			PAR = { is_subject = no	}
+			country_exists = BOL
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_destabilize_central_south_america
+		cost = 5
+		will_lead_to_war_with = BOL
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		select_effect = {
+			PAR = { country_event = { id = pci_events.11 days = 5 random = 10 } }
+		}
+		
+		completion_reward = {
+			custom_effect_tooltip = we_sell_planes_tt
+			PCI = {
+				give_guarantee = PAR
+			}
+			PAR = {
+				country_event = { id = lvn_generic.4 }
+				country_event = { id = pci_events.13 days = 5 random = 20 }
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = PCI_destabilize_europe
+		icon = GFX_focus_spr_anarchism_knows_no_borders
+		prerequisite = { focus = PCI_bearer_revolution focus = PCI_vanguard_communism }
+		available = {
+			is_subject = no
+		}
+		bypass = {
+		}
+		
+		x = 3
+		y = 1
+		relative_position_id = PCI_bearer_revolution
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			#series of decisions to inflate communist influence in Europe
+			
+			#GB gets event 'Italy Communist Influence in Europe' - their protest gives us 2 choices : back out and not get any decisions or they get war goal
+			custom_effect_tooltip = PCI_democrat_war_tt
+			hidden_effect = {
+				every_country = {
+					limit = {
+						is_major = yes
+						OR = {
+							has_government = democratic
+							has_government = neutrality
+						}
+						NOT = { is_in_faction_with = ROOT }
+						NOT = { has_war_with = ROOT }
+					}
+					PCI = { 
+						declare_war_on = {
+						target = PREV
+						type = puppet_wargoal_focus
+							}
+						}
+					}
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_destroy_komintern
+		icon = GFX_focus_ITA_soviet_menace
+		prerequisite = { focus = PCI_bearer_revolution }
+		available = {
+			is_subject = no
+		}
+		bypass = {
+			PCI = {has_war_with = SOV}
+		}
+	
+		x = 0
+		y = 3
+		relative_position_id = PCI_bearer_revolution
+		cost = 5
+		will_lead_to_war_with = SOV
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			create_wargoal = {
+			    type = puppet_wargoal_focus
+			    target = SOV
+			    expire = 0
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_red_france
+		icon = GFX_focus_ITA_attack_france
+		prerequisite = { focus = PCI_destabilize_europe }
+		available = {
+			is_subject = no
+			PCI = {
+				NOT = {
+					is_in_faction_with = FRA
+				}
+			}
+
+			NOT = {
+				FRA = {
+					has_government = communism
+				}
+			}
+			
+		}
+		bypass = {
+		}
+		
+		x = -1
+		y = 1
+		relative_position_id = PCI_destabilize_europe
+		cost = 5
+		will_lead_to_war_with = FRA
+		
+		ai_will_do = {
+			factor = 1
+		}		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			if = {
+				limit = {
+					FRA = {
+						has_government = communism
+						is_in_faction = no
+					}
+					is_in_faction = yes
+				}
+				FRA = { country_event = { id = lvn_generic.4 hours = 6 random_hours = 6 } }
+			}
+			else_if = {
+				limit = {
+					FRA = {
+						NOT = { has_government = communism }
+						communism > 0.2
+					}
+				}
+				FRA = { country_event = { id = lar_spain.62 hours = 6 random_hours = 6 } }
+			}
+			else = {
+				create_wargoal = {
+				    type = puppet_wargoal_focus
+				    target = FRA
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PCI_secure_bosporus_stalin
+		icon = GFX_focus_ITA_turkey_claims
+		prerequisite = { focus = PCI_vanguard_communism }
+		available = {
+			is_subject = no
+			country_exists = TUR
+			TUR = {
+				NOT = { has_government = communism }
+			}
+		}
+		bypass = {
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = PCI_vanguard_communism
+		cost = 5
+		will_lead_to_war_with = TUR
+		
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = TUR
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_southern_security
+		icon = GFX_focus_ITA_middle_east
+		prerequisite = { focus = PCI_secure_bosporus_stalin }
+		available = {
+			is_subject = no
+			OR = {
+				country_exists = AFG
+				country_exists = PER
+				country_exists = IRQ
+			}
+			OR = {
+				AFG ={ NOT = { has_government = communism }}
+				PER ={ NOT = { has_government = communism }}
+				IRQ ={ NOT = { has_government = communism }}
+			}
+		}
+		bypass = {
+			AND = {
+				NOT = {
+					country_exists = AFG
+					country_exists = PER
+					country_exists = IRQ
+				}
+			}
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = PCI_secure_bosporus_stalin
+		cost = 5
+		will_lead_to_war_with = TUR
+		
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = AFG
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = PER
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = IRQ
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = PCI_red_spain
+		icon = GFX_focus_spr_war_of_independence
+		prerequisite = { focus = PCI_destabilize_europe }
+		available = {
+			is_subject = no
+			country_exists = SPR
+			SPR = {
+				NOT = { has_government = communism }
+			}
+		}
+		bypass = {
+			PCI = { has_war_with = SPR }
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = PCI_destabilize_europe
+		cost = 5
+		
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			if = {
+				limit = {
+					any_country_with_original_tag = {
+						original_tag_to_check = SPR
+						tag = SPD
+						has_civil_war = yes
+						 }
+					}
+				add_to_war = {
+					targeted_alliance = SPD
+					enemy = SPA
+					hostility_reason = asked_to_join
+					}
+				}
+			else_if = {
+				limit = {
+					any_country_with_original_tag = {
+						original_tag_to_check = SPR
+						has_civil_war = no
+						OR = {
+							has_government = neutrality
+							has_government = fascism }
+						}
+					}
+				create_wargoal = {
+				    type = puppet_wargoal_focus
+				    target = SPR
+				}
+			}
+		}
+	}
+
+#war focuses - shared
+
+
+	focus = {
+		id = PCI_take_down_merchants
+		icon = GFX_focus_ITA_moneydeath
+		prerequisite = { focus = PCI_vanguard_communism }
+		available = {
+			is_subject = no
+			any_country = {
+				OR = {
+					has_government = democratic
+					has_government = neutrality
+				}
+				capital_scope = { is_on_continent = europe } 
+			}
+		}
+		bypass = {
+		}
+		
+		x = 0
+		y = 3
+		relative_position_id = PCI_vanguard_communism
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ENG
+			}
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = USA
+			}
+		}
+	}
+	
+	focus = {
+		id = PCI_destroy_fascism
+		icon = GFX_focus_focus_fra_fascist_threat
+		prerequisite = { focus = PCI_red_france focus = PCI_red_spain }
+		available = {
+			is_subject = no
+			any_country = {
+				has_government = fascism
+				capital_scope = { is_on_continent = europe } }
+		}
+		bypass = {
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = PCI_red_france
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			custom_effect_tooltip = PCI_war_on_fascists_tt	
+			hidden_effect = {
+			every_country = {				
+				limit = {
+					has_government = fascism
+					NOT = { is_in_faction_with = PCI }
+					NOT = { has_war_with = PCI }
+					capital_scope = { is_on_continent = europe } 
+					}
+				PCI = {
+					declare_war_on = {
+					target = PREV
+					type = puppet_wargoal_focus }
+					}
+				}
+			}
+					
+		}
+	}
+	
+		
+}#end focus
+

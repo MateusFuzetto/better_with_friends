@@ -1,0 +1,223 @@
+
+
+#Important to put HIGHEST first
+Italia_form_ITK_effect = {
+	if = {
+		limit = {
+			has_idea = italia_victor_emmanuel
+		}
+		ITK = {
+			add_ideas = italia_victor_emmanuel
+		}
+	}
+	if = {#Forms collaboration state for Germany
+		limit = { is_in_faction_with = GER }
+		ITK = {
+			set_politics = {
+			ruling_party = neutrality
+			}
+			set_party_name = { 
+				ideology = fascism
+				long_name = ITA_neo_fascism_long 
+				name = ITA_neo_fascism 
+			}
+			create_country_leader = {
+				name = "Giorgio Almirante"
+				desc = "POLITICS_Almirante_DESC"
+				picture = "portrait_europe_generic_4.dds"
+				expire = "1965.1.1.1"
+				ideology = fascism_ideology
+				traits = {
+				
+				}
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = ITA
+				}
+			add_core_of = ITK
+		}
+
+		GER = {
+			set_autonomy = {
+				target = ITA
+				autonomy_state = autonomy_ITL
+				freedom_level = 0.5
+			}
+		}
+		ITK = {
+			set_cosmetic_tag = italia_kingdomofitaly
+			load_focus_tree = generic_focus
+			add_timed_idea = {
+				idea = LVN_demoralized_army
+				days = 170
+			}
+			inherit_technology = ITA
+			transfer_state = 2
+			transfer_state = 157
+			transfer_state = 117
+			transfer_state = 156
+			transfer_state = 115
+			set_capital = { state = 2 }
+			set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+			}
+			set_popularities = {
+				democratic = 30
+				fascism = 10
+				neutrality = 40
+				communism = 20
+			}
+			
+			set_stability = 0.7
+
+			create_country_leader = {
+				name = "Pietro Badoglio"
+				desc = "POLITICS_Caviglia_DESC"
+				picture = "Portrait_Italy_Pietro_Badoglio.dds"
+				expire = "1965.1.1.1"
+				ideology = despotism
+				traits = {
+				
+					}
+				}			
+		}
+
+		ITA = {
+			transfer_units_fraction= {
+				target = ITK
+				size = 0.5
+				stockpile_ratio = 0.5
+				army_ratio = 0.5
+				navy_ratio = 0.9
+				air_ratio = 0.75
+				keep_unit_leaders_trigger = {
+					has_trait = trait_ITA_fascist_loyalties
+				}
+			}
+		}
+		ITK = {
+			every_unit_leader = {
+				set_nationality = ITA 
+			}
+		}
+		ITA = {
+			add_ideas = RSI_german_occupation
+			every_unit_leader = {
+				limit = { NOT = { has_trait = trait_ITA_fascist_loyalties } }
+				set_nationality = ITK 
+			}
+		}
+			
+		ITK = {
+			declare_war_on = {
+			    target = ITA
+			    type = civil_war
+			}
+			add_civil_war_target = ITA
+		}
+	}
+	else_if = {#No collaboration
+		ITK = {
+			set_politics = {
+			ruling_party = neutrality
+			}
+			set_party_name = { 
+				ideology = fascism
+				long_name = ITA_neo_fascism_long 
+				name = ITA_neo_fascism 
+			}
+			create_country_leader = {
+				name = "Giorgio Almirante"
+				desc = "POLITICS_Almirante_DESC"
+				picture = "portrait_europe_generic_4.dds"
+				expire = "1965.1.1.1"
+				ideology = fascism_ideology
+				traits = {
+				
+				}
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = ITA
+				}
+			add_core_of = ITK
+		}
+		ITK = {
+			set_cosmetic_tag = italia_kingdomofitaly
+			add_timed_idea = {
+				idea = LVN_demoralized_army
+				days = 170
+			}
+			load_focus_tree = generic_focus
+			inherit_technology = ITA
+			transfer_state = 2
+			transfer_state = 157
+			transfer_state = 117
+			transfer_state = 156
+			transfer_state = 115
+			set_capital = { state = 2 }
+			set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+				}
+			set_popularities = {
+				democratic = 30
+				fascism = 10
+				neutrality = 40
+				communism = 20
+			}
+			
+			set_stability = 0.7
+
+			create_country_leader = {
+				name = "Pietro Badoglio"
+				desc = "POLITICS_Caviglia_DESC"
+				picture = "Portrait_Italy_Pietro_Badoglio.dds"
+				expire = "1965.1.1.1"
+				ideology = despotism
+				traits = {
+				
+					}
+				}			
+		}
+
+		ITA = {
+			transfer_units_fraction= {
+				target = ITK
+				size = 0.5
+				stockpile_ratio = 0.5
+				army_ratio = 0.5
+				navy_ratio = 0.9
+				air_ratio = 0.75
+				keep_unit_leaders_trigger = {
+					has_trait = trait_ITA_fascist_loyalties
+				}
+			}
+		}
+		ITK = {
+			every_unit_leader = {
+				set_nationality = ITA 
+			}
+		}
+		ITA = {
+			every_unit_leader = {
+				limit = { NOT = { has_trait = trait_ITA_fascist_loyalties } }
+				set_nationality = ITK 
+			}
+		}
+			
+		ITK = {
+			declare_war_on = {
+			    target = ITA
+			    type = civil_war
+			}
+			add_civil_war_target = ITA
+		}
+	}
+}#Closing Bracket
+
+

@@ -1,0 +1,146 @@
+
+
+technology_sharing_group = {
+
+	id = ita_fra_eng_research
+	name = ita_fra_eng_research_name
+	desc = ita_fra_eng_research_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.05
+
+    available = {
+        NOT = { has_war_with = ITA }
+		NOT = {
+			any_allied_country = {
+				has_war_with = ITA
+			}
+		}
+	}
+
+}
+
+technology_sharing_group = {
+
+	id = roman_research
+	name = roman_research_name
+	desc = roman_research_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.5
+
+    available = {
+        NOT = { has_war_with = ITA }
+		NOT = {
+			any_allied_country = {
+				has_war_with = ITA
+			}
+		}
+	}
+
+}
+
+technology_sharing_group = {
+
+	id = PCI_ecr
+	name = PCI_ecr_research_name
+	desc = PCI_ecr_research_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.10
+	categories = { industry }
+
+    available = {
+        NOT = { has_war_with = ITA }
+		NOT = {
+			any_allied_country = {
+				has_war_with = ITA
+			}
+		}
+	}
+
+}
+
+technology_sharing_group = {
+
+	id = ITA_european_tech_sharing_group
+	name = italia_european_community_research_group_name
+	desc = italia_european_community_research_group_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.10
+	categories = { industry engineering }
+
+    available = {
+        NOT = { has_war_with = ITA }
+		NOT = {
+			any_allied_country = {
+				has_war_with = ITA
+			}
+		}
+	}
+
+}
+
+technology_sharing_group = {
+
+	id = PCI_kar_sharing_group
+	name = PCI_kar_sharing_group_name
+	desc = PCI_kar_sharing_group_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.10
+	categories = { industry engineering }
+
+    available = {
+        NOT = { has_war_with = ITA }
+		NOT = {
+			any_allied_country = {
+				has_war_with = ITA
+			}
+		}
+	}
+
+}
+
+technology_sharing_group = {
+
+	id = LVN_latin_research_group
+	name = LVN_latin_research_group_name
+	desc = LVN_latin_research_group_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.10
+	categories = { industry engineering armor infantry }
+
+    available = {
+        NOT = { has_war_with = ITA }
+		NOT = { #Mod
+			any_allied_country = {
+				has_war_with = ITA
+			}
+		}
+	}
+
+}
+
+technology_sharing_group = {
+
+	id = LVN_med_entente_research_group
+	name = LVN_med_entente_research_group_name
+	desc = LVN_med_entente_research_group_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.25
+	categories = { naval_doctrine naval_equipment }
+
+    available = {
+        NOT = { has_war_with = ITA }
+		NOT = { #Mod
+			any_allied_country = {
+				has_war_with = ITA
+			}
+		}
+	}
+
+}

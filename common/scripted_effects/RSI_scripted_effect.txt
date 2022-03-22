@@ -1,0 +1,503 @@
+
+
+#Important to put HIGHEST first
+Italia_form_RSI_effect = {
+	ITA = { clr_country_flag = original_fascists_allowed }
+	if = {#Forms collaboration state for Germany
+		limit = { is_in_faction_with = GER }
+		RSI = {
+			set_politics = {
+			ruling_party = fascism
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = ITA
+				}
+			add_core_of = RSI
+		}
+		every_state = {
+			limit = {
+				OR = {
+					is_controlled_by = ITA
+					is_controlled_by = GER 
+				}
+				is_core_of = ITA
+				has_state_flag = ITA_northern_italy_flag
+			}
+				RSI = {
+					transfer_state = PREV
+				}
+		}
+
+		GER = {
+			set_autonomy = {
+				target = RSI
+				autonomy_state = autonomy_ITL
+				freedom_level = 0.5
+			}
+		}
+		ITA = { leave_faction = yes }
+		RSI = {
+			set_cosmetic_tag = ITA_social_republic
+			load_focus_tree = italian_RSI_focus
+			inherit_technology = ITA
+			set_capital = {state = 160 }
+			set_victory_points = {#Making Salo the capital for historical purposes
+				province = 603
+				value = 16
+			}
+			add_ideas = RSI_german_occupation
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+			promote_character = RSI_duce_loyalists
+			set_popularities = {
+				democratic = 19
+				fascism = 51
+				neutrality = 10
+				communism = 20
+			}
+			
+			set_stability = 0.5
+			set_party_name = { 
+				ideology = fascism
+				long_name = ITL_fascism_party_long 
+				name = ITL_fascism_party 
+			}
+			add_timed_idea = {
+				idea = RSI_weakened_army
+				days = 180
+			}
+			add_ideas = {
+				limited_exports
+				extensive_conscription
+				partial_economic_mobilisation
+			}
+			if = {
+				limit = {
+					ITA = { has_idea = ITA_fiat_duopoly }
+				}
+				add_ideas = ITA_fiat_duopoly
+			}			
+		}
+			every_state = { #transfer European controlled states, if any!
+				limit = {
+					NOT = { is_core_of = ITA }
+					NOT = { state = 164 }
+					NOT = { state = 163 }
+					is_controlled_by = ITA
+					is_on_continent = europe
+					NOT = {
+						is_controlled_by = RSI
+					}
+				}
+					RSI = { transfer_state = PREV }
+			}
+
+			ITA = {
+				transfer_units_fraction= {
+					target = RSI
+					size = 0.30
+					stockpile_ratio = 0.4
+					army_ratio = 0.30
+					navy_ratio = 0.1
+					air_ratio = 0.25
+					keep_unit_leaders_trigger = {
+						NOT = { has_trait = trait_ITA_fascist_loyalties }
+					}
+				}
+			}
+			RSI = {
+				every_unit_leader = {
+					set_nationality = ITA 
+				}
+			}
+			ITA = {
+				every_unit_leader = {
+					limit = { has_trait = trait_ITA_fascist_loyalties }
+					set_nationality = RSI 
+				}	
+			}
+			
+			RSI = {
+				country_lock_all_division_template = yes
+				declare_war_on = {
+					target = ITA
+					type = civil_war
+				}
+				add_civil_war_target = ITA
+			}
+		if = {#RSI gets Rome if you failed
+			limit = {
+				has_global_flag = LVN_we_lost_rome
+			}
+			RSI = {	transfer_state = 2 }
+			ITA = { set_capital = { state = 156 } }#Brindisi becomes capital 
+		}
+		every_state = {
+			limit = {
+				is_owned_by = RSI 
+			}
+			teleport_armies = {
+				limit = {
+					TAG = ITA
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+	}
+	
+	else_if = {
+		RSI = {
+			set_politics = {
+			ruling_party = fascism
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = ITA
+				}
+			add_core_of = RSI
+		}
+		every_state = {
+			limit = {
+				OR = {
+					is_controlled_by = ITA
+					is_controlled_by = GER 
+				}
+				is_core_of = ITA
+				has_state_flag = ITA_northern_italy_flag
+			}
+				RSI = {
+					transfer_state = PREV
+				}
+		}
+				
+		RSI = { 
+			set_capital = { state = 160 }
+			set_victory_points = {#Making Salo the capital for historical purposes
+				province = 603
+				value = 16
+			}
+			set_cosmetic_tag = ITA_social_republic
+			promote_character = RSI_duce_loyalists
+			inherit_technology = ITA
+			load_focus_tree = italian_RSI_focus	
+			set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+				}
+			set_popularities = {
+				democratic = 19
+				fascism = 51
+				neutrality = 10
+				communism = 20
+			}
+			add_timed_idea = {
+				idea = RSI_weakened_army
+				days = 180
+			}
+			add_ideas = {
+				limited_exports
+				extensive_conscription
+				partial_economic_mobilisation
+			}
+			set_stability = 0.5
+			set_party_name = { 
+				ideology = fascism
+				long_name = ITL_fascism_party_long 
+				name = ITL_fascism_party 
+			}
+		
+	if = {
+		limit = { 
+			ITA = { has_idea = ITA_autarchia_idea }
+		}
+		add_ideas = ITA_autarchia_idea }
+	if = {
+		limit = {
+			ITA = { has_idea = ITA_fiat_duopoly }
+		}
+		add_ideas = ITA_fiat_duopoly
+	}
+		
+	if = {
+		limit = { 
+			ITA = { has_idea = eight_million_man_army }
+		}
+		add_ideas = eight_million_man_army }
+		
+	if = {
+		limit = { 
+			ITA = { has_idea = italia_inefficient_economy_1 }
+		}
+		add_ideas = italia_inefficient_economy_1 }
+		
+	if = {
+		limit = { 
+			ITA = { has_idea = italia_inefficient_economy_2 }
+		}
+		add_ideas = italia_inefficient_economy_2 }
+		
+	if = {
+		limit = { 
+			ITA = { has_idea = italia_inefficient_economy_3 }
+		}
+		add_ideas = italia_inefficient_economy_3 }
+		
+	if = {
+		limit = { 
+			ITA = { has_idea = italia_inefficient_economy_4 }
+		}
+		add_ideas = italia_inefficient_economy_4 }
+		
+	if = {
+		limit = { 
+			ITA = { has_idea = ITALIA_duce_command }
+		}
+		add_ideas = ITALIA_duce_command }
+		
+	if = {
+		limit = { 
+			ITA = { has_idea = ITALIA_unprepared_army }
+		}
+		add_ideas = ITALIA_unprepared_army }
+		
+	if = {
+		limit = { 
+			ITA = { has_idea = italia_austerity_idea }
+		}
+		add_ideas = italia_austerity_idea }
+		
+	if = {
+		limit = { 
+			ITA = { has_idea =  ITA_easier_spanish_trade }
+		}
+		add_ideas = ITA_easier_spanish_trade }					
+	}
+			every_state = { #transfer European controlled states, if any!
+				limit = {
+					NOT = { is_core_of = ITA }
+					NOT = { state = 164 }
+					NOT = { state = 163 }
+					is_controlled_by = ITA
+					is_on_continent = europe
+					NOT = {
+						is_controlled_by = RSI
+					}
+				}
+					RSI = { transfer_state = PREV }
+			}
+
+			ITA = {
+				transfer_units_fraction= {
+				target = RSI
+				size = 0.2
+				stockpile_ratio = 0.3
+				army_ratio = 0.05
+				navy_ratio = 0.1
+				air_ratio = 0.25
+				keep_unit_leaders_trigger = {
+					NOT = { has_trait = trait_ITA_fascist_loyalties }
+					}
+				}
+			}
+			RSI = {
+				every_unit_leader = {
+					set_nationality = ITA
+				}
+			}
+			ITA = {
+				every_unit_leader = {
+					limit = { has_trait = trait_ITA_fascist_loyalties }
+					set_nationality = RSI 
+				}
+				delete_unit_template_and_units = {
+					division_template = "Camicie Nere"
+					disband = no #will NOT refund equipment and manpower
+				}
+			}
+			
+			RSI = {
+			declare_war_on = {
+			    target = ITA
+			    type = civil_war
+				}
+			add_civil_war_target = ITA
+			delete_unit_template_and_units = {
+				division_template = "Camicie Nere"
+				disband = yes #will NOT refund equipment and manpower
+			}
+			load_oob = RSI_army
+			}
+			if = {
+				limit = {
+					GER = { has_government = fascism }
+				}
+				GER = {
+					add_ideas = RSI_german_volunteers
+					add_ai_strategy = {
+						type = send_volunteers_desire 
+						id = RSI
+						value = 1000
+					}
+				}
+			}
+		if = {#RSI gets Rome if you failed
+			limit = {
+				has_global_flag = LVN_we_lost_rome
+			}
+			2 = {
+				teleport_armies = {
+					limit = {
+						TAG = ITA
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+			RSI = {	#adds units for RSI thanks to securing Rome
+				transfer_state = 2
+				2 = {
+					create_unit = {
+						division = "division_template = \"Camicie Nere\" start_experience_factor = 0.7" 
+						owner = RSI
+					}
+					create_unit = {
+						division = "division_template = \"Camicie Nere\" start_experience_factor = 0.7" 
+						owner = RSI
+					}
+					create_unit = {
+						division = "division_template = \"Camicie Nere\" start_experience_factor = 0.7" 
+						owner = RSI
+					}
+				}
+			}
+			set_victory_points = {#Making Brindisi the capital for historical purposes
+				province = 11998
+				value = 10
+			}
+
+			ITA = { set_capital = { state = 156 } }
+		}
+		every_state = {#Get our troops out of RSI!
+			limit = {
+				is_owned_by = RSI 
+			}
+			teleport_armies = {
+				limit = {
+					TAG = ITA
+				}
+				to_state_array = owned_controlled_states
+			}
+		}
+		}
+}
+
+Italia_play_RSI_effect = {
+		RSI = {
+			set_cosmetic_tag = ITA_social_republic
+			load_focus_tree = italian_RSI_focus
+			set_capital = { state = 159 }
+			set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+			}
+			set_popularities = {
+				democratic = 19
+				fascism = 51
+				neutrality = 10
+				communism = 20
+			}
+			
+			set_stability = 0.5
+			set_party_name = { 
+				ideology = fascism
+				long_name = ITL_fascism_party_long 
+				name = ITL_fascism_party 
+			}
+			add_timed_idea = {
+				idea = RSI_weakened_army
+				days = 180
+			}
+			add_ideas = {
+				limited_exports
+				extensive_conscription
+				partial_economic_mobilisation
+			}			
+		}
+			every_state = { #transfer European controlled states, if any!
+				limit = {
+					NOT = { is_core_of = ITA }
+					NOT = { state = 164 }
+					NOT = { state = 163 }
+					is_controlled_by = ITA
+					is_on_continent = europe
+					NOT = {
+						is_controlled_by = RSI
+					}
+				}
+					RSI = { transfer_state = PREV }
+			}
+
+		if = {#RSI gets Rome if you failed
+			limit = {
+				has_global_flag = LVN_we_lost_rome
+			}
+			2 = {
+				teleport_armies = {
+					limit = {
+						TAG = ITA
+					}
+					to_state_array = owned_controlled_states
+				}
+			}
+			RSI = {	#adds units for RSI thanks to securing Rome
+				transfer_state = 2
+				2 = {
+					create_unit = {
+						division = "division_template = \"Camicie Nere\" start_experience_factor = 0.7" 
+						owner = RSI
+					}
+					create_unit = {
+						division = "division_template = \"Camicie Nere\" start_experience_factor = 0.7" 
+						owner = RSI
+					}
+					create_unit = {
+						division = "division_template = \"Camicie Nere\" start_experience_factor = 0.7" 
+						owner = RSI
+					}
+				}
+			}
+			set_victory_points = {#Making Brindisi the capital for historical purposes
+				province = 11998
+				value = 10
+			}
+
+			ITA = { set_capital = { state = 156 } }
+		}
+		
+		if = {
+			limit = {
+				GER = { has_government = fascism }
+			}
+			GER = {
+				add_ideas = RSI_german_volunteers
+				add_ai_strategy = {
+					type = send_volunteers_desire 
+					id = RSI
+					value = 50
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_subject_of = GER
+			}
+			country_event = { id = RSI.16 }
+		}
+		else_if = {
+			country_event = { id = RSI.15 }
+		}
+}

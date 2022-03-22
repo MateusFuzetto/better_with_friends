@@ -1,0 +1,1051 @@
+characters={
+
+	RSI_duce_loyalists={
+		name="Duce Loyalists"
+		portraits={
+			civilian={
+				large="gfx/leaders/ITA/portrait_RSI_council.dds"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	
+	RSI_benito_mussolini={
+		name=RSI_benito_mussolini
+		portraits={
+			civilian={
+				large="gfx/leaders/ITA/Portrait_RSI_Benito_Mussolini.dds"
+			}
+		}
+		
+		country_leader={
+			ideology=fascism_ideology
+			traits = {  }
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	
+	RSI_julis_evola={
+		name=RSI_julis_evola
+		portraits={
+			civilian={
+				large="gfx/leaders/ITA/Portrait_RSI_Julis_Evola.dds"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits = { fascist_philosopher_evola_trait }
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	
+	RSI_attilio_teruzzi={
+		name="Attilio Teruzzi"
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_mario_carloni.dds"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_ITA_Attilio_Teruzzi.dds"
+			}
+		}
+		corps_commander={
+			traits={ trait_reckless politically_connected trait_ITA_fascist_loyalties }
+			skill=3
+			attack_skill=3
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	RSI_tito_agosti={
+		name="Tito Agosti"
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_mario_carloni.dds"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_ITA_Tito_Agosti.dds"
+			}
+		}
+		corps_commander={
+			traits={ cavalry_officer trait_ITA_fascist_loyalties }
+			skill=2
+			attack_skill=3
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	RSI_mario_carloni={
+		name="Mario Carloni"
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_mario_carloni.dds"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_RSI_Mario_Carloni.dds"
+			}
+		}
+		corps_commander={
+			traits={ infantry_officer trait_ITA_fascist_loyalties trait_mountaineer }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+		advisor={	
+			slot = high_command
+			idea_token = mario_carloni
+			ledger = army
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				tag = RSI
+			}
+			available = {
+				has_government = fascism
+			}
+
+			traits = {
+				army_chief_reform_2
+			}
+
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+	}
+	
+	RSI_Cossato={
+		name="Carlo Fecia di Cossato"
+		portraits={
+			navy={
+				large="gfx/leaders/ITA/Portrait_ITA_Carlo_Fecia_di_Cossato.dds"
+				small="gfx/interface/ideas/idea_cossato.dds"
+			}
+		}
+		advisor={	
+			slot = high_command
+			idea_token = carlo_cossato
+			ledger = navy
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				tag = RSI
+				has_global_flag = RSI_recruited_Cossato
+			}
+			available = {
+				has_government = fascism
+			}
+
+			traits = {
+				navy_chief_commerce_raiding_3
+			}
+
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		navy_leader={
+			visible = { has_global_flag = RSI_recruited_Cossato  }
+			traits = { bold navy_career_officer seawolf green_water_expert inshore_fighter silent_hunter torpedo_expert lone_wolf }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			maneuvering_skill=4
+			coordination_skill=3
+		}
+	}
+	
+	RSI_ferruccio_ferrini = {
+		name="Ferruccio Ferrini"
+		portraits={
+			navy={
+				small="gfx/interface/ideas/idea_cossato.dds"
+			}
+		}
+		advisor={	
+			slot = navy_chief
+			idea_token = ferrucio_ferrini
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				tag = RSI
+			}
+			available = {
+				has_government = fascism
+			}
+
+			traits = {
+				navy_chief_old_guard
+			}
+
+			ai_will_do = {
+				factor = 3
+			}
+		}
+	}
+	
+	RSI_Giorgio_Almirante={
+		portraits={
+			civilian={
+				large="gfx/leaders/ITA/portrait_europe_generic_4.dds"
+				small ="gfx/interface/ideas/idea_giorgio_almirante.dds"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			expire="1965.1.1.1"
+			id=-1
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = giorgio_almirante_rsi
+			allowed = {
+				original_tag = "ITA"
+			}
+			
+			available = {
+			
+			}
+			
+			traits = {
+				fascist_demagogue
+			}
+
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+
+	}
+
+	
+	RSI_ernesto_botto = {
+		name=RSI_ernesto_botto
+		portraits={
+			navy={
+				small="gfx/interface/ideas/idea_ernesto_botto.dds"
+			}
+		}
+		advisor={	
+			slot = air_chief
+			idea_token = ernesto_botto
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				tag = RSI
+			}
+			available = {
+				has_government = fascism
+			}
+
+			traits = {
+				air_air_combat_training_1
+			}
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+	
+	RSI_ettore_muti={
+		name=ITA_ettore_muti
+		portraits={
+			army={
+				small="GFX_idea_ettore_muti"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = ettore_muti_rsi
+			ledger = air
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				NOT = { tag = PCI }
+			}
+			
+			available = {
+				has_government = fascism
+			}
+			traits = {
+				air_tactical_bombing_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	
+	RSI_bonomi_ruggero={
+		name=ITA_bonomi_ruggero
+		portraits={
+			navy={
+				small = "gfx/interface/ideas/idea_bonomi_ruggero.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			ledger = air
+			idea_token = bonomi_ruggero_rsi
+			allowed = {
+				original_tag = ITA
+			}
+
+			
+			available = {
+				has_government = fascism
+			}
+			
+			traits = { air_naval_strike_2 }
+			
+			ai_will_do = {
+				factor = 0.25
+			}
+		}
+	}
+	
+	RSI_renato_ricci = {
+		name="Renato Ricci"
+		portraits={
+			civilian={
+				small ="gfx/interface/ideas/idea_renato_ricci.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = renato_ricci
+			allowed = {
+				original_tag = "ITA"
+			}
+			
+			visible = {
+				tag = RSI
+				has_dlc = "La Resistance"
+			}
+			
+			available = {
+			
+			}
+			
+			traits = {
+				head_of_intelligence
+			}
+
+			ai_will_do  = {
+				factor  = 0.5
+			}
+		}	
+	}
+	
+	RSI_carlo_biggini = {
+		name="Carlo Biggini"
+		portraits={
+			civilian={
+				small ="gfx/interface/ideas/idea_carlo_biggini.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = carlo_biggini
+			allowed = {
+				original_tag = "ITA"
+			}
+			
+			available = {
+			
+			}
+			
+			traits = {
+				devoted_corporatist
+			}
+
+			ai_will_do  = {
+				factor  = 0.5
+			}
+		}	
+	}
+	
+	RSI_arturo_bocchini={
+		name=ITA_arturo_bocchini
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_arturo_bocchini.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = arturo_bocchini_rsi
+			allowed = {
+				original_TAG = "ITA"
+				has_dlc = "La Resistance"
+			}
+			visible = {
+				tag = RSI
+			}
+			
+			available = {
+				has_government = fascism
+			}
+			traits  = {
+				italia_secret_police 
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+	}
+	
+	RSI_gino_boccasile={
+		name=ITA_gino_boccasile
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_gino_boccasile.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = gino_boccasile_rsi
+			allowed = {
+				original_TAG = "ITA"
+			}
+			visible = {
+				tag = RSI
+			}
+			
+			available = {
+				has_government = fascism
+			}
+			traits  = {
+				propaganda_expert 
+			}
+
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+	}
+	
+	RSI_tullio_cianetti={
+		name=RSI_tullio_cianetti
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_tullio_cianetti.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = tullio_cianetti
+			allowed = {
+				original_tag = "ITA"
+			}
+			
+			visible = {
+				NOT = { tag = PCI }
+
+			}
+			
+			available = {
+				has_government = fascism
+				NOT = { has_global_flag = verona_gr_3_purged } 
+			}
+			
+
+			traits  = {
+				industry_reformer 
+			}
+
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+	}
+	
+	RSI_giovanni_gentile={
+		name=RSI_giovanni_gentile
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_giovanni_gentile.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = giovanni_gentile
+			allowed = {
+				original_tag = "ITA"
+			}
+			
+			visible = {
+				has_government = fascism
+			}
+			
+			available = {
+				has_government = fascism
+			}
+			
+
+			traits  = {
+				president_academy_italy_trait 
+			}
+
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+	}
+
+	RSI_niccolo_giani={
+		name=RSI_niccolo_giani
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_niccolo_giani.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = niccolo_giani
+			allowed = {
+				original_tag = "ITA"
+			}
+			
+			visible = {
+				has_government = fascism
+			}
+			
+			available = {
+				has_completed_focus = italia_mystic
+			}
+
+			
+
+			traits  = {
+				fascist_mystic 
+			}
+
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+	}
+
+	
+	RSI_giuseppe_bottai={
+		name=ITA_giuseppe_bottai
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_giuseppe_bottai.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = giuseppe_bottai_rsi
+			allowed = {
+				original_TAG = "ITA"
+			}
+			visible = {
+				tag = RSI
+			}
+			
+			available = {
+				has_government = fascism
+			}
+			traits  = {
+				propaganda_expert 
+			}
+
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+	}
+	
+	RSI_adelchi_serena={
+		name=ITA_adelchi_serena
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_adelchi_serena.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = adelchi_serena_rsi
+			allowed = {
+				original_tag = "ITA"
+			}
+			
+			visible = {
+				tag = RSI
+			}
+			
+			available = {
+				has_government = fascism
+			}
+			
+
+			traits  = {
+				silent_workhorse 
+			}
+
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+	}
+
+	RSI_Nicola_Bombacci={
+		name=ITA_Nicola_Bombacci
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_nicola_bombacci.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = Nicola_Bombacci_rsi
+			allowed = {
+				original_tag = "ITA"
+			}
+			
+			visible = {
+				tag = RSI
+			}
+			
+			available = {
+				has_country_leader = {
+					name = "Benito Mussolini"
+					ruling_only = yes 
+				}
+			}
+			
+
+			traits  = {
+				ideological_crusader
+			}
+			
+			modifier = {
+				political_power_factor = 0.05
+				stability_weekly = 0.001
+			}
+
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+	}
+	
+	RSI_guido_jung={
+		name=ITA_guido_jung
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_guido_jung.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = guido_jung_rsi
+			allowed = {
+				original_tag = "ITA"
+			}
+			
+			visible = {
+				tag = RSI
+				has_global_flag = italian_civil_war_happened
+				NOT = { is_in_faction_with = GER }
+			}
+			
+			available = {
+				if = {
+					limit = { has_dlc = "Man the Guns" }	
+					NOT = { has_autonomy_state = autonomy_supervised_state }
+				}
+				if = {
+					limit = {
+						any_country_with_original_tag = {
+							original_tag_to_check = ITA
+							has_government = fascism
+							tag = RSI
+							is_in_faction_with = GER
+						}
+					}
+					has_government = neutrality
+				}
+				else_if = {
+					OR = {
+						AND = {
+							has_government = fascism
+							NOT = { is_in_faction_with = GER }
+						}
+						AND = {
+							has_government = democratic 
+							has_country_flag = LVN_amnesty_togliatti_jung_flag
+						}
+					}
+				}
+			}
+			
+
+			traits  = {
+				technocrat
+			}
+
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+	}
+	
+	RSI_achille_starace={
+		name=ITA_achille_starace
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/idea_achille_starace.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = achille_starace_rsi
+			allowed = {
+				original_tag = "ITA"
+			}
+			
+			visible = {
+				tag = RSI
+			}
+			
+			available = {
+				has_government = fascism
+				if = {
+					limit = { has_dlc = "Man the Guns" }	
+					NOT = { has_autonomy_state = autonomy_supervised_state }
+				}
+				if = { 
+					Limit = {
+						Tag = RSI 
+					}
+					NOT = { has_global_flag = verona_gr_3_purged } 
+				}
+			}
+			
+
+			traits  = {
+				party_secretary_trait 
+			}
+
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+	}
+	
+	RSI_carlo_scorza={
+		name=ITA_carlo_scorza
+		portraits={
+			army={
+				small="GFX_idea_carlo_scorza"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = carlo_scorza_rsi
+			allowed  = {
+				original_tag  = ITA
+			}
+			
+			available = {
+				NOT = { has_global_flag = verona_gr_3_purged } 
+			}
+			traits  = {
+				fascist_demagogue 
+			}
+			do_effect  = {
+				not  = {
+					has_government  = fascism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+	}
+	
+	RSI_giovanni_marinelli={
+		name=ITA_giovanni_marinelli
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_europe_5"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ITA_giovanni_marinelli_rsi
+			allowed  = {
+				original_tag  = ITA
+			}			
+			available = {
+				not = { has_global_flag = verona_gr_2_purged } 
+			}
+			traits  = {
+				prince_of_terror 
+			}
+
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+	
+	}
+	
+	RSI_gian_galeazzo_ciano={
+		name=ITA_gian_galeazzo_ciano
+		portraits={
+			civilian={
+				large="gfx/leaders/ITA/Portrait_ITA_Ciano.dds"
+			}
+			army={
+				small="GFX_idea_ITA_gian_galeazzo_ciano"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = gian_galeazzo_ciano_rsi
+			allowed  = {
+				original_tag  = ITA
+			}
+			
+			available = {
+				If = { 
+					Limit = {
+						Tag = RSI 
+					}
+					NOT = { has_global_flag = verona_gr_1_purged } 
+				}
+			}
+			traits  = {
+				smooth_talking_charmer
+			}
+			on_add  = {
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+	}
+
+	RSI_roberto_farinacci={
+		name=ITA_roberto_farinacci
+		portraits={
+			civilian={
+				large="gfx/leaders/ITA/Portrait_RSI_Farinacci.dds"
+			}
+			army={
+				small="GFX_idea_ITA_roberto_farinacci"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = roberto_farinacci_rsi
+			allowed  = {
+				original_tag  = ITA
+			}
+			
+			available = {
+				has_government = fascism
+				NOT = { has_country_leader = { name = "Roberto Farinacci" ruling_only = yes } }
+			}
+			traits  = {
+				backroom_backstabber 
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+		
+		country_leader={
+			ideology=fascism_ideology
+			traits = { prince_of_terror_farinacci }
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+
+	RSI_serafino_mazzolini={
+		name=ITA_serafino_mazzolini
+		portraits={
+			army={
+				small="GFX_idea_ITA_serafino_mazzolini"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = serafino_mazzolini_rsi
+			allowed  = {
+				original_tag  = ITA
+			}
+			
+			available = {
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+				}
+			}
+			traits  = {
+				ideological_crusader 
+			}
+			on_add  = {
+			}
+			ai_will_do  = {
+				factor  = 0.500
+			}
+		}
+	}
+
+	RSI_giacomo_acerbo={
+		name=ITA_giacomo_acerbo
+		portraits={
+			army={
+				small="GFX_idea_ITA_giacomo_acerbo"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = giacomo_acerbo_rsi
+			allowed  = {
+				original_tag  = ITA
+			}
+			visible = {
+				NOT = { tag = PCI }
+				NOT = { 
+					has_country_leader = { 
+						name = "Giulio Cesare Evola"
+						ruling_only = yes
+					}
+				}
+				OR = {
+					AND = {
+						tag = ITA
+						has_government = fascism
+						has_civil_war = no
+					}	
+					AND = {
+						tag = RSI
+						has_global_flag = italian_civil_war_happened
+						NOT = { is_in_faction_with = GER }
+					}
+					AND = { 
+						tag = ITA
+						has_government = democratic
+						has_country_flag = LVN_amnesty_togliatti_acerbo_flag
+					}
+				}
+			}
+			
+			available = {
+				NOT = { is_in_faction_with = GER }
+				OR = {
+					has_government = fascism
+					if = {
+						limit = {
+							has_government = democratic
+						}
+						has_country_flag = LVN_amnesty_togliatti_acerbo_flag
+					}
+				}
+			}
+
+			traits  = {
+				war_industrialist 
+			}
+			on_add  = {
+			}
+			ai_will_do  = {
+				factor  = 3.000
+			}
+		}
+	}
+
+	RSI_marziale_cerutti={
+		name=ITA_marziale_cerutti
+		portraits={
+			army={
+				small="GFX_idea_marziale_cerutti"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = marziale_cerutti_rsi
+			ledger = air
+			allowed = {
+				original_tag = ITA
+			}
+			
+			available = {
+				has_government = fascism
+			}
+			traits = {
+				air_air_combat_training_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}		
+	}
+
+	RSI_junio_valerio_borghese={
+		name=ITA_junio_valerio_borghese
+		portraits={
+			navy={
+				large="gfx/leaders/ITA/Portrait_ITA_junio_valerio_borghese_adm.dds"
+			}
+			navy={
+				small="GFX_idea_RSI_admborghese"
+			}
+		}
+		advisor={ #heavily modded
+			slot = high_command
+			ledger = navy
+			idea_token = junio_valerio_borghese_rsi
+			allowed  = {
+				original_tag  = ITA
+			}
+			available = {
+				has_government = fascism
+			}
+			visible = { has_government = fascism }
+			traits  = {
+				black_prince_trait 
+			}
+			on_add  = {
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+	}
+
+
+
+
+
+}

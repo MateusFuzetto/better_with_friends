@@ -1,0 +1,78 @@
+AOI_historical_plan = {
+	name = "Italian East Africa historical plan"
+	desc = "Historical behavior for AOI"
+
+	allowed = {
+		original_tag = AOI
+	}
+	enable = {
+		OR = {
+			is_historical_focus_on = yes
+			is_historical_focus_on = no
+		}
+	}
+	abort = {
+	}
+
+	ai_national_focuses = {
+		#to pick asap
+		AOI_uranium_somalia #70
+		AOI_unite_somalia #70
+		AOI_mining_ethiopia #70
+		AOI_natural_resources_exploitation #140
+		
+		#1936
+		AOI_begin_reconstruction #70
+		AOI_imperial_road_ethiopia #35
+		AOI_develop_railroads #35
+		AOI_encourage_immigration #70
+		AOI_roads_flight_ethiopia #70
+		AOI_industrialisation_eritrea #70
+		
+		#1937
+		AOI_industrialisation_somalia #70
+		AOI_hydroelectricity_cement_ethiopia #70
+		AOI_new_rome #70
+		AOI_army_east_africa #35
+		AOI_pacification_ethiopia #70
+		AOI_fund_schools #70
+		
+		#1938
+		AOI_military_industries_ethiopia #70
+		AOI_prepare_for_war #70
+		LVN_generic_colonial_equipment #35
+		LVN_generic_clear_lands #70
+		LVN_generic_civilian_investment #70
+		LVN_generic_arms_factory #70
+		
+		#1939
+		AOI_prepare_for_war2 #70
+		AOI_colonial_aiforce #70
+		AOI_doctrine_effort #70
+		AOI_colonial_army_training #70
+		AOI_merchant_navy #70
+		
+		#1940
+		AOI_prepare_for_war3 #70
+		#from there, its up to what the AI wants to do
+		
+	}				
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

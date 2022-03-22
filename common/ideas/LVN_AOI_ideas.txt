@@ -1,0 +1,524 @@
+ideas = {
+	
+	hidden_ideas = {
+
+		#
+		
+	}
+		
+	country = {
+		
+		LVN_AOI_disconnected_from_metropole = { #Mod, make sure it works as intended. How it is suppose to work : each idea gives a big debuff since you are blocaded from main Italy either by suez or gibraltar, the AI needs to make prep in order to counter that. each idea has to appear when at war with whomever has control of the Suez/Gibraltar and is at war with you. Right now, it only includes the colonies, but realistically, it should be either allies or puppet in order for that debuff to go away. Add the fact that if you have a port as Italy in the Atlantic or in Africa (not in the med itself), it would go away
+			picture = chi_hyper_inflation5
+			
+			available = {
+				any_enemy_country = {
+					has_full_control_of_state = 453
+					has_full_control_of_state = 446
+					has_full_control_of_state = 118
+				}
+			}
+			
+			allowed = {
+				original_tag = "AOI"
+				always = yes
+			}
+			
+			cancel_if_invalid = yes
+			
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = 0.20
+				attrition = 0.20
+				army_org_factor = -0.25
+				max_planning_factor = -0.25
+			}
+		}
+		
+		LVN_AOI_disconnected_from_metropole2 = {
+			picture = chi_hyper_inflation3
+			name = LVN_AOI_disconnected_from_metropole
+			
+			available = {
+				any_enemy_country = {
+					has_full_control_of_state = 453
+					has_full_control_of_state = 446
+					has_full_control_of_state = 118
+				}
+				has_completed_focus = AOI_prepare_for_war3
+			}
+			
+			allowed = {
+				original_tag = "AOI"
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = 0.15
+				attrition = 0.10
+				army_org_factor = -0.10
+				max_planning_factor = -0.10
+			}
+		}
+		
+		LVN_AOI_disconnected_from_metropole3 = {
+			picture = chi_hyper_inflation
+			name = LVN_AOI_disconnected_from_metropole
+			
+			available = {
+				has_war_with = ENG
+				NOT = {
+					OR = 	{
+						ITA = {
+							has_full_control_of_state = 453
+							has_full_control_of_state = 446
+						}
+						LBA = {	
+							has_full_control_of_state = 453
+							has_full_control_of_state = 446	
+						}
+						AOI = {	
+							has_full_control_of_state = 453
+							has_full_control_of_state = 446	
+						}
+					}
+				}
+				has_completed_focus = AOI_prepare_for_war3
+			}
+			
+			allowed = {
+				original_tag = "AOI"
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = 0.10
+				attrition = 0.05
+			}
+		}
+		
+		LVN_AOI_cheaper_gun_idea = {
+			picture = generic_infantry_bonus
+			
+			available = {
+			}
+			
+			allowed = {
+				original_tag = "AOI"
+				always = no
+			}
+			
+			removal_cost = -1
+
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+		
+		LVN_AOI_immigration = {
+			picture = generic_agrarian_society
+			
+			available = {
+			}
+			
+			allowed = {
+				original_tag = "AOI"
+				always = no
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				monthly_population = 0.10
+			}
+		}
+		
+		LVN_AOI_booming_salt_industry = {
+			picture = generic_economic_increase
+			
+			available = {
+				has_full_control_of_state = 559
+			}
+			
+			allowed = {
+				original_tag = "AOI"
+				always = no
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+		
+		LVN_AOI_colonial_investment = {
+			picture = generic_central_management
+			
+			available = {
+
+			}
+			
+			allowed = {
+				original_tag = "ITA"
+				always = no
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = 0.10
+			}
+		}
+		
+		LVN_AOI_investment_successful = {
+			picture = ger_mefo_bills
+			
+			available = {
+
+			}
+			
+			allowed = {
+				original_tag = "ITA"
+				always = no
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.25
+				industry_repair_factor = 0.25
+			}
+		}
+
+		LVN_AOI_uranium_somalia = {
+			picture = ast_all_in
+			
+			available = {
+				has_full_control_of_state = 559
+			}
+			
+			allowed = {
+				original_tag = "AOI"
+				always = no
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				production_speed_nuclear_reactor_factor = 0.05
+				nuclear_production_factor = 0.15
+			}
+			research_bonus = {
+				nuclear = 0.05
+			}
+		}
+		
+		LVN_AOI_acclimatization_factor = {
+			picture = eng_service_overseas
+			
+			available = {
+			}
+			
+			allowed = {
+				original_tag = "AOI"
+				always = no
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				acclimatization_hot_climate_gain_factor = 0.15
+				terrain_penalty_reduction = 0.10
+			}
+		}
+		
+	
+	}#closing bracket countries
+	
+###################	
+#####DESIGNERS#####
+###################
+	
+	industrial_concern = {
+		
+		designer = yes
+		
+		industrial_concern_dummy_2 = {
+			
+			picture = generic_industrial_concern_1
+
+			allowed = {
+			}
+			
+			visible = {
+				has_country_flag = show_me_the_money_stupid_2
+			}
+			
+			cost = 150
+			
+			research_bonus = {
+				industry = 0.15
+			}
+			
+			traits = { industrial_concern }
+		}
+		
+		AOI_compagnie_mineraria_ethiopia = {
+			
+			picture = generic_tank_manufacturer_2
+			
+			allowed = {
+				original_tag = AOI
+			}
+			
+			available = { has_completed_focus = AOI_mining_ethiopia }
+			
+			visible = {
+			}
+			
+			cost = 150
+			
+			research_bonus = {
+				industry = 0.05
+				synth_resources = 0.10
+			}
+			
+			traits = { industrial_concern }
+			
+			modifier = {
+				local_resources_factor = 0.10
+			}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		
+		AOI_imprese_elettriche_etiopia = {
+			
+			picture = generic_industrial_concern_1
+			
+			allowed = {
+				original_tag = AOI
+			}
+			
+			visible = {
+			}
+			
+			cost = 150
+			
+			research_bonus = {
+				electronics = 0.05
+			}
+			
+			traits = { electronics_concern }
+			
+			modifier = {
+				production_speed_industrial_complex_factor = 0.10
+			}
+			
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+	
+	tank_manufacturer = {
+	
+		designer = yes
+		
+		LVN_AOI_fiat = {
+			
+			picture = fiat
+			
+			allowed = {
+				original_tag = AOI
+			}
+
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { tank_manufacturer }
+		}
+	}
+	
+	aircraft_manufacturer = {	
+		
+		designer = yes
+		
+		LVN_AOI_macchi = {
+			
+			picture = macchi
+			
+			allowed = {
+				original_tag = AOI
+			}
+			
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { light_aircraft_manufacturer }
+		}
+		
+		LVN_AOI_savoia_marchetti = {
+			
+			picture = savoia_marchetti
+			
+			allowed = {
+				original_tag = AOI
+			}
+
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { naval_aircraft_manufacturer }
+		}
+		
+		LVN_AOI_piaggio = {
+						
+			picture = piaggio
+			
+			allowed = {
+				original_tag = AOI
+			}
+						
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { heavy_aircraft_manufacturer }
+		}
+		
+		medium_aircraft_manufacturer_dummy_2 = {
+			
+			available = {
+			}
+				
+			visible = {
+				has_country_flag = show_me_the_money_stupid_2
+			}
+				
+			allowed = {
+			}
+			
+			traits = { medium_aircraft_manufacturer }
+			
+			ai_will_do = {
+				factor = -1
+			}
+		}
+	}
+	
+	naval_manufacturer = {
+		
+		designer = yes
+		
+	}
+	
+	materiel_manufacturer = {
+		
+		designer = yes
+		
+		AOI_trasporti_automobilistici = {
+			
+			picture = generic_motorized_equipment_manufacturer_2
+
+			
+			allowed = {
+				original_tag = AOI
+			}
+			
+			research_bonus = {
+				motorized_equipment = 0.15
+			}
+			
+			
+			traits = { motorized_equipment_manufacturer }
+		}
+		
+		AOI_compagnie_explosive_ethiopia = {
+			
+			picture = generic_artillery_manufacturer_1
+			
+			allowed = {
+				original_tag = AOI
+			}
+			
+			available = {has_completed_focus = AOI_military_industries_ethiopia}
+			
+			visible = {
+			}
+			
+			cost = 150
+			
+			research_bonus = {
+				artillery = 0.10
+			}
+			
+			traits = { artillery_manufacturer }
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.10
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		infantry_equipment_manufacturer_dummy_2 = {
+			
+			picture = generic_infantry_equipment_manufacturer_2
+			
+			visible = {
+				has_country_flag = show_me_the_money_stupid_2
+			}
+			
+			allowed = {
+			}
+			
+			cost = 150
+			
+			research_bonus = {
+				infantry_weapons = 0.15
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+		}
+		
+		generic_artillery_manufacturer_dummy_2 = {
+			
+			picture = generic_artillery_manufacturer_2
+
+			allowed = {
+			}
+			
+			visible = {
+				has_country_flag = show_me_the_money_stupid_2
+			}
+			
+			cost = 150
+			
+			research_bonus = {
+				artillery = 0.15
+			}
+			
+			traits = { artillery_manufacturer }
+		}
+	}
+		
+
+}#Closing Bracket
+		

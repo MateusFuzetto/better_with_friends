@@ -1,0 +1,314 @@
+﻿###########################
+# News Events
+###########################
+
+add_namespace = arabnews
+
+# Palestinian Strikes
+news_event = {
+	id = arabnews.1
+	title = arabnews.1.t
+	desc = arabnews.1.desc
+	picture = GFX_news_event_arab_strike
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = arabnews.1.a
+		trigger = {
+			TAG = ENG
+			}
+		}
+
+	option = {
+		name = arabnews.1.b
+		trigger = { 
+			TAG = ITA 
+			}
+		}
+	
+	option = {
+		name = arabnews.1.c
+		trigger = {
+			NOT = {
+				TAG = ENG
+				TAG = ITA
+			}
+		}
+	}
+}
+
+# Arab Revolt Begins
+news_event = {
+	id = arabnews.2
+	title = arabnews.2.t
+	desc = arabnews.2.desc
+	picture = GFX_news_event_arab_revolt
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			add_threat = -10
+			set_global_flag = arab_revolts
+			PAL = {
+				create_corps_commander = {
+					name = "Abd al-Rahim al-Hajj Muhammad"
+					picture = "Portrait_PAL_Hajj_Muhammad.dds"
+					traits = { cavalry_leader desert_fox commando camouflage_expert scavenger guerilla_fighter }
+					skill = 3
+					attack_skill = 3
+					defense_skill = 3
+					planning_skill = 2
+					logistics_skill = 1
+				}	
+				division_template = {#Cavalry Division for the Palestinians
+					name = "Cavalry Division"
+					is_locked = yes
+					priority = 0
+					template_counter = 0
+					regiments = {
+						cavalry = { x = 0 y = 0 }
+						cavalry = { x = 0 y = 1 }
+						cavalry = { x = 0 y = 2 }
+						cavalry = { x = 0 y = 3 }
+						cavalry = { x = 0 y = 4 }
+					} 
+				}
+			}
+			454 = { #Give a unit to Palestine
+				create_unit = {
+					division = "name = \"fasa'il \" division_template = \"Cavalry Division\" start_experience_factor = 2.5 start_equipment_factor = 1.0"
+					owner = PAL
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = arabnews.1.a
+		trigger = {
+			TAG = ENG
+			}
+		}
+
+	option = {
+		name = arabnews.1.b
+		trigger = { 
+			TAG = ITA 
+			}
+		}
+	
+	option = {
+		name = arabnews.1.c
+		trigger = {
+			NOT = {
+				TAG = ENG
+				TAG = ITA
+			}
+		}
+	}
+}
+
+# Sidqi Coup in Iraq
+news_event = {
+	id = arabnews.3
+	title = arabnews.3.t
+	desc = arabnews.3.desc
+	picture = GFX_news_event_bakr_sidqi
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		IRQ = {
+			create_country_leader = {
+				name = "Bakr Sidqi"
+				desc = ""
+				picture = "GFX_Portrait_Iraq_Bakr_Sidqi"
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {
+					#
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = arabnews.3.a
+		trigger = {
+			TAG = ENG
+		}
+	}
+
+	
+	option = {
+		name = arabnews.3.b
+		trigger = {
+			NOT = { TAG = ENG }
+		}
+	}
+}
+
+###########################
+# Arab Events
+###########################
+
+
+add_namespace = arabevents
+
+country_event = { #Notify British of uprising!!!!!
+	id = arabevents.1
+	title = arabevents.1.t
+	desc = arabevents.1.desc
+	picture = GFX_report_event_arab_revolt
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		any_state = {
+			is_core_of = PAL
+			is_controlled_by = ENG
+			has_active_resistance = yes
+		}
+	}
+	
+	immediate = {
+		PAL = {
+			add_timed_idea = {
+				idea = LVN_arab_neutrality
+				days = 365
+			}
+		}
+	}
+	
+	option = { #
+		trigger = { original_tag = ENG }
+		name = arabevents.1.a 
+			hidden_effect = {
+				news_event = { id = arabnews.2 hours = 5 }
+				add_ai_strategy = {
+					type = consider_weak 
+					id = PAL
+					value = 2000
+				}
+				PAL = {#Set a fascist up so we can rebel
+					set_politics = {
+						ruling_party = fascism
+						elections_allowed = no
+					}
+					set_popularities = {
+						democratic = 40
+						fascism = 50
+						communism = 10
+					}
+				}
+				every_state = {
+					limit = { 
+						is_core_of = PAL
+						is_controlled_by = ENG
+					}
+					set_resistance = 100
+					add_dynamic_modifier = { modifier = ITA_islamic_rebellion }
+				}
+				if = {
+					limit = {
+						any_state = {
+							has_dynamic_modifier = { modifier = ITA_islamic_resistance }
+						}
+					}
+					every_state = {
+						limit = {
+							has_dynamic_modifier = { modifier = ITA_islamic_resistance }
+						}
+						remove_dynamic_modifier = { modifier = ITA_islamic_resistance }
+					}
+				}
+			}
+	}
+	
+}
+
+country_event = { #Strikes turn violent
+	id = arabevents.2
+	title = arabevents.2.t
+	desc = arabevents.2.desc
+	picture = GFX_report_event_pal_violence
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		any_state = {
+			is_core_of = PAL
+			is_controlled_by = ENG
+			has_dynamic_modifier = { modifier = ITA_john_bull_strikes }
+		}
+	}
+	
+	option = { #
+		trigger = { original_tag = ENG }
+		name = arabevents.2.a 
+			custom_effect_tooltip = arabevent_resistance_tt
+			hidden_effect = {
+				every_state = {
+					limit = { 
+						is_core_of = PAL
+						is_controlled_by = ENG
+					}
+					remove_dynamic_modifier = { modifier = ITA_john_bull_strikes }
+					add_dynamic_modifier = { modifier = ITA_islamic_resistance }
+					set_resistance = 71
+				}
+				#country_event = { id = arabevents.1 days = 100 random = 150 } disabled this for now
+			}
+	}
+	
+}
+
+country_event = { #Strikes begin
+	id = arabevents.3
+	title = arabevents.3.t
+	desc = arabevents.3.desc
+	picture = GFX_report_event_pal_strikes
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		any_state = {
+			is_core_of = PAL
+			is_controlled_by = ENG
+		}
+	}
+	
+	option = { #
+		trigger = { original_tag = ENG }
+		name = arabevents.3.a 
+			every_state = {
+				limit = { 
+					is_core_of = PAL
+					is_controlled_by = ENG
+				}
+				add_resistance = 10
+				add_compliance = -10
+				add_dynamic_modifier = { modifier = ITA_john_bull_strikes }
+			}
+			set_global_flag = palestinian_strikes
+			hidden_effect = {
+				news_event = { id = arabnews.1 hours = 5 }
+				ENG = { #Another event that escalates the situation if you havent squashed the rebellion 
+					country_event = { id = arabevents.2 days = 120 random = 150 }
+				}
+					
+			}
+	}
+	
+}

@@ -1,0 +1,82 @@
+﻿###Army of Co-Belligerence#####
+####### OOB #######
+units = { 
+	##### Small army to start #####
+	# Combat Groups #
+	division = { # Cremona Combat Group  
+		division_name = {
+			is_name_ordered = yes
+			name_order = 44
+		} 
+		location = 9784 #Brindise 
+		division_template = "Divisione di Fanteria"	# )
+		start_experience_factor = 1.0 
+		start_equipment_factor = 0.6
+	} 
+	
+	division = { # Friuli Combat Group 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 20
+		} 
+		location = 9856 
+		division_template = "Divisione di Fanteria" 
+		start_experience_factor = 1.0 
+		start_equipment_factor = 0.6
+	} 
+
+	division = { #Legnano Division
+		division_name = {
+			is_name_ordered = yes
+			name_order = 58
+		} 
+		location = 11837 
+		division_template = "Divisione di Fanteria" 
+		start_experience_factor = 1.0 
+		start_equipment_factor = 0.6
+	}
+	
+	division = { # Mantova Combat Group 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 54
+		} 
+		location = 11837 
+		division_template = "Divisione di Fanteria"
+		start_experience_factor = 1.0 
+		start_equipment_factor = 0.6
+	} 
+	division = { # Mantova Combat Group 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 155 #Emilia
+		} 
+		location = 11837 
+		division_template = "Divisione di Fanteria"
+		start_experience_factor = 1.0 
+		start_equipment_factor = 0.6
+	}
+	
+	division = { # Piceno Combat Group 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 152 #Piceno
+		} 
+		location = 3901 
+		division_template = "Divisione di Fanteria"
+		start_experience_factor = 1.0 
+		start_equipment_factor = 0.6
+	} 
+
+	division = { # Legnano Combat Group 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1 #Taurinense
+		} 
+		location = 11998
+		division_template = "Divisione Alpina" 
+		start_experience_factor = 2.0 
+		start_equipment_factor = 0.6
+	}
+
+}	

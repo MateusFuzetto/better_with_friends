@@ -1,0 +1,245 @@
+ITALIA_royal_support_decisions = {
+	icon = GFX_decision_cat_italia_king_icon
+	picture = GFX_decision_category_italia_king
+	allowed = { original_tag = ITA }
+	
+	visible = {
+		has_government = fascism
+		OR = {
+		has_idea = italia_victor_emmanuel
+		has_idea = king_umberto
+		}
+	}
+	
+	priority = 85
+	
+	visible_when_empty = yes
+
+}
+
+ITALIA_military_command = {
+	allowed = {
+		original_tag = ITA
+	}
+	
+	priority = {
+		base = 9
+	}
+	
+	icon = ger_military_buildup
+	#picture = GFX_decision_cat_italia_readiness
+
+	available = {
+
+	}
+
+	visible = {
+	}
+}
+
+ITALIA_ready_the_military_decisions = {
+
+	priority = {
+		base = 10
+	}
+	
+	icon = ger_military_buildup
+	picture = GFX_decision_cat_italia_readiness
+	allowed = { original_tag = ITA }
+
+	visible = {
+		TAG = ITA
+		NOT = { has_country_flag = ITALIA_mission_complete }
+		NOT = { has_country_flag = ITALIA_mission_failed }
+		NOT = {	has_country_flag = ITA_fascist_war }
+		NOT = {	has_country_flag = ITA_communist_war }		
+	}
+}
+
+ITALIA_imperialism_decisions = {
+
+	allowed = {
+		original_tag = ITA
+		}
+		
+	priority = {
+		base = 8
+	}
+		
+	icon = GFX_decision_category_generic_fascism
+	
+	picture = GFX_decision_cat_italia_empire
+	 
+	visible = {
+		has_country_flag = turned_this_off_for_now
+		has_country_leader = {
+			name = "Benito Mussolini"
+			ruling_only = yes }
+					}
+
+
+}#Closing Bracket
+
+ITALIA_spain_decisions = {
+	
+	allowed = { original_tag = ITA }
+	
+	priority = { base = 7 }
+	
+	icon = GFX_decision_category_generic_fascism #Fix this
+	
+	picture = GFX_decision_cat_ita_nat_spain #Fix this
+	
+}
+	
+italia_vallo_alpino_decisions = {
+	visible = {
+		has_country_flag = turned_this_off_for_now
+		original_tag = ITA
+		has_war = yes
+		any_enemy_country = { is_major = yes }
+	}
+	
+	allowed = { original_tag = ITA }
+	
+	priority = { base = 6 }
+	
+}
+	
+roman_federation_decisions = {
+	allowed = { original_tag = ITA }
+	
+	visible = {
+		original_tag = ITA
+		has_government = fascism
+		NOT = {has_global_flag = form_roman_empire_flag}
+		#has_completed_focus = ITA_federation_roman_empire
+	}
+	 
+	priority = {
+		base = 10
+	}
+	
+	icon = GFX_decision_category_generic_fascism
+	
+	picture = GFX_decision_cat_rome_conference
+	
+}
+
+LVN_purchase_equipment = {
+	
+	allowed = {
+		original_tag = ITA
+	}
+	
+	visible = {
+		original_tag = ITA
+	}
+	
+	priority = 8
+	
+	icon = generic_arms_trade
+	
+}
+
+LVN_join_industry_decisions = {
+
+	allowed = {
+		OR = {
+			original_tag = ITA
+			original_tag = FRA
+		}
+	}
+	
+	priority = 9
+	
+	icon = generic_arms_trade
+	
+}
+
+LVN_referendum_category = {
+	
+	allowed = { original_tag = ITA }
+	
+	visible = {
+		has_completed_focus = italia_referendum
+		NOT = { has_country_flag = referendum_complete }
+		is_ai = no #We don't let the AI do this
+	}
+	
+	priority = 15
+	
+	picture = GFX_decision_cat_lvn_referendum
+	
+	icon = GFX_decision_category_generic_democracy
+
+}
+
+LVN_armistice_category = {
+	
+	allowed = { original_tag = ITA }
+	
+	priority = 1000
+	
+	visible = {
+		is_ai = no
+	}
+	
+	picture = GFX_decision_cat_ita_armistice
+	
+	icon = GFX_decision_category_generic_democracy
+
+}
+
+LVN_amnesty_togliatti_cat = {
+	
+	allowed = { original_tag = ITA }
+	
+	priority = {
+		base = 6
+	}
+	
+	visible = {
+		has_completed_focus = italia_amnesty_togliatti
+		has_government = democratic
+	}
+	
+	picture = GFX_decision_cat_amnesty_togliatti
+	
+	icon = GFX_decision_category_amnesty_togliatti
+
+}
+
+LVN_agip_category = {
+	
+	allowed = { original_tag = ITA }
+	
+	priority = 2
+	
+	visible = {
+		has_completed_focus = ITA_fund_agip
+	}
+	
+	visible_when_empty = yes
+	
+	picture = GFX_decision_cat_agip
+	
+	icon = GFX_decision_oil
+
+}
+
+LVN_civil_war_category = {
+	
+	allowed = { original_tag = ITA }
+	
+	visible = {
+		has_civil_war = yes
+		NOT = { has_government = fascism }
+		NOT = { has_government = communism }
+	}
+	
+	picture = GFX_decision_cat_lvn_civil_war
+	
+	icon = GFX_decision_cat_italia_kingpope
+
+}

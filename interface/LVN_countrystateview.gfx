@@ -1,0 +1,39 @@
+spriteTypes = {
+
+
+	spriteType = {
+		name = "GFX_modifiers_ita_weak_southern_industry"
+		textureFile = "gfx/interface/state_modifiers/modifiers_ita_weak_southern_industry.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_modifiers_ita_focused_southern_industry"
+		textureFile = "gfx/interface/state_modifiers/modifiers_ita_focused_southern_industry.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_modifiers_ita_communist_uprise"
+		textureFile = "gfx/interface/state_modifiers/modifiers_ita_communist_uprise.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_modifiers_ita_fortress_sicily"
+		textureFile = "gfx/interface/state_modifiers/modifiers_ita_fortress_sicily.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_modifiers_lvn_anti_british"
+		textureFile = "gfx/interface/state_modifiers/modifiers_lvn_anti_british.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_modifiers_ETH_resistance"
+		textureFile = "gfx/interface/state_modifiers/modifiers_ETH_resistance.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_modifiers_lvn_john_bull_strike"
+		textureFile = "gfx/interface/state_modifiers/modifiers_lvn_john_bull_strike.dds"
+	}
+	
+}

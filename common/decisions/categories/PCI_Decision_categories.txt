@@ -1,0 +1,29 @@
+###############
+#### PCI! Let's get crazy! ####
+###############
+
+PCI_uprisings = {
+	icon = generic_propaganda
+	priority = 20
+
+	#picture = GFX_decision_cat_generic_benito
+
+	visible = {
+		TAG = PCI
+		has_war_with = RSI
+	}
+	
+}
+
+PCI_latin_revolution = {
+	icon = generic_propaganda
+	priority = 20
+
+	picture = GFX_decision_cat_pci_america
+
+	visible = {
+		TAG = PCI
+		has_government = communism
+	}
+	
+}

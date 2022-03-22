@@ -1,0 +1,12 @@
+areas = {
+
+	north_africa = {
+        strategic_regions = {
+            128 #Egypt
+            28  #Egypt     
+            126 #North Africa
+        }
+    }
+
+	
+}

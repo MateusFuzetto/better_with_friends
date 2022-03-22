@@ -1,0 +1,348 @@
+technologies = {
+	
+	@1918 = 0
+	@1936 = 2
+	@1938 = 4
+	@1939 = 6
+	@1940 = 8
+	@1941 = 10
+	@1942 = 12
+	@1943 = 14
+	@1944 = 16
+	@1945 = 18
+	@1946 = 20
+		
+	italia_mountain_training = {
+
+		research_cost = 1
+
+		# only from focus!!! #####
+		allow = {
+			always = no
+		}
+
+
+		#If you change these
+		#Change the custom tooltip too: ITALIA_mountain_training_effect
+		marine = {
+			mountain = {
+				attack = 0.05 
+				movement = 0.1
+			}
+		}
+
+		mountaineers = {
+			mountain = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+
+		paratrooper = {
+			mountain = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+
+	}
+	
+	italia_desert_warfare = {
+
+		research_cost = 1
+
+		# only from focus!!! #####
+		allow = {
+			always = no
+		}
+
+
+		#If you change these
+		#Change the custom tooltip too: ITALIA_mountain_training_effect
+		category_all_infantry = {
+			desert = {
+				attack = 0.05 
+				movement = 0.1
+				defence = 0.05
+			}
+		}
+		
+		category_tanks = {
+			desert = {
+				attack = 0.05
+				movement = 0.1
+			}
+		}
+	}
+	
+	italia_binary_division = {
+
+		research_cost = 1
+
+		# only from focus!!! #####
+		allow = {
+			always = no
+		}
+
+
+		#If you change these
+		#Change the custom tooltip too: ITALIA_mountain_training_effect
+		infantry = { 
+			combat_width = 0.5
+		}
+		category_artillery = { 
+			soft_attack = 0.05
+		}
+
+	}
+	
+	mvsn_0 = {
+
+		enable_subunits = {
+			blackshirts
+		}
+		
+		allow = {
+			always = no
+			}
+		
+		path = {
+			leads_to_tech = mvsn
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1936
+
+		
+		categories = {
+			mvsn_blackshirts
+		}
+	
+	}
+	
+	mvsn = {
+		
+		allow = {
+			always = no
+			}
+		
+		path = {
+			leads_to_tech = mvsn_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1936
+
+		
+		categories = {
+			mvsn_blackshirts
+		}
+	
+	}
+	
+	mvsn_2 = {
+		
+		blackshirts = {
+			max_organisation = 5
+			soft_attack = 0.05
+			default_morale = 0.05
+		}
+		
+		allow = {
+			always = no }
+		
+		path = {
+			leads_to_tech = mvsn_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1936
+
+		
+		categories = {
+			mvsn_blackshirts
+		}
+	
+	}
+	
+	mvsn_3 = {
+		
+		blackshirts = {
+			max_organisation = 5
+			default_morale = 0.10
+			urban = {
+				attack = 0.05
+				defence = 0.05
+				movement = 0.1
+			}
+		}
+		
+		allow = {
+			always = no }
+		
+		path = {
+			leads_to_tech = mvsn_4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1936
+
+		
+		categories = {
+			mvsn_blackshirts
+		}
+	
+	}
+	
+	mvsn_4 = {
+		
+		blackshirts = {
+			max_organisation = 5
+			default_morale = 0.05
+			soft_attack = 0.05
+			urban = {
+				attack = 0.05
+				defence = 0.05
+				movement = 0.1
+			}
+		}
+		
+		allow = {
+			always = no }
+		
+		path = {
+			leads_to_tech = mvsn_5
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1936
+
+		
+		categories = {
+			mvsn_blackshirts
+		}
+	
+	}
+	
+	mvsn_5 = {
+		
+		blackshirts = {
+			max_organisation = 5
+			default_morale = 0.08
+			urban = {
+				attack = 0.05
+				defence = 0.05
+				movement = 0.1
+			}
+		}
+		
+		allow = {
+			always = no }
+		
+		path = {
+			leads_to_tech = mvsn_6
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1936
+
+		
+		categories = {
+			mvsn_blackshirts
+		}
+	
+	}
+	
+	mvsn_6 = {
+		
+		blackshirts = {
+			max_organisation = 5
+			default_morale = 0.1
+			urban = {
+				attack = 0.05
+				defence = 0.05
+				movement = 0.1
+			}
+		}
+		
+		allow = {
+			always = no }
+		
+		path = {
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1936
+
+		
+		categories = {
+			mvsn_blackshirts
+		}
+	
+	}
+	
+
+  mas_tech = {
+    research_cost = 1
+    start_year = 1936
+    categories = {
+      support_tech
+    }
+    enable_subunits = {
+      mas_u
+    }
+  }
+
+  arditi_tech = {
+    research_cost = 1
+    start_year = 1936
+    categories = {
+      support_tech
+    }
+    enable_subunits = {
+      arditi_u
+    }
+  }
+  
+  templar_tech = {
+    research_cost = 1
+    start_year = 1936
+	categories = {
+      support_tech
+    }
+	
+		military_police = {
+			suppression_factor = 0.1
+		}
+		cavalry = {
+			breakthrough = 0.02
+			suppression_factor = 0.15
+			max_organisation = 5
+			soft_attack = 0.1
+		}
+	}
+	
+  templar_tech = {
+    research_cost = 1
+    start_year = 1936
+	categories = {
+      support_tech
+    }
+	
+		military_police = {
+			suppression_factor = 0.1
+		}
+		cavalry = {
+			breakthrough = 0.05
+			suppression_factor = 0.15
+			max_organisation = 5
+		}
+	}
+}

@@ -1,0 +1,226 @@
+foreign_politics = {
+	
+	weapons_for_iraq = {
+	
+		icon = generic_prepare_civil_war
+
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			OR = {
+				IRQ = { has_war = yes }
+				IRQ = { has_civil_war = yes }
+			}
+			has_country_leader = { name = "Benito Mussolini" ruling_only = yes }
+		}
+
+		available = {
+			any_country_with_original_tag = {
+				original_tag_to_check = IRQ
+				has_government = fascism
+			}
+		}
+
+		cost = 5
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 200
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				every_country_with_original_tag = {
+					original_tag_to_check = IRQ
+					limit = {
+						has_government = fascism
+						has_civil_war = yes
+					}
+					save_event_target_as = fascist_IRQ
+				}
+			}
+			
+			ITA = {
+				send_equipment = {
+					type = infantry_equipment
+					amount = 1000 
+					target = event_target:fascist_IRQ
+				}
+			}
+
+			if = {
+				limit = { 
+					has_active_mission = italia_ready_the_military }
+				custom_effect_tooltip = ita_military_readiness_neg_00_tt
+				subtract_from_variable = { var = ita_ready_military_progress value = 5 }
+			}
+			ITA = { add_war_support = 0.05 }
+		}
+
+
+	
+	} #Closing Bracket
+	
+	guarantee_iraq = {
+	
+		icon = generic_prepare_civil_war
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		available = {
+			any_country_with_original_tag = {
+				original_tag_to_check = IRQ
+				has_government = fascism
+			}
+		}
+
+		cost = 5
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 200
+		}
+
+		visible = {
+			has_government = fascism
+			any_country_with_original_tag = {
+				original_tag_to_check = IRQ
+				has_government = fascism
+				NOT = { is_guaranteed_by = ROOT }
+			}
+		}
+
+		complete_effect = {
+			ITA = { add_war_support = 0.05 }
+		}
+
+
+	
+	} #Closing Bracket
+	
+	weapons_for_arab_revolt = {
+	
+		icon = generic_prepare_civil_war
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		available = {
+			has_government = fascism
+			has_country_leader = {
+			name = "Benito Mussolini"
+			ruling_only = yes }
+			OR = {
+				JOR = { has_war_with = ENG }
+				PAL = { has_war_with = ENG }
+			}			
+		}
+
+		cost = 5
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 200
+		}
+
+		visible = {
+			has_completed_focus = ITA_subvert_british_influence
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				IF = {
+					limit = { JOR = { has_war_with = ENG } }
+				JOR = {
+					set_temp_variable = { JORresistance_equipment_needed = num_owned_states }
+					}
+				multiply_temp_variable = { JORresistance_equipment_needed = 500 }
+				}
+				IF = {
+					limit = { PAL = { has_war_with = ENG } }
+				PAL = {
+					set_temp_variable = { PALresistance_equipment_needed = num_owned_states }
+					}
+				multiply_temp_variable = { PALresistance_equipment_needed = 500 }
+				}
+			}
+			IF = {
+				limit = { JOR = { has_war_with = ENG } }
+			JOR = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = JORresistance_equipment_needed
+				}
+			  }
+			}
+			IF = {
+				limit = { PAL = { has_war_with = ENG } }
+			PAL = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = PALresistance_equipment_needed
+					}
+				}
+			}
+		}
+		
+	} #Closing Bracket
+	
+	encourage_al_husseini = { #Promotes Arab Revolt in Palestine
+	
+		icon = generic_prepare_civil_war
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = { 
+			has_completed_focus = ITA_subvert_british_influence			
+		}
+			
+		
+		available = {
+			has_global_flag = palestinian_strikes
+			has_government = fascism
+			ENG = {
+				controls_state = 454 }
+			454 = {
+				has_active_resistance = yes
+			}
+		}
+		
+		cost = 15
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 200
+		}
+		
+		complete_effect = {
+			every_state = {
+				limit = {
+					is_core_of = PAL
+				}
+				add_resistance_target = {
+					amount = 30
+					occupier = ENG
+				}
+				add_resistance = 15
+				add_compliance = -5
+			}		
+		}
+	} #Closing bracket
+
+	
+
+
+}#Main Closing Bracket

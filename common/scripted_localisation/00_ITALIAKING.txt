@@ -1,0 +1,199 @@
+defined_text = { #
+	name = GetKingOpinionLevel
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 0 compare = less_than_or_equals }
+		}
+		localization_key = King_opinion_0
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 5 compare = greater_than_or_equals }
+			check_variable = { var = King_opinion_level value = 10 compare = less_than }
+
+		}
+		localization_key = King_opinion_5
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 10 compare = greater_than_or_equals }
+			check_variable = { var = King_opinion_level value = 20 compare = less_than }
+
+		}
+		localization_key = King_opinion_10
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 20 compare = greater_than_or_equals }
+			check_variable = { var = King_opinion_level value = 30 compare = less_than }
+
+		}
+		localization_key = King_opinion_20
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 30 compare = greater_than_or_equals }
+			check_variable = { var = King_opinion_level value = 40 compare = less_than }
+
+		}
+		localization_key = King_opinion_30
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 40 compare = greater_than_or_equals }
+			check_variable = { var = King_opinion_level value = 50 compare = less_than }
+
+		}
+		localization_key = King_opinion_40
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 50 compare = greater_than_or_equals }
+			check_variable = { var = King_opinion_level value = 60 compare = less_than }
+
+		}
+		localization_key = King_opinion_50
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 60 compare = greater_than_or_equals }
+			check_variable = { var = King_opinion_level value = 65 compare = less_than }
+		}
+		localization_key = King_opinion_60
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 65 compare = greater_than_or_equals }
+			check_variable = { var = King_opinion_level value = 70 compare = less_than }
+		}
+		localization_key = King_opinion_65
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 70 compare = greater_than_or_equals }
+			check_variable = { var = King_opinion_level value = 75 compare = less_than }
+		}
+		localization_key = King_opinion_70
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 75 compare = greater_than_or_equals }
+			check_variable = { var = King_opinion_level value = 80 compare = less_than }
+		}
+		localization_key = King_opinion_75
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 80 compare = greater_than_or_equals }
+			check_variable = { var = King_opinion_level value = 85 compare = less_than }
+		}
+		localization_key = King_opinion_80
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 85 compare = greater_than_or_equals }
+			check_variable = { var = King_opinion_level value = 90 compare = less_than }
+		}
+		localization_key = King_opinion_85
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 89 compare = greater_than }
+			check_variable = { var = King_opinion_level value = 91 compare = less_than }
+		}
+		localization_key = King_opinion_90
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 90 compare = greater_than }
+			check_variable = { var = King_opinion_level value = 92 compare = less_than }
+		}
+		localization_key = King_opinion_91
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 91 compare = greater_than }
+			check_variable = { var = King_opinion_level value = 93 compare = less_than }
+		}
+		localization_key = King_opinion_92
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 92 compare = greater_than }
+			check_variable = { var = King_opinion_level value = 94 compare = less_than }
+		}
+		localization_key = King_opinion_93
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 93 compare = greater_than }
+			check_variable = { var = King_opinion_level value = 95 compare = less_than }
+		}
+		localization_key = King_opinion_94
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 94 compare = greater_than }
+			check_variable = { var = King_opinion_level value = 96 compare = less_than }
+		}
+		localization_key = King_opinion_95
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 95 compare = greater_than }
+			check_variable = { var = King_opinion_level value = 97 compare = less_than }
+		}
+		localization_key = King_opinion_96
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 96 compare = greater_than }
+			check_variable = { var = King_opinion_level value = 98 compare = less_than }
+		}
+		localization_key = King_opinion_97
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 97 compare = greater_than }
+			check_variable = { var = King_opinion_level value = 99 compare = less_than }
+		}
+		localization_key = King_opinion_98
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 98 compare = greater_than }
+			check_variable = { var = King_opinion_level value = 100 compare = less_than }
+		}
+		localization_key = King_opinion_99
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = King_opinion_level value = 100 compare = greater_than_or_equals }
+		}
+		localization_key = King_opinion_100
+	}
+}

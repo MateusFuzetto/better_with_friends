@@ -1,0 +1,32 @@
+defined_text = { #
+	name = GetRomanFactionLevel
+	text = {
+		trigger = {
+			check_variable = { var = roman_acceptance value = 0 compare = less_than_or_equals }
+		}
+		localization_key = ITARome_opinion_0
+	}
+	text = {
+		trigger = {
+			check_variable = { var = roman_acceptance value = 5 compare = greater_than_or_equals }
+			check_variable = { var = roman_acceptance value = 10 compare = less_than_or_equals }
+
+		}
+		localization_key = ITARome_opinion_5
+	}
+	text = {
+		trigger = {
+			check_variable = { var = roman_acceptance value = 10 compare = greater_than }
+			check_variable = { var = roman_acceptance value = 20 compare = less_than_or_equals }
+
+		}
+		localization_key = ITARome_opinion_10
+	}
+	text = {
+		trigger = {
+			check_variable = { var = roman_acceptance value = 20 compare = greater_than }
+
+		}
+		localization_key = ITARome_opinion_20
+	}
+}

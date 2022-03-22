@@ -1,0 +1,52 @@
+﻿l_english:
+
+ #Event Localisation 
+ ITA_rome.1.t:0 "Ambassador returns with Roman Union Accords"
+ ITA_rome.1.desc:0 "With opposition to Mussolini growing in the country, King Victor Emmanuel III has deposed the dictator and appointed Marshal of Italy Enrico Caviglia as Protector of the Kingdom.\n\nMarshal Caviglia will assume control of the country until the crisis is abated."
+ ITA_rome.1.a:0 "Sign the accords"
+ ITA_rome.1.b:0 "We will never submit to Rome!"
+ ITA_rome.2.t:0 "[FROM.GetNameWithFlag] Rejects the Accord"
+ ITA_rome.2.desc:0 "The ambassador from [FROM.GetNameWithFlag] has informed us that they have rejected the accords and will maintain their independence."
+ ITA_rome.2.a:0 "They stand alone"
+ ITA_rome.3.t:0 "Italian Propaganda for the Roman Union has begun"
+ ITA_rome.3.desc:0 "The Italians have started a propaganda campaign in [ROOT.GetNameDef] with the aim of convincing the [ROOT.GetAdjective] population of the feasibility of their grand scheme to form a Roman Union.\nRight wing paramilitary groups and newspapers have spread the word and many people are beginning to express their support for the concept."
+ ITA_rome.3.a:0 "A bold move by [ITA.GetLeader]"
+
+ 
+ #Decisions
+ ITA_develop_roman_federation_project:0 "Invite ambassadors to Rome"
+ ITA_develop_roman_federation_project_desc:0 "We must extend the invitation to the members the [ROOT.GetFactionName] to come to Rome to discuss strengthening our bonds."
+ ITA_conference_of_rome:0 "The Conference of Rome"
+ ITA_conference_of_rome_desc:0 "Ambassadors from our allied nations have gathered in Rome to discuss the terms of a treaty that would unify our nations under one flag. This is a delicate negotiation. Ultimately, acceptance by the parties will be based on the recommendation of their ambassador, their opinion of our nation and their ideological similitaries."
+ ITA_sign_the_roman_union_pact:0 "Finalize the Accords"
+ ITA_sign_the_roman_union_pact_desc:0 "With the accords finalized, the ambassador from [FROM.GetNameWithFlag] can return home and seek the official approval of his government.\n\nWe must work tirelessly to convince the ambassador to recommend adoption.\n\nAs of now, the ambassador from [FROM.GetName] [FROM.GetRomanFactionLevel]\nImportant: The Ambassador's recommendation is not the only factor!"
+ ITA_form_the_prefecture:0 "Form the Prefecture of [FROM.GetName]."
+ ITA_form_the_prefecture_desc:0 "[FROM.GetName] has ratified the accords and we will now formalize our control."
+ ITA_guarantee_religious_freedom:0 "Guarantee Religious Freedom"
+ ITA_guarantee_religious_freedom_desc:0 "Religious freedom is a concern for many of our allies, considering our close connection to The Catholic Church. If we guarantee that we will never allow for the adoption of a state religion within the accords, most nations will be more likely to accept."
+ ITA_integration_of_armed_forces:0 "Integration of the Armed Forces"
+ ITA_integration_of_armed_forces_desc:0 "Many of the ambassadors answer to military leaders back home and have indicated that a key concern is the loss of rank or seniority in a unified command structure. By guaranteeing the rank, pay and pension in the new union, we will increase the likelihood of acceptance."
+ 
+ #Variable
+ ITARome_opinion_0: "is not going to recommend ratification."
+ ITARome_opinion_5:0 "might recommend ratification."
+ ITARome_opinion_10:0 "will endorse ratification."
+ ITARome_opinion_20:0 "will strongly endorse ratification."
+ 
+ #Tooltips
+ ITARome_slight:0 "This will slightly increase the chances of ratification."
+ ITARome_increase:0 "This will increase the chances of ratification."
+ ITARome_slight_neg:0 "This will slightly decrease the changes of ratification."
+ ITARome_neg:0 "This will reduce the changes of ratification."
+ ITA_realise_federation_tt:0 "All of the participants in the Conference of Rome have either signed the treaty or left our faction."
+ 
+ #Flags
+ ITA_roman_conference_concluded:0 "The Conference of Rome has concluded."
+ 
+ #Roman Federation
+ roman_federation_decisions:0 "Roman Union"
+ roman_federation_decisions_desc:0 "We must meet with our allies to discuss the future of our nations. Together, we are strong enough to be the dominant force in global affairs."
+ LVN_ITA_form_roman_empire:0 "Form the Roman Empire"
+ ITA_roman_propaganda:0 "Roman Propaganda"
+ ITA_roman_propaganda_desc:0 "In order to push this project to the finish line, we must invest in a significant propaganda campaign."
+ 

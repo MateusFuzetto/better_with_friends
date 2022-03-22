@@ -1,0 +1,38 @@
+﻿l_english:
+
+ #Operations
+ italia_save_mafalda:0 "Rescue Princess Mafalda"
+ italia_save_mafalda_name:0 "Rescue Mafalda"
+ italia_save_mafalda_desc:1 "It is imperative that we rescue the Princess Mafalda before it is too late."
+ save_mafalda_infiltration:0 "Locate the Princess"
+ save_mafalda_infiltration_desc:0 "Our operatives will bribe German officials to confirm the location of the Princess."
+ save_mafalda_attack:0 "Raid the camp"
+ save_mafalda_attack_desc:0 "Once we know which camp the Princess is being held at, our operatives will storm the camp and rescue the Princess."
+ save_mafalda_exfiltration:0 "Escape via air"
+ save_mafalda_exfiltration_desc:0 "A Savoia-Marchetti SM.75 will be standing by a short distance from the camp to quickly transport the Princess back to Italy."
+ save_mafalda_outcome_tt:0 "We will rescue Princess Mafalda from the concentration camp where she is being held. This is a very risky operation that will no doubt anger [GER.GetLeader]"
+ save_mafalda_attack_outcome:0 "See attached operation report for further information on the operation's outcome."
+ 
+ italia_assassinate_rosselli_bros:0 "Assassinate the Rosselli Brothers"
+ italia_assassinate_rosselli_name:0 "Assassinate the Rosselli Brothers"
+ italia_assassinate_rosselli_desc:0 "The Rosselli brothers are a danger to the Fascist State and must be killed!"
+ assassinate_rosselli_outcome_tt:0 "Removing the Rosselli brothers now will reduce their influence on radicals within Italy."
+ assassinate_rosselli_infiltration:0 "Coordinate with La Cagoule"
+ assassinate_rosselli_infilitration_desc:0 "Our operatives will used forged documents to cross into France and meet with members of the fascist group La Cagoule. The group will assist in the attack for the payment of 100 semi-automatic rifles."
+ assassinate_rosselli_attack:0 "Attack the brothers"
+ assassinate_rosselli_attack_desc:0 "While the brothers are driving their usual route, a team of operatives will surprise them on the road and end the mission."
+ assassinate_rosselli_exfiltration:0 "Escape France"
+ assassinate_rosselli_exfiltration_desc:0 "While the French operatives will disappear into the country side, our own operatives will sneak back across the border."
+ 
+ lvn_kill_hitler:0 "Assassinate Hitler"
+ lvn_kill_hitler_name:0 "Assassinate Hitler"
+ lvn_kill_hitler_desc:0 "Adolf Hitler is a barrier to peace. We have made contact with members of the German resistance who are prepared to act."
+ lvn_kill_hitler_infiltration:0 "Coordinate with the Abwher"
+ lvn_kill_hitler_infiltration_desc:0 "We have solid information, passed by Admiral Canaris, that there is a group of plotters within the German General staff that are prepared to implement a plan to kill Hitler if we can guarantee a just peace."
+ lvn_kill_hitler_attack:0 "Launch Operation Valkyrie"
+ lvn_kill_hitler_attack_desc:0 "Using a sophisticated bomb, a German Colonel will blow up the conference room inside Hitler's compound during a meeting of top officials planned in the coming weeks."
+ lvn_kill_hitler_exfiltration:0 "Secure Germany"
+ lvn_kill_hitler_exfiltration_desc:0 "We will supply weapons and forces to the new German military government as they move quickly to secure the nation and suppress the SS."
+ lvn_kill_hitler_outcome_tt:0 "Removing Hitler will allow a more friendly government to emerge in Germany."
+ 
+ 

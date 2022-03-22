@@ -1,0 +1,19 @@
+ideas = {
+	
+	hidden_ideas = {
+
+		#
+		
+	}
+		
+	country = {
+
+	
+	
+	
+	}#closing bracket countries
+	
+		
+
+}#Closing Bracket
+		

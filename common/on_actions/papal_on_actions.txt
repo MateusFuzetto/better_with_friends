@@ -1,0 +1,31 @@
+on_actions = {
+	on_liberate = {
+		effect = { 
+			if = {
+				limit = {
+					ROOT = { 
+						has_cosmetic_tag = LVN_catholic_france_tag
+					}
+				}
+				drop_cosmetic_tag = yes
+			}
+		}
+	}
+	on_release_as_free = {
+		effect = { 
+			if = {
+				limit = {
+					ROOT = { 
+						has_cosmetic_tag = LVN_catholic_france_tag
+					}
+					FROM = { 
+						NOT = { has_country_leader = { name = "Pius XII" ruling_only = yes } }
+					}
+				}
+				drop_cosmetic_tag = yes
+			}
+		}
+	}		
+
+
+}#Main Closing

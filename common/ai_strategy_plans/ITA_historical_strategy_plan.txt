@@ -1,0 +1,120 @@
+ITA_historical_plan = {
+	name = "Italy historical plan"
+	desc = "Historical behavior for Italy"
+
+	allowed = {
+		original_tag = ITA
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = lvn_ITA_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = ITA_AI_RANDOM_FASCIST_HISTORICAL
+			has_game_rule = {
+				rule = lvn_ITA_ai_behavior
+				option = FASCIST_HISTORICAL
+			}
+		}
+	}
+	
+	abort = {
+		GER = {
+			has_completed_focus = GER_oppose_hitler
+		}
+	}
+
+	ai_national_focuses = {
+		#ASAP (order of importance)
+		ITA_pact_of_steel #70 ###PRIORITY 300%### as soon as the AI modifier lets them take it
+		italia_office_of_war_economy ###PRIORITY 120%###
+		italia_supremo_focus ###PRIORITY 100%###
+		italia_lessons_of_war_focus ###PRIORITY 100%###
+		italia_establish_supremo_departments ###PRIORITY 100%###
+		italia_further_inter_branch_cooperation ###PRIORITY 100%###
+		italia_desert_forces_focus ###PRIORITY 100%###
+		ITA_victoryinETH #35
+		italia_the_hour_of_fate #35
+		ITA_support_nationalist_spain #35
+		#1936
+		italia_iri #35
+		ITA_italian_highways #35
+		italia_autarchia #70
+		ITA_industrial_effort #70
+		ITA_review_foreign_policy #35
+		#1937
+		italia_modern_airforce #70
+		italia_status_naval_aviation #35
+		ITA_citta_dell_aria #70
+		italia_reform_pariani #70
+		italia_program_max #70
+		italia_battleship #70
+		#1938
+		ITA_stato_maggiore_generale #35
+		ITA_modernize_italian_railways #35
+		italia_invest_southern_italy #70
+		ITA_italy_aircraft_carrier #70  
+		italia_colonial_investment #35
+		ITA_libyan_infrastructure #35
+		#1939
+		ITA_land_reclamation #35
+		ITA_fund_agip #70
+		ITA_albania_war_goal #35
+		italia_special_forces #35
+		italia_alpini_focus #70
+		ITA_prospect_for_oil #70
+		italia_rapid_decision #70
+		#1940
+		ITA_japan_friend #70
+		ITA_solve_tyrol_goal #35
+		ITA_german_millitary_cooperation #35
+		italia_austerity_focus #35
+		ITA_greece_war_goal #35
+		italia_synthetic_fuels #70
+		#rushing through german stuff while at war 
+		ITA_german_rd_treaty
+		italia_afrika_corps
+		italia_purchase_tanks
+		LVN_german_industrial_cooperation
+		LVN_wunderwaffe
+		italia_alliance_research_slot
+		
+		#1941-1943
+		italia_integrate_msvn_focus #35
+		italia_gruppo_di_assalto #35
+		italia_LVN_m_division #70
+		italia_motorized_focus #70
+		italia_armored_infantry #35
+		
+		#1944-ONWARD (Carried by Germany I guess)
+		italia_bella_italia #70
+		italia_seize_control_production #35
+		italia_industrial_quality_control #35
+		italia_tank_duopoly_focus #70
+		italia_medium_tanks #70
+		italia_semovente #70
+		italia_ultimate_tank #70
+	}				
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

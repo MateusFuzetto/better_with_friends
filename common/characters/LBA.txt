@@ -1,0 +1,69 @@
+﻿characters={
+	LBA_bashir_es_sadawi={
+		name="Bashir es Sadawi"
+		portraits={
+			civilian={
+				large="gfx/leaders/LBA/Portrait_Arabia_Generic_democratic1.dds"
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			expire="1.1.1.1"
+			id=-1
+		}
+	}
+	LBA_italo_balbo={
+		name="Italo Balbo"
+		portraits={
+			civilian={
+				large="gfx/leaders/ITA/portrait_italy_italo_balbo.dds"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits={ italia_colonial_governor }
+			expire="1.1.1.1"
+			id=-1
+		}
+	}
+	LBA_rodolfo_graziani={
+		name="LBA_rodolfo_graziani"
+		portraits={
+			civilian={
+				large="GFX/leaders/ITA/portrait_italy_radolfo_graziani.dds"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits={ italia_colonial_governor }
+			expire="1.1.1.1"
+			id=-1
+		}
+	}
+	LBA_idris_senussi={
+		name="Idris Senussi"
+		portraits={
+			civilian={
+				large="gfx/leaders/LBA/Portrait_LBA_Idris.dds"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			expire="1.1.1.1"
+			id=-1
+		}
+	}
+	LBA_hassan_assenussi={
+		name="Hassan as-Senussi"
+		portraits={
+			civilian={
+				large="gfx/leaders/LBA/Portrait_Arabia_Generic_communism1.dds"
+			}
+		}
+		country_leader={
+			ideology=leninism
+			expire="1.1.1.1"
+			id=-1
+		}
+	}
+}

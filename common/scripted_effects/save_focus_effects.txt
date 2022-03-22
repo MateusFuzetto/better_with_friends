@@ -1,0 +1,2392 @@
+#Effect #1 sets a flag for each completed focus
+LVN_save_focuses_effect = {#Do one if/limit block for each focus. Set the fag with this effect. Don't do any of the Topple Mussolini focuses or that branch
+	if = { #To keep it sequential, let's do "lvn_focus_number" and replace number with a number. That makes it easier to reference in effect #2
+		limit = {
+			has_completed_focus = italia_iri }
+		set_global_flag = lvn_focus_1
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_modernize_italian_railways }
+		set_global_flag = lvn_focus_2
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_colonial_investment }
+		set_global_flag = lvn_focus_3
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_autarchia }
+		set_global_flag = lvn_focus_4
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_industrial_effort }
+		set_global_flag = lvn_focus_5
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_italian_highways }
+		set_global_flag = lvn_focus_6
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_austerity_focus }
+		set_global_flag = lvn_focus_7
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_office_of_war_economy }
+		set_global_flag = lvn_focus_8
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_libyan_infrastructure }
+		set_global_flag = lvn_focus_9
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_fund_agip }
+		set_global_flag = lvn_focus_10
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_prospect_for_oil }
+		set_global_flag = lvn_focus_11
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_seize_control_production }
+		set_global_flag = lvn_focus_12
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_industrial_quality_control }
+		set_global_flag = lvn_focus_13
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_synthetic_fuels }
+		set_global_flag = lvn_focus_14
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = italia_italian_libya }
+		set_global_flag = lvn_focus_16
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_invest_southern_italy }
+		set_global_flag = lvn_focus_17
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_bella_italia }
+		set_global_flag = lvn_focus_18
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_anti_air }
+		set_global_flag = lvn_focus_19
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_coastal_defense }
+		set_global_flag = lvn_focus_20
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_fortress_sicily }
+		set_global_flag = lvn_focus_21
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_victoryinETH }
+		set_global_flag = lvn_focus_22
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_support_nationalist_spain }
+		set_global_flag = lvn_focus_23
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_spanish_italian_faction }
+		set_global_flag = lvn_focus_24
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_the_hour_of_fate }
+		set_global_flag = lvn_focus_25
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_review_foreign_policy }
+		set_global_flag = lvn_focus_26
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_italy_first }
+		set_global_flag = lvn_focus_27
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_sword_of_islam }
+		set_global_flag = lvn_focus_28
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_solve_tyrol_goal }
+		set_global_flag = lvn_focus_29
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_pact_of_steel }
+		set_global_flag = lvn_focus_30
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_german_rd_treaty }
+		set_global_flag = lvn_focus_31
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_german_millitary_cooperation }
+		set_global_flag = lvn_focus_32
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_afrika_corps }
+		set_global_flag = lvn_focus_33
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_purchase_tanks }
+		set_global_flag = lvn_focus_34
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_japan_friend }
+		set_global_flag = lvn_focus_35
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_alliance_research_slot }
+		set_global_flag = lvn_focus_36
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_rome_protocols }
+		set_global_flag = lvn_focus_37
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_austrian_defense }
+		set_global_flag = lvn_focus_38
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_romania_friend }
+		set_global_flag = lvn_focus_39
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_portugal_friend }
+		set_global_flag = lvn_focus_40
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_go_with_france }
+		set_global_flag = lvn_focus_41
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_align_france }
+		set_global_flag = lvn_focus_42
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_latin_entente }
+		set_global_flag = lvn_focus_43
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_help_industrialisation_self }
+		set_global_flag = lvn_focus_44
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_assume_land_military_supremacy }
+		set_global_flag = lvn_focus_45
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_med_entente }
+		set_global_flag = lvn_focus_46
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_claims_on_turkey }
+		set_global_flag = lvn_focus_47
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_turkey_friend }
+		set_global_flag = lvn_focus_48
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_bulgaria_friend }
+		set_global_flag = lvn_focus_49
+	}
+	#if = {
+		#limit = {
+			#has_completed_focus = italia_balkan_security }
+		#set_global_flag = lvn_focus_50
+	#}
+	if = {
+		limit = {
+			has_completed_focus = italia_roman_axis }
+		set_global_flag = lvn_focus_51
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_royal_research }
+		set_global_flag = lvn_focus_52
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_land_reclamation }
+		set_global_flag = lvn_focus_53
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_modernize_libyan_railways }
+		set_global_flag = lvn_focus_54
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_expand_libyan_railways }
+		set_global_flag = lvn_focus_55
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_border_guard }
+		set_global_flag = lvn_focus_56
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_alpine_forts_france }
+		set_global_flag = lvn_focus_57
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_alpine_forts_swiss_austria }
+		set_global_flag = lvn_focus_58
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_alpine_forts_yugoslavia }
+		set_global_flag = lvn_focus_59
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_modernize_libyan_defence }
+		set_global_flag = lvn_focus_60
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_stato_maggiore_generale }
+		set_global_flag = lvn_focus_61
+	}
+	if = {
+		limit = {
+			has_completed_focus = LVN_recall_balbo }
+		set_global_flag = lvn_focus_62
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_fate_of_yugoslavia }
+		set_global_flag = lvn_focus_63
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_war_greece }
+		set_global_flag = lvn_focus_64
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_tackle_barbarian_threat }
+		set_global_flag = lvn_focus_65
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_pre_empt_the_ideological_threat }
+		set_global_flag = lvn_focus_66
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_albania_war_goal }
+		set_global_flag = lvn_focus_67
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_yugoslavia_friend }
+		set_global_flag = lvn_focus_68
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_slovenia_dalmatia_claims }
+		set_global_flag = lvn_focus_69
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_greece_friend }
+		set_global_flag = lvn_focus_70
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_greece_war_goal }
+		set_global_flag = lvn_focus_71
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_strike_france }
+		set_global_flag = lvn_focus_72
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_attack_britain }
+		set_global_flag = lvn_focus_73
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_support_the_golden_square }
+		set_global_flag = lvn_focus_74
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_army_primacy }
+		set_global_flag = lvn_focus_75
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_reform_pariani }
+		set_global_flag = lvn_focus_76
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_rapid_decision }
+		set_global_flag = lvn_focus_77
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_motorized_focus }
+		set_global_flag = lvn_focus_78
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_conservative_ideas }
+		set_global_flag = lvn_focus_79
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_infantry_leads }
+		set_global_flag = lvn_focus_80
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_support_divisions }
+		set_global_flag = lvn_focus_81
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_tank_duopoly_focus }
+		set_global_flag = lvn_focus_82
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_medium_tanks }
+		set_global_flag = lvn_focus_83
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_heavy_tanks }
+		set_global_flag = lvn_focus_84
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_supremo_focus }
+		set_global_flag = lvn_focus_85
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_loyalty_oath_ITA }
+		set_global_flag = lvn_focus_86
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_integrate_msvn_focus }
+		set_global_flag = lvn_focus_87
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_8_million_focus }
+		set_global_flag = lvn_focus_88
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_special_forces }
+		set_global_flag = lvn_focus_89
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_desert_forces_focus }
+		set_global_flag = lvn_focus_90
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_alpini_focus }
+		set_global_flag = lvn_focus_91
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_pack_artillery }
+		set_global_flag = lvn_focus_92
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_modern_airforce }
+		set_global_flag = lvn_focus_93
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_fighter_modernization }
+		set_global_flag = lvn_focus_94
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_bomber_focus }
+		set_global_flag = lvn_focus_95
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_air_innovation }
+		set_global_flag = lvn_focus_96
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_fighter_focus }
+		set_global_flag = lvn_focus_97
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_land_bombardment }
+		set_global_flag = lvn_focus_99
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_airborne_focus }
+		set_global_flag = lvn_focus_100
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_modern_navy }
+		set_global_flag = lvn_focus_101
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_naval_bomber_focus }
+		set_global_flag = lvn_focus_102
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_italy_aircraft_carrier }
+		set_global_flag = lvn_focus_103
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_italy_radar }
+		set_global_flag = lvn_focus_104
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_program_max }
+		set_global_flag = lvn_focus_105
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_program_min }
+		set_global_flag = lvn_focus_106
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_battleship }
+		set_global_flag = lvn_focus_107
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_carrier_focus }
+		set_global_flag = lvn_focus_108
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_carrier_planes }
+		set_global_flag = lvn_focus_109
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_cruisers }
+		set_global_flag = lvn_focus_110
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_screening_battlefleet }
+		set_global_flag = lvn_focus_111
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_undersea_combat }
+		set_global_flag = lvn_focus_113
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_german_subs_focus }
+		set_global_flag = lvn_focus_114
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_new_torpedos }
+		set_global_flag = lvn_focus_115
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_marine_force }
+		set_global_flag = lvn_focus_116
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_mare_nostrum }
+		set_global_flag = lvn_focus_117
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_roman_imperial_marines_focus }
+		set_global_flag = lvn_focus_118
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_mystic }
+		set_global_flag = lvn_focus_119
+	}
+	if = {
+		limit = {
+			has_completed_focus = LVN_german_industrial_cooperation }
+		set_global_flag = lvn_focus_120
+	}
+	if = {
+		limit = {
+			has_completed_focus = LVN_wunderwaffe }
+		set_global_flag = lvn_focus_121
+	}
+	if = {
+		limit = {
+			has_completed_focus = LVN_italian_panther }
+		set_global_flag = lvn_focus_122
+	}
+	if = {
+		limit = {
+			has_completed_focus = LVN_siam_friend }
+		set_global_flag = lvn_focus_123
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_disband_mvsn }
+		set_global_flag = lvn_focus_124
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_arditi_focus }
+		set_global_flag = lvn_focus_125
+	}	
+	if = {
+		limit = {
+			has_completed_focus = italia_mas_focus }
+		set_global_flag = lvn_focus_126
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_unrestricted_submarine_warfare }
+		set_global_flag = lvn_focus_127
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = ITA_albania_friend }
+		set_global_flag = lvn_focus_128
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_fate_albania }
+		set_global_flag = lvn_focus_129
+	}
+	if = {
+		limit = {
+			has_completed_focus = LVN_med_security }
+		set_global_flag = lvn_focus_130
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_support_turkey_claims }
+		set_global_flag = lvn_focus_131
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_balkan_irredentism }
+		set_global_flag = lvn_focus_132
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_fate_romania }
+		set_global_flag = lvn_focus_133
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_attack_YUG }
+		set_global_flag = lvn_focus_134
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_LVN_m_division }
+		set_global_flag = lvn_focus_135
+	}
+	if = {
+		limit = {
+			has_completed_focus = LVN_naval_superiority }
+		set_global_flag = lvn_focus_136
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_befriend_turkey }
+		set_global_flag = lvn_focus_138
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = italia_savoy_or_war }
+		set_global_flag = lvn_focus_139
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = ITA_around_the_alps }
+		set_global_flag = lvn_focus_140
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = italia_mountain_stratagem }
+		set_global_flag = lvn_focus_141
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = italia_propaganda_latin }
+		set_global_flag = lvn_focus_142
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = italia_united_latin_world }
+		set_global_flag = lvn_focus_143
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = italia_war_bulgaria }
+		set_global_flag = lvn_focus_144
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = italia_secure_hungary }
+		set_global_flag = lvn_focus_145
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = ITA_strike_england }
+		set_global_flag = lvn_focus_146
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = ITA_secure_tianjin }
+		set_global_flag = lvn_focus_147
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = italia_supremo_focus }
+		set_global_flag = lvn_focus_148
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_lessons_of_war_focus }
+		set_global_flag = lvn_focus_149
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_lessons_from_armir }
+		set_global_flag = lvn_focus_150
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_improvised_design }
+		set_global_flag = lvn_focus_151
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_establish_supremo_departments }
+		set_global_flag = lvn_focus_152
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_further_inter_branch_cooperation }
+		set_global_flag = lvn_focus_153
+	}
+	
+	if = {
+		limit = {
+			has_completed_focus = italia_interservice_cooperation }
+		set_global_flag = lvn_focus_154
+	}
+
+	if = {
+		limit = {
+			has_completed_focus = italia_disband_mvsn }
+		set_global_flag = lvn_focus_155
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_army_professionalisation }
+		set_global_flag = lvn_focus_156
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_gruppo_di_assalto }
+		set_global_flag = lvn_focus_157
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_sim_focus }
+		set_global_flag = lvn_focus_158
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_ovra_focus }
+		set_global_flag = lvn_focus_159
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_assassinate_roselli_brothers }
+		set_global_flag = lvn_focus_160
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_subvert_british_influence }
+		set_global_flag = lvn_focus_161
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_form_sifar }
+		set_global_flag = lvn_focus_162
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_cooperation_foreign_intelligence_service }
+		set_global_flag = lvn_focus_163
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_integrate_counterintelligence_branches }
+		set_global_flag = lvn_focus_164
+	}	
+	if = {
+		limit = {
+			has_completed_focus = italia_modernised_guns }
+		set_global_flag = lvn_focus_165
+	}	
+	if = {
+		limit = {
+			has_completed_focus = italia_modernised_artillery }
+		set_global_flag = lvn_focus_166
+	}	
+	if = {
+		limit = {
+			has_completed_focus = italia_armored_infantry }
+		set_global_flag = lvn_focus_167
+	}	
+	if = {
+		limit = {
+			has_completed_focus = italia_semovente }
+		set_global_flag = lvn_focus_168
+	}	
+	if = {
+		limit = {
+			has_completed_focus = italia_ultimate_tank }
+		set_global_flag = lvn_focus_169
+	}	
+	if = {
+		limit = {
+			has_completed_focus = ITA_foreign_procurements }
+		set_global_flag = lvn_focus_170
+	}	
+	if = {
+		limit = {
+			has_completed_focus = italia_status_naval_aviation }
+		set_global_flag = lvn_focus_171
+	}	
+	if = {
+		limit = {
+			has_completed_focus = ITA_citta_dell_aria }
+		set_global_flag = lvn_focus_172
+	}	
+	if = {
+		limit = {
+			has_completed_focus = italia_new_pilot_training }
+		set_global_flag = lvn_focus_173
+	}	
+	if = {
+		limit = {
+			has_completed_focus = italia_interceptors_focus }
+		set_global_flag = lvn_focus_174
+	}	
+	if = {
+		limit = {
+			has_completed_focus = ITA_douhet_doctrine }
+		set_global_flag = lvn_focus_175
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_motobomba_fff }
+		set_global_flag = lvn_focus_176
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_anti_air_for_fleet }
+		set_global_flag = lvn_focus_177
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_ultimate_carrier }
+		set_global_flag = lvn_focus_178
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_fortress_sardegna }
+		set_global_flag = lvn_focus_179
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_modernize_taranto_defenses }
+		set_global_flag = lvn_focus_180
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_modern_venetian_arsenal }
+		set_global_flag = lvn_focus_181
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_expand_dockyards }
+		set_global_flag = lvn_focus_182
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_sonar_investment }
+		set_global_flag = lvn_focus_183
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_modernize_sub }
+		set_global_flag = lvn_focus_184
+	}
+	if = {
+		limit = {
+			has_completed_focus = ITA_p_mines }
+		set_global_flag = lvn_focus_185
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_cruiser_subs }
+		set_global_flag = lvn_focus_186
+	}
+	if = {
+		limit = {
+			has_completed_focus = italia_betasom }
+		set_global_flag = lvn_focus_187
+	}
+
+
+}#Closing Bracket
+
+#Effect #2 unlocks each focus we flagged in effect #1
+LVN_load_focuses_effect = {#Do one if/limit block for each flag. Unlock the focus with this effect
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_1
+		}
+		unlock_national_focus = italia_iri
+		clr_global_flag = lvn_focus_1
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_2
+		}
+		unlock_national_focus = ITA_modernize_italian_railways
+		clr_global_flag = lvn_focus_2
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_3
+		}
+		unlock_national_focus = italia_colonial_investment
+		clr_global_flag = lvn_focus_3
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_4
+		}
+		unlock_national_focus = italia_autarchia
+		clr_global_flag = lvn_focus_4
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_5
+		}
+		unlock_national_focus = ITA_industrial_effort
+		clr_global_flag = lvn_focus_5
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_6
+		}
+		unlock_national_focus = ITA_italian_highways
+		clr_global_flag = lvn_focus_6
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_7
+		}
+		unlock_national_focus = italia_austerity_focus
+		clr_global_flag = lvn_focus_7
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_8
+		}
+		unlock_national_focus = italia_office_of_war_economy
+		clr_global_flag = lvn_focus_8
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_9
+		}
+		unlock_national_focus = ITA_libyan_infrastructure
+		clr_global_flag = lvn_focus_9
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_10
+		}
+		unlock_national_focus = ITA_fund_agip
+		clr_global_flag = lvn_focus_10
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_11
+		}
+		unlock_national_focus = ITA_prospect_for_oil
+		clr_global_flag = lvn_focus_11
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_12
+		}
+		unlock_national_focus = italia_seize_control_production
+		clr_global_flag = lvn_focus_12
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_13
+		}
+		unlock_national_focus = italia_industrial_quality_control
+		clr_global_flag = lvn_focus_13
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_14
+		}
+		unlock_national_focus = italia_synthetic_fuels
+		clr_global_flag = lvn_focus_14
+	}
+
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_16
+		}
+		unlock_national_focus = italia_italian_libya
+		clr_global_flag = lvn_focus_16
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_17
+		}
+		unlock_national_focus = italia_invest_southern_italy
+		clr_global_flag = lvn_focus_17
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_18
+		}
+		unlock_national_focus = italia_bella_italia
+		clr_global_flag = lvn_focus_18
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_19
+		}
+		unlock_national_focus = italia_anti_air
+		clr_global_flag = lvn_focus_19
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_20
+		}
+		unlock_national_focus = italia_coastal_defense
+		clr_global_flag = lvn_focus_20
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_21
+		}
+		unlock_national_focus = ITA_fortress_sicily
+		clr_global_flag = lvn_focus_21
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_22
+		}
+		unlock_national_focus = ITA_victoryinETH
+		clr_global_flag = lvn_focus_22
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_23
+		}
+		unlock_national_focus = ITA_support_nationalist_spain
+		clr_global_flag = lvn_focus_23
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_24
+		}
+		unlock_national_focus = ITA_spanish_italian_faction
+		clr_global_flag = lvn_focus_24
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_25
+		}
+		unlock_national_focus = italia_the_hour_of_fate
+		clr_global_flag = lvn_focus_25
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_26
+		}
+		unlock_national_focus = ITA_review_foreign_policy
+		clr_global_flag = lvn_focus_26
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_27
+		}
+		unlock_national_focus = ITA_italy_first
+		clr_global_flag = lvn_focus_27
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_28
+		}
+		unlock_national_focus = italia_sword_of_islam
+		clr_global_flag = lvn_focus_28
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_29
+		}
+		unlock_national_focus = ITA_solve_tyrol_goal
+		clr_global_flag = lvn_focus_29
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_30
+		}
+		unlock_national_focus = ITA_pact_of_steel
+		clr_global_flag = lvn_focus_30
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_31
+		}
+		unlock_national_focus = ITA_german_rd_treaty
+		clr_global_flag = lvn_focus_31
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_32
+		}
+		unlock_national_focus = ITA_german_millitary_cooperation
+		clr_global_flag = lvn_focus_32
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_33
+		}
+		unlock_national_focus = italia_afrika_corps 
+		clr_global_flag = lvn_focus_33
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_34
+		}
+		unlock_national_focus = italia_purchase_tanks
+		clr_global_flag = lvn_focus_34
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_35
+		}
+		unlock_national_focus = ITA_japan_friend
+		clr_global_flag = lvn_focus_35
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_36
+		}
+		unlock_national_focus = italia_alliance_research_slot
+		clr_global_flag = lvn_focus_36
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_37
+		}
+		unlock_national_focus = italia_rome_protocols
+		clr_global_flag = lvn_focus_37
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_38
+		}
+		unlock_national_focus = italia_austrian_defense
+		clr_global_flag = lvn_focus_38
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_39
+		}
+		unlock_national_focus = ITA_romania_friend
+		clr_global_flag = lvn_focus_39
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_40
+		}
+		unlock_national_focus = ITA_portugal_friend
+		clr_global_flag = lvn_focus_40
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_41
+		}
+		unlock_national_focus = italia_go_with_france
+		clr_global_flag = lvn_focus_41
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_42
+		}
+		unlock_national_focus = italia_align_france
+		clr_global_flag = lvn_focus_42
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_43
+		}
+		unlock_national_focus = italia_latin_entente
+		clr_global_flag = lvn_focus_43
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_44
+		}
+		unlock_national_focus = italia_help_industrialisation_self
+		clr_global_flag = lvn_focus_44
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_45
+		}
+		unlock_national_focus = italia_assume_land_military_supremacy
+		clr_global_flag = lvn_focus_45
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_46
+		}
+		unlock_national_focus = italia_med_entente
+		clr_global_flag = lvn_focus_46
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_47
+		}
+		unlock_national_focus = ITA_claims_on_turkey
+		clr_global_flag = lvn_focus_47
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_48
+		}
+		unlock_national_focus = ITA_turkey_friend
+		clr_global_flag = lvn_focus_48
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_49
+		}
+		unlock_national_focus = ITA_bulgaria_friend
+		clr_global_flag = lvn_focus_49
+	}
+	#if = {
+		#limit = {
+			#has_global_flag = lvn_focus_50
+		#}
+		#unlock_national_focus = italia_balkan_security
+		#clr_global_flag = lvn_focus_50
+	#}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_51
+		}
+		unlock_national_focus = italia_roman_axis
+		clr_global_flag = lvn_focus_51
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_52
+		}
+		unlock_national_focus = italia_royal_research
+		clr_global_flag = lvn_focus_52
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_53
+		}
+		unlock_national_focus = ITA_land_reclamation
+		clr_global_flag = lvn_focus_53
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_54
+		}
+		unlock_national_focus = ITA_modernize_libyan_railways
+		clr_global_flag = lvn_focus_54
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_55
+		}
+		unlock_national_focus = ITA_expand_libyan_railways
+		clr_global_flag = lvn_focus_55
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_56
+		}
+		unlock_national_focus = ITA_border_guard
+		clr_global_flag = lvn_focus_56
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_57
+		}
+		unlock_national_focus = italia_alpine_forts_france
+		clr_global_flag = lvn_focus_57
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_58
+		}
+		unlock_national_focus = italia_alpine_forts_swiss_austria
+		clr_global_flag = lvn_focus_58
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_59
+		}
+		unlock_national_focus = italia_alpine_forts_yugoslavia
+		clr_global_flag = lvn_focus_59
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_60
+		}
+		unlock_national_focus = italia_modernize_libyan_defence
+		clr_global_flag = lvn_focus_60
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_61
+		}
+		unlock_national_focus = ITA_stato_maggiore_generale
+		clr_global_flag = lvn_focus_61
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_62
+		}
+		unlock_national_focus = LVN_recall_balbo
+		clr_global_flag = lvn_focus_62
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_63
+		}
+		unlock_national_focus = italia_fate_of_yugoslavia
+		clr_global_flag = lvn_focus_63
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_64
+		}
+		unlock_national_focus = italia_war_greece
+		clr_global_flag = lvn_focus_64
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_65
+		}
+		unlock_national_focus = ITA_tackle_barbarian_threat
+		clr_global_flag = lvn_focus_65
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_66
+		}
+		unlock_national_focus = ITA_pre_empt_the_ideological_threat
+		clr_global_flag = lvn_focus_66
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_67
+		}
+		unlock_national_focus = ITA_albania_war_goal
+		clr_global_flag = lvn_focus_67
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_68
+		}
+		unlock_national_focus = ITA_yugoslavia_friend
+		clr_global_flag = lvn_focus_68
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_69
+		}
+		unlock_national_focus = ITA_slovenia_dalmatia_claims
+		clr_global_flag = lvn_focus_69
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_70
+		}
+		unlock_national_focus = ITA_greece_friend
+		clr_global_flag = lvn_focus_70
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_71
+		}
+		unlock_national_focus = ITA_greece_war_goal
+		clr_global_flag = lvn_focus_71
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_72
+		}
+		unlock_national_focus = italia_strike_france
+		clr_global_flag = lvn_focus_72
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_73
+		}
+		unlock_national_focus = italia_attack_britain
+		clr_global_flag = lvn_focus_73
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_74
+		}
+		unlock_national_focus = italia_support_the_golden_square
+		clr_global_flag = lvn_focus_74
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_75
+		}
+		unlock_national_focus = ITA_army_primacy
+		clr_global_flag = lvn_focus_75
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_76
+		}
+		unlock_national_focus = italia_reform_pariani
+		clr_global_flag = lvn_focus_76
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_77
+		}
+		unlock_national_focus = italia_rapid_decision
+		clr_global_flag = lvn_focus_77
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_78
+		}
+		unlock_national_focus = italia_motorized_focus
+		clr_global_flag = lvn_focus_78
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_79
+		}
+		unlock_national_focus = italia_conservative_ideas
+		clr_global_flag = lvn_focus_79
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_80
+		}
+		unlock_national_focus = italia_infantry_leads
+		clr_global_flag = lvn_focus_80
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_81
+		}
+		unlock_national_focus = italia_support_divisions
+		clr_global_flag = lvn_focus_81
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_82
+		}
+		unlock_national_focus = italia_tank_duopoly_focus
+		clr_global_flag = lvn_focus_82
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_83
+		}
+		unlock_national_focus = italia_medium_tanks
+		clr_global_flag = lvn_focus_83
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_84
+		}
+		unlock_national_focus = italia_heavy_tanks
+		clr_global_flag = lvn_focus_84
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_85
+		}
+		unlock_national_focus = italia_supremo_focus
+		clr_global_flag = lvn_focus_85
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_86
+		}
+		unlock_national_focus = italia_loyalty_oath_ITA 
+		clr_global_flag = lvn_focus_86
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_87
+		}
+		unlock_national_focus = italia_integrate_msvn_focus
+		clr_global_flag = lvn_focus_87
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_88
+		}
+		unlock_national_focus = italia_8_million_focus
+		clr_global_flag = lvn_focus_88
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_89
+		}
+		unlock_national_focus = italia_special_forces
+		clr_global_flag = lvn_focus_89
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_90
+		}
+		unlock_national_focus = italia_desert_forces_focus
+		clr_global_flag = lvn_focus_90
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_91
+		}
+		unlock_national_focus = italia_alpini_focus
+		clr_global_flag = lvn_focus_91
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_92
+		}
+		unlock_national_focus = italia_pack_artillery
+		clr_global_flag = lvn_focus_92
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_93
+		}
+		unlock_national_focus = italia_modern_airforce
+		clr_global_flag = lvn_focus_93
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_94
+		}
+		unlock_national_focus = italia_fighter_modernization
+		clr_global_flag = lvn_focus_94
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_95
+		}
+		unlock_national_focus = italia_bomber_focus
+		clr_global_flag = lvn_focus_95
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_96
+		}
+		unlock_national_focus = italia_air_innovation
+		clr_global_flag = lvn_focus_96
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_97
+		}
+		unlock_national_focus = italia_fighter_focus
+		clr_global_flag = lvn_focus_97
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_99
+		}
+		unlock_national_focus = italia_land_bombardment
+		clr_global_flag = lvn_focus_99
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_100
+		}
+		unlock_national_focus = italia_airborne_focus
+		clr_global_flag = lvn_focus_100
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_101
+		}
+		unlock_national_focus = italia_modern_navy
+		clr_global_flag = lvn_focus_101
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_102
+		}
+		unlock_national_focus = italia_naval_bomber_focus
+		clr_global_flag = lvn_focus_102
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_103
+		}
+		unlock_national_focus = ITA_italy_aircraft_carrier
+		clr_global_flag = lvn_focus_103
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_104
+		}
+		unlock_national_focus = ITA_italy_radar
+		clr_global_flag = lvn_focus_104
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_105
+		}
+		unlock_national_focus = italia_program_max
+		clr_global_flag = lvn_focus_105
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_106
+		}
+		unlock_national_focus = italia_program_min
+		clr_global_flag = lvn_focus_106
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_107
+		}
+		unlock_national_focus = italia_battleship
+		clr_global_flag = lvn_focus_107
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_108
+		}
+		unlock_national_focus = italia_carrier_focus
+		clr_global_flag = lvn_focus_108
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_109
+		}
+		unlock_national_focus = italia_carrier_planes
+		clr_global_flag = lvn_focus_109
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_110
+		}
+		unlock_national_focus = italia_cruisers
+		clr_global_flag = lvn_focus_110
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_111
+		}
+		unlock_national_focus = ITA_screening_battlefleet
+		clr_global_flag = lvn_focus_111
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_112
+		}
+		unlock_national_focus = italia_wolfpack_doctrine
+		clr_global_flag = lvn_focus_112
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_113
+		}
+		unlock_national_focus = italia_undersea_combat
+		clr_global_flag = lvn_focus_113
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_114
+		}
+		unlock_national_focus = italia_german_subs_focus
+		clr_global_flag = lvn_focus_114
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_115
+		}
+		unlock_national_focus = italia_new_torpedos
+		clr_global_flag = lvn_focus_115
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_116
+		}
+		unlock_national_focus = italia_marine_force
+		clr_global_flag = lvn_focus_116
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_117
+		}
+		unlock_national_focus = ITA_mare_nostrum
+		clr_global_flag = lvn_focus_117
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_118
+		}
+		unlock_national_focus = ITA_roman_imperial_marines_focus
+		clr_global_flag = lvn_focus_118
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_119
+		}
+		unlock_national_focus = italia_mystic
+		clr_global_flag = lvn_focus_119
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_120
+		}
+		unlock_national_focus = LVN_german_industrial_cooperation
+		clr_global_flag = lvn_focus_120
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_121
+		}
+		unlock_national_focus = LVN_wunderwaffe
+		clr_global_flag = lvn_focus_121
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_122
+		}
+		unlock_national_focus = LVN_italian_panther
+		clr_global_flag = lvn_focus_122
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_123
+		}
+		unlock_national_focus = LVN_siam_friend
+		clr_global_flag = lvn_focus_123
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_124
+		}
+		unlock_national_focus = italia_disband_mvsn
+		clr_global_flag = lvn_focus_124
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_125
+		}
+		unlock_national_focus = italia_arditi_focus
+		clr_global_flag = lvn_focus_125
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_126
+		}
+		unlock_national_focus = italia_mas_focus
+		clr_global_flag = lvn_focus_126
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_127
+		}
+		unlock_national_focus = italia_unrestricted_submarine_warfare
+		clr_global_flag = lvn_focus_127
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_128
+		}
+		unlock_national_focus = ITA_albania_friend
+		clr_global_flag = lvn_focus_128
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_129
+		}
+		unlock_national_focus = ITA_fate_albania
+		clr_global_flag = lvn_focus_129
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_130
+		}
+		unlock_national_focus = LVN_med_security
+		clr_global_flag = lvn_focus_130
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_131
+		}
+		unlock_national_focus = italia_support_turkey_claims 
+		clr_global_flag = lvn_focus_131
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_132
+		}
+		unlock_national_focus = ITA_balkan_irredentism
+		clr_global_flag = lvn_focus_132
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_133
+		}
+		unlock_national_focus = ITA_fate_romania
+		clr_global_flag = lvn_focus_133
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_134
+		}
+		unlock_national_focus = italia_attack_YUG
+		clr_global_flag = lvn_focus_134
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_135
+		}
+		unlock_national_focus = italia_LVN_m_division
+		clr_global_flag = lvn_focus_135
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_136
+		}
+		unlock_national_focus = LVN_naval_superiority
+		clr_global_flag = lvn_focus_136
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_138
+		}
+		unlock_national_focus = ITA_befriend_turkey
+		clr_global_flag = lvn_focus_138
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_139
+		}
+		unlock_national_focus = italia_savoy_or_war
+		clr_global_flag = lvn_focus_139
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_140
+		}
+		unlock_national_focus = ITA_around_the_alps
+		clr_global_flag = lvn_focus_140
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_141
+		}
+		unlock_national_focus = italia_mountain_stratagem
+		clr_global_flag = lvn_focus_141
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_142
+		}
+		unlock_national_focus = italia_propaganda_latin
+		clr_global_flag = lvn_focus_142
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_143
+		}
+		unlock_national_focus = italia_united_latin_world
+		clr_global_flag = lvn_focus_143
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_144
+		}
+		unlock_national_focus = italia_war_bulgaria
+		clr_global_flag = lvn_focus_144
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_145
+		}
+		unlock_national_focus = italia_secure_hungary
+		clr_global_flag = lvn_focus_145
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_146
+		}
+		unlock_national_focus = ITA_strike_england
+		clr_global_flag = lvn_focus_146
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_147
+		}
+		unlock_national_focus = ITA_secure_tianjin
+		clr_global_flag = lvn_focus_147
+	}
+	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_148
+		}
+		unlock_national_focus = italia_supremo_focus
+		clr_global_flag = lvn_focus_148
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_149
+		}
+		unlock_national_focus = italia_lessons_of_war_focus
+		clr_global_flag = lvn_focus_149
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_150
+		}
+		unlock_national_focus = italia_lessons_from_armir
+		clr_global_flag = lvn_focus_150
+	}		
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_151
+		}
+		unlock_national_focus = ITA_improvised_design
+		clr_global_flag = lvn_focus_151
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_152
+		}
+		unlock_national_focus = italia_establish_supremo_departments
+		clr_global_flag = lvn_focus_152
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_153
+		}
+		unlock_national_focus = italia_further_inter_branch_cooperation
+		clr_global_flag = lvn_focus_153
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_154
+		}
+		unlock_national_focus = italia_interservice_cooperation
+		clr_global_flag = lvn_focus_154
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_155
+		}
+		unlock_national_focus = italia_disband_mvsn
+		clr_global_flag = lvn_focus_155
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_156
+		}
+		unlock_national_focus = italia_army_professionalisation 
+		clr_global_flag = lvn_focus_156
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_157
+		}
+		unlock_national_focus = italia_gruppo_di_assalto
+		clr_global_flag = lvn_focus_157
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_158
+		}
+		unlock_national_focus = ITA_sim_focus
+		clr_global_flag = lvn_focus_158
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_159
+		}
+		unlock_national_focus = ITA_ovra_focus
+		clr_global_flag = lvn_focus_159
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_160
+		}
+		unlock_national_focus = ITA_assassinate_roselli_brothers
+		clr_global_flag = lvn_focus_160
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_161
+		}
+		unlock_national_focus = ITA_subvert_british_influence
+		clr_global_flag = lvn_focus_161
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_162
+		}
+		unlock_national_focus = ITA_form_sifar
+		clr_global_flag = lvn_focus_162
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_163
+		}
+		unlock_national_focus = ITA_cooperation_foreign_intelligence_service
+		clr_global_flag = lvn_focus_163
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_164
+		}
+		unlock_national_focus = ITA_integrate_counterintelligence_branches
+		clr_global_flag = lvn_focus_164
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_165
+		}
+		unlock_national_focus = italia_modernised_guns
+		clr_global_flag = lvn_focus_165
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_166
+		}
+		unlock_national_focus = italia_modernised_artillery
+		clr_global_flag = lvn_focus_166
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_167
+		}
+		unlock_national_focus = italia_armored_infantry
+		clr_global_flag = lvn_focus_167
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_168
+		}
+		unlock_national_focus = italia_semovente
+		clr_global_flag = lvn_focus_168
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_169
+		}
+		unlock_national_focus = italia_ultimate_tank
+		clr_global_flag = lvn_focus_169
+	}		
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_170
+		}
+		unlock_national_focus = ITA_foreign_procurements
+		clr_global_flag = lvn_focus_170
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_171
+		}
+		unlock_national_focus = italia_status_naval_aviation
+		clr_global_flag = lvn_focus_171
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_172
+		}
+		unlock_national_focus = ITA_citta_dell_aria
+		clr_global_flag = lvn_focus_172
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_173
+		}
+		unlock_national_focus = italia_new_pilot_training
+		clr_global_flag = lvn_focus_173
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_174
+		}
+		unlock_national_focus = italia_interceptors_focus
+		clr_global_flag = lvn_focus_174
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_175
+		}
+		unlock_national_focus = ITA_douhet_doctrine
+		clr_global_flag = lvn_focus_175
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_176
+		}
+		unlock_national_focus = italia_motobomba_fff
+		clr_global_flag = lvn_focus_176
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_177
+		}
+		unlock_national_focus = ITA_anti_air_for_fleet
+		clr_global_flag = lvn_focus_177
+	}	
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_178
+		}
+		unlock_national_focus = italia_ultimate_carrier
+		clr_global_flag = lvn_focus_178
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_179
+		}
+		unlock_national_focus = ITA_fortress_sardegna
+		clr_global_flag = lvn_focus_179
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_180
+		}
+		unlock_national_focus = ITA_modernize_taranto_defenses
+		clr_global_flag = lvn_focus_180
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_181
+		}
+		unlock_national_focus = ITA_modern_venetian_arsenal
+		clr_global_flag = lvn_focus_181
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_182
+		}
+		unlock_national_focus = ITA_expand_dockyards
+		clr_global_flag = lvn_focus_182
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_183
+		}
+		unlock_national_focus = ITA_sonar_investment
+		clr_global_flag = lvn_focus_183
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_184
+		}
+		unlock_national_focus = ITA_modernize_sub
+		clr_global_flag = lvn_focus_184
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_185
+		}
+		unlock_national_focus = ITA_p_mines
+		clr_global_flag = lvn_focus_185
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_186
+		}
+		unlock_national_focus = italia_cruiser_subs
+		clr_global_flag = lvn_focus_186
+	}
+	if = {
+		limit = {
+			has_global_flag = lvn_focus_187
+		}
+		unlock_national_focus = italia_betasom
+		clr_global_flag = lvn_focus_187
+	}
+	
+}#Closing Bracket
+
+LVN_FRA_focuses_effect = {
+	if = {
+		limit = {
+			has_completed_focus = FRA_devalue_the_franc 
+		}
+		set_country_flag = focus_dtf_complete
+	}
+				if = {
+					limit = {
+						has_completed_focus = FRA_begin_rearmament }
+					set_country_flag = focus_br_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_the_blum_viollette_proposal }
+					set_country_flag = focus_bvp_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_defensive_focus }
+					set_country_flag = focus_df_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_firepower_kills }
+					set_country_flag = focus_fk_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_invest_in_the_metropole }
+					set_country_flag = focus_itm_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_metropolitan_france }
+					set_country_flag = focus_mf_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_industrial_expansion }
+					set_country_flag = focus_ie_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_extra_research_slot }
+					set_country_flag = focus_ers_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_infantry_focus }
+					set_country_flag = focus_infantryfocus_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_artillery_focus  }
+					set_country_flag = focus_artilleryfocus_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_heavy_armor_focus   }
+					set_country_flag = focus_heavyarmor_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_invest_in_the_colonies   }
+					set_country_flag = focus_investcolonies_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_aggressive_focus  }
+					set_country_flag = focus_aggressive_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_methodical_battle   }
+					set_country_flag = focus_methodical_complete
+					}
+				if = {
+					limit = {
+						has_completed_focus = FRA_battle_of_maneuver   }
+					set_country_flag = focus_maneuver_complete
+					}
+}
+
+LVN_FRA_reload_focuses_effect = {
+	unlock_national_focus = FRA_revive_the_national_bloc
+	if = {
+		limit = {
+			has_country_flag = focus_dtf_complete 
+		}
+		unlock_national_focus  = FRA_devalue_the_franc 
+	}
+	if = {
+		limit = {
+			has_country_flag = focus_br_complete
+		}
+		unlock_national_focus  = FRA_begin_rearmament
+	}
+				if = {
+					limit = {
+						has_country_flag = focus_bvp_complete }
+					unlock_national_focus  = FRA_the_blum_viollette_proposal }
+				if = {
+					limit = { has_country_flag = focus_df_complete }
+					unlock_national_focus  = FRA_defensive_focus
+					}
+				if = {
+					limit = { has_country_flag = focus_fk_complete }
+					unlock_national_focus  = FRA_firepower_kills
+					}
+				if = {
+					limit = { has_country_flag = focus_itm_complete }
+					unlock_national_focus  = FRA_invest_in_the_metropole
+					}
+				if = {
+					limit = { has_country_flag = focus_mf_complete }
+					unlock_national_focus  = FRA_metropolitan_france
+					}
+				if = {
+					limit = { has_country_flag = focus_ie_complete }
+					unlock_national_focus  = FRA_industrial_expansion
+					}
+				if = {
+					limit = { has_country_flag = focus_ers_complete }
+					unlock_national_focus  = FRA_extra_research_slot
+					}
+				if = {
+					limit = { has_country_flag = focus_infantryfocus_complete }
+					unlock_national_focus  = FRA_infantry_focus
+					}
+				if = {
+					limit = { has_country_flag = focus_artilleryfocus_complete }
+					unlock_national_focus  = FRA_artillery_focus
+					}
+				if = {
+					limit = { has_country_flag = focus_heavyarmor_complete }
+					unlock_national_focus  = FRA_heavy_armor_focus
+					}
+				if = {
+					limit = { has_country_flag = focus_investcolonies_complete }
+					unlock_national_focus  = FRA_invest_in_the_colonies
+					}
+				if = {
+					limit = { has_country_flag = focus_aggressive_complete }
+					unlock_national_focus  = FRA_aggressive_focus
+					}
+				if = {
+					limit = { has_country_flag = focus_methodical_complete }
+					unlock_national_focus  = FRA_methodical_battle
+					}
+				if = {
+					limit = { has_country_flag = focus_maneuver_complete }
+					unlock_national_focus  = FRA_battle_of_maneuver
+					}
+				unlock_national_focus = FRA_towards_a_new_europe
+				unlock_national_focus = FRA_establish_spheres_of_influence
+				unlock_national_focus = FRA_split_belgium
+				unlock_national_focus = FRA_grow_the_empire
+				unlock_national_focus = FRA_bring_home_quebec
+				unlock_national_focus = FRA_expand_to_the_suez
+				unlock_national_focus = FRA_dominate_the_middle_east
+}

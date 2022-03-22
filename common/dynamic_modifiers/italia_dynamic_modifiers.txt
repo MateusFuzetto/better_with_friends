@@ -1,0 +1,460 @@
+#	Example:
+# 
+#	example_dynamic_modifier = {
+#		icon = "GFX_idea_unknown" # optional, will show up in guis if icon is specified
+#		enable = { always = yes } #optional, the modifier won't apply if not enabled
+#		remove_trigger = { always = no } #optional, will remove the modifier if true
+#
+#		# list of modifiers
+#		fuel_cost = 321
+#		max_fuel = var_max_fuel # will be taken from a variable
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		add_dynamic_modifier = {
+#			modifier = example_dynamic_modifier
+#			scope = GER # optional, if you specify this your dynamic modifier scoped to this scope (root is the effect scope)
+#			days = 14 # optional, will be removed after this many days passes
+#		}
+#	}
+#
+#	can be added to countries, states or unit leaders
+#	will only updated daily, unless forced by force_update_dynamic_modifier effect
+
+ITA_divided_nation = {
+	enable = { always = yes }
+
+	icon = GFX_modifiers_tur_kurdish_fatigue
+	recruitable_population_factor = -0.50
+}
+
+
+ITA_weak_southern_industry = {
+	enable = { always = yes }
+
+	icon = GFX_modifiers_ita_weak_southern_industry
+	
+	state_production_speed_buildings_factor = -0.10
+	local_building_slots_factor = -0.33
+	state_resources_factor = -0.25
+}
+
+ITA_invested_southern_industry = {
+	enable = { always = yes }
+
+	icon = GFX_modifiers_ita_focused_southern_industry
+	state_production_speed_buildings_factor = 0.25
+}
+
+ITA_german_population = {
+	recruitable_population_factor = -0.35
+}
+
+ITA_communist_uprising = {
+	remove_trigger = { 
+		OR = {
+			NOT = { is_controlled_by = RSI }
+			has_state_flag = RSI_resistance_suppressed
+		}
+	}
+
+	icon = GFX_modifiers_ita_communist_uprise
+	
+	recruitable_population_factor = -0.50
+	army_speed_factor_for_controller = -0.15
+	attrition_for_controller = 0.25
+	resistance_decay = -0.10
+}
+
+ITA_john_bull_strikes = {
+	enable = { always = yes }
+	remove_trigger = { 
+		OR = {
+			is_controlled_by = PAL		
+			has_global_flag = arab_revolt_is_over
+			has_active_resistance = no
+		}
+	}
+
+	icon = GFX_modifiers_lvn_john_bull_strike
+	
+	compliance_growth = -0.01
+	resistance_growth = 0.01
+	resistance_target = 0.05
+	resistance_decay = -0.10
+	state_resources_factor = -0.10
+}
+
+ITA_islamic_resistance = {
+	enable = { always = yes }
+	remove_trigger = { 
+		OR = {
+			is_controlled_by = PAL		
+			has_global_flag = arab_revolt_is_over
+			has_active_resistance = no
+		}
+	}
+
+	icon = GFX_modifiers_lvn_anti_british
+	
+	compliance_growth = -0.05
+	resistance_growth = 0.05
+	resistance_target = 0.20
+	resistance_decay = -0.20
+	state_resources_factor = -0.33
+	disable_strategic_redeployment = 1
+}
+
+ITA_islamic_rebellion = {
+	enable = { always = yes }
+	remove_trigger = { 
+		OR = {
+			is_controlled_by = PAL		
+			has_global_flag = arab_revolt_is_over
+			has_active_resistance = no
+		}
+	}
+
+	icon = GFX_modifiers_lvn_anti_british
+	
+	compliance_growth = -0.1
+	resistance_growth = 0.07
+	resistance_target = 0.35
+	resistance_decay = -0.25
+	attrition_for_controller = 1
+	state_resources_factor = -0.33
+	disable_strategic_redeployment = 1
+}
+
+ITA_defended_by_sicily = {
+	enable = { always = yes }
+
+	icon = GFX_modifiers_ita_fortress_sicily
+	
+	naval_invasion_penalty = 0.3
+}
+
+LVN_ETH_resistance = {
+	enable = { always = yes }
+
+	icon = GFX_modifiers_ETH_resistance
+	
+	compliance_growth = -0.10
+	state_production_speed_buildings_factor = -0.10
+	local_building_slots_factor = -0.25
+	state_resources_factor = -0.5
+	disable_strategic_redeployment = 1
+}
+
+ITA_interservice_rivalry_modifier = { #also includes corruption within the Italian army, navy and airforce
+	enable = { always = yes }
+	remove_trigger = { 
+		has_completed_focus = italia_interservice_cooperation
+	}
+
+	icon = GFX_idea_lvn_interservice
+	
+	#INITIAL : they are all removed/modified by the focus part INTERSERVICE COOPERATION
+	air_cas_present_factor = ITA_air_cas_present_factor #-0.10% -> Ground support related
+	air_nav_efficiency = ITA_air_nav_efficiency_factor #-0.10% -> penalty for naval bombing mission
+	naval_coordination = ITA_naval_coordination_factor #-0.10% -> penalty on the coordination of our navy
+	military_leader_cost_factor = ITA_military_leader_cost_factor #+50% -> corruption, penalty cost pp for recruiting a new general
+	navy_leader_cost_factor = ITA_navy_leader_cost_factor #+50% -> corruption, penalty cost pp for recruiting a new admiral
+	land_doctrine_cost_factor = ITA_land_doctrine_cost_factor #+0.10 -> corruption, penalty XP cost for doctrines
+	naval_doctrine_cost_factor = ITA_naval_doctrine_cost_factor #+0.10 -> corruption, penalty XP cost for doctrines
+	air_doctrine_cost_factor = ITA_air_doctrine_cost_factor #+0.10 -> corruption, penalty XP cost for doctrines
+	
+	#FUTURE
+	experience_gain_army_factor = ITA_experience_gain_army_rivalry_factor # -> Regio Esercito Primacy
+	air_training_xp_gain_factor = ITA_air_training_exp_gain_rivalry_factor # -> Expand the Regia Aeronautica
+	experience_gain_navy_factor = ITA_experience_gain_navy_rivalry_factor # -> Modernize the Regia Marina
+	
+}
+
+ITA_comando_supremo_modifier = { #with GAF late
+	enable = { always = yes }
+	remove_trigger = { 
+		OR = {
+			has_government = communism 
+			tag = RSI 
+		}
+	}
+
+	icon = GFX_ita_duce_hat
+	
+	#INITIAL FOCUS
+	high_command_cost_factor = ITA_high_command_cost_factor #-0.10%
+	experience_gain_army_factor = ITA_experience_gain_army_factor #-0.05 
+	max_planning_factor = ITA_max_planning_factor #0.15
+	planning_speed = ITA_planning_speed_factor #0.05
+	
+	#FUTURE FOCUSES
+	conscription = ITA_conscription_factor #0.01
+	max_command_power = ITA_max_command_power #50
+	command_power_gain_mult = ITA_command_power_gain_mult #0.15
+	acclimatization_hot_climate_gain_factor = ITA_acclimatization_hot_climate_gain_factor #0.10
+	heat_attrition_factor = ITA_heat_attrition_factor #-0.10
+	acclimatization_cold_climate_gain_factor = ITA_acclimatization_cold_climate_gain_factor #0.10
+	winter_attrition = ITA_winter_attrition_factor #-0.10
+	
+}
+
+ITA_comando_supremo_modifier_2 = { #with GAF early
+	enable = { always = yes }
+	remove_trigger = { 
+		OR = {
+			has_government = communism 
+			tag = RSI 
+		}
+	}
+
+	icon = GFX_idea_ita_duce_hat
+	
+	#INITIAL FOCUS
+	high_command_cost_factor = ITA_high_command_cost_factor #-0.10%
+	experience_gain_army_factor = ITA_experience_gain_army_factor #-0.05 
+	max_planning_factor = ITA_max_planning_factor #0.15
+	planning_speed = ITA_planning_speed_factor #0.05
+	conscription = ITA_conscription_factor #0.01
+	
+	#FUTURE FOCUSES
+	max_command_power = ITA_max_command_power #50
+	command_power_gain_mult = ITA_command_power_gain_mult #0.15
+	acclimatization_hot_climate_gain_factor = ITA_acclimatization_hot_climate_gain_factor #0.10
+	heat_attrition_factor = ITA_heat_attrition_factor #-0.10
+	acclimatization_cold_climate_gain_factor = ITA_acclimatization_cold_climate_gain_factor #0.10
+	winter_attrition = ITA_winter_attrition_factor #-0.10
+	
+}
+
+ITA_regio_esercito_modifier = { #Regio Esercito
+	enable = { always = yes }
+	remove_trigger = { 
+		OR = {
+			has_government = communism 
+			tag = RSI 
+		}
+	}
+
+	icon = GFX_idea_lvn_Regio_Esercito
+	
+	#INITIAL 
+	mobilization_laws_cost_factor = ITA_regio_esercito_mobilization_laws_cost_factor #+0.1 -> represent difficulty recruitment for Italian army
+	
+	#FUTURE - PARIANI
+	training_time_factor = ITA_army_training_time_factor #-0.1 -> italia_reform_pariani
+	army_morale_factor = ITA_pariani_army_morale_factor #+0.8 -> italia_reform_pariani
+	army_speed_factor = ITA_pariani_army_speed_factor #+0.05 -> italia_motorized_focus
+	cas_damage_reduction = ITA_pariani_cas_damage_reduction_factor #0.1 -> italia_rapid_decision
+	
+	#FUTURE - PIEDMONT DOCTRINE
+	army_org_factor = ITA_piedmont_army_org_factor #+0.1 -> italia_conservative_ideas
+	army_infantry_defence_factor = ITA_piedmont_army_infantry_defence_factor #+0.1 -> italia_infantry_leads
+	army_infantry_attack_factor = ITA_piedmont_army_infantry_attack_factor #+0.1 -> italia_infantry_leads
+	max_dig_in_factor = ITA_piedmont_max_dig_in_factor  #+0.05 -> italia_support_divisions
+	
+	#FUTURE - COMMON
+	special_forces_cap = ITA_army_special_forces_cap #+0.5 -> italia_alpini_focus
+	naval_invasion_capacity = ITA_army_naval_invasion_capacity #6 -> italia_marine_force
+	
+}
+
+ITA_regio_esercito_modifier_alt = { #Esercito Italiano
+	enable = { always = yes }
+	remove_trigger = { 
+		OR = {
+			has_government = communism 
+			tag = RSI 
+		}
+	}
+
+	icon = GFX_idea_lvn_Esercito_Italiano
+	
+	#INITIAL 
+	mobilization_laws_cost_factor = ITA_regio_esercito_mobilization_laws_cost_factor #+0.1 represent difficulty recruitment for Italian army
+	
+	#FUTURE - PARIANI
+	training_time_factor = ITA_army_training_time_factor #-0.1 -> italia_reform_pariani
+	army_morale_factor = ITA_pariani_army_morale_factor #+0.8 -> italia_reform_pariani
+	army_speed_factor = ITA_pariani_army_speed_factor #+0.05 -> italia_motorized_focus
+	cas_damage_reduction = ITA_pariani_cas_damage_reduction_factor #0.1 -> italia_rapid_decision
+	
+	#FUTURE - PIEDMONT DOCTRINE
+	army_org_factor = ITA_piedmont_army_org_factor #+0.1 -> italia_conservative_ideas
+	army_infantry_defence_factor = ITA_piedmont_army_infantry_defence_factor #+0.1 -> italia_infantry_leads
+	army_infantry_attack_factor = ITA_piedmont_army_infantry_attack_factor #+0.1 -> italia_infantry_leads
+	max_dig_in_factor = ITA_piedmont_max_dig_in_factor  #+0.05 -> italia_support_divisions
+	
+	#FUTURE - COMMON
+	special_forces_cap = ITA_army_special_forces_cap #+0.5 -> italia_alpini_focus
+	naval_invasion_capacity = ITA_army_naval_invasion_capacity #6 -> italia_marine_force
+	
+}
+
+ITA_regia_marina_dynamic_modifier = {
+	enable = { always = yes }
+	remove_trigger = { 
+		OR = {
+			has_government = communism 
+			tag = RSI 
+		}
+	}
+
+	icon = GFX_idea_lvn_Regia_Marina
+	
+	#INITIAL
+	navy_visibility = ITA_regia_marina_navy_visibility #-0.1 -> to express how Italian ships where smaller on average than other navies
+	naval_speed_factor = ITA_regia_marina_naval_speed_factor #-0.05 -> to express how Italian ships where smaller on average than other navies
+	
+	#FUTURE - THE PROGRAMS
+	sortie_efficiency = ITA_regia_marina_sortie_efficiency #0.15 -> Rush the Aircraft Carrier Program
+	navy_capital_ship_attack_factor = ITA_regia_marina_navy_capital_ship_attack_factor #0.1 -> Complete 5 Year Naval Plan
+	screening_efficiency = ITA_regia_marina_screening_efficiency #0.1 -> Fleet Anti-Air	
+	
+	#FUTURE - TO BOTH 
+	convoy_escort_efficiency = ITA_regia_marina_convoy_escort_efficiency #0.15 -> Screening the Battlefleet
+	spotting_chance = ITA_regia_marina_spotting_chance #0.15 -> MAS focus
+	experience_gain_navy_factor = ITA_regia_marina_experience_gain_navy_factor #0.10 -> BETASOM
+	
+}
+
+ITA_regia_marina_dynamic_modifier_alt = { #marina militare
+	enable = { always = yes }
+	remove_trigger = { 
+		OR = {
+			has_government = communism 
+			tag = RSI 
+		}
+	}
+
+	icon = GFX_idea_lvn_Marina_Militare
+	
+	#INITIAL
+	navy_visibility = ITA_regia_marina_navy_visibility #-0.1 -> to express how Italian ships where smaller on average than other navies
+	naval_speed_factor = ITA_regia_marina_naval_speed_factor #-0.05 -> to express how Italian ships where smaller on average than other navies
+	
+	#FUTURE - THE PROGRAMS
+	sortie_efficiency = ITA_regia_marina_sortie_efficiency #0.15 -> Rush the Aircraft Carrier Program
+	navy_capital_ship_attack_factor = ITA_regia_marina_navy_capital_ship_attack_factor #0.1 -> Complete 5 Year Naval Plan
+	screening_efficiency = ITA_regia_marina_screening_efficiency #0.1 -> Fleet Anti-Air	
+	
+	#FUTURE - TO BOTH 
+	convoy_escort_efficiency = ITA_regia_marina_convoy_escort_efficiency #0.15 -> Screening the Battlefleet
+	spotting_chance = ITA_regia_marina_spotting_chance #0.15 -> MAS focus
+	experience_gain_navy_factor = ITA_regia_marina_experience_gain_navy_factor #0.10 -> BETASOM
+	
+}
+
+ITA_regia_aeronautica_modifier = { #Regia aeronautica 
+	enable = { always = yes }
+	remove_trigger = { 
+		OR = {
+			has_government = communism 
+			tag = RSI 
+		}
+	}
+	icon = GFX_idea_lvn_regia_aero
+	
+	#FROM THE FOCUS FATE OF NAVAL AVIATION
+	experience_gain_air_factor = ITA_airforce_experience_gain_air_factor #+0.05 or -0.05 -> Fate of Our Naval Aviation / +0.10 -> New pilot training 
+	navy_carrier_air_targetting_factor = ITA_airforce_navy_carrier_air_targetting_factor #-0.50 or +0.25 -> Fate of Our Naval Aviation
+	navy_carrier_air_attack_factor = ITA_airforce_navy_carrier_air_attack_factor #-0.50 or +0.25 -> Fate of Our Naval Aviation
+	
+	#STRAT BOMBING ORIENTED
+	air_strategic_bomber_bombing_factor = ITA_airforce_air_strategic_bomber_bombing_factor #+0.10/+0.20 -> Follow The Douhet Doctrine/Dominate through terror
+	strategic_bomb_visibility = ITA_airforce_strategic_bomb_visibility #-0.05/-0.10 -> Follow The Douhet Doctrine/Dominate through terror
+	air_bombing_targetting = ITA_airforce_air_bombing_targetting #+0.05 -> Dominate through terror
+	air_range_factor = ITA_airforce_air_range_factor #+0.10 -> Dominate through terror
+	
+	#CAS ORIENTED
+	air_cas_efficiency = ITA_airforce_air_cas_efficiency #+0.10 -> Dominate the Ground
+	air_cas_present_factor = ITA_airforce_air_cas_present_factor #+0.10 -> Dominate the Ground
+	ground_attack_factor = ITA_airforce_ground_attack_factor #+0.10 -> Dominate the Ground
+	
+	#COMMON
+	air_nav_efficiency = ITA_airforce_air_nav_efficiency # +0.10 -> Motobomba FFF
+	air_doctrine_cost_factor = ITA_airforce_air_doctrine_cost_factor #-0.10 -> Citta Dell'Aria
+
+}
+
+ITA_regia_aeronautica_modifier_alt = { #Aeronautica Militare 
+	enable = { always = yes }
+	remove_trigger = { 
+		OR = {
+			has_government = communism 
+			tag = RSI 
+		}
+	}
+
+	icon = GFX_idea_lvn_regia_aero
+	
+	#FROM THE FOCUS FATE OF NAVAL AVIATION
+	experience_gain_air_factor = ITA_airforce_experience_gain_air_factor #+0.05 or -0.05 -> Fate of Our Naval Aviation / +0.10 -> New pilot training 
+	navy_carrier_air_targetting_factor = ITA_airforce_navy_carrier_air_targetting_factor #-0.50 or +0.25 -> Fate of Our Naval Aviation
+	navy_carrier_air_attack_factor = ITA_airforce_navy_carrier_air_attack_factor #-0.50 or +0.25 -> Fate of Our Naval Aviation
+	
+	#STRAT BOMBING ORIENTED
+	air_strategic_bomber_bombing_factor = ITA_airforce_air_strategic_bomber_bombing_factor #+0.10/+0.20 -> Follow The Douhet Doctrine/Dominate through terror
+	strategic_bomb_visibility = ITA_airforce_strategic_bomb_visibility #-0.05/-0.10 -> Follow The Douhet Doctrine/Dominate through terror
+	air_bombing_targetting = ITA_airforce_air_bombing_targetting #+0.05 -> Dominate through terror
+	air_range_factor = ITA_airforce_air_range_factor #+0.10 -> Dominate through terror
+	
+	#CAS ORIENTED
+	air_cas_efficiency = ITA_airforce_air_cas_efficiency #+0.10 -> Dominate the Ground
+	air_cas_present_factor = ITA_airforce_air_cas_present_factor #+0.10 -> Dominate the Ground
+	ground_attack_factor = ITA_airforce_ground_attack_factor #+0.10 -> Dominate the Ground
+	
+	#COMMON
+	air_nav_efficiency = ITA_airforce_air_nav_efficiency # +0.15 -> Motobomba FFF
+	air_doctrine_cost_factor = ITA_air_doctrine_cost_factor #-0.10 -> Citta Dell'Aria
+}
+
+ITA_pax_romana_modifier = {
+	enable = { always = yes }
+	remove_trigger = { 
+		NOT = { has_government = fascism }
+	}
+	
+	icon = GFX_idea_romantis
+	
+	#INITIAL
+	fascism_drift = ITA_pax_romana_fascism_drift #0.02
+	
+	#FUTURE
+	stability_weekly_factor = ITA_pax_romana_stability_weekly_factor #0.02 -> Expanded Roman Citizenship
+	weekly_manpower = ITA_pax_romana_weekly_manpower #2500 -> Expanded Roman Citizenship
+	consumer_goods_factor = ITA_pax_romana_consumer_goods_factor #0.10 -> Latin Monetary Union
+	industrial_capacity_dockyard = ITA_pax_romana_industrial_capacity_dockyard #0.15 -> Latin Monetary Union
+	industrial_capacity_factory = ITA_pax_romana_industrial_capacity_factory #0.15 -> Latin Monetary Union
+	
+}
+
+ITA_exercitus_romanus_modifier = {
+	enable = { always = yes }
+	remove_trigger = { 
+		NOT = { has_government = fascism }
+		has_civil_war = yes
+	}
+	
+	icon = GFX_idea_ITA_CMRI
+	
+	#INITIAL
+	minimum_training_level = ITA_exercitus_romanus_minimum_training_level #0.20 
+	conscription = ITA_exercitus_romanus_conscription #0.10
+	non_core_manpower = ITA_exercitus_romanus_non_core_manpower #0.05
+	special_forces_cap = ITA_exercitus_romanus_special_forces_cap #0.05-0.10 -> replaces the one from mountaineers focus - CMRI
+
+	#FUTURE
+	cas_damage_reduction = ITA_exercitus_romanus_cas_damage_reduction #0.15 -> flying legions
+	max_dig_in_factor = ITA_exercitus_romanus_max_dig_in_factor #0.10 -> the Aquila
+	army_morale_factor = ITA_exercitus_romanus_army_morale_factor #0.12 -> the Aquila
+	supply_consumption_factor = ITA_exercitus_romanus_supply_consumption_factor #-0.05 -> the Aquila
+	army_infantry_attack_factor = ITA_exercitus_romanus_army_infantry_attack_factor #0.15 -> the Aquila
+	amphibious_invasion = ITA_exercitus_romanus_amphibious_invasion #0.15 -> CMRI
+	invasion_preparation = ITA_exercitus_romanus_invasion_preparation #-0.2 -> CMRI
+	naval_invasion_capacity = ITA_exercitus_romanus_naval_invasion_capacity #10 -> CMRI 
+	naval_invasion_penalty = ITA_exercitus_romanus_naval_invasion_penalty #-0.25 -> CMRI
+}

@@ -1,0 +1,127 @@
+# options for map_icon_category:
+# For land units: infantry,armored,other
+# For sea units: ship,transport,uboat
+
+sub_units = {
+	
+	blackshirts = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 601
+		ai_priority = 0 #we don't want the AI to use these
+		active = no
+		
+		type = {
+			infantry
+		}
+		
+		group = infantry
+		
+		categories = {
+			category_front_line
+			category_light_infantry
+			category_all_infantry
+			category_army
+		}
+		
+		combat_width = 2
+		
+		#Size Definitions
+		max_strength = 20
+		max_organisation = 50
+		default_morale = 0.2
+		manpower = 1000
+
+		#Misc Abilities
+		training_time = 75
+		suppression = 2
+		weight = 0.5
+		
+		supply_consumption = 0.07
+	
+		need = {
+			infantry_equipment = 140
+		}
+
+		urban = {
+			attack = 0.05
+			defence = 0.05
+			movement = 0.1
+		}
+	}
+
+  arditi_u = {
+    sprite = infantry
+    map_icon_category = infantry
+    active = no
+	affects_speed = no
+    type = {
+      support
+    }
+    group = support
+    categories = {
+      category_support_battalions
+    }
+    essential = {
+		#infantry_equipment
+		support_equipment
+    }
+    need = {
+		#infantry_equipment = 10
+		support_equipment = 10
+    }
+    combat_width = 0
+	
+	max_organisation = 120
+	default_morale = 0.7
+	
+	#Misc abilities
+    supply_consumption = 0.02
+    manpower = 150
+    initiative = 0.25
+    recon = 5
+	breakthrough = 1
+    special_forces = yes
+    fort = {
+      attack = 0.1
+    }
+    urban = {
+      attack = 0.1
+    }
+  }
+
+
+  mas_u = {
+    affects_speed = no
+    sprite = infantry
+    map_icon_category = infantry
+    active = no
+    type = {
+      support
+    }
+    group = support
+    categories = {
+      category_support_battalions
+      category_army
+    }
+	max_organisation = 70 #Trying not to nerf your org by using these
+    combat_width = 0
+	
+    essential = {
+		#infantry_equipment
+		support_equipment
+    }
+    need = {
+		#infantry_equipment = 10
+		support_equipment = 10
+    }
+	
+    marines = yes
+    supply_consumption = 0.02
+    manpower = 150
+    special_forces = yes
+    amphibious = {
+      attack = 0.5
+    }
+  }
+}

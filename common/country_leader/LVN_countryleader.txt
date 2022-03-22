@@ -1,0 +1,395 @@
+leader_traits = {
+
+	italia_duce_cult = {
+		random = no
+		offensive_war_stability_factor = 0.3
+		political_power_factor = 0.10
+		stability_factor = 0.05
+	}
+		
+	italia_colonial_governor = {
+		random = no
+		master_ideology_drift = 0.03
+		production_speed_air_base_factor = 0.5 
+	}
+	
+	LVN_scorned_hitler = {
+		random = no
+		ai_get_ally_desire_factor = -10
+		ai_focus_war_production_factor = 0.10
+	}
+	
+	catholic_tradition = {
+		random = no
+		neutrality_drift = 0.05
+		ai_strategy = {
+			type = befriend
+			id = "ITA"			
+			value = 200
+		}
+	}
+	
+	LVN_communist_hero = {
+		random = no
+		
+		stability_weekly = 0.001
+		stability_factor = 0.05
+		war_support_factor = 0.05
+		army_core_defence_factor = 0.1
+		mobilization_speed = 0.10
+		communism_drift = 0.1
+		drift_defence_factor = 0.15
+	}
+	
+	LVN_literally_the_pope = {
+		random = no
+	
+		stability_factor = 0.10
+		non_core_manpower = 0.10
+		drift_defence_factor = 0.5
+		communism_acceptance = -500	
+		send_volunteers_tension = -0.5
+	}
+	
+	LVN_imperator = {
+		random = no
+		political_power_factor = 0.20
+		conscription_factor = 0.25
+		stability_factor = 0.10
+	}
+		
+	italia_warmonger = {
+		random = no
+		ai_focus_aggressive_factor = 0.5
+		drift_defence_factor = 0.25
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	lion_of_verdun = {
+		random = no
+		stability_factor = 0.05
+		fascism_drift = 0.10
+		communism_drift = -0.10
+		communism_acceptance = -50		
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	LVN_master_mare_nostrum = {
+		random = no
+		conscription = 0.02
+		political_power_factor = 0.10
+		justify_war_goal_time = -0.5
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	film_director = {
+		sprite = 13
+		random = no
+		drift_defence_factor = 0.15
+			
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ITA_aero_engineer = {
+		sprite = 13
+		random = no
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	neutral_journalist = { #Is there such a thing?
+		sprite = 13
+		random = no
+		neutrality_drift = 0.05
+		war_support_weekly = 0.01
+		
+		ai_will_do = {
+			factor = 2
+		}
+	}
+		
+	italia_head_of_intelligence = {
+		random = no
+		sprite = 15
+		operative_slot = 1
+		agency_upgrade_time = -0.15
+		army_intel_factor = 0.05
+		intelligence_agency_defense = 0.05
+		resistance_damage_to_garrison = -0.25 
+		foreign_subversive_activites = -0.3
+		non_core_manpower = -0.01
+	}
+	
+	italia_head_of_intelligencetwo = {
+		random = no
+		sprite = 15
+		operative_slot = 1
+		agency_upgrade_time = -0.15
+		army_intel_factor = 0.05
+		intelligence_agency_defense = 0.05
+	}
+	
+	italia_secret_police = {
+		random = no
+		sprite = 15
+		operative_slot = 1
+		resistance_damage_to_garrison = -0.10 
+		foreign_subversive_activites = -0.10
+		drift_defence_factor = 0.1
+		root_out_resistance_effectiveness_factor = 0.10
+	}
+	
+	italia_devil_commander = {
+		random = no
+		sprite = 5
+		terrain_penalty_reduction = 0.05
+		max_dig_in_factor = 0.15
+		army_morale_factor = 0.12
+		cavalry_attack_factor = 0.15
+		cavalry_defence_factor = 0.15
+		experience_gain_army = 0.12
+		
+		command_cap = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	black_prince_trait = {
+		sprite = 4
+		random = no
+		port_strike = 0.10      
+		naval_torpedo_screen_penetration_factor = 0.05
+		special_forces_attack_factor = 0.05
+		experience_gain_navy = 0.12
+		
+		command_cap = 10
+		
+		ai_will_do = {
+			factor = 3
+		}
+	}
+	
+	lvn_sub_ace = {
+		sprite = 4
+		convoy_raiding_efficiency_factor = 0.10
+		navy_submarine_attack_factor = 0.15
+		navy_submarine_defence_factor = 0.15
+		experience_gain_navy = 0.12
+		
+		command_cap = 10
+		
+		ai_will_do = {
+			factor = 3
+		}
+	}
+	
+	lvn_navy_defender = {
+		sprite = 3
+		amphibious_invasion_defence = 0.15
+		army_defence_factor = 0.05
+		experience_gain_army = 0.09
+		
+		command_cap = 20
+		
+		ai_will_do = {
+			factor = 3
+		}
+	}
+	
+	ita_air_marshal = {
+		sprite = 1
+		random = no
+		air_training_xp_gain_factor = 0.15
+		air_ace_generation_chance_factor = 0.10
+		experience_gain_air_factor = 0.09
+
+		command_cap = 20
+		
+		ai_will_do = {
+			factor = 3
+		}
+	}
+	
+	LVN_holy_defender = { #Yes it's OP lmao YOU'RE PLAYING AS THE POPE 
+		sprite = 5
+		random = no 
+		army_core_defence_factor = 0.10
+		army_defence_factor = 0.05
+		army_morale_factor = 0.05
+		dig_in_speed_factor = 0.05	
+	}
+	
+	army_red_count = { # Ground units get 12 more Organization
+		sprite = 5
+		random = no
+		army_org_factor = 0.12
+		army_morale_factor = 0.04
+		resistance_damage_to_garrison = -0.05
+		experience_gain_army = 0.06
+		
+		command_cap = 20
+		
+		ai_will_do = {
+			factor = 3
+		}
+	}
+	
+	light_aircraft_manufacturer_3 = { 
+		random = no
+		equipment_bonus = {
+			fighter_equipment = {
+				air_agility = 0.20 maximum_speed = 0.10
+			}
+			jet_fighter_equipment = {
+				air_agility = 0.20 maximum_speed = 0.10
+			}
+		}
+		
+		ai_will_do = {
+			factor = 2
+		}
+	}
+	
+	brigate_garibaldi_trait = {
+		random = no
+		sprite = 13
+		army_org_factor = 0.12
+		conscription = 0.02
+		industrial_capacity_factory = 0.1
+		industrial_capacity_dockyard = 0.1
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	fascist_mystic = {
+		random = no
+		sprite = 13
+		political_power_factor = 0.05
+		stability_weekly = 0.01
+		conscription_factor = 0.05
+		
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	fascist_philosopher_evola_trait = {
+		random = no
+		sprite = 13
+		political_power_factor = 0.15
+		justify_war_goal_time = -0.25
+		war_support_weekly = 0.005
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	president_academy_italy_trait = {
+		random = no
+		sprite = 13
+		political_power_factor = 0.05
+		research_speed_factor = 0.05
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	party_secretary_trait = {
+		random = no
+		sprite = 13
+		stability_factor = -0.05 
+		war_support_factor = 0.10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	prince_of_terror_farinacci = {
+		random = no
+		sprite = 13 
+		local_non_core_manpower = 0.25
+		local_factory_sabotage = -0.15
+		required_garrison_factor = -0.10
+		resistance_growth_on_our_occupied_states = -0.25
+		
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	master_of_aviation = { #General of Aviation
+		random = no
+		sprite = 13 
+		
+		experience_gain_air_factor = 0.15
+		air_training_xp_gain_factor = 0.10
+		air_ace_generation_chance_factor = 0.10
+		production_speed_air_base_factor = 0.1
+		production_speed_anti_air_building_factor = 0.1
+		production_speed_radar_station_factor = 0.25
+		ai_focus_aviation_factor = 0.25
+	}
+	lvn_gugsa_collaborator = {
+		random = no
+		sprite = 13 
+		stability_factor = -0.10
+		conscription = 0.02
+	}
+	lvn_scholar = {
+		random = no
+		sprite = 13 
+		research_speed_factor = 0.05
+		political_power_factor = 0.10
+	}
+	lvn_centrism_enthusiast = {
+		random = no
+		sprite = 13 
+		war_support_factor = -0.10
+		fascism_acceptance = -100
+		communism_acceptance = -100
+		communism_drift = -0.02
+		fascism_drift = -0.02
+	}
+	
+	lvn_founding_father_republic = {
+		random = no
+		sprite = 13 
+		political_power_factor = 0.10
+		stability_factor = 0.25
+	}
+	
+	ITA_fiat_duopoly_trait = {
+		random = no
+		license_armor_purchase_cost = 2.0 
+		equipment_bonus = {
+			armor = { 
+				instant = yes build_cost_ic = 0.10 reliability = -0.20 maximum_speed = -0.05 
+			}
+		}
+	}
+	
+	LVN_motorised_bonus_trait = {
+		random = no
+		equipment_bonus = {	
+			motorized_equipment = {
+				build_cost_ic = -0.10 instant = yes
+			}
+		}
+	}
+}

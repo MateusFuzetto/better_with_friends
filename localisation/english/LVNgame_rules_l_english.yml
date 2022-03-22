@@ -1,0 +1,19 @@
+﻿l_english:
+ lvnITA_AI_BEHAVIOR:0 "@ITA Kingdom of Italy (LVN)"
+ RULE_DEMOCRATIC_ITAALT_AI_DESC:0 "The Italian AI will attempt to create a constitutional monarchy by going down the relevant paths in the national focus tree.\n§RThis will trigger the Italian Civil War!§!"
+ RULE_DEMOCRATIC_ITAHIS_AI_DESC:0 "The Italian AI oppose Mussolini and attempt to form the Republic of Italy by going down the relevant paths in the national focus tree.\n§RThis will trigger the Italian Civil War!§!"
+ RULE_OPTION_LVN_KING:0 "The House of Savoy"
+ RULE_LVNKING_ITA_AI_DESC:0 "The Italian AI will oppose Mussolini's reign and attempt to create an absolute monarchy in Italy.\n§RThis will trigger the Italian Civil War!§!"
+
+#Game Rules
+LVN_LIBYA_STATUS:0 "Status of Libya"
+RULE_OPTION_LVN_COLONIZED:0 "Colony of Italia Libiana"
+RULE_OPTION_LVN_COLONIZED_DESC:0 "Libya will start the game as a colony of Italy."
+RULE_OPTION_LVN_LIBYA_ANNEXED:0 "Libya Annexed"
+RULE_OPTION_LVN_LIBYA_ANNEXED_DESC:0 "Libya will be annexed at game start instead of existing as a colony.\n§RWarning: This will delete two divisions and a division template from Italy that draws on colonial manpower.§!"
+LVN_VICTORY_POINTS:0 "LVN Victory Points"
+RULE_OPTION_LVN_EX_VIC:0 "Add LVN's Extra Victory Points"
+RULE_OPTION_LVN_EX_VIC_DESC:0 "This will add several VPs to Italy.\n§RDo NOT use this if you are also using a map mod.§!"
+RULE_OPTION_LVN_NO_EX_VIC:0 "Disable LVN Victory Points"
+RULE_OPTION_LVN_NO_EX_VIC_DESC:0 "Use this option to turn off the extra Victory Points."
+

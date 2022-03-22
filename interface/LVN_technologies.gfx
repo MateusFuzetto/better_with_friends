@@ -1,0 +1,17 @@
+spriteTypes = {	
+	
+	SpriteType = {
+		name = "GFX_italia_mountain_gun_tech_medium"
+		texturefile = "gfx/interface/technologies/mgun1.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_ITA_fighter4_medium"
+		texturefile = "gfx/interface/technologies/ITA_fighter4.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_ITA_old_tri_engine_medium"
+		texturefile = "gfx/interface/technologies/ITA_old_tri_engine.dds"
+	}
+}

@@ -1,0 +1,1160 @@
+focus_tree = {
+	id = italian_east_africa_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 20
+			tag = AOI
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 100 y = 1500 }
+
+	initial_show_position = {
+		x = 30
+		y = 0
+
+	}
+	
+	shared_focus = LVN_generic_colonial_equipment
+	
+#######INDUSTRY BRANCH
+	
+	focus = {
+		id = AOI_begin_reconstruction
+		icon = GFX_goal_generic_construction
+		
+		x = 8
+		y = 0
+		cost = 10
+		ai_will_do = {
+			factor = 100
+		}	
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_political_power = 120
+			271 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = AOI_acquire_modern_tools
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+			hidden_effect = {
+				ITA = { country_event = LVN_AOI.1 }
+			}
+		}
+	}
+	
+	focus = {
+		id = AOI_imperial_road_ethiopia
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = AOI_begin_reconstruction }
+		
+		x = -3
+		y = 1
+		cost = 5
+		relative_position_id = AOI_begin_reconstruction
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			271  = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+			559 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+			}
+			550 = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+			}
+			
+		}
+	}
+	
+	focus = {
+		id = AOI_encourage_immigration
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = AOI_imperial_road_ethiopia }
+		available = {	
+			has_war = no
+		}
+		
+		x = 1
+		y = 1
+		cost = 10
+		relative_position_id = AOI_imperial_road_ethiopia
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			add_political_power = 50
+			add_manpower = 25000
+			add_ideas = LVN_AOI_immigration
+		}
+	}
+	
+	focus = {
+		id = AOI_industrialisation_eritrea
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = AOI_encourage_immigration }	
+		available = {	
+			has_full_control_of_state = 550
+		}
+
+		bypass = {		
+		}
+		x = -1
+		y = 1
+		relative_position_id = AOI_encourage_immigration
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = { 
+			550 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AOI_new_rome
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = AOI_industrialisation_eritrea }	
+		available = {	
+			has_full_control_of_state = 550
+		}
+
+		bypass = {		
+		}
+		x = -1
+		y = 1
+		relative_position_id = AOI_industrialisation_eritrea
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = { 
+			add_research_slot = 1
+			550 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AOI_industrialisation_somalia
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = AOI_encourage_immigration }	
+		available = {	
+			has_full_control_of_state = 559
+		}
+
+		bypass = {		
+		}
+		x = 1
+		y = 1
+		relative_position_id = AOI_encourage_immigration
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = { 
+			add_ideas = LVN_AOI_booming_salt_industry
+			559 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AOI_uranium_somalia
+		icon = GFX_goal_generic_secret_weapon
+		prerequisite = { focus = AOI_industrialisation_somalia }	
+		available = {	
+			has_full_control_of_state = 559
+			has_tech = excavation5
+		}
+
+		bypass = {		
+		}
+		x = -1
+		y = 1
+		relative_position_id = AOI_industrialisation_somalia
+		cost = 20
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = { 
+			ITA = { add_ideas = LVN_AOI_uranium_somalia }
+		}
+	}
+	
+	focus = {
+		id = AOI_unite_somalia
+		icon = GFX_focus_generic_treaty
+		prerequisite = { focus = AOI_industrialisation_somalia }	
+		available = {	
+			has_full_control_of_state = 559
+			OR = {	
+				has_full_control_of_state = 268
+				has_full_control_of_state = 269
+			}
+		}
+
+		bypass = {		
+		}
+		x = 1
+		y = 1
+		relative_position_id = AOI_industrialisation_somalia
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_ANNEXATION }
+		
+		completion_reward = { 
+			269 = { 
+				if = {	
+					limit = { is_controlled_by = ROOT }
+					add_core_of = AOI
+				}
+			}
+			268 = { 
+				if = {	
+					limit = { is_controlled_by = ROOT }
+					add_core_of = AOI
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AOI_fund_schools
+		icon = GFX_focus_ITA_academy
+		prerequisite = { focus = AOI_new_rome }	
+		prerequisite = { focus = AOI_industrialisation_somalia }	
+		available = {	
+		}
+
+		bypass = {		
+		}
+		x = 3
+		y = 1
+		relative_position_id = AOI_new_rome
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		completion_reward = { 
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = AOI_roads_flight_ethiopia
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = AOI_imperial_road_ethiopia}	
+		available = {	
+				has_full_control_of_state = 271		
+		}
+
+		bypass = {		
+		}
+		x = -4
+		y = 1
+		relative_position_id = AOI_imperial_road_ethiopia
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = { 
+				271 = {
+					add_building_construction = {
+						type = air_base
+						level = 3
+						instant_build = yes
+					}
+				}
+				550 = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+				559 = {
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+		}
+	}
+
+	focus = {
+		id = AOI_hydroelectricity_cement_ethiopia
+		icon = GFX_goal_generic_construct_civilian
+		prerequisite = { focus = AOI_imperial_road_ethiopia }	
+		available = {	
+				has_full_control_of_state = 271		
+		}
+
+		bypass = {		
+		}
+		x = -2
+		y = 1
+		relative_position_id = AOI_imperial_road_ethiopia
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = { 
+			271 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+		
+	focus = {
+		id = AOI_mining_ethiopia
+		icon =  GFX_goal_generic_construction2
+		prerequisite = { focus = AOI_hydroelectricity_cement_ethiopia }
+		prerequisite = { focus = AOI_roads_flight_ethiopia }
+		available = {	
+				has_full_control_of_state = 271	
+				has_tech = excavation3				
+		}
+
+		bypass = {		
+		}
+		x = -1
+		y = 1
+		relative_position_id = AOI_hydroelectricity_cement_ethiopia
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = { 
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = AOI_compagnie_mineraria_ethiopia
+			add_tech_bonus = {
+				name = AOI_mining_bonus
+				bonus = 1.0
+				uses = 1
+				technology = excavation4
+				technology = excavation5
+			}
+				271 = {
+					add_resource = {
+					type = steel
+					amount = 4
+					}
+					add_resource = {
+					type = rubber
+					amount = 3
+					}
+				}
+		}
+	}
+	
+	focus = {
+		id = AOI_natural_resources_exploitation
+		icon =  GFX_goal_generic_oil_refinery
+		prerequisite = { focus = AOI_mining_ethiopia }
+		prerequisite = { focus = AOI_new_rome }
+		available = {	
+				has_full_control_of_state = 271		
+				has_full_control_of_state = 550	
+				has_full_control_of_state = 559	
+		}
+
+		bypass = {		
+		}
+		x = 0
+		y = 2
+		relative_position_id = AOI_mining_ethiopia
+		cost = 20
+		ai_will_do = {
+			factor = 1
+		}	
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = { 
+			add_resource = {
+				type = oil
+				amount = 4
+				state = 271
+			}
+			add_resource = {
+				type = oil
+				amount = 16
+				state = 559
+			}
+			add_resource = {
+				type = steel
+				amount = 4
+				state = 550
+			}	
+		}
+	}
+
+	focus = {
+		id = AOI_develop_railroads
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = AOI_begin_reconstruction }
+		available = {			
+		}
+
+		bypass = {		
+		}
+		x = 3
+		y = 1
+		relative_position_id = AOI_begin_reconstruction
+		cost = 5
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = { 
+			build_railway = {#Asmara, Saati, Massaua in Eritrea
+				level = 3
+				path = { 12766 5091 12723 }
+			}	
+			build_railway = {#Mogadisho in Somalia (upgrade)
+				level = 1
+				path = { 12991 2063 4995 10775 }
+			}
+			build_railway = {#Addis Abeba in Ethiopia (upgrade)
+				level = 1
+				path = { 5010 7980 }
+			}
+		}
+	}
+	
+	focus = {
+		id = AOI_link_railroads
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = AOI_develop_railroads}
+		prerequisite = { focus = AOI_imperial_road_ethiopia}
+		available = {			
+		}
+
+		bypass = {		
+		}
+		x = 3
+		y = 1
+		relative_position_id = AOI_imperial_road_ethiopia
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = { 
+			build_railway = {#link from Massawa, Addis Abeba and Mogadishio
+				level = 2
+				path = { 12723 2072 7944 5097 5010 8036 10775 }
+			}	
+		}
+	}
+	
+	focus = {
+		id = AOI_military_industries_ethiopia
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = AOI_develop_railroads }	
+		available = {	
+				has_full_control_of_state = 271		
+		}
+
+		bypass = {		
+		}
+		x = 1
+		y = 1
+		relative_position_id = AOI_develop_railroads
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = { 
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = AOI_compagnie_explosive_ethiopia
+				271 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+		}
+	}
+	
+	focus = {
+		id = AOI_prepare_for_war
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = AOI_develop_railroads }
+		available = {			
+			has_war = no
+		}
+
+		bypass = {		
+		}
+		x = -1
+		y = 1
+		relative_position_id = AOI_develop_railroads
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_INTERNAL_AFFAIRS }
+		
+		completion_reward = { 
+			add_timed_idea = {idea = LVN_LBA_prepare_inevitable days = 1095}
+			550 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = fuel_silo
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = 12766
+					}
+				}
+			}
+			271 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = fuel_silo
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			559 = {
+				if = {
+					limit = { is_controlled_by = ROOT }
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = fuel_silo
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 1
+						instant_build = yes
+						province = 12941
+					}
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						instant_build = yes
+						province = 12991
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AOI_prepare_for_war2
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = AOI_prepare_for_war }
+		prerequisite = { focus = AOI_military_industries_ethiopia }
+		available = {	
+			has_war = no
+			threat > 0.20
+			NOT = { ITA = { has_war_with = ENG }}
+		}
+
+		bypass = {		
+		}
+		x = -1
+		y = 1
+		relative_position_id = AOI_military_industries_ethiopia
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_INTERNAL_AFFAIRS }
+		
+		completion_reward = { 
+			custom_effect_tooltip = LVN_AOI_disconnected_from_metropole_tt
+			if = {
+				limit = {
+					NOT = { has_idea = war_economy }
+				}
+				add_ideas = war_economy
+			}
+			else_if = {
+				limit = {
+					has_idea = war_economy
+				}
+				add_political_power = 150
+			}
+			559 = {
+				set_building_level = {
+				type = bunker
+				level = 1
+				province = {
+					all_provinces = yes
+					limit_to_border = yes
+					level < 1
+				}
+				}
+			}
+			550 = {
+				set_building_level = {
+				type = bunker
+				level = 1
+				province = {
+					all_provinces = yes
+					limit_to_border = yes
+					level < 1
+				}
+				}
+			}
+			271 = {
+				set_building_level = {
+				type = bunker
+				level = 1
+				province = {
+					all_provinces = yes
+					limit_to_border = yes
+					level < 1
+				}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AOI_prepare_for_war3
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = AOI_prepare_for_war2 }
+		available = {
+			has_war = no
+			threat > 0.40
+			NOT = { ITA = { has_war_with = ENG }}
+		}
+
+		bypass = {		
+		}
+		x = 0
+		y = 2
+		relative_position_id = AOI_prepare_for_war2
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		available_if_capitulated = no
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_INTERNAL_AFFAIRS }
+		
+		completion_reward = { 
+			custom_effect_tooltip = LVN_AOI_disconnected_from_metropole_tt
+			if = {
+				limit = {
+					NOT = { has_idea = extensive_conscription }
+				}
+				add_ideas = extensive_conscription
+			}
+			else_if = {
+				limit = {
+					has_idea = extensive_conscription
+				}
+				add_political_power = 150
+			}
+		}
+	}
+
+	
+##army###	
+	focus = {
+		id = AOI_army_east_africa #establish the FF.AA. 'AOI'
+		icon = GFX_focus_generic_little_entente
+		available = {
+		}
+		
+		x = 10
+		y = 0
+		relative_position_id = AOI_begin_reconstruction
+		cost = 5
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT }
+		
+		completion_reward = {
+			army_experience = 5
+			ITA = { country_event = LVN_AOI.4 }
+		}
+	}
+	
+	focus = {
+		id = AOI_pacification_ethiopia
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = AOI_army_east_africa }
+		
+		x = 0
+		y = 1
+		relative_position_id = AOI_army_east_africa
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS FOCUS_FILTER_WAR_SUPPORT }
+
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			custom_effect_tooltip = LVN_ETH_resistance_crushed_tt
+			hidden_effect =  {
+				271 = {
+					remove_dynamic_modifier = { modifier = LVN_ETH_resistance } 
+				} 
+			} 
+			
+			add_war_support = 0.10
+			add_political_power = 120
+		}
+	}
+	
+	focus = {
+		id = AOI_doctrine_effort
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = AOI_pacification_ethiopia }
+		available = {
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = AOI_pacification_ethiopia
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		completion_reward = {
+			army_experience = 25
+			add_doctrine_cost_reduction = {
+			    cost_reduction = 0.5
+			    uses = 2
+			    category = land_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = AOI_colonial_army_training
+		icon = GFX_focus_ITA_pack_artillery
+		prerequisite = { focus = AOI_doctrine_effort }
+		available = {
+		}
+		
+		x = 0
+		y = 1
+		relative_position_id = AOI_doctrine_effort
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		
+		completion_reward = {
+			add_ideas = LVN_AOI_acclimatization_factor
+		}
+	}
+	
+	focus = {
+		id = AOI_equipment_modernization
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = AOI_colonial_army_training }
+		available = {
+		}
+		
+		x = 0
+		y = 2
+		relative_position_id = AOI_colonial_army_training
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		completion_reward = {
+			army_experience = 10
+			add_tech_bonus = {
+				name = AOI_infantry_artillery_bonus
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons
+				category = artillery
+			}
+			add_ideas = LVN_AOI_cheaper_gun_idea
+		}
+	}
+#airforce	
+	focus = {
+		id = AOI_colonial_aiforce
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = { focus = AOI_pacification_ethiopia }
+		available = {
+		}
+		
+		x = -3
+		y = 1
+		relative_position_id = AOI_pacification_ethiopia
+		cost = 10
+		
+		ai_will_do = {
+			factor = 1
+		}	
+		
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		completion_reward = {
+			air_experience = 25
+			random_owned_controlled_state = { 
+				limit = { is_controlled_by = ROOT }
+					add_building_construction = {
+						type = air_base
+						level = 3
+						instant_build = yes
+					}
+				
+			}
+			add_doctrine_cost_reduction = {
+			    cost_reduction = 0.5
+			    uses = 2
+			    category =  air_doctrine
+			}
+			add_tech_bonus = {
+				name = cat_scout_bonus
+				bonus = 1.0
+				uses = 1
+				category = cat_scout_plane
+			}
+		}
+	}
+	focus = {
+		id = AOI_fighter_effort
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = AOI_colonial_aiforce }
+		mutually_exclusive = { focus = AOI_close_air_effort }
+		
+		available = {
+		}
+		
+		x = -1
+		y = 1
+		relative_position_id = AOI_colonial_aiforce
+		
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}	
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = AOI_fighter_bonus
+				bonus = 1.0
+				uses = 1
+				technology = fighter1
+				technology = fighter2
+				technology = heavy_fighter1
+				technology = heavy_fighter2
+			}
+		}
+	}
+	focus = {
+		id = AOI_close_air_effort
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = { focus = AOI_colonial_aiforce }
+		mutually_exclusive = { focus = AOI_fighter_effort }
+		
+		available = {
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = AOI_colonial_aiforce
+		
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}	
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = AOI_CAS_bonus
+				bonus = 1.0
+				uses = 1
+				category = cas_bomber
+				category = tactical_bomber
+			}
+		}
+	}
+	
+	focus = {
+		id = AOI_strategic_bomber_effort
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = AOI_close_air_effort focus = AOI_fighter_effort }
+		
+		available = {
+		}
+		
+		x = 1
+		y = 2
+		relative_position_id = AOI_fighter_effort
+		
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = AOI_bomber_bonus
+				bonus = 1.0
+				uses = 1
+				technology = strategic_bomber1
+				technology = strategic_bomber2
+				technology = strategic_bomber3
+				category = tactical_bomber
+			}
+		}
+	}
+	
+#navy 
+	focus = {
+		id = AOI_merchant_navy
+		icon = GFX_goal_generic_navy_cruiser
+		prerequisite = { focus = AOI_pacification_ethiopia }
+		
+		available = {
+		}
+		
+		x = 3
+		y = 1
+		relative_position_id = AOI_pacification_ethiopia
+		
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			navy_experience = 10
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = AOI_strike_fleets
+		icon = GFX_focus_ITA_naval_bomber
+		prerequisite = { focus = AOI_merchant_navy }
+		mutually_exclusive = { focus = AOI_disrupt_trade }
+		
+		available = {
+		}
+		
+		x = -1
+		y = 1
+		relative_position_id = AOI_merchant_navy
+		
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}	
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = coastal_command_focus
+				bonus = 1.0
+				uses = 2
+				category = naval_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = AOI_disrupt_trade
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = { focus = AOI_merchant_navy }
+		mutually_exclusive = { focus = AOI_strike_fleets }
+		
+		available = {
+		}
+		
+		x = 1
+		y = 1
+		relative_position_id = AOI_merchant_navy
+		
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}	
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+			    cost_reduction = 0.80
+			    uses = 2
+			    category = naval_doctrine
+			}
+			add_tech_bonus = {
+				name = AOI_undersea_combat
+				bonus = 1.0
+				uses = 1
+				category = ss_tech
+			}
+		}
+	}
+	
+
+}#Closing Bracket for Focus Tree

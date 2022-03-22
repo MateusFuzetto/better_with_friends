@@ -1,0 +1,1581 @@
+characters={
+	ITA_benito_mussolini={
+		name=ITA_benito_mussolini
+		portraits={
+			civilian={
+				large="gfx/leaders/ITA/Portrait_Italy_Benito_Mussolini.dds"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits={ italia_warmonger italia_duce_cult }
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+
+	ITA_ferruccio_parri={
+		name=ITA_ferruccio_parri
+		portraits={
+			civilian={
+				large="GFX_portrait_italy_ferruccio_parri"
+			}
+		}
+		country_leader={
+			ideology=socialism
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+
+	ITA_victor_emmanuel_iii={
+		name=ITA_victor_emmanuel_iii
+		portraits={
+			civilian={
+				large="GFX_portrait_italy_victor_emmanuel_iii"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+
+	ITA_palmiro_togliatti={
+		name=ITA_palmiro_togliatti
+		portraits={
+			civilian={
+				large="GFX_portrait_ita_palmiro_togliatti"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+
+	ITA_pietro_badoglio={
+		name=ITA_pietro_badoglio
+		portraits={
+			civilian={
+				large="GFX_Portrait_Italy_Pietro_Badoglio"
+			}
+			army={
+				small="GFX_idea_pietro_badoglio"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_Italy_Pietro_Badoglio.dds"
+			}
+		}
+		
+		advisor={
+			slot = army_chief
+			idea_token = pietro_badoglio
+			allowed = {
+				original_tag = ITA
+			}
+			available = {
+				if = {
+					limit = {
+						has_global_flag = LVN_badoglio_sacked
+					}
+					NOT = { has_country_leader = { name = "Benito Mussolini" ruling_only = yes } }
+				}
+				OR = { 
+					has_government = neutrality
+					has_government = fascism
+				}
+			}
+			
+			visible = { 
+				NOT = { has_country_flag = ITA_fascist_war } 
+				NOT = { has_country_flag = ITA_communist_war } 
+			}
+			traits = {
+				army_chief_old_guard
+			}
+			modifier = { #he sucks as your leader!
+				army_org_factor = 0.04
+				land_doctrine_cost_factor = 0.1
+			}
+			
+			on_remove = {
+				if = {
+					limit = {
+						NOT = { has_global_flag = LVN_badoglio_sacked }
+					}
+					ITA_pietro_badoglio = {
+						unit_leader_event = italia_ita.131
+					}
+				}
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		field_marshal={
+			traits={ old_guard inflexible_strategist politically_connected war_hero trait_ITA_monarchist organizer defensive_doctrine }
+			skill=3
+			attack_skill=2
+			defense_skill=1
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=6937
+		}
+	}
+
+	ITA_emilio_de_bono={
+		name=ITA_emilio_de_bono
+		portraits={
+			army={
+				small="GFX_idea_emilio_de_bono"
+			}
+			army={
+				large="gfx/leaders/ITA/portrait_italy_emilio_de_bono.dds"
+			}
+		}
+		advisor={
+			slot = high_command #mod we changed this
+			idea_token = emilio_de_bono
+			allowed = {
+				original_tag = ITA
+			}
+			available = {
+				has_government = fascism
+				NOT = { has_global_flag = verona_gr_1_purged }
+			}
+			
+			visible = {
+				NOT = { has_global_flag = LVN_de_bono_sacked }
+				if = {
+					limit = {
+						has_global_flag = italian_civil_war_happened 
+					}
+					has_country_flag = ITA_fascist_war
+				}
+				NOT = { has_country_flag = ITA_communist_war } 
+			}
+			traits = {
+				army_infantry_1
+			}
+			modifier = {
+				army_speed_factor = -0.05
+				experience_gain_army = -0.05
+			}
+			removal_cost = -1 #mod added. Can't remove him without decision
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		field_marshal={
+			traits={ old_guard trait_cautious politically_connected trait_ITA_fascist_loyalties defensive_doctrine }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
+			legacy_id=6938
+		}
+	}
+
+	ITA_ugo_cavallero={
+		name=ITA_ugo_cavallero
+		portraits={
+			army={
+				small="GFX_idea_ugo_cavallero"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_Italy_Ugo_Cavallero.dds"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = ugo_cavallero
+			allowed = {
+				original_tag = ITA
+			}
+			available = {
+				hidden_trigger = { NOT = { has_country_flag = ugo_purged_tt } }
+				has_government = fascism
+			}
+			
+			visible = { 
+				NOT = { has_country_flag = ITA_communist_war }
+				if = {
+					limit = {
+						has_global_flag = italian_civil_war_happened
+					}
+					has_country_flag = ITA_fascist_war
+				}				
+			}
+			traits = {
+				army_chief_planning_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		corps_commander={
+			traits={ old_guard career_officer trait_cautious }
+			skill=2
+			attack_skill=1
+			defense_skill=1
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=6943
+		}
+	}
+
+	ITA_giovanni_messe={
+		name=ITA_giovanni_messe
+		portraits={
+			army={
+				small="GFX_idea_giovanni_messe"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_Italy_Giovanni_Messe.dds"
+			}
+		}
+		
+		corps_commander={
+			traits={ armor_officer war_hero trait_ITA_monarchist }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=6939
+		}
+	}
+
+	ITA_sebastiano_visconti_prasca={
+		name=ITA_sebastiano_visconti_prasca
+		portraits={
+			army={
+				large="gfx/leaders/ITA/Portrait_Italy_Sebastiano_Visconti_Prasca.dds"
+				small="gfx/interface/ideas/idea_ITA_sebastiano_visconti_prasca.dds"
+			}
+		}
+		corps_commander={
+			traits={ inflexible_strategist politically_connected old_guard trait_ITA_monarchist }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
+			legacy_id=0
+		}
+	}
+
+	ITA_ubaldo_soddu={
+		name=ITA_ubaldo_soddu
+		portraits={
+			army={
+				large="gfx/leaders/ITA/Portrait_Italy_Ubaldo_Soddu.dds"
+				small="gfx/interface/ideas/idea_ITA_ubaldo_soddu.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer trait_cautious }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
+			legacy_id=0
+		}
+	}
+
+	ITA_italo_balbo={
+		name=ITA_italo_balbo
+		portraits={
+			civilian = {
+				large="gfx/leaders/ITA/portrait_italy_italo_balbo_alt.dds"
+			}
+			army={
+				small="GFX_idea_italo_balbo"
+			}
+			army={
+				large="gfx/leaders/ITA/portrait_italy_italo_balbo.dds"
+			}
+		}
+		country_leader={
+			ideology= fascism_ideology
+			desc = "POLITICS_Pius XII_DESC"
+			expire="1965.1.1.1"
+			traits = {
+				master_of_aviation	
+			}
+			id=-1
+		}
+		advisor={
+			slot = air_chief
+			idea_token = italo_balbo
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				NOT = { has_global_flag = italia_balbo_dead  }
+				NOT = {
+					has_country_leader = {
+						name = "Italo Balbo"
+						ruling_only = yes
+					}
+				}
+				NOT = { has_country_flag = ITA_communist_war } 
+				OR  = {
+					if = {
+						limit = {
+							has_global_flag = italian_civil_war_happened
+							NOT = { is_in_faction_with = GER } 
+						}
+						has_country_flag = ITA_fascist_war
+					}
+					else_if = {
+						limit = {
+							has_global_flag = italian_civil_war_happened 
+							is_in_faction_with = GER
+						}
+						tag = ITA
+					}
+				}
+			}
+				
+			available = {
+				has_completed_focus = LVN_recall_balbo
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+				}
+				hidden_trigger = { NOT = { has_global_flag = italia_balbo_dead  } }
+			}	
+			traits = {
+				ita_air_marshal
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		field_marshal={
+			traits={ career_officer trait_reckless media_personality politically_connected trait_ITA_fascist_loyalties inspirational_leader }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
+			legacy_id=-1
+		}
+	}
+
+	ITA_rodolfo_graziani={
+		name=ITA_rodolfo_graziani
+		portraits={
+			army={
+				small="GFX_idea_rodolfo_graziani"
+			}
+			army={
+				large="gfx/leaders/ITA/portrait_italy_radolfo_graziani.dds"
+			}
+		}
+		advisor={ #RSI ONLY!
+			slot = army_chief
+			idea_token = RSI_rodolfo_graziani
+			allowed = {
+				original_tag = ITA
+			}
+			available = {
+				has_government = fascism
+			}
+			
+			visible = { 
+				tag = RSI
+			}
+			traits = {
+				army_chief_offensive_2
+			}
+			cost = 100
+
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		advisor={
+			cost = 150
+			slot = theorist
+			idea_token = rodolfo_graziani
+			ledger = army
+			allowed = {
+				original_tag = ITA
+			}
+			traits = {
+				grand_battle_plan_expert
+			}
+			ai_will_do = {
+				factor = 3.000
+			}
+		}
+
+		field_marshal={
+			traits={ trait_cautious politically_connected trait_ITA_fascist_loyalties desert_fox offensive_doctrine }
+			skill=2
+			attack_skill=3
+			defense_skill=1
+			planning_skill=2
+			logistics_skill=1
+			legacy_id=-1
+		}
+	}
+
+	ITA_inigo_campioni={
+		name=ITA_inigo_campioni
+		portraits={
+			navy={
+				small="GFX_idea_inigo_campioni"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_Italy_Inigo_Campioni.dds"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = inigo_campioni
+			allowed = {
+				original_tag = ITA
+			}
+			available = { 
+				NOT = { has_global_flag = verona_admiral_purged } 
+			}
+			
+			visible = { 
+				NOT = { has_country_flag = ITA_fascist_war } 
+				NOT = { has_country_flag = ITA_communist_war } 
+			}
+			traits = {
+				navy_chief_decisive_battle_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		navy_leader={
+			traits={ battleship_adherent superior_tactician spotter }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			maneuvering_skill=3
+			coordination_skill=3
+			legacy_id=0
+		}
+	}
+
+	ITA_alberto_da_zara={
+		name=ITA_alberto_da_zara
+		portraits={
+			navy={
+				small="GFX_idea_alberto_da_zara"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_Italy_Alberto_Da_Zara.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = alberto_da_zara
+			ledger = navy
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				NOT = { tag = PCI }
+				NOT = { tag = RSI }
+			}
+			traits = {
+				navy_anti_submarine_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		navy_leader={
+			traits={ gentlemanly superior_tactician }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			maneuvering_skill=3
+			coordination_skill=2
+			legacy_id=0
+		}
+	}
+
+	ITA_giuseppe_fioravanzo={
+		name=ITA_giuseppe_fioravanzo
+		portraits={
+			army={
+				large="gfx/leaders/ITA/Portrait_Italy_Giuseppe_Fioravanzo.dds"
+				small="gfx/interface/ideas/idea_ITA_giuseppe_fioravanzo.dds"
+			}
+		}
+		navy_leader={
+			traits={ aviation_enthusiast blockade_runner }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			maneuvering_skill=4
+			coordination_skill=2
+			legacy_id=0
+		}
+	}
+
+	ITA_carlo_bergamini={
+		name=ITA_carlo_bergamini
+		portraits={
+			navy={
+				small="GFX_idea_carlo_bergamini"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_Italy_Carlo_Bergamini.dds"
+			}
+		}
+		advisor={	
+			slot = high_command
+			idea_token = carlo_bergamini
+			ledger = navy
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				NOT = { tag = PCI }
+				NOT = { tag = RSI }
+			}
+			traits = {
+				navy_capital_ship_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		navy_leader={
+			traits={ gunnery_expert battleship_adherent ironside }
+			skill=2
+			attack_skill=3
+			defense_skill=1
+			maneuvering_skill=2
+			coordination_skill=1
+			legacy_id=0
+		}
+	}
+
+	ITA_angelo_iachino={
+		name=ITA_angelo_iachino
+		portraits={
+			navy={
+				small="GFX_idea_angelo_iachino"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_Italy_Angelo_Iachino.dds"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = angelo_iachino
+			ledger = navy
+				allowed = {
+					original_tag = ITA
+				}
+				traits = { naval_theorist }
+		}
+
+		navy_leader={
+			traits={ bold navy_career_officer superior_tactician spotter }
+			skill=2
+			attack_skill=2
+			defense_skill=1
+			maneuvering_skill=3
+			coordination_skill=1
+			legacy_id=0
+		}
+	}
+	
+	
+
+
+	### THEORISTS ###
+
+	# Messe up there
+
+	# Graziani up there
+
+	# Iachino up there
+
+	ITA_amedeo_mecozzi={
+		name=ITA_amedeo_mecozzi
+		portraits={
+			army={
+				small="GFX_idea_amedeo_mecozzi"
+			}
+		}
+		advisor={
+			cost = 150
+			slot = theorist
+			idea_token = amedeo_mecozzi
+			ledger = air
+			allowed = {
+				original_tag = ITA
+			}
+			traits = {
+				assault_avaition
+			}
+		}
+	}
+
+	ITA_renato_sandalli={
+		name=ITA_renato_sandalli
+		portraits={
+			army={
+				small="GFX_idea_renato_sandalli"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = renato_sandalli
+			ledger = air
+			allowed = {
+				original_tag = ITA
+			}
+			traits = { air_warfare_theorist }
+		}		
+	}
+
+	ITA_gaetano_crocco={
+		name=ITA_gaetano_crocco
+		portraits={
+			army={
+				small="GFX_idea_gaetano_crocco"
+			}
+		}
+		advisor={
+			cost = 150
+			slot = theorist
+			idea_token = gaetano_crocco
+			ledger = air
+			allowed = {
+				original_tag = ITA
+			}
+			research_bonus = {
+				rocketry = 0.150
+			}
+			traits = {
+				rocket_scientist
+			}
+		}
+	}
+	
+
+	### ARMY CHIEFS ###
+
+	# Badoglio up there
+
+	# Cavallero up there
+
+	# De Bono up there
+
+
+	### NAVY CHIEFS ###
+
+	# Campioni up there
+
+	ITA_domenico_cavagnari={
+		name=ITA_domenico_cavagnari
+		portraits={
+			navy={
+				large="gfx/leaders/ITA/Portrait_ITA_Domenico_Cavagnari.dds"
+				small="GFX_idea_domenico_cavagnari"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = domenico_cavagnari
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				NOT = { has_country_flag = ITA_fascist_war } 
+				NOT = { has_country_flag = ITA_communist_war } 
+			}		
+
+			available = {				
+				OR = { 
+					has_government = neutrality
+					has_government = fascism
+				}
+			}
+			traits = {
+				navy_chief_old_guard
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		navy_leader={
+			traits = { battleship_adherent  }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			maneuvering_skill=3
+			coordination_skill=3
+		}
+	}
+
+	ITA_arturo_riccardi={
+		name=ITA_arturo_riccardi
+		portraits={
+			army={
+				small="GFX_idea_arturo_riccardi"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = arturo_riccardi
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				NOT = { has_country_flag = ITA_fascist_war } 
+				NOT = { has_country_flag = ITA_communist_war } 
+			}
+			traits = {
+				navy_chief_naval_aviation_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+
+	### AIR CHIEFS ###
+
+	# Balbo up there
+
+	ITA_rino_corso_fougier={
+		name=ITA_rino_corso_fougier
+		portraits={
+			army={
+				small="GFX_idea_rino_corso_fougier"
+			}
+		}
+		advisor={	
+			slot = air_chief
+			idea_token = rino_corso_fougier
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				tag = ITA 
+			}
+			traits = {
+				air_air_combat_training_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	ITA_francesco_pricolo={
+		name=ITA_francesco_pricolo
+		portraits={
+			army={
+				small="GFX_idea_francesco_pricolo"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = francesco_pricolo
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				tag = ITA 
+			}
+			traits = {
+				air_chief_reform_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 1.000
+			}
+		}		
+	}
+
+
+	### MILITARY HIGH COMMAND ###
+
+	# Da Zara up there
+
+	# Bergamini up there
+
+	ITA_mario_roatta={
+		name=ITA_mario_roatta
+		portraits={
+		#TODO_Manu: In the past we were not able to make this work. I hope that you, people from the future who are seeing this, will be able to use your knowledge and sci-fi technology to make this work. Good luck comrades. 
+			civilian = {
+				small = "gfx/interface/ideas/idea_mario_roatta.dds"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_ITA_Mario_Roatta.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = mario_roatta_political_advisor
+			available  = {
+				has_intelligence_agency  = yes 
+				has_government = fascism 
+			}
+			allowed  = {
+				original_tag  = ITA
+				has_dlc = "La Resistance"
+			}
+			visible = {
+				NOT = { tag = PCI }
+			}
+			traits  = {
+				head_of_intelligence 
+			}
+		}
+		corps_commander={
+			traits={ career_officer trait_ITA_fascist_loyalties }
+			skill=1
+			attack_skill=2
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
+			legacy_id=-1
+		}
+	}
+
+	ITA_vittorio_ambrosio={
+		name=ITA_vittorio_ambrosio
+		portraits={
+			army={
+				small="GFX_idea_vittorio_ambrosio"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_Italy_Vittorio_Ambrosio.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer trait_ITA_monarchist }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}		
+	}
+
+	ITA_alfredo_guzzoni={
+		name=ITA_alfredo_guzzoni
+		portraits={
+			army={
+				small="GFX_idea_alfredo_guzzoni"
+			}
+			army={
+				large="gfx/leaders/ITA/Portrait_ITA_Alfredo_Guzzoni.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = alfredo_guzzoni
+			ledger = army
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				has_government = fascism
+				NOT = { has_country_flag = ITA_communist_war } 
+			}
+			
+			available = {
+				NOT = { has_government = communism } 
+			}
+			traits = {
+				army_infantry_2
+			}
+			cost =  100
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+		corps_commander={
+			traits={ infantry_officer }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	
+	ITA_ettore_muti={
+		name=ITA_ettore_muti
+		portraits={
+			army={
+				small="GFX_idea_ettore_muti"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = ettore_muti
+			ledger = air
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				NOT = { tag = PCI }
+			}
+			
+			available = {
+				has_government = fascism
+			}
+			traits = {
+				air_tactical_bombing_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	ITA_marziale_cerutti={
+		name=ITA_marziale_cerutti
+		portraits={
+			army={
+				small="GFX_idea_marziale_cerutti"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = marziale_cerutti
+			ledger = air
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				NOT = { tag = PCI }
+				if = { 
+					limit = { has_global_flag = italian_civil_war_happened }
+					tag = RSI
+				}
+			}
+			
+			available = {
+				has_government = fascism
+			}
+			traits = {
+				air_air_combat_training_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}		
+	}
+	
+	ITA_silvio_scaroni={
+		name=ITA_silvio_scaroni
+		portraits={
+			army={
+				small="GFX_idea_silvio_scaroni"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = silvio_scaroni
+			ledger = air
+			allowed = {
+				original_tag = ITA
+			}
+			visible = {
+				NOT = { tag = PCI }
+				NOT = { tag = RSI }
+			}
+			traits = {
+				air_bomber_interception_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	ITA_luigi_mascherpa={
+		name=ITA_luigi_mascherpa
+		portraits={
+			army={
+				small="GFX_idea_luigi_mascherpa"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = luigi_mascherpa
+			ledger = navy
+			allowed = {
+				original_tag = ITA
+			}
+			available = { 
+				NOT = { has_global_flag = verona_admiral_purged } 
+			}
+			
+			visible = { 
+				NOT = { has_country_flag = ITA_fascist_war } 
+				NOT = { has_country_flag = ITA_communist_war } 	
+			}
+			traits = {
+				navy_naval_air_defense_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+
+	### POLITICAL ADVISORS ###
+
+	# Mario Roatta is up there (Military High Command)
+
+	ITA_amadeo_bordiga={
+		name=ITA_amadeo_bordiga
+		portraits={
+			army={
+				small="GFX_idea_amadeo_bordiga"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = amadeo_bordiga
+			allowed  = {
+				original_tag  = ITA
+			}
+			available = {
+				NOT = { is_in_faction_with = SOV }
+				NOT = { is_subject_of = SOV }
+				if = {
+					limit = { has_dlc = "Man the Guns" }	
+					NOT = { has_autonomy_state = autonomy_supervised_state }
+				}
+				if = {
+					limit = { tag = ITA }
+					has_completed_focus = italia_secure_italy
+				}
+			}
+			
+			visible = { 
+				NOT = { tag = RSI }
+				NOT = { has_country_leader = { name = "Amadeo Bordiga" ruling_only = yes } }
+				if = {
+					limit = {
+						tag = ITA 
+					}
+					NOT = { has_completed_focus = italia_communist_war }
+				}
+			}
+			traits = { marxist_philosopher } #We changed this trait #mod
+			do_effect  = {
+				not  = {
+					has_government  = communism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+
+	ITA_ivanoe_bonomi={
+		name=ITA_ivanoe_bonomi
+		portraits={
+			army={
+				small="GFX_idea_ivanoe_bonomi"
+			}
+			civilian={
+				large="gfx/leaders/ITA/Portrait_ITA_bonomi.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ivanoe_bonomi
+			allowed  = {
+				original_tag  = ITA
+			}
+			available  = {
+				if  = {
+					limit  = {
+						has_dlc = "Man the Guns"
+					}
+					not  = {
+						has_autonomy_state  = autonomy_supervised_state
+					}
+				}
+			}
+			traits  = {
+				democratic_reformer 
+			}
+			do_effect  = {
+				not  = {
+					has_government  = democratic 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+		country_leader={
+			ideology=centrism
+			desc = "POLITICS_BONOMII_DESC"
+			traits={ 
+			}
+			expire="1965.1.1.1"
+		}		
+	}
+
+	ITA_carlo_scorza={
+		name=ITA_carlo_scorza
+		portraits={
+			army={
+				small="GFX_idea_carlo_scorza"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = carlo_scorza
+			allowed  = {
+				original_tag  = ITA
+			}
+			Visible = {
+				NOT = { tag = PCI }
+				OR = {
+					has_country_flag = original_fascists_allowed
+					and = {
+						tag = RSI
+						has_global_flag = italian_civil_war_happened
+					}
+					has_country_flag = scorza_rehabilitted
+				}
+			}
+			
+			available = {
+				or = {
+					has_country_flag = scorza_rehabilitted
+					has_government = fascism 
+				}
+			}
+			traits  = {
+				fascist_demagogue 
+			}
+			do_effect  = {
+				not  = {
+					has_government  = fascism 
+				}
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}		
+	}
+
+	ITA_giovanni_marinelli={
+		name=ITA_giovanni_marinelli
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_europe_5"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ITA_giovanni_marinelli
+			allowed  = {
+				original_tag  = ITA
+			}
+			
+			available = {
+				OR = {
+					has_government = fascism
+					has_country_flag = LVN_amnesty_togliatti_marinelli_flag
+				}
+			}
+			traits  = {
+				prince_of_terror 
+			}
+			on_add  = {
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}		
+	}
+
+	ITA_gian_galeazzo_ciano={
+		name=ITA_gian_galeazzo_ciano
+		portraits={
+			civilian={
+				large="gfx/leaders/ITA/Portrait_ITA_Ciano.dds"
+			}
+			army={
+				small="GFX_idea_ITA_gian_galeazzo_ciano"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ITA_gian_galeazzo_ciano
+			allowed  = {
+				original_tag  = ITA
+			}
+			visible = {
+				has_government = fascism
+				NOT = { has_global_flag = verona_gr_1_purged }
+			}
+			
+			available = {
+				has_government = fascism
+			}
+			traits  = {
+				smooth_talking_charmer
+			}
+			on_add  = {
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+	}
+
+	ITA_roberto_farinacci={
+		name=ITA_roberto_farinacci
+		portraits={
+			army={
+				small="GFX_idea_ITA_roberto_farinacci"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ITA_roberto_farinacci
+			allowed  = {
+				original_tag  = ITA
+			}
+			visible = {
+				has_government = fascism
+			}
+			
+			available = {
+				has_government = fascism
+				has_completed_focus = ITA_pact_of_steel
+			}
+			traits  = {
+				backroom_backstabber 
+			}
+			ai_will_do  = {
+				factor  = 0.000
+			}
+		}
+	}
+
+	ITA_dino_grandi={
+		name=ITA_dino_grandi
+		portraits={
+			civilian={
+				large="gfx/leaders/ITA/Portrait_ITA_Dino_Grandi.dds"
+			}
+			army={
+				small="GFX_idea_ITA_dino_grandi"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ITA_dino_grandi
+			allowed  = {
+				original_tag  = ITA
+			}
+			visible = { 
+				NOT = { has_country_flag = ITA_fascist_war } 
+				NOT = { has_country_flag = ITA_communist_war } 
+				OR = { 
+					AND = { 	
+						tag = ITA
+						has_government = fascism
+					}	
+					AND = { 
+						tag = ITA
+						has_government = democratic
+						has_country_flag = LVN_amnesty_togliatti_grandi_flag
+					}
+				}
+			}
+
+			available = {
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+					if = {
+						limit = {
+							has_government = democratic
+						}
+						has_country_flag = LVN_amnesty_togliatti_grandi_flag
+					}
+				}
+			}
+			traits  = {
+				compassionate_gentleman 
+			}
+			on_add  = {
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+	}
+
+	ITA_serafino_mazzolini={
+		name=ITA_serafino_mazzolini
+		portraits={
+			army={
+				small="GFX_idea_ITA_serafino_mazzolini"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ITA_serafino_mazzolini
+			allowed  = {
+				original_tag  = ITA
+			}
+			visible = {
+				NOT = { tag = PCI }
+				if = {
+					limit = {
+						has_global_flag = italian_civil_war_happened
+						country_exists = RSI
+					}
+					tag = RSI
+				}
+			}
+			
+			available = {
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+				}
+			}
+			traits  = {
+				ideological_crusader 
+			}
+			on_add  = {
+			}
+			ai_will_do  = {
+				factor  = 0.500
+			}
+		}
+	}
+
+	ITA_giacomo_acerbo={
+		name=ITA_giacomo_acerbo
+		portraits={
+			army={
+				small="GFX_idea_ITA_giacomo_acerbo"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ITA_giacomo_acerbo
+			allowed  = {
+				original_tag  = ITA
+			}
+			visible = {
+				NOT = { tag = PCI }
+				NOT = { 
+					has_country_leader = { 
+						name = "Giulio Cesare Evola"
+						ruling_only = yes
+					}
+				}
+				OR = {
+					AND = {
+						tag = ITA
+						has_government = fascism
+						has_civil_war = no
+					}	
+					AND = {
+						tag = RSI
+						has_global_flag = italian_civil_war_happened
+						NOT = { is_in_faction_with = GER }
+					}
+					AND = { 
+						tag = ITA
+						has_government = democratic
+						has_country_flag = LVN_amnesty_togliatti_acerbo_flag
+					}
+				}
+			}
+			
+			available = {
+				NOT = { is_in_faction_with = GER }
+				OR = {
+					has_government = fascism
+					has_country_flag = LVN_amnesty_togliatti_acerbo_flag
+				}
+			}
+
+			traits  = {
+				war_industrialist 
+			}
+			on_add  = {
+			}
+			ai_will_do  = {
+				factor  = 3.000
+			}
+		}
+	}
+	
+	ITA_junio_valerio_borghese={
+		name=ITA_junio_valerio_borghese
+		portraits={
+			navy={
+				large="gfx/leaders/ITA/Portrait_ITA_junio_valerio_borghese_adm.dds"
+			}
+			army={
+				small="GFX_idea_RSI_admborghese"
+			}
+		}
+		advisor={ #heavily modded
+			slot = high_command
+			ledger = navy
+			idea_token = ITA_junio_valerio_borghese
+			allowed  = {
+				original_tag  = ITA
+			}
+			available = {
+				has_completed_focus = italia_mas_focus
+			}
+			visible = { has_government = fascism }
+			traits  = {
+				black_prince_trait 
+			}
+			cost = 200
+			on_add  = {
+			}
+			ai_will_do  = {
+				factor  = 1.000
+			}
+		}
+	}
+
+	ITA_luigi_einaudi={
+		name=ITA_luigi_einaudi
+		portraits={
+			army={
+				small="GFX_idea_ITA_luigi_einaudi"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ITA_luigi_einaudi
+			allowed  = {
+				original_tag  = ITA
+			}
+			available = {
+				OR = {
+					has_government = democratic
+					has_government = neutrality 
+				}
+			}
+
+			
+			visible = { 
+				NOT = { has_country_flag = ITA_fascist_war } 
+				NOT = { has_country_flag = ITA_communist_war } 
+			}
+			traits  = {
+				economist 
+				financial_expert 
+			}
+			on_add  = {
+			}
+			ai_will_do  = {
+				factor  = 3.000
+			}
+		}
+	}
+	
+	ITA_paolo_thaon_di_revel={
+		name=ITA_paolo_thaon_di_revel
+		portraits={
+			navy = {
+				large="gfx/leaders/ITA/Portrait_ITA_Revel.dds"
+			}
+			civilian={
+				small="GFX_idea_ITA_paolo_thaon_di_revel"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ITA_paolo_thaon_di_revel
+			allowed  = {
+				original_tag  = ITA
+			}
+			visible = {
+				NOT = { tag = PCI }
+				NOT = { tag = RSI }
+			}
+			available = {
+				OR = {
+					has_government = fascism
+					has_government = neutrality 
+				}
+			}
+			traits  = {
+				quartermaster_general 
+			}
+			on_add  = {
+			}
+			ai_will_do  = {
+				factor  = 0.300
+			}
+		}
+		navy_leader={ #Mod we added
+			visible = { has_global_flag = LVN_revel_recruited }
+			traits = { naval_lineage navy_career_officer gentlemanly ironside fleet_protector green_water_expert ground_pounder }
+			skill=4
+			attack_skill=3
+			defense_skill=4
+			maneuvering_skill=3
+			coordination_skill=4
+		}
+	}
+}

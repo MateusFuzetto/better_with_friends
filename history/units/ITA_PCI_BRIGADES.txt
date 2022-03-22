@@ -1,0 +1,83 @@
+﻿division_template = {
+	name = "Brigate Garibaldi"			# Communist brigades! They are not very good templates
+	is_locked = yes
+	division_names_group = LVN_GARIBALDI_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+	}
+	
+	support = {
+        artillery = { x = 0 y = 0 }
+	}
+}
+
+units = {
+	division = {
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 3780 # Milan
+		division_template = "Brigate Garibaldi"
+		start_experience_factor = 5.89
+		start_equipment_factor = 1.0
+	}
+	
+	division = {
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 9584 # Milan 2
+		division_template = "Brigate Garibaldi"
+		start_experience_factor = 5.89
+		start_equipment_factor = 1.0
+	}	
+
+	division = {
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 607 # Milan 3
+		division_template = "Brigate Garibaldi"
+		start_experience_factor = 5.89
+		start_equipment_factor = 1.0
+	}
+	
+	division = {
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 5 #Need one for this
+		}
+		location = 776 # Milan
+		division_template = "Brigate Garibaldi"
+		start_experience_factor = 5.89
+		start_equipment_factor = 1.0
+	}
+	
+	division = {
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 6788 # Genoa
+		division_template = "Brigate Garibaldi"
+		start_experience_factor = 5.89
+		start_equipment_factor = 1.0
+	}
+	
+	division = {
+		division_name = {    # New syntax for compatibility with name lists
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 6780 # Turin
+		division_template = "Brigate Garibaldi"
+		start_experience_factor = 5.89
+		start_equipment_factor = 1.0
+	}
+}

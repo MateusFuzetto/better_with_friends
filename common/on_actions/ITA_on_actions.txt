@@ -1,0 +1,951 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			ENG = {# Event regarding Arab strikes in Palestine
+				country_event = { id = arabevents.3 days = 110 random = 150 }
+			}
+			POR = { #Salazar fix
+				promote_character = POR_antonio_de_oliveira_salazar
+			}
+			ITA = { country_event = { id = italia_ita.115 days = 2 } }
+			every_country = {
+				limit = {
+					NOT = { original_tag = ITA }
+					is_major = YES
+					OR = {
+						original_tag = ENG 
+						capital_scope = { is_on_continent = EUROPE }
+					}
+				}
+				add_to_array = { array = LVN.europe_majors } 
+			}
+			ITA = {#We need to set this up for later!
+				set_country_flag = original_fascists_allowed
+                every_owned_state = {
+                    limit = {
+                        is_on_continent = europe
+						is_core_of = ITA
+						NOT = { state = 114 }
+                    }
+                    add_to_array = {
+                        array = ITA.european_core_states
+                    }
+                }
+				country_event = { id = italia_ita.24 }
+			}
+			every_state = {
+				limit = {
+					is_core_of = RSI
+						}
+					remove_core_of = RSI 
+			}
+			every_state = { #Take away cores of ILL so it doesn't exist
+				limit = {
+					is_core_of = ILL
+						}
+					remove_core_of = ILL
+			}
+			every_state = {
+				limit = {
+					is_core_of = PCI
+						}
+					remove_core_of = PCI 
+			}
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = YUG
+						is_core_of = GRE
+						is_core_of = AUS
+						is_core_of = HUN
+						is_core_of = ROM
+						is_core_of = BUL
+						is_core_of = POR 
+						is_core_of = SPR
+						}
+					}
+				set_state_flag = roman_core_flag
+				}
+
+			every_state = {
+				limit = {
+					OR = {
+					state = 157
+					state = 117
+					state = 156
+					state = 115 }
+					}
+				add_dynamic_modifier = { modifier = ITA_weak_southern_industry }
+				}
+			every_state = {
+				limit = {
+					OR = {
+					state = 158
+					state = 159
+					state = 39
+					state = 160
+					state = 736
+					state = 161
+					state = 162 }
+					}
+				set_state_flag = ITA_northern_italy_flag
+				}
+				
+			39 = { #Tyrol modifier
+				add_dynamic_modifier = { modifier = ITA_german_population }
+				}
+				
+			156 = { add_dynamic_modifier = { modifier = ITA_defended_by_sicily } }
+			117 = { add_dynamic_modifier = { modifier = ITA_defended_by_sicily } }
+			736 = { remove_claim_by = YUG }
+			every_state = {
+				limit = {
+					is_core_of = ITA }
+				remove_core_of = PCI
+				remove_core_of = ITK
+				remove_core_of = RSI
+				}
+				
+			#Creating a general for Iraq
+			
+			IRQ = {
+			create_corps_commander = {
+			name = "Bakr Sidqi"
+			id = 6934
+			picture = "Portrait_Iraq_Bakr_Sidqi.dds"
+			traits = { politically_connected desert_fox career_officer brilliant_strategist skilled_staffer commando camouflage_expert }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 3
+			 }	
+			every_army_leader = {
+				limit = {
+				has_trait = politically_connected
+				has_trait = desert_fox
+				has_trait = brilliant_strategist }
+				set_unit_leader_flag = this_is_sidqi
+				}
+			}
+			PAL = {#Fix leader portrait
+				set_country_leader_portrait = {
+					ideology = fascism
+					portrait = GFX_LVN_HUSSEINI
+				}
+				set_politics = { #Try to force fascism when it rebels
+					ruling_party = fascism
+					elections_allowed = no
+				}
+			}
+			every_state = {
+				limit = {
+					is_core_of = PAL 
+				}
+				set_compliance = 30 
+			}
+			
+			#Some naval dockyards for Italy
+			117 = {
+				add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+				}
+			}
+			736 = {
+				add_building_construction = {
+				type = dockyard
+				level = 4
+				instant_build = yes
+				}
+				add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+				}
+			}
+			158 = {
+				add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+				}
+			}
+			#Rubber for Ethiopia
+			271 = {
+			add_resource = {
+			type = rubber
+			amount = 3
+				}
+			}
+			#Some oil for Libya
+			450 = {
+			add_resource = {
+			type = oil
+			amount = 2
+				}
+			}	
+			662 = {
+			add_resource = {
+			type = oil
+			amount = 2
+				}
+			}
+			###Setup Tyrol situation
+			GER = {
+				add_state_claim = 39 }
+			#Setup Italy
+			ITA = {
+			add_ideas = ITA_fiat_duopoly
+			add_ideas = pietro_badoglio #Badoglio begins as your chief of army
+			add_ideas = emilio_de_bono
+			activate_mission = italia_ready_the_military
+			activate_targeted_decision = {
+				target = ETH
+				decision = italia_finish_ethiopia_king
+				}
+			add_equipment_to_stockpile = {
+				type = tri_engine_bomber_equipment_1
+				amount = 200
+				producer = ITA
+			}
+			add_equipment_to_stockpile = { #represents all AB611 produced before 1936 and 10 Lancia 1ZM still in service in WW2
+				type = gw_armored_car_equipment
+				amount = 56
+				producer = ITA
+			}
+			#add_equipment_to_stockpile = { #represents l3/33 total numbers (1200) divided by 2 minus 180 starting 13/33 in the Italian Army. DOES NOT represents l3/35 total numbers (1300) divided by 3 and rounded up to lower number
+				#type = light_tank_equipment_1 #does not work with NSB
+				#amount = 420
+				#producer = ITA
+			#}
+			set_country_flag = shame_of_abyssinia
+			activate_mission = italia_victory_in_ETH_blackshirts
+			activate_mission = italia_victory_in_ETH_fgenerals
+			every_unit_leader = {#Let's tag De Bono for future reference
+				limit = {
+					has_trait =  trait_ITA_fascist_loyalties
+					has_trait = old_guard 
+					has_trait = politically_connected
+						}
+				set_unit_leader_flag = this_is_bono
+			}			
+			every_army_leader = {
+				set_unit_leader_flag = italian_general 
+			}
+				
+
+		}#Closes Italy
+
+		LBA = {
+			#set_technology = {
+			#	tech_support = 1
+			#	tech_engineers = 1
+			#	gw_artillery = 1
+			#}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 200
+				producer = ITA
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment_1
+				amount = 400
+				producer = ITA
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = 750
+				producer = ITA
+			}
+			load_oob = LBA_ITA_1936
+			country_lock_all_division_template = yes
+			#create_country_leader = {
+			#	name = "Italo Balbo"
+			#	picture = "gfx/leaders/ITA/portrait_italy_italo_balbo.dds"
+			#	desc = "POLITICS_BENITO_MUSSOLINI_DESC"
+			#	expire = "1965.1.1"
+			#	ideology = fascism_ideology
+			#	traits = { italia_colonial_governor }
+			#	}
+			#set_politics = {
+			#	ruling_party = fascism
+			#	elections_allowed = no
+			#	}
+			set_cosmetic_tag = ITA_italian_libya
+			}
+		}
+			
+	}
+	
+	on_declare_war = {
+		effect = {
+			#Let's make sure to send Rommel home if he's working for Italy!
+			if = {
+			limit = {
+				AND = {
+					OR = {
+					AND = {
+					FROM = { TAG = GER }
+					ROOT = { TAG = ITA }
+						}
+					AND = {
+					FROM = { TAG = ITA }
+					ROOT = { TAG = GER }
+						}
+					}
+				any_unit_leader = {
+					has_id = 4
+					has_unit_leader_flag = GER_Rommel
+					}
+				}
+			}
+			ITA = {
+			every_unit_leader = {
+				limit = { has_id = 4 }
+				set_nationality = GER
+				clr_unit_leader_flag = GER_Rommel
+					}
+				}
+			}
+				
+		}
+	}
+	
+	on_capitulation = {
+		effect = {
+			if = {
+			#Let's make sure to send Rommel home if he's working for Italy!			
+			limit = {
+				AND = {
+				OR = {
+					ROOT = { TAG = GER }
+					ROOT = { TAG = ITA }
+					}
+				any_unit_leader = {
+					has_id = 4
+					has_unit_leader_flag = GER_Rommel
+					}
+				}
+			}
+			ITA = {
+			every_unit_leader = {
+				limit = { has_id = 4 }
+				set_nationality = GER
+				clr_unit_leader_flag = GER_Rommel
+					}
+				}
+			}
+		}
+	}
+	
+####Don't mess with the King: These on_actions will hurt/help the King's support
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					tag = ITA
+					has_idea = italia_victor_emmanuel
+					has_government = fascism
+					FROM = { 
+						is_major = no 
+						is_in_faction = no
+					}
+					FROM = {
+						NOT = { original_tag = ITA }
+					}
+				}
+			activate_targeted_decision = {
+				target = FROM
+				decision = italia_finish_minor_war_king
+				}
+			}
+			if = {
+				limit = {
+					tag = ITA
+					has_idea = italia_victor_emmanuel
+					has_government = fascism
+					check_variable = {
+					var = king_opinion_level
+					value = 60
+					compare = less_than
+					}
+				}
+			add_to_variable = { var = king_opinion_level value = -5 }
+			ITA = { country_event = { id = italia_ita.2 } }
+			}
+		}
+	}
+	
+	#King won't be happy about losing battles
+	on_army_leader_lost_combat = {
+		effect = {
+			if = {
+				limit = {
+					has_unit_leader_flag = italian_general }
+				if = {
+					limit = {
+						ITA = { 
+							has_idea = italia_victor_emmanuel
+							has_government = fascism
+						}
+					}
+				ITA = { add_to_variable = { var = king_opinion_level value = -0.25 } }
+					}
+				}
+			}
+		}
+	#Set a flag		
+ 	on_army_leader_won_combat = { 
+			effect = { 					
+					if = {
+						limit = {
+							check_variable = { num_units_offensive_combats_against@desert > 1 }
+							FROM = {
+							original_tag = ITA
+							any_enemy_country = { is_major = yes } }
+							}
+						ROOT = { set_unit_leader_flag = ita_desert_general_winner }
+						ITA = { set_country_flag = desert_victory }
+						}
+							
+					if = {
+						limit = {
+							set_temp_variable = { temp = num_units }
+							multiply_temp_variable = { temp = 0.70 }
+							set_temp_variable = { cmm = num_cavalry }
+							AND = {
+								check_variable = { cmm > temp }
+								has_unit_leader_flag = italian_general
+								FROM = {
+									any_enemy_country = {
+										is_major = yes
+									}
+								NOT = { has_country_flag = italia_cavalleria_charge }
+								}
+							}
+						}
+						random_list = {
+							25 = {
+								FROM = { country_event = { id = italia_ita.15 days = 1 } }
+							}
+							75 = { } #better luck next time 
+						}
+					}
+			} 
+	}
+					
+ 	on_army_leader_won_combat = { #Special bonuses for winning against Abyssinia with fascists
+		effect = {
+			if = {#must win with Fascist Generals only
+				limit = {
+					NOT = { has_trait = trait_ITA_fascist_loyalties }
+					FROM = {
+						has_war_with = ETH
+						NOT = { has_country_flag = victory_in_abyssinia }
+						}
+					}
+				ITA = { set_country_flag = italia_used_regular_generals }
+			}
+			if = {#must win with Blackshirt units only
+				limit = {
+					set_temp_variable = { temp = num_units_offensive_combats }
+					multiply_temp_variable = { temp = 0.5 }
+					set_temp_variable = { blackshirts = num_units_with_type@blackshirts }
+					AND = {
+					check_variable = { temp > blackshirts }
+					FROM = {
+						has_war_with = ETH
+						NOT = { has_country_flag = victory_in_abyssinia }
+						NOT = { has_country_flag = italia_used_regular_divisions }
+							}
+						}
+					}
+				#unit_leader_event = { id = italia_ita.23 } This is a test event we use to check this on_action
+				ITA = {	
+				set_country_flag = italia_used_regular_divisions }
+			}
+		}
+	}
+		
+	#King will be happy to hear of our victories!
+	on_army_leader_won_combat = {
+		effect = {
+			if = {
+				limit = {
+					has_unit_leader_flag = italian_general 
+				}
+				if = {
+					limit = {
+						ITA = { 
+							has_idea = italia_victor_emmanuel
+							has_government = fascism
+						}
+					}
+				ITA = { add_to_variable = { var = king_opinion_level value = 0.25 } }
+				}
+			}
+		}
+	}
+	
+	#King will be happy to secure new lands
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = ITA 
+						has_idea = italia_victor_emmanuel
+					}
+				}
+				ITA = { add_to_variable = { var = king_opinion_level value = 5 } }
+			}
+		}
+	}
+	
+	on_puppet = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = ITA 
+						has_idea = italia_victor_emmanuel
+					}
+				}
+				ITA = { add_to_variable = { var = king_opinion_level value = 5 } }
+			}
+			
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = LBA 
+						has_cosmetic_tag  = ITA_italian_libya
+					}
+					FROM = { not = { original_tag = ITA } }
+				}
+				drop_cosmetic_tag = yes
+			}			
+		}
+	}
+	
+	on_liberate = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { original_tag = LBA }
+					has_cosmetic_tag = ITA_italian_libya
+				}
+				drop_cosmetic_tag = yes 
+			}
+		}
+	}
+	
+	on_release_as_free = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = LBA 
+						has_cosmetic_tag = ITA_italian_libya
+					}
+				}
+				drop_cosmetic_tag = yes 
+			}
+		}
+	}
+	
+	on_annex = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ITA 
+						has_idea = italia_victor_emmanuel
+					}
+				}
+				ITA = { add_to_variable = { var = king_opinion_level value = 5 } }
+			}
+		}
+	}
+			
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = ITA
+						NOT = { has_country_flag = italia_new_officers_ready }
+						}
+					FROM = { is_major = yes }
+
+					FROM.FROM = {
+						NOT = { is_core_of = ROOT }
+						region = 17
+						}
+				}
+				ROOT = { set_country_flag = italia_get_this_event_from_france }
+				FROM = { country_event = { id = italia_ita.16 days = 1 } }
+			}
+		}
+			
+	}#control change
+	
+	
+	#Victory in Abyssinia!
+	on_capitulation = {
+		effect = {
+		if = {
+			limit = {
+				FROM = {
+					tag = ITA }
+				ROOT = {
+					tag = ETH  }
+				}
+			ITA = { 
+			country_event = { id = italia_ita.3 days = 5 }
+			set_country_flag = victory_in_abyssinia }
+			}
+		if = {
+			limit = {
+				FROM = {
+					tag = ITA 
+					NOT = { has_country_flag = italia_used_regular_divisions }
+				}
+				ROOT = {
+					tag = ETH  }
+				}
+			ITA = { 
+				set_country_flag = italia_blackshirt_victory }
+			}
+		if = {
+			limit = {
+				FROM = {
+					tag = ITA 
+					NOT = { has_country_flag = italia_used_regular_generals }
+				}
+				ROOT = {
+					tag = ETH  }
+				}
+			ITA = { 
+				set_country_flag = italia_fgeneral_victory }
+			}
+		}
+	}
+			
+	on_unit_leader_level_up = {
+		effect = {
+			if = {
+				limit = {
+					has_unit_leader_flag = pariani_retire
+					}
+				unit_leader_event = { id = italia_ita.23 }
+				}
+		}
+	}
+
+on_declare_war = {
+		effect = { #Spanish civil war
+			if = {
+				limit = {
+					original_tag = SPR
+					FROM = { original_tag = SPR }
+					NOT = { has_global_flag = ITA_spanish_civil_war_has_begun }
+					}
+				set_global_flag = ITA_spanish_civil_war_has_begun
+				ITA = { country_event = { id = italia_ita.30 days = 30 random = 90 } }
+				}
+			}
+		}
+		
+on_civil_war_end_before_annexation  = {
+	effect = {
+		if = {
+			limit = {
+				FROM = { original_tag = SPR }
+				SPR_scw_in_progress = yes
+				has_volunteers_amount_from = {
+					tag = ITA
+					count > 1
+				}
+				ITA = { has_completed_focus = ITA_support_nationalist_spain }
+				NOT = {
+					any_other_country = {
+						NOT = {
+							tag = ROOT
+							tag = FROM
+						}
+						original_tag = SPR
+						exists = yes
+					}
+				}
+			}
+			ITA = { set_country_flag = hey_italy_thanks_for_the_help }
+		}
+		if = {
+			limit = {
+				FROM = { original_tag = SPR }
+				SPR_scw_in_progress = yes
+				ITA = { has_completed_focus = ITA_support_nationalist_spain }
+				NOT = {
+					any_other_country = {
+						NOT = {
+							tag = ROOT
+							tag = FROM
+						}
+						original_tag = SPR
+						exists = yes
+					}
+				}
+				has_unit_leader = 6944
+			}
+			ROOT = {
+				every_unit_leader = {
+					limit = {
+						has_id = 6944
+					}
+					set_nationality = ILL
+				}
+			}
+			ITA = { country_event = { id = italia_ita.551 } } #Conte Rossi returns to Spain a hero
+		}
+		if = {
+			limit = {
+				FROM = { 
+					original_tag = SPR 
+					has_unit_leader = 6944
+				}
+				ITA = { has_completed_focus = ITA_support_nationalist_spain }	
+			}
+			FROM = {
+				every_unit_leader = {
+					limit = {
+						has_id = 6944
+					}
+					set_nationality = ILL
+				}
+			}
+			ITA = { country_event = { id = italia_ita.54 } } #Conte Rossi dies
+		}
+	}
+}
+	
+	#ROOT is winner #FROM gets annexed - This will also fire on_annex
+	on_civil_war_end = {
+		effect = {#Make Rome the capital for Italy
+			if = {
+				limit = {
+					ROOT = { 
+						original_tag = ITA 
+						has_full_control_of_state = 2
+						has_civil_war = no
+					}
+				}
+				set_capital = { state = 2 }
+				set_victory_points = {#removing Salo VPs
+					province = 603
+					value = 4
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						tag = ITA
+						is_ai = no
+					}
+				}
+			LVN_civil_war_variable_values = yes
+			}
+			if = {#Exile the King
+				limit = {
+					FROM = {
+						has_idea = italia_victor_emmanuel
+					}
+				}
+				hidden_effect = { news_event = { id = italianews.12 hours = 4 random_hours = 4 } }
+				every_state = { #Remove ITA cores
+					limit = {
+						is_core_of = FROM
+					}
+					remove_core_of = FROM
+				}
+			}
+			if = {#End of the RSI
+				limit = {
+					ROOT = {
+						original_tag = ITA
+					}
+					FROM = {
+						tag = RSI
+					}
+				}
+				ROOT = { 
+					add_timed_idea = {
+						idea = LVN_memories_of_fascism
+						days = 730
+					}
+				}
+				news_event = { id = italia_rsi.4 days = 1 } #Announcing end of RSI to the world
+				every_state = { #Remove RSI cores
+					limit = {
+						is_core_of = FROM
+					}
+					remove_core_of = FROM
+				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						TAG = PCI
+					}
+				}
+				every_state = {#Remove PCI cores
+					limit = {
+						is_core_of = FROM
+					}
+					remove_core_of = FROM
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { 
+					ROOT = {
+						original_tag = IRQ 
+						has_government = fascism
+						has_country_flag = ITA_iraqi_fascists_flag 
+					}
+				}
+				ENG = { 
+					remove_resource_rights = 676
+					remove_resource_rights = 291
+				}
+				ITA = { country_event = { id = italia_ita.80 hours = 6 } } 
+				if = {
+					limit = {
+						IRQ = { NOT = { has_idea = nationalism } }
+					}
+					add_ideas = nationalism
+				}
+			}
+		}
+		effect = {#French civil war caused by treaty of chambery
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = FRA 
+						has_country_flag = LVN_petain_france
+					}
+				}
+				clr_country_flag = LVN_petain_france
+				ROOT = { country_event = { id = italia_ita.110 days = 2 } }
+			}
+		}
+	}#Closing bracket
+					
+	
+on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { original_tag = ITA }
+					NOT = { FROM = { original_tag = ITA } }
+					any_other_country = {
+						is_subject_of = ROOT 
+						has_autonomy_state = autonomy_LVNcolony
+					}
+				}
+				every_other_country = {
+					limit = {
+						is_subject_of = ROOT
+						has_autonomy_state = autonomy_LVNcolony
+					}
+					save_event_target_as = lvn_colony_target
+				}
+				FROM = {
+					declare_war_on = {
+						target = event_target:lvn_colony_target
+						type = topple_government 
+					}
+				}
+			}
+		}
+
+	effect = {
+		if = {
+			limit = {
+				ROOT = { 
+					original_tag = ITA 
+					NOT = { has_country_flag = LVN_war_with_major }
+				}
+				FROM = { is_major = yes }
+			}
+			hidden_effect = {
+				ROOT = { set_country_flag = LVN_war_with_major }
+			}
+		}
+		else_if = {
+			limit = {
+				FROM = { 
+					original_tag = ITA 
+					NOT = { has_country_flag = LVN_war_with_major }
+				}
+				ROOT = { is_major = yes }
+			}
+			hidden_effect = {
+				FROM = { set_country_flag = LVN_war_with_major }
+			}
+		}
+	}
+}
+
+on_war = {
+	effect = {
+		if = {
+			limit = {
+				THIS = { 
+					original_tag = ITA 
+					NOT = { has_country_flag = LVN_war_with_major }
+					any_enemy_country = { is_major = yes }
+				}
+			}
+			hidden_effect = {
+				THIS = { set_country_flag = LVN_war_with_major }
+			}
+		}
+		else_if = {
+			limit = {
+				THIS = { 
+					NOT = { original_tag = ITA }
+					is_major = yes 
+					any_enemy_country = {
+						original_tag = ITA
+						NOT = { has_country_flag = LVN_war_with_major }
+					}
+				}
+			}
+			hidden_effect = {
+				ITA = { set_country_flag = LVN_war_with_major }
+			}
+		}
+	}
+}
+	
+	on_subject_autonomy_level_change = { #unlock Libya if they become independent 
+		effect = { 
+			if = {
+				limit = {
+					ROOT = { 
+						has_autonomy_state = autonomy_LVNcolony
+						tag = LBA
+					}	
+				}
+				country_lock_all_division_template = no
+			}
+		}
+	}
+			
+
+}#Main Closing

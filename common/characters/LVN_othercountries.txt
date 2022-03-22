@@ -1,0 +1,71 @@
+#############We mess with other countries, have to take care of it here to be safe!
+
+
+characters={
+####France
+
+	LVN_Charles_Maurras={
+		name=LVN_Charles_Maurras
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_FRA_Charles_Maurras.dds"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			traits = {
+				catholic_tradition
+				dislikes_germany
+			}
+			expire="1965.1.1.1"
+		}
+	}
+	
+	LVN_Albert_Lebrun={
+		name=LVN_Albert_Lebrun
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_France_Albert_Lebrun.dds"
+			}
+		}
+		country_leader={
+			ideology=centrism
+			traits = {
+				cabinet_crisis
+			}
+			expire="1965.1.1.1"
+		}
+	}
+	
+####Portugal
+	LVN_antonio_oscar_carmona = {
+		portraits={
+			civilian={
+				large="gfx/leaders/POR/Portrait_POR_Oscar_Carmona.dds"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			traits = {
+			}
+			expire="1965.1.1.1"
+		}
+		name = POR_antonio_oscar_carmona
+	}
+	
+######Albania
+ ALB_pandeli_evangjeli = {
+ 		portraits={
+			civilian={
+				large="gfx/leaders/ALB/portrait_ALB_Pandeli_Evangjeli.dds"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits = {
+			}
+			expire="1965.1.1.1"
+		}
+		name = ALB_pandeli_evangjeli
+	}
+}

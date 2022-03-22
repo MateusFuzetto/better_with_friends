@@ -1,0 +1,93 @@
+TUR_LVN_alternate_fascist_plan = {
+	name = "Turkey Alternate Fascist Plan"
+	desc = "Fevzi Çakmak shall transition Turkey into a quasi-fascist dictatorship and attempt to form a faction with Italy."
+
+	allowed = {
+		original_tag = TUR 
+	}
+	
+	enable = {
+		ITA = { has_completed_focus =  italia_med_entente }
+	}
+	
+	abort = {
+		OR = {
+			has_war_with = ITA
+			has_government = communism
+			has_government = democratic
+		}
+	}
+
+	ai_national_focuses = {
+		#Grab these two as soon as Turkey can!
+		TUR_purchase_italian_light_tanks
+		TUR_the_italo_turkish_naval_academy
+		
+		#1936
+		TUR_the_montreux_convention
+		TUR_continue_the_policy_of_etatism
+		TUR_hava_okulu
+		TUR_ratify_the_six_arrows
+		TUR_revive_turkish_revolutionism
+		#1937
+		TUR_reinvigorate_turkish_nationalism
+		TUR_the_second_five_year_plan
+		TUR_treaty_of_saadabad
+		TUR_the_sanayiciler
+		TUR_the_sun_language_theory
+		#1938
+		TUR_the_pontic_redoubt
+		TUR_assess_our_future
+		TUR_the_hatay_issue
+		TUR_variant_turkish_tax_focus
+		TUR_cooperate_with_the_debt_council
+		#1939
+		TUR_utilize_foreign_capital
+		TUR_loosen_the_laws_on_secularism
+		TUR_purify_the_diyanet
+		TUR_restack_the_officer_corps
+		TUR_the_pontic_redoubt
+		#1940
+		TUR_reconfigure_our_foreign_policy
+		TUR_the_german_turkish_friendship_treaty
+		TUR_the_clodius_agreement
+
+		#1941
+		TUR_the_mediterranean_entente
+		TUR_collaborative_civil_works_programme
+		TUR_cooperative_research_centers
+		TUR_invite_bulgaria
+		TUR_entice_the_greeks
+		TUR_pressure_portugal_to_join
+
+		#1942
+
+		TUR_fortifying_the_bosporus
+		TUR_mediterranean_merchant_fleet
+		TUR_court_the_spanish
+		TUR_cleanse_iberia_of_bolshevism #just in-case
+		TUR_punish_french_weakness
+		#1943
+		TUR_victory_or_death_against_communism
+		TUR_restoring_our_nations_pride
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		TUR_nuri_demirag_prime_minister = 5
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.5
+		modifier = {
+			factor = 1.5
+		}
+	}
+
+}
+

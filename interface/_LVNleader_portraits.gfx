@@ -1,0 +1,52 @@
+spriteTypes = {
+
+	# operative leaders are in here
+	
+	### ITA
+	
+	spriteType = {
+		name = "GFX_portrait_ITA_JMuller"
+		texturefile = "gfx/leaders/ITA/Portrait_ITA_Josef_Muller.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_portrait_PCI_Stelle"
+		texturefile = "gfx/leaders/ITA/Portrait_PCI_Pier_Bellini_Delle_Stelle.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_portrait_PCI_Tina"
+		texturefile = "gfx/leaders/ITA/Portrait_PCI_Tina_Modotti.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_Portrait_ITA_maurizio_giglio"
+		texturefile = "gfx/leaders/ITA/Portrait_ITA_maurizio_giglio.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_FINAL_MUSSOLINI"
+		texturefile = "gfx/leaders/ITA/Portrait_Italy_Benito_Mussolini_EMP.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_EMP_MUSSOLINI"
+		texturefile = "gfx/leaders/ITA/Portrait_Italy_Benito_Mussolini_EMP2.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_LVN_PHIBUN"
+		texturefile = "gfx/leaders/SIA/portrait_thai_phibun_pm.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_LVN_CANARIS"
+		texturefile = "gfx/leaders/GER/Portrait_Germany_Canaris.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_LVN_HUSSEINI"
+		texturefile = "gfx/leaders/PAL/Portrait_PAL_amin_al_husseini.dds"
+	}
+
+}

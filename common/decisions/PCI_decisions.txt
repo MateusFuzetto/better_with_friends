@@ -1,0 +1,236 @@
+PCI_uprisings  = {
+
+	PCI_increase_resistance_decision = {
+	
+		icon = generic_prepare_civil_war
+		
+		on_map_mode = map_and_decisions_view
+
+		state_target = yes
+		
+		target_trigger = {
+			FROM = {
+				is_core_of = ITA
+				NOT = { is_controlled_by = PCI }
+				is_fully_controlled_by = RSI
+				any_neighbor_state = {
+					is_fully_controlled_by = PCI
+				}
+			}
+		}
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_civil_war = yes
+			tag = PCI
+			}
+				
+
+		available = {
+			has_government = communism
+			FROM = { 
+				has_active_resistance = yes
+				resistance < 70 
+			}	
+		}
+
+		cost = 50
+		
+		days_remove = 10
+		days_re_enable = 30
+
+		ai_will_do = {
+			factor = 200
+		}
+		
+
+		complete_effect = {
+			if = {
+				limit = {
+					FROM = {
+						resistance > 60
+					}
+				}
+				FROM = {
+					set_resistance = 70
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = {
+						resistance < 60
+						resistance > 40
+					}
+				}
+				FROM = {
+					add_resistance = 10 
+				}
+			}
+			else_if = {
+				FROM = { add_resistance = 30 }
+			}
+			if = { 
+				limit = {
+					FROM = { 
+						NOT = { has_state_flag = PCI_increased_resistance }
+					}
+				}
+				FROM = { set_state_flag = PCI_increased_resistance }
+			}
+				
+		}
+
+
+	
+	} #Closing Bracket
+	
+	PCI_integrate_resistance_cell = {
+	
+		icon = generic_prepare_civil_war
+		
+		on_map_mode = map_and_decisions_view
+
+		state_target = yes
+		
+		target_trigger = {
+			FROM = { has_state_flag = PCI_increased_resistance }
+		}
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			has_civil_war = yes
+			tag = PCI
+		}
+				
+
+		available = {
+			has_government = communism
+			FROM = { is_fully_controlled_by = PCI }	
+		}
+
+		cost = 50
+		
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 200
+		}
+		
+
+		complete_effect = {
+			FROM = {
+				clr_state_flag = PCI_increased_resistance
+					create_unit = {
+						division = "division_template = \"Brigate Garibaldi\" start_experience_factor = 2.5" 
+						owner = ROOT
+					}
+			}
+		}
+
+
+	
+	} #Closing Bracket
+	
+}
+
+PCI_latin_revolution = { #Decisions for latin america
+
+	PCI_mexican_civil_war = {#Launches Mexican civil war
+	
+		icon = generic_prepare_civil_war
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			tag = PCI
+			has_completed_focus = PCI_back_trotsky
+			has_government = communism
+			MEX = { not = { has_government = communism } }
+		}
+				
+
+		available = {
+			MEX = {
+				communism > 0.49
+			}
+		}
+
+		cost = 50
+		
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 2
+		}
+		
+
+		complete_effect = {
+			MEX = {
+				start_civil_war = {
+					ideology = communism
+					size = 0.5
+				}
+			}
+		}
+
+	} #Closing Bracket
+	
+	PCI_mexican_propaganda = {#increases mexican communism in exchange for pp
+	
+		icon = generic_prepare_civil_war
+		
+		allowed = {
+			original_tag = ITA
+		}
+		
+		visible = {
+			tag = PCI
+			has_completed_focus = PCI_back_trotsky
+			has_government = communism
+			MEX = { not = { has_government = communism } }
+		}
+				
+
+		available = {
+			MEX = {
+				communism < 0.49
+			}
+		}
+
+		cost = 50
+		
+		days_remove = 15
+		days_re_enable = 20
+
+		ai_will_do = {
+			factor = 2
+		}
+		
+		modifier = {
+			political_power_factor = -0.10
+		}
+		
+
+		complete_effect = {
+			MEX = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.10
+				}
+			}
+		}
+
+	} #Closing Bracket
+
+
+
+
+}#Closing category bracket

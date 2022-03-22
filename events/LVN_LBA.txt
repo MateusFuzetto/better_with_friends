@@ -1,0 +1,106 @@
+﻿###########################
+# LBA Events
+###########################
+
+add_namespace = LVN_LBA
+
+# Army
+country_event = { #will ITA accept LBA building army?
+	id = LVN_LBA.1
+	title = LVN_LBA.1.t
+	desc = LVN_LBA.1.desc
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ITA
+	}
+	
+	option = { #ITA has accepted, between players if they want to coop
+		name = LVN_LBA.1.a
+		ai_chance = {
+			base = 0
+			modifier = { #if LBA is a player, the AI should always accept to let the player build an army
+				add = 5000
+				LBA = {is_ai = no}
+			}
+		}
+		trigger = {
+			tag = ITA
+		}
+		
+		custom_effect_tooltip = LVN_AOI_army_tt
+		hidden_effect = {
+			LBA = { country_lock_all_division_template = no }
+			LBA = { country_event = LVN_LBA.2 }
+		}
+	}
+	
+	option = { #ITA has refused, historical mostly a soloplayer option if you dont want to get spam
+		name = LVN_LBA.1.b
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {
+			tag = ITA
+		}
+		hidden_effect = { 
+			LBA = { country_event = LVN_LBA.3 }
+		}
+		ITA = {add_ideas = LVN_lib_colonial_army_idea}
+	}
+}
+
+country_event = { #ITA accepted initiative; for player only since un-historical
+	id = LVN_LBA.2
+	title = LVN_LBA.2.t
+	desc = LVN_LBA.2.desc
+	picture = GFX_report_event_ita_marching
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = LBA
+	}
+	
+	option = {
+		name = LVN_LBA.2.a
+		ai_chance = {
+			factor = 100
+		}
+		trigger = {
+			tag = LBA 
+		}
+		add_ideas = LVN_lib_colonial_army_idea
+	}
+}
+
+country_event = { #ITA refused the free army
+	id = LVN_LBA.3
+	title = LVN_LBA.3.t
+	desc = LVN_LBA.3.desc
+	picture = GFX_report_event_generic_sign_treaty2
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = LBA 
+	}
+	
+	option = {
+		name = LVN_LBA.3.a
+		ai_chance = {
+			factor = 100
+		}
+		trigger = {
+			tag = LBA
+		}
+	}
+}

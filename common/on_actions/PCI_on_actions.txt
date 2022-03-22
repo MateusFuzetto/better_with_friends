@@ -1,0 +1,55 @@
+on_actions = {
+	on_civil_war_end_before_annexation = {
+		effect = {	
+			if = { # 
+				limit = {
+					FROM = {
+						original_tag = ITA
+					}
+					ROOT = { tag = PCI }
+					NOT = {
+						any_other_country = {
+							NOT = {
+								tag = ROOT
+								tag = FROM
+							}
+							original_tag = ITA
+							exists = yes
+						}
+					}
+				}
+				set_global_flag = pci_ita_victory
+				set_global_flag = pci_war_over
+				country_event = { id = pci_news.1 }
+			}
+		}
+	}
+	
+	on_civil_war_end = {
+		effect = {	
+			if = { #Soviet will get event to puppet you
+				limit = {
+					FROM = {
+						original_tag = ITA
+					}
+					ROOT = { 
+						tag = PCI
+						has_completed_focus = PCI_stalin
+					}
+					NOT = {
+						any_other_country = {
+							NOT = {
+								tag = ROOT
+								tag = FROM
+							}
+							original_tag = ITA
+							exists = yes
+						}
+					}
+				}
+				SOV = { country_event = { id = pci_events.1 hours = 5 random = 24 } }
+			}
+		}
+	}
+			
+}#Main Closing

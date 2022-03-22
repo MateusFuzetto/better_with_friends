@@ -1,0 +1,73 @@
+﻿capital = 271
+#ideas 
+add_ideas = {
+	export_focus
+	limited_conscription
+	low_economic_mobilisation
+}
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1
+	gw_artillery = 1
+	early_fighter = 1
+	tech_military_police = 1
+	motorised_infantry = 1
+	armored_car1 = 1
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+	}
+}
+
+recruit_character = AOI_luigi_frusci
+recruit_character = AOI_pietro_badoglio
+recruit_character = AOI_carlo_de_simone
+recruit_character = AOI_gugsa
+recruit_character = AOI_enrico_cerulli
+recruit_character = AOI_giuseppe_daodice
+recruit_character = AOI_vincenzo_de_feo
+recruit_character = AOI_mario_bonetti
+recruit_character = AOI_pietro_piacentini
+
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+		set_technology = {
+			early_ship_hull_light = 1
+			basic_battery = 1
+			basic_torpedo = 1
+		}
+}
+
+set_convoys = 15
+
+
+# A colony of Italy formed after the conquest of Abyssinia
+set_politics = {
+	ruling_party = fascism
+	elections_allowed = no
+}
+set_popularities = { #I think I broke this but dont know why, not game breaking tho
+	fascism = 80
+	neutrality = 20
+	democratic = 0
+	communism = 0
+}
+
+### MORE TO BE ADDED LATER ###

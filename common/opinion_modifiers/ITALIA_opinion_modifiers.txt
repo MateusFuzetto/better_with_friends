@@ -1,0 +1,139 @@
+#########################################################################
+# OPINION MODIFIERS
+##########################################################################
+# value
+# min_trust
+# max_trust
+# decay
+# months/years/days = timer
+# trade = yes/no
+
+opinion_modifiers = {
+
+	german_advisors = {
+		value = -20
+	}
+	
+	mare_nostrum = {
+		value = -20
+	}
+	
+	ITA_civil_war_commitment_opinion = {
+		value = 25
+	}
+	
+	ITA_befriend_monarchist_opinion = {
+		value = 30
+	}
+	
+	ITA_past_grudge_buried_opinion = {
+		value = 15
+	}
+	
+	ITA_betrayed_west_opinion = {
+		value = -25
+	}
+	
+	ITA_france_focus_opinion = {
+		value = 25
+	}
+	ITA_democracy_leanings_opinion = {
+		value = 10
+	}
+	
+	LVN_bought_guns = {
+		value = 10
+		decay = 1
+	}
+	
+	LVN_sold_guns = {
+		value = 10
+		decay = 1
+	}
+	
+	LVN_USA_sold_guns = {
+		value = 10
+		decay = 1
+	}
+	
+	LVN_FRA_sold_guns = {
+		value = 10
+		decay = 1
+	}
+
+	LVN_arms_trade = {
+		value = 5
+		trade = yes
+	}
+	
+	LVN_cw_trade = {
+		value = 10
+		trade = yes
+		decay = 1
+	}
+	
+	LVN_USA_arms_trade = {
+		value = 5
+		trade = yes
+	}
+	
+	LVN_FRA_arms_trade = {
+		value = 5
+		trade = yes
+	}
+
+	LVN_built_ships = {
+		value = 10
+		decay = 1
+	}
+	
+	LVN_strengthened_relations_with_us = { 
+		value = 15
+	}
+	
+	LVN_took_stand_against_communism = { 
+		value = 35
+		decay = 1
+	}
+	
+	PCI_helped_in_civil_war = {
+		value = 25
+	}
+	
+	ITA_compensation_ethiopia_opinion = {
+		value = 5
+	}
+	ITA_tur_claim_backed = {
+		value = 200
+	}
+	ROM_betrayed_by_france_gb = {
+		value = -50
+	}
+	ROM_security_with_ita = {
+		value = 70
+	}
+	ITA_german_protocols = {
+		value = 15
+	}
+	ITA_solved_tyrol_dispute = {
+		value = 10
+	}
+	PCI_helping_PRC = {
+		value = 25
+	}
+	PCI_bury_grudges = {
+		value = 25
+	}
+	ITA_befriended_neutrality = {
+		value = 10
+	}
+	LVN_supported_statu_quo = {
+		value = -25
+	}
+	LVN_ship_sold_opinion = {
+		value = 15
+	}
+	ITA_easter_accords = {
+		value = 10
+	}
+}#Closing Bracket

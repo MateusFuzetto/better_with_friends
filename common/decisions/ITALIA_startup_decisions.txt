@@ -1,0 +1,945 @@
+ITALIA_ready_the_military_decisions = {
+
+	italia_ready_the_military = {
+
+		icon = generic_prepare_civil_war
+		
+		priority = 10
+		
+		allowed = {
+			tag = ITA 
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ita_military_complete
+			check_variable = { var = ita_ready_military_progress value = 100 compare = greater_than_or_equals }
+			}
+		} 
+
+		days_mission_timeout = 2190
+
+		is_good = no
+
+		fire_only_once = yes		
+
+		activation = {
+			always = no #we activate via event	
+		}
+
+		timeout_effect = {
+			add_ideas = ITALIA_unprepared_army
+			set_variable = {
+			    var = ita_ready_military_progress
+			    value = 0
+			}
+			set_country_flag = ITALIA_mission_failed
+		}
+
+		cancel_trigger = {
+			if = {
+				limit = {
+					tag = PCI 
+				}
+				tag = PCI 
+			}
+			else_if = {
+				limit = {
+					tag = RSI 
+				}
+				tag = RSI 
+			}
+			else_if = {
+				limit = {
+					tag = ITA 
+				}				
+				any_enemy_country = {
+					NOT = { original_tag = ITA }
+					is_major = yes
+				}
+			}
+		}
+		
+		cancel_effect = {
+			if = {
+				limit = {
+					tag = ITA 
+				}
+				add_ideas = ITALIA_unprepared_army
+				set_variable = {
+					var = ita_ready_military_progress
+					value = 0
+				}
+				set_country_flag = ITALIA_mission_failed
+			}
+		}
+		
+		complete_effect = {
+			ITA = {
+				every_army_leader = { 
+					add_skill_level = 1
+					add_logistics = 1 
+				}		
+				army_experience  = 100
+				set_country_flag = ITALIA_mission_complete
+			}
+		}
+	
+	} #Closing Bracket
+	
+	italia_finish_ethiopia = {
+
+		icon = generic_tank
+		
+		priority = 9
+		
+		days_mission_timeout = 270
+		
+		available = {
+			NOT = { has_war_with = ETH }
+			OR = {
+				ETH = {
+					is_subject_of = ITA 
+				}
+				ROOT = {
+					owns_state = 271 
+				}
+				has_completed_focus = ITA_victoryinETH
+			}
+		}
+
+		is_good = no
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ITA
+		}
+		
+		cancel_trigger = {
+			OR = {
+				NOT = { has_active_mission = italia_ready_the_military }
+				AND = {
+					NOT = { has_war_with = ETH }
+					ETH = { is_subject = no }
+					271 = { is_controlled_by = ETH }
+				}
+			}
+		}		
+
+		activation = {
+			tag = ITA
+			has_war_with = ETH
+			has_active_mission = italia_ready_the_military
+		}
+		
+		timeout_effect = { #Mod #if mussolini doesnt conquer ETH within that time, he should be jacked immediately for Balbo by the King. I added the - so it makes -10 instead of +10
+			#custom_effect_tooltip = ita_military_readiness_neg_10_tt
+	  		add_to_variable = { var = ita_ready_military_progress value = -10 }
+		}			
+
+		complete_effect = {
+			custom_effect_tooltip = ita_military_readiness_5_tt
+	  		add_to_variable = { var = ita_ready_military_progress value = 5 }
+		}
+	}
+		
+	italia_finish_spanish_civil_war = {
+
+		icon = generic_tank
+		
+		priority = 20
+		
+		days_mission_timeout = 500
+		
+		available = {
+			#has_global_flag	= scw_over
+			SPA = {
+				exists = yes
+				has_civil_war = no
+			}
+		}
+		
+		days_remove = 30
+		
+		is_good = no
+		
+		fire_only_once = yes
+		
+		allowed = {
+			tag = ITA
+		}
+
+		activation = {
+			has_country_flag = blocked #we activate manually
+		}
+		
+		cancel_trigger = {
+			OR = {
+				NOT = { has_active_mission = italia_ready_the_military }
+				AND = {
+					all_country_with_original_tag = {
+						original_tag_to_check = SPR
+						has_civil_war = no
+					}
+					SPA = {
+						exists = no
+					}
+				}
+			}
+		}
+			
+		timeout_effect = {
+			if = {
+				limit = { 
+					has_active_mission = italia_ready_the_military }
+				custom_effect_tooltip = ita_military_readiness_neg_10_tt
+				add_to_variable = { var = ita_ready_military_progress value = -10 }
+			}
+		}			
+
+		complete_effect = {
+			custom_effect_tooltip = ita_military_readiness_10_tt
+	  		add_to_variable = { var = ita_ready_military_progress value = 10 }
+			}
+		}
+	
+	italia_armored_divisions = {
+
+		icon = generic_tank
+		
+		priority = 9
+		
+		days_mission_timeout = 2190
+		
+		available = {
+			has_army_size = {
+				size > 9
+				type = armor
+			}
+			if = {
+				limit = {
+					NOT = {has_dlc = "No Step Back"}
+				}
+				OR = {
+					AND = {
+						has_tech = advanced_light_tank
+						has_template_majority_unit = light_armor 
+					}
+					AND = {
+						has_tech = basic_medium_tank
+						has_template_majority_unit = medium_armor 
+					}
+					AND = {
+						has_tech = improved_heavy_tank
+						has_template_majority_unit = heavy_armor 
+					}
+				}
+				OR = {
+					has_equipment = {
+						light_tank_equipment_2 > 149
+					}
+					has_equipment = {
+						light_tank_equipment_3 > 149
+					}
+					has_equipment = {
+						medium_tank_equipment_1 > 149
+					}
+					has_equipment = {
+						medium_tank_equipment_2 > 149
+					}
+					has_equipment = {
+						heavy_tank_equipment_2 > 149
+					}
+				}
+			}
+			else = {
+				OR = {
+					AND = {
+						has_tech = advanced_light_tank_chassis
+						has_template_majority_unit = light_armor 
+					}
+					AND = {
+						has_tech = basic_medium_tank_chassis
+						has_template_majority_unit = medium_armor 
+					}
+					AND = {
+						has_tech = improved_heavy_tank_chassis
+						has_template_majority_unit = heavy_armor 
+					}
+				}
+				OR = {
+					has_equipment = {
+						light_tank_chassis > 149
+					}
+					has_equipment = {
+						medium_tank_chassis > 149
+					}
+					has_equipment = {
+						heavy_tank_chassis > 149
+					}
+				}
+			}
+		}
+
+		is_good = no
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ITA
+		}
+		
+
+		activation = {
+			tag = ITA
+			has_active_mission = italia_ready_the_military
+		}
+
+		cancel_trigger = {
+			NOT = { has_active_mission = italia_ready_the_military }
+			}	
+			
+		cancel_effect = {
+			#
+		
+		}
+		complete_effect = {
+			custom_effect_tooltip = ita_military_readiness_25_tt
+	  		add_to_variable = { var = ita_ready_military_progress value = 25 }
+		}
+	}
+	
+	italia_infantry_stockpile = {
+
+		icon = generic_rifle
+		
+		priority = 8
+		
+		days_mission_timeout = 2190
+		
+		available = {
+			has_army_size = {
+				size > 35
+				type = infantry
+				}
+		stockpile_ratio = {
+			archetype = infantry_equipment
+			ratio > 0.50
+			}
+		stockpile_ratio = {
+			archetype = support_equipment
+			ratio > 0.25
+			}
+		custom_trigger_tooltip = {
+		tooltip = equipment_30k_tt
+		check_variable = { num_equipment@infantry_equipment  > 30000 }
+				}
+		custom_trigger_tooltip = {
+		tooltip = support_equipment_1k_tt
+		check_variable = { num_equipment@support_equipment  > 1000 }
+				}
+			}
+
+		is_good = no
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ITA
+		}
+		
+
+		activation = {
+			tag = ITA
+			has_active_mission = italia_ready_the_military
+		}
+
+		cancel_trigger = {
+			NOT = { has_active_mission = italia_ready_the_military }
+			}	
+			
+		complete_effect = {
+			custom_effect_tooltip = ita_military_readiness_15_tt
+	  		add_to_variable = { var = ita_ready_military_progress value = 15 }
+			}
+		}
+		
+	italia_victory_in_ETH_fgenerals = {
+
+		icon = generic_army_support
+		
+		priority = 8
+		
+		days_mission_timeout = 2190
+		
+		days_remove = 90
+		
+		allowed = { original_tag = ITA }
+			
+		available = {
+			has_country_flag = victory_in_abyssinia
+			has_country_flag = italia_fgeneral_victory
+		}
+
+		is_good = no
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ITA
+		}
+		
+
+		activation = {
+			tag = ITA
+			has_war_with = ETH
+			has_country_flag = shame_of_abyssinia
+			has_active_mission = italia_ready_the_military	
+		}
+
+		cancel_trigger = {
+			OR = {
+			has_country_flag = italia_used_regular_generals
+			NOT = { has_active_mission = italia_ready_the_military }
+			custom_trigger_tooltip = {
+				tooltip = failed_in_ETH_tt
+				NOT = { has_country_flag = victory_in_abyssinia }
+				NOT = { has_war_with = ETH }
+				}				
+			}
+		}
+		
+		complete_effect = {
+			add_political_power = 100
+			custom_effect_tooltip = ita_military_readiness_05_tt
+	  		add_to_variable = { var = ita_ready_military_progress value = 5 }
+			ITA = { set_country_flag = bonus_to_fascist_generals }
+		}
+	}
+	
+	italia_victory_in_ETH_blackshirts = {
+
+		icon = generic_rifle
+		
+		priority = 8
+		
+		days_mission_timeout = 2190
+		
+		days_remove = 90
+		
+		allowed = { original_tag = ITA }
+			
+		available = {
+			has_country_flag = victory_in_abyssinia
+			has_country_flag = italia_blackshirt_victory
+		}
+
+		is_good = no
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ITA
+		}
+		
+
+		activation = {
+			tag = ITA
+			has_war_with = ETH
+			has_country_flag = shame_of_abyssinia
+			has_active_mission = italia_ready_the_military
+		}
+
+		cancel_trigger = {
+			OR = {
+			has_country_flag = italia_used_regular_divisions
+			NOT = { has_active_mission = italia_ready_the_military }
+			custom_trigger_tooltip = {
+				tooltip = failed_in_ETH_tt
+				NOT = { has_country_flag = victory_in_abyssinia }
+				NOT = { has_war_with = ETH }
+					}				
+				}
+		}
+		
+		complete_effect = {
+			custom_effect_tooltip = mvsn_upgrade_tt
+			hidden_effect = { ITALIA_mvsn_level_up = yes }
+			add_political_power = 120
+			custom_effect_tooltip = ita_military_readiness_05_tt
+	  		add_to_variable = { var = ita_ready_military_progress value = 5 }
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.10
+			}
+		}
+	}
+		
+	italia_military_factories = {
+
+		icon = generic_industry
+		
+		priority = 9
+		
+		days_mission_timeout = 2190
+		
+		available = {
+				set_temp_variable = { greatpowerfactories = ENG.num_of_military_factories }
+				add_to_temp_variable = { greatpowerfactories = FRA.num_of_military_factories }
+				multiply_temp_variable = { greatpowerfactories = 1.01 }
+				set_temp_variable = { ITAmilitaryfacotires = ITA.num_of_military_factories }
+
+				set_temp_variable = { germanfactories = GER.num_of_military_factories }
+				multiply_temp_variable = { germanfactories = 0.75 }
+
+				OR = {
+				custom_trigger_tooltip = { tooltip = italia_greatpowerfactories_tt
+				check_variable = { ITAmilitaryfacotires > greatpowerfactories }
+						}
+				custom_trigger_tooltip = { tooltip = italia_germanfactories_tt
+				check_variable = { ITAmilitaryfacotires > germanfactories }
+						}
+				
+				}
+		}
+
+		is_good = no
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ITA
+		}
+		
+
+		activation = {
+			tag = ITA
+			has_active_mission = italia_ready_the_military
+		}
+
+		cancel_trigger = {
+			NOT = { has_active_mission = italia_ready_the_military }	
+			}
+			
+
+		complete_effect = {
+			custom_effect_tooltip = ita_military_readiness_25_tt
+	  		add_to_variable = { var = ita_ready_military_progress value = 25 }
+			}
+		}
+		
+	italia_oil_reserves_decision = {
+
+		icon = oil
+		
+		priority = 9
+		
+		days_mission_timeout = 2190
+		
+		available = {
+			fuel_ratio > 0.75 
+			custom_trigger_tooltip = { tooltip = italia_need_lots_of_fuel_tt 
+			check_variable = {
+			var = max_fuel_k 
+			value = 750
+			compare = greater_than_or_equals
+				}
+			}
+		}
+				
+
+		is_good = no
+
+		fire_only_once = yes
+
+		visible = {
+			tag = ITA
+		}
+		
+
+		activation = {
+			tag = ITA
+			has_active_mission = italia_ready_the_military
+		}
+
+		cancel_trigger = {
+			NOT = { has_active_mission = italia_ready_the_military }	
+		}
+			
+		cancel_effect = {
+			#
+		
+		}
+		complete_effect = {
+			custom_effect_tooltip = ita_military_readiness_25_tt
+	  		add_to_variable = { var = ita_ready_military_progress value = 25 }
+		}
+	}
+		
+ #Closing Bracket
+
+	ITA_priortize_steel_guns = {
+
+		icon = generic_rifle
+
+		available = {
+			tag = ITA
+			NOT = { has_country_flag = italia_priorities_selected }
+			has_active_mission = italia_ready_the_military
+		}
+
+		visible = {
+			tag = ITA
+			has_active_mission = italia_ready_the_military
+		}
+
+		days_remove = 365
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+			
+		complete_effect = {
+		set_country_flag = italia_priorities_selected
+		add_timed_idea = {
+			idea = italia_steel_guns_idea
+			days = 365
+		}
+ 		custom_effect_tooltip = ita_military_readiness_5_tt
+  		add_to_variable = { var = ita_ready_military_progress value = 5 }
+
+			}
+	}
+	
+	ITA_priortize_steel_ships = {
+
+		icon = GFX_decision_generic_naval
+
+		available = {
+			tag = ITA
+			NOT = { has_country_flag = italia_priorities_selected }
+			has_active_mission = italia_ready_the_military
+		}
+
+		visible = {
+			tag = ITA
+			has_active_mission = italia_ready_the_military
+		}
+
+		days_remove = 365
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+		set_country_flag = italia_priorities_selected
+		add_timed_idea = {
+			idea = italia_steel_ships_idea
+			days = 365
+		}	
+ 		custom_effect_tooltip = ita_military_readiness_5_tt
+  		add_to_variable = { var = ita_ready_military_progress value = 5 }
+
+			}
+	}
+	
+	ITA_priortize_planes = {
+
+		icon = GFX_decision_generic_air
+
+		available = {
+			tag = ITA
+			NOT = { has_country_flag = italia_priorities_selected }
+			has_active_mission = italia_ready_the_military
+		}
+
+		visible = {
+			tag = ITA
+			has_active_mission = italia_ready_the_military
+		}
+
+		days_remove = 365
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		complete_effect = {
+		set_country_flag = italia_priorities_selected
+		add_timed_idea = {
+			idea = italia_planes_priority_idea
+			days = 365
+		}	
+ 		custom_effect_tooltip = ita_military_readiness_5_tt
+  		add_to_variable = { var = ita_ready_military_progress value = 5 }
+
+			}
+	}
+	
+	ITA_invite_german_advisors = {
+
+		icon = generic_army_support
+
+		available = {
+			tag = ITA
+			GER = {has_government = ROOT}
+			NOT = { has_country_flag = invited_british_advisors}
+		}
+
+		visible = {
+			tag = ITA
+			NOT = { has_war_with = GER }
+			has_active_mission = italia_ready_the_military
+		}
+
+		fire_only_once = yes
+
+		days_remove = 35
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1 #Definitely!
+		}
+
+		complete_effect = {
+			set_country_flag = invited_german_advisors
+			custom_effect_tooltip = available_theorist
+			show_ideas_tooltip = ernst_volckheim
+			custom_effect_tooltip = ita_military_readiness_5_tt
+			add_to_variable = { var = ita_ready_military_progress value = 5 }
+			add_tech_bonus = {
+				name = ITA_advisor_blitz_land_bonus
+				bonus = 0.25
+				uses = 1
+				category = cat_mobile_warfare
+			}	
+			every_other_country = {
+					limit = {
+							NOT = { is_in_faction_with = GER }
+							has_government = democratic
+							}
+					add_opinion_modifier = {
+						target = ITA
+						modifier = german_advisors
+					}
+			}
+		}
+	}
+	
+	ITA_invite_british_advisors = {
+
+		icon = generic_army_support
+
+		available = {
+			NOT = { has_country_flag = invited_german_advisors }
+			NOT = {	has_war_with = ENG }
+			OR = {
+				has_completed_focus = ITA_easter_accord
+				ENG = {has_government = ROOT}
+			}
+		}
+
+		visible = {
+			tag = ITA
+			has_active_mission = italia_ready_the_military
+		}
+
+		fire_only_once = yes
+
+		days_remove = 35
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 1 #Definitely!
+		}
+
+		complete_effect = {
+			set_country_flag = invited_british_advisors
+			custom_effect_tooltip = available_theorist
+			show_ideas_tooltip = jfc_fuller
+			custom_effect_tooltip = ita_military_readiness_5_tt
+			add_to_variable = { var = ita_ready_military_progress value = 5 }
+			add_tech_bonus = {
+				name = ITA_advisor_grand_battleplan_land_bonus
+				bonus = 0.25
+				uses = 1
+				category = cat_grand_battle_plan
+			}	
+		}
+	}
+
+	ITA_purchase_german_fighters = {
+
+		icon = generic_air
+
+		available = {
+			NOT = {has_country_flag = purchased_british_fighters}
+			GER = {has_government = ROOT}
+			GER = {
+				has_opinion = {
+					target = ITA
+					value > 74
+				}
+			}
+			GER = {has_tech = fighter1}
+		}
+
+		visible = {
+			tag = ITA
+			has_completed_focus = ITA_foreign_procurements
+			NOT = { has_war_with = GER }
+			OR = {	
+				NOT = { is_in_faction_with = FRA }
+				NOT = { is_in_faction_with = ENG }
+			}
+			has_active_mission = italia_ready_the_military
+		}
+
+		fire_only_once = yes
+
+		days_remove = 70
+
+		cost = 75
+
+		ai_will_do = {
+			factor = 10 #Definitely!
+			modifier = {
+				factor = 200
+				is_in_faction_with = GER
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					num_of_civilian_factories < 10
+					AND = {
+						stockpile_ratio = { 
+			  				archetype = fighter_equipment
+			  				ratio > 0.75
+			  			}
+			  			stockpile_ratio = { 
+			  				archetype = nav_bomber_equipment
+			  				ratio > 0.75
+			  			}
+			  			stockpile_ratio = { 
+			  				archetype = tac_bomber_equipment
+			  				ratio > 0.75
+			  			}
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			consumer_goods_factor = 0.02
+		}
+
+		remove_effect = {
+			set_country_flag = purchased_german_fighters
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_1
+				amount = 100
+				producer = GER
+			}
+			GER = { 
+				add_offsite_building = { type = industrial_complex level = 1 }
+			}
+			custom_effect_tooltip = ita_military_readiness_5_tt
+			add_to_variable = { var = ita_ready_military_progress value = 5 }
+		}
+	}
+	
+	ITA_purchase_british_fighters = {
+
+		icon = generic_air
+
+		available = {
+			NOT = {has_country_flag = purchased_german_fighters}
+			OR = {	
+				has_completed_focus = ITA_easter_accord
+				ENG = {has_government = ROOT}
+			}
+			ENG = {
+				has_opinion = {
+					target = ITA
+					value > 74
+				}
+			}
+			ENG = {has_tech = fighter1}
+		}
+
+		visible = {
+			tag = ITA
+			has_completed_focus = ITA_foreign_procurements
+			NOT = { has_war_with = ENG }
+			OR = {	
+				NOT = { is_in_faction_with = SOV }
+				NOT = { is_in_faction_with = GER }
+			}
+			has_active_mission = italia_ready_the_military
+		}
+
+		fire_only_once = yes
+
+		days_remove = 70
+
+		cost = 100
+
+		ai_will_do = {
+			factor = 10 #Definitely!
+			modifier = {
+				factor = 200
+				is_in_faction_with = ENG
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					num_of_civilian_factories < 10
+					AND = {
+						stockpile_ratio = { 
+			  				archetype = fighter_equipment
+			  				ratio > 0.75
+			  			}
+			  			stockpile_ratio = { 
+			  				archetype = nav_bomber_equipment
+			  				ratio > 0.75
+			  			}
+			  			stockpile_ratio = { 
+			  				archetype = tac_bomber_equipment
+			  				ratio > 0.75
+			  			}
+					}
+				}
+			}
+		}
+		
+		modifier = {
+			consumer_goods_factor = 0.02
+		}
+
+		remove_effect = {
+			set_country_flag = purchased_british_fighters
+			add_equipment_to_stockpile = {
+				type = fighter_equipment_1
+				amount = 100
+				producer = ENG
+			}
+			ENG = { 
+				add_offsite_building = { type = industrial_complex level = 1 }
+			}
+			custom_effect_tooltip = ita_military_readiness_5_tt
+			add_to_variable = { var = ita_ready_military_progress value = 5 }
+		}
+	}
+
+}#Closing Bracket

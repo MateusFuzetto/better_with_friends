@@ -1,0 +1,57 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			AUS = {
+				every_army_leader = {
+					retire = yes }
+			
+				create_field_marshal = {
+				name = "Alfred Jansa"
+				picture = "portrait_AUS_Alfred_Jansa.dds"
+				traits = { defensive_doctrine trait_austrian_old_guard }
+				skill = 2
+				attack_skill = 1
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 2
+				}
+				
+				create_corps_commander = {
+				name = "Karl Eglseer"
+				picture = "portrait_AUS_karl_egsleer.dds"
+				traits = { trait_mountaineer trickster }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 2
+				}
+				
+				create_corps_commander = {
+				name = "Ludwig von Eimannsberger"
+				picture = "portrait_AUS_ludwig_von_eimannsberger.dds"
+				traits = { career_officer bearer_of_artillery }
+				skill = 3
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 1
+				}
+				
+				create_corps_commander = {
+				name = "Eduard Barger"
+				picture = "portrait_AUS_Barger.dds"
+				traits = { career_officer trait_austrian_old_guard infantry_officer }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 2
+				}
+			}
+		}
+	}
+				
+			
+
+}#Main Closing

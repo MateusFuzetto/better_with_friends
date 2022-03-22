@@ -1,0 +1,120 @@
+defined_text = { #
+	name = GetLVNarmistice
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 0 compare = less_than_or_equals }
+		}
+		localization_key = lvn_leverage_value_0
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 5 compare = equals }
+
+		}
+		localization_key = lvn_leverage_value_5
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 10 compare = equals }
+		}
+		localization_key = lvn_leverage_value_10
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 15 compare = equals }
+		}
+		localization_key = lvn_leverage_value_15
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 20 compare = equals }
+		}
+		localization_key = lvn_leverage_value_20
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 25 compare = equals }
+		}
+		localization_key = lvn_leverage_value_25
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 30 compare = equals }
+		}
+		localization_key = lvn_leverage_value_30
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 35 compare = equals }
+		}
+		localization_key = lvn_leverage_value_35
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 40 compare = equals }
+		}
+		localization_key = lvn_leverage_value_40
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 45 compare = equals }
+		}
+		localization_key = lvn_leverage_value_45
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 50 compare = equals }
+		}
+		localization_key = lvn_leverage_value_50
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 55 compare = equals }
+		}
+		localization_key = lvn_leverage_value_55
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 60 compare = equals }
+		}
+		localization_key = lvn_leverage_value_60
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 65 compare = equals }
+		}
+		localization_key = lvn_leverage_value_65
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 70 compare = equals }
+		}
+		localization_key = lvn_leverage_value_70
+	}
+	text = {
+		trigger = {
+			tag = ITA
+			check_variable = { var = LVN_armistice_leverage value = 75 compare = equals }
+		}
+		localization_key = lvn_leverage_value_75
+	}
+}
+
+
+
+
