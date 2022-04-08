@@ -16,5 +16,7 @@ tags={
 	"Map"
 	"Military"
 }
+picture="thumbnail.png"
 name="Better With Friends"
 supported_version="1.11.9"
+remote_file_id="2782841398"
