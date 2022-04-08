@@ -1,9 +1,0 @@
-﻿l_english:
-#Categories
-PCI_uprisings:0 "Partisan Uprisings"
-
-#Decisions
-PCI_increase_resistance_decision:0 "Arm the [FROM.GetName] resistance cell"
-PCI_increase_resistance_decision_desc:0 "Partisans in [FROM.GetName] are ready to fight and die for Italy! If we arm them now, they may be able to be fully integrated later."
-PCI_integrate_resistance_cell:0 "Integrate the [FROM.GetName] division"
-PCI_integrate_resistance_cell_desc:0 "The partisans in [FROM.GetName] have done their job and we have thrown off the oppressors. Now we should integrate them into our command structure."
