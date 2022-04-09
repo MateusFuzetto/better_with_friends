@@ -44,6 +44,8 @@ technologies = {
 			tank_light_two_man_tank_turret
 			tank_light_three_man_tank_turret
 			tank_light_fixed_superstructure_turret
+			tank_front_plate_fixed_superstructure_turret
+			tank_platform_mount_turret
 			tank_medium_one_man_tank_turret
 			tank_medium_two_man_tank_turret
 			tank_medium_three_man_tank_turret
@@ -226,7 +228,7 @@ technologies = {
 			cat_light_armor
 		}
 	}
-	
+
 	improved_light_tank_chassis = { #Panzer II
 
 		enable_equipments = {
@@ -247,10 +249,6 @@ technologies = {
 		folder = {
 			name = nsb_armour_folder
 			position = { x = -4 y = 4 }
-		}
-		
-		sub_technologies = {
-			paradrop_tank_chassis
 		}
 
 		ai_will_do = {
@@ -291,35 +289,6 @@ technologies = {
 			}
 		}
 
-		categories = {
-			armor
-			cat_light_armor
-		}
-	}
-	
-	
-	paradrop_tank_chassis = {
-	
-		enable_equipments = {
-			paradrop_tank_chassis_0
-		}
-		
-		enable_subunits = {
-			light_para_armor
-		}
-		
-		enable_equipment_modules = {
-			tank_light_one_man_tank_turret_p
-			tank_light_fixed_superstructure_turret_p
-		}
-		
-		research_cost = 0.5
-		start_year = 1938
-		
-		ai_will_do = {
-			factor = 0
-		}
-		
 		categories = {
 			armor
 			cat_light_armor
@@ -385,6 +354,7 @@ technologies = {
 		categories = {
 			armor
 			tp_tech
+			amphibious_armor_tech
 		}
 	}
 
@@ -445,6 +415,7 @@ technologies = {
 		categories = {
 			armor
 			tp_tech
+			amphibious_armor_tech
 		}
 	}
 
@@ -1040,6 +1011,7 @@ technologies = {
 
 		categories = {
 			armor
+			armor_variant_tech
 		}
 	}
 
@@ -1095,6 +1067,7 @@ technologies = {
 
 		categories = {
 			armor
+			armor_variant_tech
 		}
 	}
 
@@ -1148,6 +1121,7 @@ technologies = {
 
 		categories = {
 			armor
+			armor_variant_tech
 		}
 	}
 
@@ -1246,6 +1220,7 @@ technologies = {
 
 		categories = {
 			armor
+			armor_variant_tech
 		}
 	}
 
@@ -1299,6 +1274,7 @@ technologies = {
 
 		categories = {
 			armor
+			armor_variant_tech
 		}
 	}
 
@@ -1350,6 +1326,7 @@ technologies = {
 
 		categories = {
 			armor
+			armor_variant_tech
 		}
 	}
 
@@ -1395,6 +1372,7 @@ technologies = {
 
 		categories = {
 			armor
+			armor_variant_tech
 		}
 	}
 }
