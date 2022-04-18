@@ -1,0 +1,615 @@
+﻿
+add_namespace = demand_event
+
+
+	country_event = {
+	id = demand_event.100
+	title = demand_event.100.t
+	desc = demand_event.100.d
+	is_triggered_only = no
+	fire_only_once = yes
+	hidden = no
+	
+	mean_time_to_happen = {
+	days = 1
+	}
+	
+	trigger = {
+		is_ai = no
+	}
+	
+	option = {
+	name = demand_event.100.a
+	set_variable = {
+    var = global.Enable_Ai
+    value = 1
+				}
+			}
+			
+	option = {
+	name = demand_event.100.b
+	set_variable = {
+    var = global.Enable_Ai
+    value = 0
+				}
+			}
+	}
+
+country_event = { #for the ai only
+	id = demand_event.101
+	title = demand_event.101.t
+	desc = demand_event.101.d
+	is_triggered_only = yes
+	hidden = no
+	
+	option = { #give it up
+	name = demand_event.101.a
+	ai_chance = {
+		factor = 10
+		modifier = {
+			factor = 2
+			strength_ratio = {tag = FROM ratio < 0.75}
+	}
+		modifier = {
+			factor = 2
+			strength_ratio = { tag = FROM ratio < 0.5}
+		}
+	
+		modifier = {
+			factor = 3
+			strength_ratio = { tag = FROM ratio < 0.25}
+			}
+			
+		modifier = {
+		factor = 2
+		strength_ratio = {tag = FROM ratio < 0.75}
+		}
+			
+			
+		modifier = {
+		factor = 2
+		has_war = yes
+		}
+		
+		modifier = {
+			factor = 2
+			NOT = {FROM:var_name = { is_core_of = ROOT}} 
+			}		
+		
+		}
+	
+	From = {transfer_state = Root.var_name
+		add_named_threat = {
+		threat = 3
+		name = "Forcefully Took A State"			
+	}
+		add_opinion_modifier = {target = ROOT modifier = sent_demands}
+	}
+	THIS = {add_stability = -0.02
+		add_war_support = -0.02}	
+		news_event  = {id = demand_event.3
+				days = 3
+				random = 5}}
+	option = {
+	name = demand_event.101.b
+		
+		ai_chance = {
+		factor = 40
+		
+		modifier = {
+		factor = 3
+		NOT = {FROM = { is_neighbor_of = ROOT}}}
+		
+		modifier = {
+		factor = 2
+		FROM = {has_war = yes}}
+		
+		modifier = {
+		factor = 2
+		strength_ratio = { tag = FROM ratio > 0.9 }}
+		
+		modifier = {
+		factor = 5
+		strength_ratio = { tag = FROM ratio > 1.2 }}}
+		
+		FROM = {country_event = {id = demand_event.2 days = 1} 
+			add_named_threat = {
+				threat = 0.1
+				name = "Demands Refused"}
+				add_opinion_modifier = {target = ROOT modifier = sent_demands}}
+			ROOT = { add_war_support = 0.05}
+		}
+		option = { #Designed to add randomness
+			name = demand_event.101.c
+		
+			ai_chance = {
+			factor = 1
+			
+			modifier = {
+			factor = 1000
+			ROOT = {is_ai = yes}
+			}
+			}
+			FROM = { add_political_power = 50}
+		}
+		}
+
+country_event = {
+	id = demand_event.1
+	title = demand_event.1.t
+	desc = demand_event.1.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+	hidden = no
+	
+	option = { #give it up
+	name = demand_event.1.a
+	ai_chance = {
+		factor = 10
+		modifier = {
+			factor = 2
+			strength_ratio = {tag = FROM ratio < 0.75}
+	}
+		modifier = {
+			factor = 2
+			strength_ratio = { tag = FROM ratio < 0.5}
+		}
+	
+		modifier = {
+		factor = 3
+		strength_ratio = { tag = FROM ratio < 0.25}
+		}
+		
+		modifier = {
+		factor = 2
+		has_war = yes
+		}
+			
+		modifier = {
+		factor = 2
+		NOT = {FROM:var_name = { is_core_of = ROOT}} 
+		}
+			
+		}
+	
+	From = {transfer_state = Root.var_name
+		add_named_threat = {
+		threat = 3
+		name = "Forcefully Took A State"			
+	}
+	}
+	THIS = {add_stability = -0.02
+		add_war_support = -0.02}	
+		news_event  = {id = demand_event.3
+				days = 3
+				random = 5}}
+	option = {
+	name = demand_event.1.b
+		
+		ai_chance = {
+		factor = 40
+		
+		modifier = {
+		factor = 3
+		NOT = {FROM = { is_neighbor_of = ROOT}}}
+		
+		modifier = {
+		factor = 2
+		FROM = {has_war = yes}}
+		
+		modifier = {
+		factor = 2
+		strength_ratio = { tag = FROM ratio > 0.9 }}
+		
+		modifier = {
+		factor = 5
+		strength_ratio = { tag = FROM ratio > 1.2 }}}
+		
+		From.owner = {country_event = {id = demand_event.2  days = 1}
+		add_named_threat = {
+				threat = 0.1
+				name = "Demands Refused"}}
+		ROOT = { add_war_support = 0.05}
+		}
+		}
+country_event = {
+	id = demand_event.2
+	title = demand_event.2.t
+	desc = demand_event.2.d
+	picture = GFX_report_event_chinese_army_training
+	is_triggered_only = yes
+	hidden = no
+	
+	option = {# Danzig or war?
+	name = demand_event.2.a
+	
+	ROOT = {create_wargoal = {
+			type = annex_everything
+			target = FROM}
+			add_political_power = -50}
+			IF = {
+			LIMIT = { FROM = { is_ai = yes}}
+			hidden_effect = {
+			FROM = { add_timed_idea = { idea = preparewar days = 10}}
+			}
+			}
+			}
+	
+	option = { #Wimp out of it
+	name = demand_event.2.b
+	
+	ROOT = {add_political_power = -10	
+	add_stability = -0.05
+	add_war_support = -0.05
+	add_state_claim = From.var_name}}
+	}
+
+	news_event = {
+	id = demand_event.3
+	title = demand_event.3.t
+	desc = demand_event.3.d
+	picture = GFX_news_event_journalists_speech
+	major = yes
+	
+	is_triggered_only = yes
+
+	hidden = no
+
+	fire_only_once = no
+
+	option = {
+	name = demand_event.3.a
+	}
+	}
+	
+	country_event = { 
+	id = demand_event.4
+	title = demand_event.4.t
+	desc = demand_event.4.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+	hidden = no
+	
+	option = {
+	name = demand_event.4.a
+	
+	
+	ai_chance = { # Become puppet
+		factor = 5
+		modifier = {
+		factor = 2
+		FROM = {is_major = yes}
+		}
+		modifier = {
+		factor = 2 
+		strength_ratio = { tag = FROM ratio < 0.5}
+		}
+		modifier = {
+		factor = 3
+		strength_ratio = { tag = FROM ratio < 0.25}
+		}
+		
+		modifier = {
+			factor = 2
+			has_war = yes
+			}
+	}
+	
+	FROM = { puppet = ROOT
+	add_named_threat = {
+		threat = 5
+		name = "Forcefully Puppeted Another Nation"			
+	}
+	}
+		
+	THIS = {add_stability = -0.1
+			news_event  = {id = demand_event.6
+				days = 3
+				random = 5}}
+	}
+	
+	option = { # Dosnt become a puppet
+	name = demand_event.4.b
+	
+	ai_chance = {
+	factor = 40
+	modifier = {
+	factor = 2
+	ROOT = {is_major = yes}
+	}
+	modifier = {
+	factor = 3
+	NOT = {FROM = { is_neighbor_of = ROOT}}
+	}
+	modifier = {
+	factor = 5
+	strength_ratio = { tag = FROM ratio > 1.2 }
+	}
+	
+	modifier = {
+			factor = 2
+			THIS = {has_war = yes}
+			}
+	
+	}
+	
+	This = {add_war_support = +0.05}
+	
+	FROM = {country_event = {id = demand_event.5 days = 1 }
+	}
+	}
+	}
+	
+	country_event = {
+	id = demand_event.5
+	title = demand_event.5.t
+	desc = demand_event.5.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+	hidden = no
+	
+	option = {#Puppet or war!
+	name = demand_event.5.a
+	
+	ROOT = {create_wargoal = {
+			type = puppet_wargoal_focus
+			target = FROM}	
+			add_political_power = -50}}
+	option = {
+		name = demand_event.5.b
+		add_political_power = -10
+		add_stability = -0.05
+		add_war_support = -0.05}
+	}
+	
+	news_event = {
+	id = demand_event.6
+	title = demand_event.6.t
+	desc = demand_event.6.d
+	picture = GFX_news_event_journalists_speech
+	is_triggered_only = yes
+	hidden = no
+	major = yes
+	
+	option = {
+	name = demand_event.6.a
+	}
+	}
+	
+	country_event = {# Give Something
+	id = demand_event.7
+	title = demand_event.7.t
+	desc = demand_event.7.d
+	picture = GFX_report_event_finnish_letter
+	is_triggered_only = yes
+	hidden = no
+	
+	option = {
+	ai_chance = {
+	factor = 40}
+	
+	name = demand_event.7.a
+	From = {country_event = {id = demand_event.8 days = 1}}
+	}
+	
+	option = {
+	
+	ai_chance = {
+	factor = 40}
+	
+	name = demand_event.7.b
+	From = {country_event = {id = demand_event.9 days = 1}}
+	}
+	
+	option = {
+	
+	ai_chance = {
+	factor = 40}
+	
+	name = demand_event.7.c
+	From = {country_event = {id = demand_event.10 days = 1}}
+	}
+	
+	option = {
+	
+	ai_chance = {
+	factor = 20
+	modifier = {
+		factor = 2
+		NOT = {ROOT = { is_neighbor_of = FROM.owner}}}
+	modifier = {
+	factor = 5
+	ROOT = {is_major = yes}}
+	}
+	
+	name = demand_event.7.e
+	From = {country_event = {id = demand_event.11 days = 1}}
+	}
+	}
+	country_event = {#getting equipment buff
+	id = demand_event.8
+	title = demand_event.8.t
+	desc = demand_event.8.d
+	picture = GFX_report_event_physics_lab_01
+	is_triggered_only = yes
+	hidden = no
+	
+	option = {
+	name = demand_event.8.a
+	
+	ROOT = {add_timed_idea = { idea = Foreign_Equipment_Production days = 180}
+		set_variable = {EqipDude = From.id}
+		add_opinion_modifier = {target = FROM modifier = gave_in}}
+	
+	FROM = {add_timed_idea = { idea = Leasing_Equipment_Production days = 180}
+	set_variable = {EquipDudeGiv = ROOT.id}}
+	}
+	
+	option = {
+	name = demand_event.8.b
+	add_political_power = -25}
+	}
+	
+	country_event = {#getting reserch buff
+	id = demand_event.9
+	title = demand_event.9.t
+	desc = demand_event.9.d
+	picture = GFX_report_event_physics_lab_01
+	is_triggered_only = yes
+	hidden = no
+	
+	option = {
+	name = demand_event.8.a
+	ROOT = {add_timed_idea = { idea = Foreign_Scientist days = 180}
+	set_variable = {SciDude = From.id}
+	add_opinion_modifier = {target = FROM modifier = gave_in}}
+	
+	FROM = {add_timed_idea = { idea = Leasing_Foreign_Scientist days = 180}
+	set_variable = {SciDudeGiv = ROOT.id}}
+	}
+	
+	option = { 
+	name = demand_event.8.b
+	add_political_power = -25
+	
+	}
+	}
+	country_event = {# getting diplomats
+	id = demand_event.10
+	title = demand_event.10.t
+	desc = demand_event.10.d
+	picture = GFX_report_event_molotov_ribentrop_handshake
+	is_triggered_only = yes
+	hidden = no
+	
+	option = {
+	name = demand_event.8.a
+	ROOT = {add_timed_idea = { idea = Foreign_Diplomats days = 180}
+	set_variable = {DipDude = From.id}
+	add_opinion_modifier = {target = FROM modifier = gave_in}}
+	
+	FROM = {add_timed_idea = { idea = Leasing_Foreign_Diplomats days = 180}
+	set_variable = {DipDudeGiv = ROOT.id}}
+	
+	}
+	option = {
+	name = demand_event.8.b
+	add_political_power = -25
+	}
+	}
+	
+	country_event = {#denies all options
+	id = demand_event.11
+	title = demand_event.11.t
+	desc = demand_event.11.d
+	picture = GFX_report_event_german_politician_speech
+	is_triggered_only = yes
+	hidden = no
+	
+	option  = {
+	name = demand_event.11.a
+	
+	ROOT = { add_opinion_modifier = {target = FROM modifier = denied_us}
+			add_opinion_modifier = {target = FROM modifier = insulted_us}}
+	}
+	option = {
+	name = demand_event.11.b
+	add_political_power = -10
+	}
+	}
+	
+	country_event = {
+	id = demand_event.12
+	title = demand_event.12.t
+	desc = demand_event.12.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+	hidden = no
+	
+	option = { #Demill
+	name = demand_event.12.a
+	ai_chance = {
+		factor = 10
+		modifier = {
+			factor = 2
+			strength_ratio = {tag = FROM ratio < 0.75}
+	}
+		modifier = {
+			factor = 2
+			strength_ratio = { tag = FROM ratio < 0.5}
+		}
+	
+		modifier = {
+			factor = 3
+			strength_ratio = { tag = FROM ratio < 0.25}
+			}
+			modifier = {
+			factor = 2
+			has_war = yes
+			}
+		}
+	
+	THIS = {add_stability = -0.02
+		add_war_support = -0.02}	
+		news_event  = {id = demand_event.14
+				days = 3
+				random = 5}
+				
+			FROM.FROM = {set_demilitarized_zone = yes}
+			ROOT = {
+				add_named_threat = {
+				threat = -4
+				name = "Demilitarized A State"}}
+				}
+	option = {
+	name = demand_event.12.b
+		
+		ai_chance = {
+		factor = 40
+		
+		modifier = {
+		factor = 3
+		NOT = {FROM = { is_neighbor_of = ROOT}}}
+		modifier = {
+		factor = 2
+		FROM = {has_war = yes}}
+		}
+		
+		From.owner = {country_event = {id = demand_event.13 days = 1}}
+		ROOT = { add_war_support = 0.05}
+		}
+		}
+		
+	country_event = {
+	id = demand_event.13
+	title = demand_event.13.t
+	desc = demand_event.13.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+	hidden = no
+	
+	option = {
+	name = demand_event.13.a
+	ROOT = { add_opinion_modifier = {target = FROM modifier = denied_us}
+			add_opinion_modifier = {target = FROM modifier = insulted_us}}
+			add_state_claim = FROM.var_name}
+			
+	option = {
+	name = demand_event.13.b
+	add_political_power = -25
+	}
+	}
+	
+	news_event = {# Demilliterizatoin
+	id = demand_event.14
+	title = demand_event.14.t
+	desc = demand_event.14.d
+	picture = GFX_news_event_journalists_speech
+	is_triggered_only = yes
+	hidden = no
+	major = yes
+	
+	option = {
+	name = demand_event.14.a
+	}
+	}

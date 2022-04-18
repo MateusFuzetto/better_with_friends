@@ -1,0 +1,6 @@
+﻿l_english: 
+ demand_state_tooltip:0 "§HDemand A State§!\nThis action costs 250 political power. This action is more successful if you are neighboring the country and/or are more powerful than them."
+ demand_puppet_tooltip:0 "§HDemand Vassalization§!\nThis action costs 300 political power. This action is more successful if you are neighboring the country and/or are more powerful than them. This action can only be done on countries that are at peace."
+ help_button_tooltip:0 "§MHelp§!\nPuppets can't use these options. Democracies can't use these options untill world tension is above 70%. You can only use the Demand Tribute button if you dont have a buff from it already active. You also can't demand from anyone you're in a faction with or have a non-agression pact with. You can only send one demand every 30 days."
+ demand_tribute_tooltip:0 "§HDemand Tribute§!\nThis action costs 50 political power. This action is more successful if you are neighboring the country and/or are more powerful than them."
+ demand_demill_tooltip:0 "§HDemand Demilitarization of a State§!\nThis action costs 150 political power. This action is more successful if you are neighboring the country and/or are more powerful than them. Along with this the country will be able to remilliterize this state once they're at war with another country."
