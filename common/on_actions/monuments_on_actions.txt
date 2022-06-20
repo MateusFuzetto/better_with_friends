@@ -41,54 +41,67 @@ on_actions = {
 					}
 					set_global_flag = monuments_game_rule_bonus_target_controller
 				}
-				# Game Rule: AI PP Threshold
+				# Game Rule: AI PP Cost Enabled/Disabled
 				if = {
 					limit = {
 						has_game_rule = {
-							rule = monuments_game_rule_ai_monuments_pp_threshold
-							option = MONUMENTS_GAME_RULE_AI_MONUMENTS_PP_THRESHOLD_100
+							rule = monuments_game_rule_costs_ai
+							option = disabled
 						}
 					}
-					set_variable = { global.ai_monuments_pp_threshold = 100 }
-				}
-				else_if = {
-					limit = {
-						has_game_rule = {
-							rule = monuments_game_rule_ai_monuments_pp_threshold
-							option = MONUMENTS_GAME_RULE_AI_MONUMENTS_PP_THRESHOLD_200
-						}
-					}
-					set_variable = { global.ai_monuments_pp_threshold = 200 }
-				}
-				else_if = {
-					limit = {
-						has_game_rule = {
-							rule = monuments_game_rule_ai_monuments_pp_threshold
-							option = MONUMENTS_GAME_RULE_AI_MONUMENTS_PP_THRESHOLD_300
-						}
-					}
-					set_variable = { global.ai_monuments_pp_threshold = 300 }
-				}
-				else_if = {
-					limit = {
-						has_game_rule = {
-							rule = monuments_game_rule_ai_monuments_pp_threshold
-							option = MONUMENTS_GAME_RULE_AI_MONUMENTS_PP_THRESHOLD_400
-						}
-					}
-					set_variable = { global.ai_monuments_pp_threshold = 400 }
-				}
-				else_if = {
-					limit = {
-						has_game_rule = {
-							rule = monuments_game_rule_ai_monuments_pp_threshold
-							option = MONUMENTS_GAME_RULE_AI_MONUMENTS_PP_THRESHOLD_500
-						}
-					}
-					set_variable = { global.ai_monuments_pp_threshold = 500 }
+					set_variable = { global.ai_monuments_pp_threshold = 0 }
+					set_global_flag = monuments_game_rule_no_pp_cost_ai
 				}
 				else = {
-					set_variable = { global.ai_monuments_pp_threshold = 300 }
+					# Game Rule: AI PP Threshold
+					if = {
+						limit = {
+							has_game_rule = {
+								rule = monuments_game_rule_ai_monuments_pp_threshold
+								option = MONUMENTS_GAME_RULE_AI_MONUMENTS_PP_THRESHOLD_100
+							}
+						}
+						set_variable = { global.ai_monuments_pp_threshold = 100 }
+					}
+					else_if = {
+						limit = {
+							has_game_rule = {
+								rule = monuments_game_rule_ai_monuments_pp_threshold
+								option = MONUMENTS_GAME_RULE_AI_MONUMENTS_PP_THRESHOLD_200
+							}
+						}
+						set_variable = { global.ai_monuments_pp_threshold = 200 }
+					}
+					else_if = {
+						limit = {
+							has_game_rule = {
+								rule = monuments_game_rule_ai_monuments_pp_threshold
+								option = MONUMENTS_GAME_RULE_AI_MONUMENTS_PP_THRESHOLD_300
+							}
+						}
+						set_variable = { global.ai_monuments_pp_threshold = 300 }
+					}
+					else_if = {
+						limit = {
+							has_game_rule = {
+								rule = monuments_game_rule_ai_monuments_pp_threshold
+								option = MONUMENTS_GAME_RULE_AI_MONUMENTS_PP_THRESHOLD_400
+							}
+						}
+						set_variable = { global.ai_monuments_pp_threshold = 400 }
+					}
+					else_if = {
+						limit = {
+							has_game_rule = {
+								rule = monuments_game_rule_ai_monuments_pp_threshold
+								option = MONUMENTS_GAME_RULE_AI_MONUMENTS_PP_THRESHOLD_500
+							}
+						}
+						set_variable = { global.ai_monuments_pp_threshold = 500 }
+					}
+					else = {
+						set_variable = { global.ai_monuments_pp_threshold = 300 }
+					}
 				}
 				# Set up Monuments
 				set_up_monuments_at_start_effect = yes
@@ -129,13 +142,14 @@ on_actions = {
 				clear_variable = political_power_gain_from_subjects_var
 				remove_dynamic_modifier = { modifier = political_power_gain_from_subjects_dynamic_modifier }
 			}
-		}
-	}
 
-	on_weekly_SOV = {
-		effect = {
 			# Communism Drift in Neighbors and Subjects
-			weekly_communism_drift_effect_from_monument = yes
+			if = {
+				limit = {
+					is_a_soviet_union_monument_country = yes
+				}
+				weekly_communism_drift_effect_from_monument = yes
+			}
 		}
 	}
 
@@ -644,16 +658,15 @@ on_actions = {
 		}
 	}
 
-	# ROOT declared war, FROM is the target
-	on_war = {
+	# ROOT is the attacker, FROM is the defender
+	on_war_relation_added = {
 		effect = {
 			if = {
 				limit = {
 					NOT = { has_global_flag = jap_has_declared_war_on_usa }
 					original_tag = JAP
-					any_other_country = {
+					FROM = {
 						original_tag = USA
-						has_defensive_war_with = PREV
 					}
 				}
 				set_global_flag = jap_has_declared_war_on_usa

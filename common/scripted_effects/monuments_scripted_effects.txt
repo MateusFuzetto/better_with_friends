@@ -75,6 +75,7 @@ cancel_monument_construction = {
 					NOT = { is_in_array = { monument_alert_popup_canceled_array = PREV.monument_construction_id } }
 				}
 				add_to_array = { monument_alert_popup_canceled_array = PREV.monument_construction_id }
+				update_monument_alert_popup_window = yes
 				scoped_sound_effect = "Resistance_Notifcation_Low_Resource_For_Laws"
 			}
 		}
@@ -205,6 +206,22 @@ upgrade_monument = {
 		}
 		add_to_temp_variable = { level = 1 }
 	}
+	set_temp_variable = { level_temp = level }
+	if = {
+		limit = {
+			check_variable = { level > 0 }
+		}
+		if = {
+			limit = {
+				check_variable = { level = 1 }
+			}
+			monument_on_build_effect = yes
+		}
+		else = {
+			monument_on_upgrade_effect = yes
+		}
+	}
+	set_temp_variable = { level = level_temp }
 	set_monument_level = yes
 	hidden_effect = {
 		ROOT = {
@@ -214,6 +231,7 @@ upgrade_monument = {
 					NOT = { is_in_array = { monument_alert_popup_built_array = monument_id } }
 				}
 				add_to_array = { monument_alert_popup_built_array = monument_id }
+				update_monument_alert_popup_window = yes
 				scoped_sound_effect = "complete_focus"
 			}
 			if = {
@@ -256,6 +274,7 @@ downgrade_monument = {
 						NOT = { is_in_array = { monument_alert_popup_downgrade_array = monument_id } }
 					}
 					add_to_array = { monument_alert_popup_downgrade_array = monument_id }
+					update_monument_alert_popup_window = yes
 					scoped_sound_effect = "Resistance_Notifcation_Low_Resource_For_Laws"
 				}
 			}
@@ -302,6 +321,7 @@ set_monument_effects = {
 			ID = "[?monument_id]"
 		}
 		set_temp_variable = { monument_state_temp = THIS.id }
+		set_temp_variable = { monument_id_temp = monument_id }
 		if = {
 			limit = {
 				set_scope_for_monument_bonus_receiver = yes
@@ -310,6 +330,7 @@ set_monument_effects = {
 				country_event = { id = monuments_events.1000 } # remove ideas and dynamic modifiers
 			}
 		}
+		set_temp_variable = { monument_id = monument_id_temp }
 		if = {
 			limit = {
 				can_use_monument_bonuses = yes
@@ -830,7 +851,7 @@ update_global_monuments_gui = {
 		}
 		if = {
 			limit = {
-				check_variable = { show_global_monuments_list_window > 9 }
+				check_variable = { show_global_monuments_list_window > 1000 }
 			}
 			set_variable = { show_global_monuments_list_window = 1 }
 		}
@@ -914,4 +935,94 @@ deactivate_monument_effect = {
 		ID = "[?monument_id]"
 	}
 	set_monument_effects = yes
+}
+
+# usage:
+## set_temp_variable = { monument_id = 1 }
+## monument_on_build_effect = yes
+monument_on_build_effect = {
+	if = {
+		limit = {
+			set_scope_for_monument_bonus_receiver = yes
+		}
+		if = {
+			limit = {
+				check_variable = { monument_id = 28 }
+			}
+			if = {
+				limit = {
+					NOT = { has_dlc = "Waking the Tiger" }
+				}
+				custom_effect_tooltip = MONUMENT_ON_BUILD_EFFECT_TT
+				set_province_name = { id = 6521 name = "Germania" }
+				set_state_flag = monument_on_build_effect_28
+			}
+		}
+
+		# Sub Mod Support
+		else = {
+			monument_on_build_effect_back_up = yes
+		}
+	}
+}
+
+# usage:
+## set_temp_variable = { monument_id = 1 }
+## set_temp_variable = { level = 1 }
+## monument_on_upgrade_effect = yes
+monument_on_upgrade_effect = {
+	if = {
+		limit = {
+			set_scope_for_monument_bonus_receiver = yes
+		}
+		if = {
+			limit = {
+				check_variable = { monument_id = 28 }
+			}
+			if = {
+				limit = {
+					NOT = { has_dlc = "Waking the Tiger" }
+					NOT = { has_state_flag = monument_on_build_effect_28 }
+				}
+				custom_effect_tooltip = MONUMENT_ON_UPGRADE_EFFECT_TT
+				set_province_name = { id = 6521 name = "Germania" }
+				set_state_flag = monument_on_build_effect_28
+			}
+		}
+
+		# Sub Mod Support
+		else = {
+			monument_on_upgrade_effect_back_up = yes
+		}
+	}
+}
+
+# usage:
+## update_monument_alert_popup_window = yes
+update_monument_alert_popup_window = {
+	if = {
+		limit = {
+			is_ai = no
+			OR = {
+				check_variable = { monument_alert_popup_built_array^num > 0 }
+				check_variable = { monument_alert_popup_canceled_array^num > 0 }
+				check_variable = { monument_alert_popup_downgrade_array^num > 0 }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { has_variable = show_monument_alert_popup_window }
+					check_variable = { show_monument_alert_popup_window > 1000 }
+				}
+			}
+			set_variable = { show_monument_alert_popup_window = 1 }
+		}
+		else = {
+			add_to_variable = { show_monument_alert_popup_window = 1 }
+		}
+	}
+	else = {
+		clear_variable = show_monument_alert_popup_window
+	}
 }

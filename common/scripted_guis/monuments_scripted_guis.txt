@@ -176,6 +176,32 @@ scripted_gui = {
 					update_global_monuments_gui = yes
 				}
 			}
+
+			get_upgrade_effects_click = {
+				set_temp_variable = { monument_id = v }
+				meta_effect = {
+					text = {
+						set_temp_variable = { level = monument_[ID]_level }
+					}
+					ID = "[?monument_id]"
+				}
+				add_to_temp_variable = { level = 1 }
+				effect_tooltip = {
+					if = {
+						limit = {
+							check_variable = { level = 1 }
+						}
+						monument_on_build_effect = yes
+					}
+					else_if = {
+						limit = {
+							NOT = { check_variable = { level > 3 } }
+						}
+						monument_on_upgrade_effect = yes
+					}
+				}
+				set_temp_variable = { level = 0 }
+			}
 		}
 
 		triggers = {
@@ -231,6 +257,11 @@ scripted_gui = {
 				}
 				set_temp_variable = { monument_id = v }
 				can_use_monument_bonuses = yes
+			}
+			get_upgrade_effects_visible = {
+				hidden_trigger = {
+					always = no
+				}
 			}
 			monument_icon_click_enabled = {
 				set_temp_variable = { monument_id = v }
@@ -386,9 +417,19 @@ scripted_gui = {
 				set_temp_variable = { monument_id = v }
 				can_use_monument_bonuses = yes
 			}
+			monument_icon_frame_click_enabled = {
+				set_temp_variable = { monument_id = v }
+				set_temp_variable = { level = 1 }
+				has_at_least_monument_level = yes
+			}
 			monument_icon_frame_disabled_visible = {
 				set_temp_variable = { monument_id = v }
 				NOT = { can_use_monument_bonuses = yes }
+			}
+			monument_icon_frame_disabled_click_enabled = {
+				set_temp_variable = { monument_id = v }
+				set_temp_variable = { level = 1 }
+				has_at_least_monument_level = yes
 			}
 		}
 
@@ -417,6 +458,11 @@ scripted_gui = {
 						ai_will_do = {
 							base = 0
 							modifier = {
+								set_temp_variable = { monument_id = v }
+								AI_wants_to_upgrade_monument = yes
+								add = ai_monument_score
+							}
+							modifier = {
 								factor = 0
 								ROOT = {
 									NOT = { AI_has_required_amount_of_PP_for_monuments = yes }
@@ -440,16 +486,16 @@ scripted_gui = {
 									NOT = { monument_build_trigger = yes }
 								}
 							}
-							modifier = {
-								set_temp_variable = { monument_id = v }
-								AI_wants_to_upgrade_monument = yes
-								add = ai_monument_score
-							}
 						}
 					}
 					upgrade_button_click = {
 						ai_will_do = {
 							base = 0
+							modifier = {
+								set_temp_variable = { monument_id = v }
+								AI_wants_to_upgrade_monument = yes
+								add = ai_monument_score
+							}
 							modifier = {
 								factor = 0
 								ROOT = {
@@ -473,11 +519,6 @@ scripted_gui = {
 									NOT = { monument_upgrade_potential_trigger = yes }
 									NOT = { monument_upgrade_trigger = yes }
 								}
-							}
-							modifier = {
-								set_temp_variable = { monument_id = v }
-								AI_wants_to_upgrade_monument = yes
-								add = ai_monument_score
 							}
 						}
 					}
@@ -538,7 +579,7 @@ scripted_gui = {
 			}
 		}
 
-		ai_max_weight_taken_per_test = 5
+		ai_max_weight_taken_per_test = 10
 	}
 
 	monument_confirm_popup_window = {
@@ -675,6 +716,8 @@ scripted_gui = {
 
 		window_name = "open_global_monuments_list_window"
 		parent_window_token = top_bar
+
+		dirty = show_global_monuments_list_window
 
 		visible = {
 			is_ai = no
@@ -1010,6 +1053,32 @@ scripted_gui = {
 					update_global_monuments_gui = yes
 				}
 			}
+
+			get_upgrade_effects_click = {
+				set_temp_variable = { monument_id = v }
+				meta_effect = {
+					text = {
+						set_temp_variable = { level = monument_[ID]_level }
+					}
+					ID = "[?monument_id]"
+				}
+				add_to_temp_variable = { level = 1 }
+				effect_tooltip = {
+					if = {
+						limit = {
+							check_variable = { level = 1 }
+						}
+						monument_on_build_effect = yes
+					}
+					else_if = {
+						limit = {
+							NOT = { check_variable = { level > 3 } }
+						}
+						monument_on_upgrade_effect = yes
+					}
+				}
+				set_temp_variable = { level = 0 }
+			}
 		}
 
 		triggers = {
@@ -1175,6 +1244,11 @@ scripted_gui = {
 				}
 				set_temp_variable = { monument_id = v }
 				can_use_monument_bonuses = yes
+			}
+			get_upgrade_effects_visible = {
+				hidden_trigger = {
+					always = no
+				}
 			}
 			monument_icon_click_enabled = {
 				set_temp_variable = { monument_id = v }
@@ -1382,9 +1456,19 @@ scripted_gui = {
 				set_temp_variable = { monument_id = v }
 				can_use_monument_bonuses = yes
 			}
+			monument_icon_frame_click_enabled = {
+				set_temp_variable = { monument_id = v }
+				set_temp_variable = { level = 1 }
+				has_at_least_monument_level = yes
+			}
 			monument_icon_frame_disabled_visible = {
 				set_temp_variable = { monument_id = v }
 				NOT = { can_use_monument_bonuses = yes }
+			}
+			monument_icon_frame_disabled_click_enabled = {
+				set_temp_variable = { monument_id = v }
+				set_temp_variable = { level = 1 }
+				has_at_least_monument_level = yes
 			}
 		}
 
@@ -1455,6 +1539,8 @@ scripted_gui = {
 		window_name = "global_monuments_country_selection_window"
 		parent_window_name = "global_monuments_list_window_filters_anchor"
 
+		dirty = show_global_monuments_list_window
+
 		visible = {
 			is_ai = no
 			check_variable = { show_global_monuments_filter_selection_window = 1 }
@@ -1463,6 +1549,7 @@ scripted_gui = {
 		effects = {
 			close_button_click = {
 				clear_variable = show_global_monuments_filter_selection_window
+				update_global_monuments_gui = yes
 			}
 			entry_button_click = {
 				ROOT = {
@@ -1505,6 +1592,8 @@ scripted_gui = {
 		window_name = "global_monuments_continent_selection_window"
 		parent_window_name = "global_monuments_list_window_filters_anchor"
 
+		dirty = show_global_monuments_list_window
+
 		visible = {
 			is_ai = no
 			check_variable = { show_global_monuments_filter_selection_window = 4 }
@@ -1513,6 +1602,7 @@ scripted_gui = {
 		effects = {
 			close_button_click = {
 				clear_variable = show_global_monuments_filter_selection_window
+				update_global_monuments_gui = yes
 			}
 			all_button_click = {
 				if = {
@@ -1763,6 +1853,8 @@ scripted_gui = {
 		window_name = "global_monuments_type_selection_window"
 		parent_window_name = "global_monuments_list_window_filters_anchor"
 
+		dirty = show_global_monuments_list_window
+
 		visible = {
 			is_ai = no
 			check_variable = { show_global_monuments_filter_selection_window = 3 }
@@ -1771,6 +1863,7 @@ scripted_gui = {
 		effects = {
 			close_button_click = {
 				clear_variable = show_global_monuments_filter_selection_window
+				update_global_monuments_gui = yes
 			}
 			all_button_click = {
 				if = {
@@ -1877,6 +1970,8 @@ scripted_gui = {
 		window_name = "global_monuments_status_selection_window"
 		parent_window_name = "global_monuments_list_window_filters_anchor"
 
+		dirty = show_global_monuments_list_window
+
 		visible = {
 			is_ai = no
 			check_variable = { show_global_monuments_filter_selection_window = 2 }
@@ -1885,6 +1980,7 @@ scripted_gui = {
 		effects = {
 			close_button_click = {
 				clear_variable = show_global_monuments_filter_selection_window
+				update_global_monuments_gui = yes
 			}
 			all_button_click = {
 				if = {
@@ -1991,6 +2087,8 @@ scripted_gui = {
 		window_name = "global_monuments_level_selection_window"
 		parent_window_name = "global_monuments_list_window_filters_anchor"
 
+		dirty = show_global_monuments_list_window
+
 		visible = {
 			is_ai = no
 			check_variable = { show_global_monuments_filter_selection_window = 5 }
@@ -1999,6 +2097,7 @@ scripted_gui = {
 		effects = {
 			close_button_click = {
 				clear_variable = show_global_monuments_filter_selection_window
+				update_global_monuments_gui = yes
 			}
 			all_button_click = {
 				if = {
@@ -2165,6 +2264,8 @@ scripted_gui = {
 		window_name = "global_monuments_list_help_window"
 		parent_window_name = "global_monuments_list_window"
 
+		dirty = show_global_monuments_list_window
+
 		visible = {
 			has_variable = show_global_monuments_list_help_window
 		}
@@ -2172,6 +2273,7 @@ scripted_gui = {
 		effects = {
 			close_button_click = {
 				clear_variable = show_global_monuments_list_help_window
+				update_global_monuments_gui = yes
 			}
 		}
 
@@ -2185,8 +2287,11 @@ scripted_gui = {
 
 		window_name = "monument_alert_popup_window"
 
+		dirty = show_monument_alert_popup_window
+
 		visible = {
 			is_ai = no
+			has_variable = show_monument_alert_popup_window
 			OR = {
 				check_variable = { monument_alert_popup_built_array^num > 0 }
 				check_variable = { monument_alert_popup_canceled_array^num > 0 }
@@ -2226,6 +2331,7 @@ scripted_gui = {
 					}
 					remove_from_array = { monument_alert_popup_downgrade_array = monument_id }
 				}
+				update_monument_alert_popup_window = yes
 			}
 			ok_button_click = {
 				set_temp_variable = { monument_id = v }
@@ -2247,6 +2353,7 @@ scripted_gui = {
 					}
 					remove_from_array = { monument_alert_popup_downgrade_array = monument_id }
 				}
+				update_monument_alert_popup_window = yes
 			}
 		}
 

@@ -56,9 +56,9 @@
  MONUMENT_11_LEVEL_3_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $acclimatization_cold_climate_gain_factor$: §G+30.00%§! \n   $justify_war_goal_time$: §G-15.00%§! \n   $max_command_power$: §G+25.00§!"
 
  MONUMENT_12_LEVEL_0_BONUS: "$MONUMENT_BONUS_NONE$"
- MONUMENT_12_LEVEL_1_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $stability_factor$: §G+5.00%§!"
- MONUMENT_12_LEVEL_2_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $stability_factor$: §G+5.00%§! \n   $army_core_defence_factor$: §G+5.00%§!"
- MONUMENT_12_LEVEL_3_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $stability_factor$: §G+10.00%§! \n   $army_core_defence_factor$: §G+10.00%§! \n   $puppet_cost_factor$: §G-25.00%§!"
+ MONUMENT_12_LEVEL_1_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $party_popularity_stability_factor$: §G+5.00%§!"
+ MONUMENT_12_LEVEL_2_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $party_popularity_stability_factor$: §G+5.00%§! \n   $army_core_defence_factor$: §G+5.00%§!"
+ MONUMENT_12_LEVEL_3_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $party_popularity_stability_factor$: §G+10.00%§! \n   $army_core_defence_factor$: §G+10.00%§! \n   $puppet_cost_factor$: §G-25.00%§!"
 
  MONUMENT_13_LEVEL_0_BONUS: "$MONUMENT_BONUS_NONE$"
  MONUMENT_13_LEVEL_1_BONUS: "$MONUMENT_STATE_BONUS$ \n   $state_production_speed_dockyard_factor$: §G+10.00%§!"
@@ -692,8 +692,8 @@
 
  MONUMENT_139_LEVEL_0_BONUS: "$MONUMENT_BONUS_NONE$"
  MONUMENT_139_LEVEL_1_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $political_power_factor$: §G+5.00%§!"
- MONUMENT_139_LEVEL_2_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $political_power_factor$: §G+10.00%§! \n   $fascism_drift$: §G+0.05§!"
- MONUMENT_139_LEVEL_3_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $political_power_factor$: §G+15.00%§! \n   $fascism_drift$: §G+0.10§! \n   $stability_factor$: §G+5.00%§!"
+ MONUMENT_139_LEVEL_2_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $political_power_factor$: §G+10.00%§! \n   $democratic_drift$: §G-0.05§! \n   $communism_drift$: §G-0.05§!"
+ MONUMENT_139_LEVEL_3_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $political_power_factor$: §G+15.00%§! \n   $democratic_drift$: §G-0.10§! \n   $communism_drift$: §G-0.10§! \n   $stability_factor$: §G+5.00%§!"
 
  MONUMENT_140_LEVEL_0_BONUS: "$MONUMENT_BONUS_NONE$"
  MONUMENT_140_LEVEL_1_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $consumer_goods_factor$: §G-1.00%§!"
@@ -874,3 +874,33 @@
  MONUMENT_175_LEVEL_1_BONUS: "$MONUMENT_STATE_BONUS$ \n   $local_building_slots$: §G+1§!"
  MONUMENT_175_LEVEL_2_BONUS: "$MONUMENT_STATE_BONUS$ \n   $local_building_slots$: §G+3§! \n\n$MONUMENT_COUNTRY_BONUS$ \n   $consumer_goods_factor$: §G-1.00%§!"
  MONUMENT_175_LEVEL_3_BONUS: "$MONUMENT_STATE_BONUS$ \n   $local_building_slots$: §G+5§! \n\n$MONUMENT_COUNTRY_BONUS$ \n   $consumer_goods_factor$: §G-2.00%§! \n   $resistance_growth$: §G-5.00%§!"
+
+ MONUMENT_176_LEVEL_0_BONUS: "$MONUMENT_BONUS_NONE$"
+ MONUMENT_176_LEVEL_1_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $opinion_gain_monthly_factor$: §G+10.00%§!"
+ MONUMENT_176_LEVEL_2_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $opinion_gain_monthly_factor$: §G+15.00%§! \n   $resistance_damage_to_garrison_on_our_occupied_states$: §G+10.00%§!"
+ MONUMENT_176_LEVEL_3_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $opinion_gain_monthly_factor$: §G+20.00%§! \n   $resistance_damage_to_garrison_on_our_occupied_states$: §G+15.00%§! \n   $party_popularity_stability_factor$: §G+5.00%§!"
+
+ MONUMENT_177_LEVEL_0_BONUS: "$MONUMENT_BONUS_NONE$"
+ MONUMENT_177_LEVEL_1_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $political_advisor_cost_factor$: §G-10.00%§!"
+ MONUMENT_177_LEVEL_2_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $political_advisor_cost_factor$: §G-15.00%§! \n   $resistance_decay$: §G+10.00%§!"
+ MONUMENT_177_LEVEL_3_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $political_advisor_cost_factor$: §G-20.00%§! \n   $resistance_decay$: §G+25.00%§! \n   $surrender_limit$: §G+10.00%§!"
+
+ MONUMENT_178_LEVEL_0_BONUS: "$MONUMENT_BONUS_NONE$"
+ MONUMENT_178_LEVEL_1_BONUS: "$MONUMENT_STATE_BONUS$ \n   $local_building_slots$: §G+1§!"
+ MONUMENT_178_LEVEL_2_BONUS: "$MONUMENT_STATE_BONUS$ \n   $local_building_slots$: §G+3§! \n\n$MONUMENT_COUNTRY_BONUS$ \n   $production_speed_infrastructure_factor$: §G+5.00%§! \n   $production_speed_rail_way_factor$: §G+5.00%§!"
+ MONUMENT_178_LEVEL_3_BONUS: "$MONUMENT_STATE_BONUS$ \n   $local_building_slots$: §G+5§! \n\n$MONUMENT_COUNTRY_BONUS$ \n   $production_speed_infrastructure_factor$: §G+10.00%§! \n   $production_speed_rail_way_factor$: §G+10.00%§! \n   $terrain_penalty_reduction$: §G+10.00%§!"
+
+ MONUMENT_179_LEVEL_0_BONUS: "$MONUMENT_BONUS_NONE$"
+ MONUMENT_179_LEVEL_1_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $democratic_drift$: §G+0.03§!"
+ MONUMENT_179_LEVEL_2_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $democratic_drift$: §G+0.05§! \n   $stability_weekly$: §G+0.10%§!"
+ MONUMENT_179_LEVEL_3_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $democratic_drift$: §G+0.10§! \n   $stability_weekly$: §G+0.10%§!\n   $can_only_justify_war_on_threat_country$: §G$YES$§!"
+
+ MONUMENT_180_LEVEL_0_BONUS: "$MONUMENT_BONUS_NONE$"
+ MONUMENT_180_LEVEL_1_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $consumer_goods_factor$: §G-1.00%§!"
+ MONUMENT_180_LEVEL_2_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $consumer_goods_factor$: §G-2.00%§! \n   $political_power_factor$: §G+10.00%§!"
+ MONUMENT_180_LEVEL_3_BONUS: "$MONUMENT_COUNTRY_BONUS$ \n   $consumer_goods_factor$: §G-3.00%§! \n   $political_power_factor$: §G+15.00%§! \n   $stability_factor$: §G+5.00%§!"
+
+ MONUMENT_181_LEVEL_0_BONUS: "$MONUMENT_BONUS_NONE$"
+ MONUMENT_181_LEVEL_1_BONUS: "$MONUMENT_STATE_BONUS$ \n   $state_production_speed_buildings_factor$: §G+5.00%§!"
+ MONUMENT_181_LEVEL_2_BONUS: "$MONUMENT_STATE_BONUS$ \n   $state_production_speed_buildings_factor$: §G+10.00%§! \n\n$MONUMENT_COUNTRY_BONUS$ \n   $out_of_supply_factor$: §G-5.00%§!"
+ MONUMENT_181_LEVEL_3_BONUS: "$MONUMENT_STATE_BONUS$ \n   $state_production_speed_buildings_factor$: §G+15.00%§! \n\n$MONUMENT_COUNTRY_BONUS$ \n   $out_of_supply_factor$: §G-10.00%§! \n   $surrender_limit$: §G+10.00%§!"

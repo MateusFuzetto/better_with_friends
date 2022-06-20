@@ -44,8 +44,13 @@ is_a_christian_monument_country = {
 			monument_ideology_trigger_democratic = yes
 		}
 	}
-	NOT = { monument_ideology_trigger_communism = yes }
-	NOT = { monument_ideology_trigger_fascism = yes }
+	if = {
+		limit = {
+			NOT = { check_variable = { ignore_ideologies = 1 } }
+		}
+		NOT = { monument_ideology_trigger_communism = yes }
+		NOT = { monument_ideology_trigger_fascism = yes }
+	}
 }
 
 # usage:

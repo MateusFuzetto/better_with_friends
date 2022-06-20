@@ -529,3 +529,22 @@
 
  MONUMENT_175_NAME: "Kathedrale von Santiago de Compostela"
  MONUMENT_175_DESC: "Die §Y$MONUMENT_175_NAME$§! ist die berühmte Grabstätte des Heiligen Jakobus, eines der Apostel Jesu Christi. Sie ist auch eine der wenigen verbliebenen Kirchen der Welt, die über dem Grab eines Apostels errichtet wurden. Sie ist seit dem frühen Mittelalter ein historischer Wallfahrtsort auf dem Jakobsweg und markiert den traditionellen Abschluss des Pilgerweges. Das Gebäude ist ein romanischer Bau mit späteren gotischen und barocken Ergänzungen."
+
+ MONUMENT_176_NAME: "Kölner Dom"
+ MONUMENT_176_DESC: "Der §Y$MONUMENT_176_NAME$§! ist eine katholische Kathedrale in $VICTORY_POINTS_587$ in [This.GetName]. Mit 157 Metern derzeit die höchste Doppelturmkirche der Welt, ist er ein bekanntes Denkmal des deutschen Katholizismus und der gotischen Architektur. Er ist Sitz des Erzbischofs von Köln und der Verwaltung des Erzbistums Köln. Der Bau des §Y$MONUMENT_176_NAME$s§! begann im Jahr 1248, wurde aber in der Zeit um 1560 unvollendet eingestellt. Die Arbeiten wurden erst in den 1840er Jahren wieder aufgenommen und das Gebäude wurde 1880 gemäß seinem ursprünglichen mittelalterlichen Plan fertiggestellt."
+
+ MONUMENT_177_NAME: "Kreml"
+ MONUMENT_177_DESC: "Der §Y$MONUMENT_177_NAME$§! ist ein befestigter Komplex im Zentrum von $VICTORY_POINTS_6380$, der von der russischen Herrscherdynastie der Rurikiden erbaut wurde. Innerhalb dieses Komplexes befindet sich der Große Kremlpalast, der früher die Moskauer Residenz des Zaren war. Der Komplex dient heute als offizielle Residenz des politischen Führers."
+
+ MONUMENT_178_NAME: "Metéora-Klöster"
+ MONUMENT_178_DESC: "Die §Y$MONUMENT_178_NAME$§! sind eine Gruppe griechisch-orthodoxer Klöster auf den §YFelsen von Meteora§!, einer Felsformation in [This.GetName]. Auf ihrem Höhepunkt im 16. Jahrhundert gab es 24 Klöster, heute sind noch 6 in Betrieb, während der Rest größtenteils verfallen ist. Ein Großteil der Architektur der §Y$MONUMENT_178_NAME$§! ist athonitischen Ursprungs. Sie thronen auf hohen Klippen und sind jetzt über Treppen und Wege zugänglich, die in den 1920er Jahren in die Felsformationen gehauen wurden."
+
+ MONUMENT_179_NAME: "Hauptquartier der Vereinten Nationen"
+ MONUMENT_179_DESC: "Das §Y$MONUMENT_179_NAME$§! ist ein Gebäudekomplex, der von einem Architektenrat unter der Leitung von Wallace Harrison entworfen wurde, wobei die endgültigen Projekte von Oscar Niemeyer und Le Corbusier entwickelt wurden. Der Komplex dient seit seiner Fertigstellung im Jahr 1951 als offizielles Hauptquartier der §YVereinten Nationen§!. Das §Y$MONUMENT_179_NAME$§! beherbergt die Sitze der Hauptorgane der §YVereinten Nationen§!, einschließlich der §YGeneralversammlung§! und des §YSicherheitsrats§!."
+
+ MONUMENT_180_NAME: "Dom zu Uppsala"
+ MONUMENT_180_NAME_GEN: "Doms zu Uppsala"
+ MONUMENT_180_DESC: "Der §Y$MONUMENT_180_NAME$§! ist eine Kathedrale im Zentrum von Uppsala, [This.GetName]. Als eine Kirche, die der lutherischen schwedischen Landeskirche angehört, ist der §Y$MONUMENT_180_NAME$§! der Sitz des Erzbischofs von Uppsala, des Primas von Schweden. Zudem ist er die Grabkirche König Eriks IX. (ca. 1120–1160, Regierungszeit 1156–1160), der zum Schutzheiligen des Landes wurde, und der traditionelle Krönungsort der neuen Könige von Schweden. Der Bau des §Y$MONUMENT_180_NAME_GEN$§!, der mit einer Höhe von 118,7 Metern die höchste Kirche in den nordischen Ländern ist, begann im späten 13. Jahrhundert."
+
+ MONUMENT_181_NAME: "Pestsäule"
+ MONUMENT_181_DESC: "Die §Y$MONUMENT_181_NAME$§! ist ein Denkmal auf dem Hauptplatz der Stadt Maribor, [This.GetName], das von "frommen Bürgern" aus Dankbarkeit für das Ende der Pestepidemie von 1680 errichtet wurde, die ein Drittel der Stadtbevölkerung dahingerafft hatte. Das ursprüngliche Denkmal wurde 1681 errichtet, das jetzige ist ein Nachbau aus dem Jahr 1743. Die §Y$MONUMENT_181_NAME$§! ist vollständig aus weißem Marmor gefertigt und besteht aus einem verzierten rechteckigen Sockel, der eine korinthische Säule trägt, auf der eine vergoldete Statue der Jungfrau Maria thront, die auf einem Mond steht und mit zwölf Sternen gekrönt ist. An ihrer Basis ist die Säule von Statuen von sechs Heiligen umgeben."

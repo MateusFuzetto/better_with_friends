@@ -47,7 +47,7 @@ can_use_monument_bonuses_back_up = {
 
 calculate_monument_construction_cost_back_up = {
 #	check for variable "monument_id" for the specific monument ID
-#	multiply the temp variable "monument_construction_cost_temp" depending on monument ID
+#	add to the temp variable "monument_construction_cost_temp" depending on monument ID
 #	to make specific monuments cheaper or more expensive
 #	if you don't want specific cost changes for a monument, do not include it in here
 #	example:
@@ -55,7 +55,7 @@ calculate_monument_construction_cost_back_up = {
 #		limit = {
 #			check_variable = { monument_id = 1 }
 #		}
-#		multiply_temp_variable = { monument_construction_cost_temp = 1.25 }
+#		add_to_temp_variable = { monument_construction_cost_temp = 10 }
 #	}
 #	use if else_if chains for performance reasons
 
@@ -63,7 +63,7 @@ calculate_monument_construction_cost_back_up = {
 
 calculate_monument_construction_time_back_up = {
 #	check for variable "monument_id" for the specific monument ID
-#	multiply the temp variable "monument_construction_time_temp" depending on monument ID
+#	add to the temp variable "monument_construction_time_temp" depending on monument ID
 #	to make specific monuments faster or slower to upgrade/build
 #	if you don't want specific time changes for a monument, do not include it in here
 #	example:
@@ -71,7 +71,7 @@ calculate_monument_construction_time_back_up = {
 #		limit = {
 #			check_variable = { monument_id = 1 }
 #		}
-#		multiply_temp_variable = { monument_construction_time_temp = 1.25 }
+#		add_to_temp_variable = { monument_construction_time_temp = 10 }
 #	}
 #	use if else_if chains for performance reasons
 

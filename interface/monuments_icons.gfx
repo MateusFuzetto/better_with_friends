@@ -708,4 +708,28 @@ spriteTypes = {
 		name = "GFX_monument_santiago_de_compostela_cathedral"
 		textureFile = "gfx/interface/monuments/santiago_de_compostela_cathedral.dds"
 	}
+	spriteType = {
+		name = "GFX_monument_cologne_cathedral"
+		textureFile = "gfx/interface/monuments/cologne_cathedral.dds"
+	}
+	spriteType = {
+		name = "GFX_monument_kremlin"
+		textureFile = "gfx/interface/monuments/kremlin.dds"
+	}
+	spriteType = {
+		name = "GFX_monument_monasteries_of_meteora"
+		textureFile = "gfx/interface/monuments/monasteries_of_meteora.dds"
+	}
+	spriteType = {
+		name = "GFX_monument_headquarters_of_the_united_nations"
+		textureFile = "gfx/interface/monuments/headquarters_of_the_united_nations.dds"
+	}
+	spriteType = {
+		name = "GFX_monument_uppsala_cathedral"
+		textureFile = "gfx/interface/monuments/uppsala_cathedral.dds"
+	}
+	spriteType = {
+		name = "GFX_monument_plague_column"
+		textureFile = "gfx/interface/monuments/plague_column.dds"
+	}
 }

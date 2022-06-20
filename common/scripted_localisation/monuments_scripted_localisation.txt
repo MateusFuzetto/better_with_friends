@@ -1063,6 +1063,42 @@ defined_text = {
 		}
 		localization_key = "GFX_monument_santiago_de_compostela_cathedral"
 	}
+	text = {
+		trigger = {
+			check_variable = { v = 176 }
+		}
+		localization_key = "GFX_monument_cologne_cathedral"
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 177 }
+		}
+		localization_key = "GFX_monument_kremlin"
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 178 }
+		}
+		localization_key = "GFX_monument_monasteries_of_meteora"
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 179 }
+		}
+		localization_key = "GFX_monument_headquarters_of_the_united_nations"
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 180 }
+		}
+		localization_key = "GFX_monument_uppsala_cathedral"
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 181 }
+		}
+		localization_key = "GFX_monument_plague_column"
+	}
 
 	text = {
 		trigger = {
@@ -2181,6 +2217,66 @@ defined_text = {
 		}
 		localization_key = MONUMENT_179_NAME
 	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 180 }
+		}
+		localization_key = MONUMENT_180_NAME
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 181 }
+		}
+		localization_key = MONUMENT_181_NAME
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 182 }
+		}
+		localization_key = MONUMENT_182_NAME
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 183 }
+		}
+		localization_key = MONUMENT_183_NAME
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 184 }
+		}
+		localization_key = MONUMENT_184_NAME
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 185 }
+		}
+		localization_key = MONUMENT_185_NAME
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 186 }
+		}
+		localization_key = MONUMENT_186_NAME
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 187 }
+		}
+		localization_key = MONUMENT_187_NAME
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 188 }
+		}
+		localization_key = MONUMENT_188_NAME
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 189 }
+		}
+		localization_key = MONUMENT_189_NAME
+	}
 
 	text = {
 		trigger = {
@@ -3279,6 +3375,66 @@ defined_text = {
 		}
 		localization_key = MONUMENT_179_DESC
 	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 180 }
+		}
+		localization_key = MONUMENT_180_DESC
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 181 }
+		}
+		localization_key = MONUMENT_181_DESC
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 182 }
+		}
+		localization_key = MONUMENT_182_DESC
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 183 }
+		}
+		localization_key = MONUMENT_183_DESC
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 184 }
+		}
+		localization_key = MONUMENT_184_DESC
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 185 }
+		}
+		localization_key = MONUMENT_185_DESC
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 186 }
+		}
+		localization_key = MONUMENT_186_DESC
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 187 }
+		}
+		localization_key = MONUMENT_187_DESC
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 188 }
+		}
+		localization_key = MONUMENT_188_DESC
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 189 }
+		}
+		localization_key = MONUMENT_189_DESC
+	}
 
 	text = {
 		trigger = {
@@ -4364,6 +4520,66 @@ defined_text = {
 			check_variable = { monument_id = 179 }
 		}
 		localization_key = MONUMENT_179_LEVEL_0_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 180 }
+		}
+		localization_key = MONUMENT_180_LEVEL_0_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 181 }
+		}
+		localization_key = MONUMENT_181_LEVEL_0_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 182 }
+		}
+		localization_key = MONUMENT_182_LEVEL_0_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 183 }
+		}
+		localization_key = MONUMENT_183_LEVEL_0_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 184 }
+		}
+		localization_key = MONUMENT_184_LEVEL_0_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 185 }
+		}
+		localization_key = MONUMENT_185_LEVEL_0_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 186 }
+		}
+		localization_key = MONUMENT_186_LEVEL_0_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 187 }
+		}
+		localization_key = MONUMENT_187_LEVEL_0_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 188 }
+		}
+		localization_key = MONUMENT_188_LEVEL_0_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 189 }
+		}
+		localization_key = MONUMENT_189_LEVEL_0_BONUS
 	}
 
 	text = {
@@ -5451,6 +5667,66 @@ defined_text = {
 		}
 		localization_key = MONUMENT_179_LEVEL_1_BONUS
 	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 180 }
+		}
+		localization_key = MONUMENT_180_LEVEL_1_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 181 }
+		}
+		localization_key = MONUMENT_181_LEVEL_1_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 182 }
+		}
+		localization_key = MONUMENT_182_LEVEL_1_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 183 }
+		}
+		localization_key = MONUMENT_183_LEVEL_1_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 184 }
+		}
+		localization_key = MONUMENT_184_LEVEL_1_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 185 }
+		}
+		localization_key = MONUMENT_185_LEVEL_1_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 186 }
+		}
+		localization_key = MONUMENT_186_LEVEL_1_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 187 }
+		}
+		localization_key = MONUMENT_187_LEVEL_1_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 188 }
+		}
+		localization_key = MONUMENT_188_LEVEL_1_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 189 }
+		}
+		localization_key = MONUMENT_189_LEVEL_1_BONUS
+	}
 
 	text = {
 		trigger = {
@@ -6537,6 +6813,66 @@ defined_text = {
 		}
 		localization_key = MONUMENT_179_LEVEL_2_BONUS
 	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 180 }
+		}
+		localization_key = MONUMENT_180_LEVEL_2_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 181 }
+		}
+		localization_key = MONUMENT_181_LEVEL_2_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 182 }
+		}
+		localization_key = MONUMENT_182_LEVEL_2_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 183 }
+		}
+		localization_key = MONUMENT_183_LEVEL_2_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 184 }
+		}
+		localization_key = MONUMENT_184_LEVEL_2_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 185 }
+		}
+		localization_key = MONUMENT_185_LEVEL_2_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 186 }
+		}
+		localization_key = MONUMENT_186_LEVEL_2_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 187 }
+		}
+		localization_key = MONUMENT_187_LEVEL_2_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 188 }
+		}
+		localization_key = MONUMENT_188_LEVEL_2_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 189 }
+		}
+		localization_key = MONUMENT_189_LEVEL_2_BONUS
+	}
 
 	text = {
 		trigger = {
@@ -7622,6 +7958,66 @@ defined_text = {
 			check_variable = { monument_id = 179 }
 		}
 		localization_key = MONUMENT_179_LEVEL_3_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 180 }
+		}
+		localization_key = MONUMENT_180_LEVEL_3_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 181 }
+		}
+		localization_key = MONUMENT_181_LEVEL_3_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 182 }
+		}
+		localization_key = MONUMENT_182_LEVEL_3_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 183 }
+		}
+		localization_key = MONUMENT_183_LEVEL_3_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 184 }
+		}
+		localization_key = MONUMENT_184_LEVEL_3_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 185 }
+		}
+		localization_key = MONUMENT_185_LEVEL_3_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 186 }
+		}
+		localization_key = MONUMENT_186_LEVEL_3_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 187 }
+		}
+		localization_key = MONUMENT_187_LEVEL_3_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 188 }
+		}
+		localization_key = MONUMENT_188_LEVEL_3_BONUS
+	}
+	text = {
+		trigger = {
+			check_variable = { monument_id = 189 }
+		}
+		localization_key = MONUMENT_189_LEVEL_3_BONUS
 	}
 
 	text = {

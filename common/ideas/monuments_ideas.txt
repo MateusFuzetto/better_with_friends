@@ -774,7 +774,7 @@ ideas = {
 			traits = {
 			}
 			modifier = {
-				stability_factor = 0.05
+				party_popularity_stability_factor = 0.05
 			}
 		}
 		monument_12_level_2_idea = {
@@ -790,7 +790,7 @@ ideas = {
 			traits = {
 			}
 			modifier = {
-				stability_factor = 0.05
+				party_popularity_stability_factor = 0.05
 				army_core_defence_factor = 0.05
 			}
 		}
@@ -807,7 +807,7 @@ ideas = {
 			traits = {
 			}
 			modifier = {
-				stability_factor = 0.1
+				party_popularity_stability_factor = 0.1
 				army_core_defence_factor = 0.1
 				puppet_cost_factor = -0.25
 			}
@@ -9109,7 +9109,8 @@ ideas = {
 			cancel_if_invalid = no
 
 			traits = {
-				monument_trait_fascism_medium_positive
+				monument_trait_communism_medium_negative
+				monument_trait_democratic_medium_negative
 			}
 			modifier = {
 				political_power_factor = 0.1
@@ -9126,7 +9127,8 @@ ideas = {
 			cancel_if_invalid = no
 
 			traits = {
-				monument_trait_fascism_large_positive
+				monument_trait_communism_large_negative
+				monument_trait_democratic_large_negative
 			}
 			modifier = {
 				political_power_factor = 0.15
@@ -11518,6 +11520,412 @@ ideas = {
 			modifier = {
 				consumer_goods_factor = -0.02
 				resistance_growth = -0.05
+			}
+		}
+
+		# Cologne Cathedral
+		monument_176_level_0_idea = {
+			name = "MONUMENT_176_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_176_level_1_idea = {
+			name = "MONUMENT_176_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+				opinion_gain_monthly_factor = 0.1
+			}
+		}
+		monument_176_level_2_idea = {
+			name = "MONUMENT_176_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+				opinion_gain_monthly_factor = 0.15
+				resistance_damage_to_garrison_on_our_occupied_states = 0.1
+			}
+		}
+		monument_176_level_3_idea = {
+			name = "MONUMENT_176_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+				opinion_gain_monthly_factor = 0.2
+				resistance_damage_to_garrison_on_our_occupied_states = 0.15
+				party_popularity_stability_factor = 0.05
+			}
+		}
+
+		# Kremlin
+		monument_177_level_0_idea = {
+			name = "MONUMENT_177_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_177_level_1_idea = {
+			name = "MONUMENT_177_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+				monument_trait_political_advisor_cost_small
+			}
+			modifier = {
+			}
+		}
+		monument_177_level_2_idea = {
+			name = "MONUMENT_177_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+				monument_trait_political_advisor_cost_medium
+			}
+			modifier = {
+				resistance_decay = 0.1
+			}
+		}
+		monument_177_level_3_idea = {
+			name = "MONUMENT_177_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+				monument_trait_political_advisor_cost_large
+			}
+			modifier = {
+				resistance_decay = 0.25
+				surrender_limit = 0.1
+			}
+		}
+
+		# Monasteries of Meteora
+		monument_178_level_0_idea = {
+			name = "MONUMENT_178_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_178_level_1_idea = {
+			name = "MONUMENT_178_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_178_level_2_idea = {
+			name = "MONUMENT_178_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+				production_speed_infrastructure_factor = 0.05
+				production_speed_rail_way_factor = 0.05
+			}
+		}
+		monument_178_level_3_idea = {
+			name = "MONUMENT_178_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+				production_speed_infrastructure_factor = 0.1
+				production_speed_rail_way_factor = 0.1
+				terrain_penalty_reduction = 0.1
+			}
+		}
+
+		# Headquarters of the United Nations
+		monument_179_level_0_idea = {
+			name = "MONUMENT_179_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_179_level_1_idea = {
+			name = "MONUMENT_179_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+				monument_trait_democratic_small_positive
+			}
+			modifier = {
+			}
+		}
+		monument_179_level_2_idea = {
+			name = "MONUMENT_179_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+				monument_trait_democratic_medium_positive
+			}
+			modifier = {
+				stability_weekly = 0.001
+			}
+		}
+		monument_179_level_3_idea = {
+			name = "MONUMENT_179_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+				monument_trait_democratic_large_positive
+			}
+			modifier = {
+				stability_weekly = 0.001
+			}
+			rule = {
+				can_only_justify_war_on_threat_country = no
+			}
+		}
+
+		# Uppsala Cathedral
+		monument_180_level_0_idea = {
+			name = "MONUMENT_180_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_180_level_1_idea = {
+			name = "MONUMENT_180_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+				consumer_goods_factor = -0.01
+			}
+		}
+		monument_180_level_2_idea = {
+			name = "MONUMENT_180_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+				consumer_goods_factor = -0.02
+				political_power_factor = 0.1
+			}
+		}
+		monument_180_level_3_idea = {
+			name = "MONUMENT_180_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+				consumer_goods_factor = -0.03
+				political_power_factor = 0.15
+				stability_factor = 0.05
+			}
+		}
+
+		# Plague Column
+		monument_181_level_0_idea = {
+			name = "MONUMENT_181_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_181_level_1_idea = {
+			name = "MONUMENT_181_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_181_level_2_idea = {
+			name = "MONUMENT_181_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+				out_of_supply_factor = -0.05
+			}
+		}
+		monument_181_level_3_idea = {
+			name = "MONUMENT_181_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+				out_of_supply_factor = -0.1
+				surrender_limit = 0.1
 			}
 		}
 	}

@@ -56,6 +56,7 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
+		has_dlc = "La Resistance"
 		tag = SPC
 		has_civil_war = yes
 		controls_province = 9764
@@ -119,6 +120,7 @@ country_event = {
 					NOT = { is_in_array = { monument_alert_popup_downgrade_array = monument_id } }
 				}
 				add_to_array = { monument_alert_popup_downgrade_array = monument_id }
+				update_monument_alert_popup_window = yes
 				scoped_sound_effect = "Resistance_Notifcation_Low_Resource_For_Laws"
 			}
 			every_other_country = {
@@ -305,6 +307,10 @@ country_event = {
 
 	trigger = {
 		NOT = { has_idea = generic_monument_cost_reduction_idea }
+		OR = {
+			is_ai = no
+			NOT = { has_global_flag = monuments_game_rule_no_pp_cost_ai }
+		}
 		any_controlled_state = {
 			OR = {
 				is_owned_by = ROOT
@@ -358,6 +364,10 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		OR = {
+			is_ai = no
+			NOT = { has_global_flag = monuments_game_rule_no_pp_cost_ai }
+		}
 		any_controlled_state = {
 			OR = {
 				is_owned_by = ROOT
@@ -479,6 +489,10 @@ country_event = {
 				factor = 0
 				NOT = { AI_has_required_amount_of_PP_for_monuments = yes }
 			}
+			modifier = {
+				factor = 0
+				has_political_power < 50
+			}
 		}
 
 		add_political_power = -10
@@ -531,6 +545,10 @@ country_event = {
 			modifier = {
 				factor = 0
 				NOT = { AI_has_required_amount_of_PP_for_monuments = yes }
+			}
+			modifier = {
+				factor = 0
+				has_political_power < 50
 			}
 		}
 
@@ -585,6 +603,10 @@ country_event = {
 				factor = 0
 				NOT = { AI_has_required_amount_of_PP_for_monuments = yes }
 			}
+			modifier = {
+				factor = 0
+				has_political_power < 50
+			}
 		}
 
 		add_political_power = -10
@@ -638,6 +660,10 @@ country_event = {
 				factor = 0
 				NOT = { AI_has_required_amount_of_PP_for_monuments = yes }
 			}
+			modifier = {
+				factor = 0
+				has_political_power < 50
+			}
 		}
 
 		add_political_power = -10
@@ -690,6 +716,10 @@ country_event = {
 			modifier = {
 				factor = 0
 				NOT = { AI_has_required_amount_of_PP_for_monuments = yes }
+			}
+			modifier = {
+				factor = 0
+				has_political_power < 50
 			}
 		}
 

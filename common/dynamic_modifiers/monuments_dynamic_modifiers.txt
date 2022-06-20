@@ -7128,3 +7128,243 @@ monument_175_level_3_modifier = {
 
 	local_building_slots = 5
 }
+
+# Cologne Cathedral
+monument_176_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_176_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+
+}
+monument_176_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+
+}
+monument_176_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+
+}
+
+# Kremlin
+monument_177_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_177_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+
+}
+monument_177_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+
+}
+monument_177_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+
+}
+
+# Monasteries of Meteora
+monument_178_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_178_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+	local_building_slots = 1
+}
+monument_178_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+	local_building_slots = 3
+}
+monument_178_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+	local_building_slots = 5
+}
+
+# Headquarters of the United Nations
+monument_179_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_179_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+
+}
+monument_179_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+
+}
+monument_179_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+
+}
+
+# Uppsala Cathedral
+monument_180_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_180_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+
+}
+monument_180_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+
+}
+monument_180_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+
+}
+
+# Plague Column
+monument_181_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_181_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+	state_production_speed_buildings_factor = 0.05
+}
+monument_181_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+	state_production_speed_buildings_factor = 0.1
+}
+monument_181_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+	state_production_speed_buildings_factor = 0.15
+}

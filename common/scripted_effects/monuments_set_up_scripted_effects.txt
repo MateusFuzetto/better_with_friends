@@ -24,6 +24,10 @@ set_up_monuments_at_start_effect = {
 		set_temp_variable = { level = 0 }
 		add_monument_to_state = yes
 		set_state_flag = monument_15_existed
+		# Halle des Volkes
+		set_temp_variable = { monument_id = 28 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
 	}
 	16 = {
 		# Arc de Triomphe
@@ -75,6 +79,10 @@ set_up_monuments_at_start_effect = {
 		set_temp_variable = { monument_id = 171 }
 		set_temp_variable = { level = 1 }
 		add_monument_to_state = yes
+		# Headquarters of the United Nations
+		set_temp_variable = { monument_id = 179 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
 	}
 	390 = {
 		# Mount Rushmore National Memorial
@@ -106,6 +114,14 @@ set_up_monuments_at_start_effect = {
 		# Red Square
 		set_temp_variable = { monument_id = 12 }
 		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Kremlin
+		set_temp_variable = { monument_id = 177 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Palace of the Soviets
+		set_temp_variable = { monument_id = 64 }
+		set_temp_variable = { level = 0 }
 		add_monument_to_state = yes
 	}
 	137 = {
@@ -357,6 +373,10 @@ set_up_monuments_at_start_effect = {
 		set_temp_variable = { monument_id = 57 }
 		set_temp_variable = { level = 1 }
 		add_monument_to_state = yes
+		# Sydney Opera House
+		set_temp_variable = { monument_id = 63 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
 	}
 	608 = {
 		# Forbidden City
@@ -533,6 +553,12 @@ set_up_monuments_at_start_effect = {
 		set_temp_variable = { level = 1 }
 		add_monument_to_state = yes
 	}
+	217 = {
+		# The Motherland Calls
+		set_temp_variable = { monument_id = 91 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
 	113 = {
 		# Government Buildings
 		set_temp_variable = { monument_id = 92 }
@@ -662,6 +688,12 @@ set_up_monuments_at_start_effect = {
 		# Pamukkale
 		set_temp_variable = { monument_id = 114 }
 		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	49 = {
+		# Anitkabir
+		set_temp_variable = { monument_id = 115 }
+		set_temp_variable = { level = 0 }
 		add_monument_to_state = yes
 	}
 	182 = {
@@ -831,6 +863,10 @@ set_up_monuments_at_start_effect = {
 		set_temp_variable = { monument_id = 145 }
 		set_temp_variable = { level = 1 }
 		add_monument_to_state = yes
+		# USS Arizona Memorial
+		set_temp_variable = { monument_id = 131 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
 	}
 	18 = {
 		# Douaumont Ossuary
@@ -977,6 +1013,30 @@ set_up_monuments_at_start_effect = {
 	171 = {
 		# Santiago de Compostela Cathedral
 		set_temp_variable = { monument_id = 175 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	51 = {
+		# Cologne Cathedral
+		set_temp_variable = { monument_id = 176 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	185 = {
+		# Monasteries of Meteora
+		set_temp_variable = { monument_id = 178 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	141 = {
+		# Uppsala Cathedral
+		set_temp_variable = { monument_id = 180 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	102 = {
+		# Plague Column
+		set_temp_variable = { monument_id = 181 }
 		set_temp_variable = { level = 1 }
 		add_monument_to_state = yes
 	}
