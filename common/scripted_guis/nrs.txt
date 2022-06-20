@@ -2518,7 +2518,7 @@ scripted_gui = {
 			always = yes
 		}
 
-		ai_test_interval = 28
+		ai_test_interval = 48
 		ai_test_variance = 0.1
 
 		ai_check = {
@@ -2564,6 +2564,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			advanced_ship_hull_light_click = {
@@ -2576,6 +2580,10 @@ scripted_gui = {
 							NOT = { can_research = advanced_ship_hull_light }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -2629,6 +2637,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			modern_depth_charges_click = {
@@ -2641,6 +2653,10 @@ scripted_gui = {
 							NOT = { can_research = modern_depth_charges }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -2707,6 +2723,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			advanced_ship_hull_cruiser_click = {
@@ -2719,6 +2739,10 @@ scripted_gui = {
 							NOT = { can_research = advanced_ship_hull_cruiser }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -2759,6 +2783,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			advanced_cruiser_armor_scheme_click = {
@@ -2771,6 +2799,10 @@ scripted_gui = {
 							NOT = { can_research = advanced_cruiser_armor_scheme }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -2824,6 +2856,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			advanced_ship_hull_heavy_click = {
@@ -2836,6 +2872,10 @@ scripted_gui = {
 							NOT = { can_research = advanced_ship_hull_heavy }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -2862,6 +2902,10 @@ scripted_gui = {
 							NOT = { can_research = improved_heavy_armor_scheme }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -2902,6 +2946,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			advanced_ship_hull_carrier_click = {
@@ -2914,6 +2962,10 @@ scripted_gui = {
 							NOT = { can_research = advanced_ship_hull_carrier }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -2954,6 +3006,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1942.01.01
+						factor = 0.5
+					}
 				}
 			}
 			electric_torpedo_click = {
@@ -2966,6 +3022,10 @@ scripted_gui = {
 							NOT = { can_research = electric_torpedo }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -2993,6 +3053,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			modern_ship_torpedo_launcher_click = {
@@ -3005,6 +3069,10 @@ scripted_gui = {
 							NOT = { can_research = modern_ship_torpedo_launcher }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -3045,6 +3113,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			advanced_ship_hull_submarine_click = {
@@ -3057,6 +3129,10 @@ scripted_gui = {
 							NOT = { can_research = advanced_ship_hull_submarine }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -3071,6 +3147,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			improved_submarine_snorkel_click = {
@@ -3083,6 +3163,10 @@ scripted_gui = {
 							NOT = { can_research = improved_submarine_snorkel }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -3123,6 +3207,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			advanced_light_battery_click = {
@@ -3135,6 +3223,10 @@ scripted_gui = {
 							NOT = { can_research = advanced_light_battery }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -3162,6 +3254,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1942.01.01
+						factor = 0.5
+					}
 				}
 			}
 			basic_medium_battery_click = {
@@ -3188,6 +3284,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			advanced_medium_battery_click = {
@@ -3200,6 +3300,10 @@ scripted_gui = {
 							NOT = { can_research = advanced_medium_battery }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -3227,6 +3331,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1942.01.01
+						factor = 0.5
+					}
 				}
 			}
 			basic_heavy_battery_click = {
@@ -3253,6 +3361,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			advanced_heavy_battery_click = {
@@ -3265,6 +3377,10 @@ scripted_gui = {
 							NOT = { can_research = advanced_heavy_battery }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -3279,6 +3395,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1938.01.01
+						factor = 0.5
+					}
 				}
 			}
 			improved_heavy_shell_click = {
@@ -3291,6 +3411,10 @@ scripted_gui = {
 							NOT = { can_research = improved_heavy_shell }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1942.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -3330,6 +3454,10 @@ scripted_gui = {
 							NOT = { can_research = dp_secondary_battery }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -3448,6 +3576,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			improved_naval_mines_click = {
@@ -3474,6 +3606,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1938.01.01
+						factor = 0.5
+					}
 				}
 			}
 			advanced_naval_mines_click = {
@@ -3486,6 +3622,10 @@ scripted_gui = {
 							NOT = { can_research = advanced_naval_mines }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1942.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -3500,6 +3640,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1942.01.01
+						factor = 0.5
+					}
 				}
 			}
 			modern_naval_mines_click = {
@@ -3513,6 +3657,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1945.01.01
+						factor = 0.5
+					}
 				}
 			}
 			airsweep_mines_click = {
@@ -3525,6 +3673,10 @@ scripted_gui = {
 							NOT = { can_research = airsweep_mines }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}
@@ -3552,6 +3704,10 @@ scripted_gui = {
 						}
 						factor = 0
 					}
+					modifier = {
+						date > 1940.01.01
+						factor = 0.5
+					}
 				}
 			}
 			mtg_tank_landing_craft_click = {
@@ -3564,6 +3720,10 @@ scripted_gui = {
 							NOT = { can_research = mtg_tank_landing_craft }
 						}
 						factor = 0
+					}
+					modifier = {
+						date > 1944.01.01
+						factor = 0.5
 					}
 				}
 			}

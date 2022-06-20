@@ -11,13 +11,12 @@
 @max_progress = 1000
 
 on_actions = {
-
-	on_startup = {
+	on_release_as_free = {
 		effect = {
 			every_country = {
 				set_variable = { icon_x = @icon_x_glow }
 				set_variable = { icon_y = @icon_y_glow }
-				set_variable = { days_left = 1 }
+				# set_variable = { days_left = 1 }
 				set_variable = { days_saved = 0 }
 				set_variable = { daily_progress = 0 }
 				set_variable = { research_progress = 0 }
@@ -25,7 +24,46 @@ on_actions = {
 				set_variable = { progress_bar_frame = 0 }
 				set_variable = { technology_id = 0 }
 				set_variable = { NRS_research_stats = @no_research }
+			}
+		}
+	}
 
+	on_release_as_free = {
+		effect = {
+			every_country = {
+				set_variable = { icon_x = @icon_x_glow }
+				set_variable = { icon_y = @icon_y_glow }
+				set_variable = { days_saved = 0 }
+				set_variable = { daily_progress = 0 }
+				set_variable = { research_progress = 0 }
+				set_variable = { eta = 0 }
+				set_variable = { progress_bar_frame = 0 }
+				set_variable = { technology_id = 0 }
+				set_variable = { NRS_research_stats = @no_research }
+			}
+		}
+	}
+
+	on_startup = {
+		effect = {
+			if = {
+				limit = { has_start_date > 1939.8.13 }
+				set_variable = { global.days_left = 1320 }
+			}
+			else_if = {
+				set_variable = { global.days_left = 1 }
+			}
+
+			every_country = {
+				set_variable = { icon_x = @icon_x_glow }
+				set_variable = { icon_y = @icon_y_glow }
+				set_variable = { days_saved = 0 }
+				set_variable = { daily_progress = 0 }
+				set_variable = { research_progress = 0 }
+				set_variable = { eta = 0 }
+				set_variable = { progress_bar_frame = 0 }
+				set_variable = { technology_id = 0 }
+				set_variable = { NRS_research_stats = @no_research }
 #set variable bgs
 				if = {
 					limit = { has_tech = early_ship_hull_light }
@@ -1258,7 +1296,7 @@ on_actions = {
 		effect = {
 			##days_left adder
 			##days_left = how long days left from game start
-			add_to_variable = { days_left = 1 }
+			add_to_variable = { global.days_left = 1 }
 
 			if = {
 				limit = {
@@ -1294,8 +1332,8 @@ on_actions = {
 					add_to_variable = { research_speed_factor = 0.15 }
 				}
 			
-			##Calc daily progress( daily_progress = 1/(base_cost * (1 - research_speed_factor ))
-			##                                                                                             = research_speed
+			##Calc daily progress( daily_progress = 1/(base_cost * (1 - research_speed_factor ))　= research_speed
+			##                                                                                             
 				
 				set_variable = { daily_progress = @max_progress }
 				set_variable = { temp_daily_progress = 1 }
@@ -1307,11 +1345,11 @@ on_actions = {
 				if = {
 					limit = {
 						has_variable = ahead_of_time
-						check_variable = { ahead_of_time > days_left }
+						check_variable = { ahead_of_time > global.days_left }
 					}
 					set_variable = { temp_ahead_of_time_penalty = 1 }
 					set_variable = { temp_ahead_of_time = ahead_of_time }
-					subtract_from_variable = { temp_ahead_of_time = days_left }
+					subtract_from_variable = { temp_ahead_of_time = global.days_left }
 					multiply_variable = { temp_ahead_of_time = 2 }
 					divide_variable = { temp_ahead_of_time = 365 }
 					add_to_variable = { temp_ahead_of_time = 1}
@@ -2266,501 +2304,6 @@ on_actions = {
 						set_variable = { mtg_tank_landing_craft_stats = @can_research }
 						else = {
 						set_variable = { mtg_tank_landing_craft_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = fleet_in_being }
-					set_variable = { fleet_in_being_stats = @research_complete }
-					else_if = {
-						limit = { can_research = fleet_in_being }
-						set_variable = { fleet_in_being_stats = @can_research }
-						else = {
-						set_variable = { fleet_in_being_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = battlefleet_concentration }
-					set_variable = { battlefleet_concentration_stats = @research_complete }
-					else_if = {
-						limit = { can_research = battlefleet_concentration }
-						set_variable = { battlefleet_concentration_stats = @can_research }
-						else = {
-						set_variable = { battlefleet_concentration_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = subsidiary_carrier_role }
-					set_variable = { subsidiary_carrier_role_stats = @research_complete }
-					else_if = {
-						limit = { can_research = subsidiary_carrier_role }
-						set_variable = { subsidiary_carrier_role_stats = @can_research }
-						else = {
-						set_variable = { subsidiary_carrier_role_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = hunter_killer_groups }
-					set_variable = { hunter_killer_groups_stats = @research_complete }
-					else_if = {
-						limit = { can_research = hunter_killer_groups }
-						set_variable = { hunter_killer_groups_stats = @can_research }
-						else = {
-						set_variable = { hunter_killer_groups_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = floating_fortress }
-					set_variable = { floating_fortress_stats = @research_complete }
-					else_if = {
-						limit = { can_research = floating_fortress }
-						set_variable = { floating_fortress_stats = @can_research }
-						else = {
-						set_variable = { floating_fortress_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = floating_airfield }
-					set_variable = { floating_airfield_stats = @research_complete }
-					else_if = {
-						limit = { can_research = floating_airfield }
-						set_variable = { floating_airfield_stats = @can_research }
-						else = {
-						set_variable = { floating_airfield_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = grand_battlefleet }
-					set_variable = { grand_battlefleet_stats = @research_complete }
-					else_if = {
-						limit = { can_research = grand_battlefleet }
-						set_variable = { grand_battlefleet_stats = @can_research }
-						else = {
-						set_variable = { grand_battlefleet_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = convoy_sailing }
-					set_variable = { convoy_sailing_stats = @research_complete }
-					else_if = {
-						limit = { can_research = convoy_sailing }
-						set_variable = { convoy_sailing_stats = @can_research }
-						else = {
-						set_variable = { convoy_sailing_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = convoy_escorts }
-					set_variable = { convoy_escorts_stats = @research_complete }
-					else_if = {
-						limit = { can_research = convoy_escorts }
-						set_variable = { convoy_escorts_stats = @can_research }
-						else = {
-						set_variable = { convoy_escorts_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = escort_carriers }
-					set_variable = { escort_carriers_stats = @research_complete }
-					else_if = {
-						limit = { can_research = escort_carriers }
-						set_variable = { escort_carriers_stats = @can_research }
-						else = {
-						set_variable = { escort_carriers_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = integrated_convoy_defence }
-					set_variable = { integrated_convoy_defence_stats = @research_complete }
-					else_if = {
-						limit = { can_research = integrated_convoy_defence }
-						set_variable = { integrated_convoy_defence_stats = @can_research }
-						else = {
-						set_variable = { integrated_convoy_defence_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = submarine_operations }
-					set_variable = { submarine_operations_stats = @research_complete }
-					else_if = {
-						limit = { can_research = submarine_operations }
-						set_variable = { submarine_operations_stats = @can_research }
-						else = {
-						set_variable = { submarine_operations_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = undersea_blockade }
-					set_variable = { undersea_blockade_stats = @research_complete }
-					else_if = {
-						limit = { can_research = undersea_blockade }
-						set_variable = { undersea_blockade_stats = @can_research }
-						else = {
-						set_variable = { undersea_blockade_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = convoy_interdiction }
-					set_variable = { convoy_interdiction_stats = @research_complete }
-					else_if = {
-						limit = { can_research = convoy_interdiction }
-						set_variable = { convoy_interdiction_stats = @can_research }
-						else = {
-						set_variable = { convoy_interdiction_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = submarine_offensive }
-					set_variable = { submarine_offensive_stats = @research_complete }
-					else_if = {
-						limit = { can_research = submarine_offensive }
-						set_variable = { submarine_offensive_stats = @can_research }
-						else = {
-						set_variable = { submarine_offensive_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = trade_interdiction }
-					set_variable = { trade_interdiction_stats = @research_complete }
-					else_if = {
-						limit = { can_research = trade_interdiction }
-						set_variable = { trade_interdiction_stats = @can_research }
-						else = {
-						set_variable = { trade_interdiction_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = convoy_interdiction_ti }
-					set_variable = { convoy_interdiction_ti_stats = @research_complete }
-					else_if = {
-						limit = { can_research = convoy_interdiction_ti }
-						set_variable = { convoy_interdiction_ti_stats = @can_research }
-						else = {
-						set_variable = { convoy_interdiction_ti_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = unrestricted_submarine_warfare }
-					set_variable = { unrestricted_submarine_warfare_stats = @research_complete }
-					else_if = {
-						limit = { can_research = unrestricted_submarine_warfare }
-						set_variable = { unrestricted_submarine_warfare_stats = @can_research }
-						else = {
-						set_variable = { unrestricted_submarine_warfare_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = wolfpacks }
-					set_variable = { wolfpacks_stats = @research_complete }
-					else_if = {
-						limit = { can_research = wolfpacks }
-						set_variable = { wolfpacks_stats = @can_research }
-						else = {
-						set_variable = { wolfpacks_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = advanced_submarine_warfare }
-					set_variable = { advanced_submarine_warfare_stats = @research_complete }
-					else_if = {
-						limit = { can_research = advanced_submarine_warfare }
-						set_variable = { advanced_submarine_warfare_stats = @can_research }
-						else = {
-						set_variable = { advanced_submarine_warfare_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = combined_operations_raiding }
-					set_variable = { combined_operations_raiding_stats = @research_complete }
-					else_if = {
-						limit = { can_research = combined_operations_raiding }
-						set_variable = { combined_operations_raiding_stats = @can_research }
-						else = {
-						set_variable = { combined_operations_raiding_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = raider_patrols }
-					set_variable = { raider_patrols_stats = @research_complete }
-					else_if = {
-						limit = { can_research = raider_patrols }
-						set_variable = { raider_patrols_stats = @can_research }
-						else = {
-						set_variable = { raider_patrols_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = capital_ship_raiders }
-					set_variable = { capital_ship_raiders_stats = @research_complete }
-					else_if = {
-						limit = { can_research = capital_ship_raiders }
-						set_variable = { capital_ship_raiders_stats = @can_research }
-						else = {
-						set_variable = { capital_ship_raiders_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = battlefleet_concentration_ti }
-					set_variable = { battlefleet_concentration_ti_stats = @research_complete }
-					else_if = {
-						limit = { can_research = battlefleet_concentration_ti }
-						set_variable = { battlefleet_concentration_ti_stats = @can_research }
-						else = {
-						set_variable = { battlefleet_concentration_ti_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = floating_fortress_ti }
-					set_variable = { floating_fortress_ti_stats = @research_complete }
-					else_if = {
-						limit = { can_research = floating_fortress_ti }
-						set_variable = { floating_fortress_ti_stats = @can_research }
-						else = {
-						set_variable = { floating_fortress_ti_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = floating_airfield_ti }
-					set_variable = { floating_airfield_ti_stats = @research_complete }
-					else_if = {
-						limit = { can_research = floating_airfield_ti }
-						set_variable = { floating_airfield_ti_stats = @can_research }
-						else = {
-						set_variable = { floating_airfield_ti_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = carrier_operations }
-					set_variable = { carrier_operations_stats = @research_complete }
-					else_if = {
-						limit = { can_research = carrier_operations }
-						set_variable = { carrier_operations_stats = @can_research }
-						else = {
-						set_variable = { carrier_operations_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = convoy_sailing_ti }
-					set_variable = { convoy_sailing_ti_stats = @research_complete }
-					else_if = {
-						limit = { can_research = convoy_sailing_ti }
-						set_variable = { convoy_sailing_ti_stats = @can_research }
-						else = {
-						set_variable = { convoy_sailing_ti_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = subsidiary_carrier_role_ti }
-					set_variable = { subsidiary_carrier_role_ti_stats = @research_complete }
-					else_if = {
-						limit = { can_research = subsidiary_carrier_role_ti }
-						set_variable = { subsidiary_carrier_role_ti_stats = @can_research }
-						else = {
-						set_variable = { subsidiary_carrier_role_ti_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = naval_air_operations }
-					set_variable = { naval_air_operations_stats = @research_complete }
-					else_if = {
-						limit = { can_research = naval_air_operations }
-						set_variable = { naval_air_operations_stats = @can_research }
-						else = {
-						set_variable = { naval_air_operations_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = base_strike }
-					set_variable = { base_strike_stats = @research_complete }
-					else_if = {
-						limit = { can_research = base_strike }
-						set_variable = { base_strike_stats = @can_research }
-						else = {
-						set_variable = { base_strike_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = carrier_primacy }
-					set_variable = { carrier_primacy_stats = @research_complete }
-					else_if = {
-						limit = { can_research = carrier_primacy }
-						set_variable = { carrier_primacy_stats = @can_research }
-						else = {
-						set_variable = { carrier_primacy_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = carrier_task_forces }
-					set_variable = { carrier_task_forces_stats = @research_complete }
-					else_if = {
-						limit = { can_research = carrier_task_forces }
-						set_variable = { carrier_task_forces_stats = @can_research }
-						else = {
-						set_variable = { carrier_task_forces_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = floating_airfield_bs }
-					set_variable = { floating_airfield_bs_stats = @research_complete }
-					else_if = {
-						limit = { can_research = floating_airfield_bs }
-						set_variable = { floating_airfield_bs_stats = @can_research }
-						else = {
-						set_variable = { floating_airfield_bs_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = massed_strikes }
-					set_variable = { massed_strikes_stats = @research_complete }
-					else_if = {
-						limit = { can_research = massed_strikes }
-						set_variable = { massed_strikes_stats = @can_research }
-						else = {
-						set_variable = { massed_strikes_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = floating_fortress_bs }
-					set_variable = { floating_fortress_bs_stats = @research_complete }
-					else_if = {
-						limit = { can_research = floating_fortress_bs }
-						set_variable = { floating_fortress_bs_stats = @can_research }
-						else = {
-						set_variable = { floating_fortress_bs_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = carrier_battlegroups }
-					set_variable = { carrier_battlegroups_stats = @research_complete }
-					else_if = {
-						limit = { can_research = carrier_battlegroups }
-						set_variable = { carrier_battlegroups_stats = @can_research }
-						else = {
-						set_variable = { carrier_battlegroups_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = submarine_operations_bs }
-					set_variable = { submarine_operations_bs_stats = @research_complete }
-					else_if = {
-						limit = { can_research = submarine_operations_bs }
-						set_variable = { submarine_operations_bs_stats = @can_research }
-						else = {
-						set_variable = { submarine_operations_bs_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = undersea_blockade_bs }
-					set_variable = { undersea_blockade_bs_stats = @research_complete }
-					else_if = {
-						limit = { can_research = undersea_blockade_bs }
-						set_variable = { undersea_blockade_bs_stats = @can_research }
-						else = {
-						set_variable = { undersea_blockade_bs_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = convoy_interdiction_bs }
-					set_variable = { convoy_interdiction_bs_stats = @research_complete }
-					else_if = {
-						limit = { can_research = convoy_interdiction_bs }
-						set_variable = { convoy_interdiction_bs_stats = @can_research }
-						else = {
-						set_variable = { convoy_interdiction_bs_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = submarine_offensive_bs }
-					set_variable = { submarine_offensive_bs_stats = @research_complete }
-					else_if = {
-						limit = { can_research = submarine_offensive_bs }
-						set_variable = { submarine_offensive_bs_stats = @can_research }
-						else = {
-						set_variable = { submarine_offensive_bs_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = convoy_escorts_bs }
-					set_variable = { convoy_escorts_bs_stats = @research_complete }
-					else_if = {
-						limit = { can_research = convoy_escorts_bs }
-						set_variable = { convoy_escorts_bs_stats = @can_research }
-						else = {
-						set_variable = { convoy_escorts_bs_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = escort_patrols }
-					set_variable = { escort_patrols_stats = @research_complete }
-					else_if = {
-						limit = { can_research = escort_patrols }
-						set_variable = { escort_patrols_stats = @can_research }
-						else = {
-						set_variable = { escort_patrols_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = convoy_sailing_bs }
-					set_variable = { convoy_sailing_bs_stats = @research_complete }
-					else_if = {
-						limit = { can_research = convoy_sailing_bs }
-						set_variable = { convoy_sailing_bs_stats = @can_research }
-						else = {
-						set_variable = { convoy_sailing_bs_stats = @cant_research }
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = integrated_convoy_defence_bs }
-					set_variable = { integrated_convoy_defence_bs_stats = @research_complete }
-					else_if = {
-						limit = { can_research = integrated_convoy_defence_bs }
-						set_variable = { integrated_convoy_defence_bs_stats = @can_research }
-						else = {
-						set_variable = { integrated_convoy_defence_bs_stats = @cant_research }
 						}
 					}
 				}
