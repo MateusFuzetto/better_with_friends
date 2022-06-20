@@ -1,0 +1,37 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_NRS_techtree_bg"
+		textureFile = "gfx//interface//NRS_techtree_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_NRS_techtree_nomtg_bg"
+		textureFile = "gfx//interface//NRS_techtree_nomtg_bg.dds"
+	}
+
+	spriteType = {
+		name = "GFX_tech_naval_hull_bg"
+		textureFile = "gfx//interface//tech_naval_hull_bg.dds"
+		noOfFrames = 4
+	}
+
+	spriteType = {
+		name = "GFX_tech_naval_sub_bg"
+		textureFile = "gfx//interface//tech_naval_sub_bg.dds"
+		noOfFrames = 4
+	}
+
+	spriteType = {
+		name = "GFX_tech_naval_module_bg"
+		textureFile = "gfx//interface//tech_naval_module_bg.dds"
+		noOfFrames = 4
+	}
+
+	spriteType = {
+		name = "GFX_subtechnology_item_bg"
+		textureFile = "gfx//interface//tech_naval_sub_bg.dds"
+		noOfFrames = 4
+	}
+
+	
+}
