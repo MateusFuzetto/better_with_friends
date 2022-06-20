@@ -321,6 +321,14 @@ spriteTypes = {
 		texturefile = "gfx/interface/modifier_icons/defensive_war_stability_factor.dds"
 	}
 	spriteType = {
+		name = "GFX_offensive_war_stability_factor"
+		texturefile = "gfx/interface/modifier_icons/offensive_war_stability_factor.dds"
+	}
+	spriteType = {
+		name = "GFX_war_stability_factor"
+		texturefile = "gfx/interface/modifier_icons/war_stability_factor.dds"
+	}
+	spriteType = {
 		name = "GFX_compliance_gain"
 		texturefile = "gfx/interface/modifier_icons/compliance_gain.dds"
 	}
@@ -401,8 +409,8 @@ spriteTypes = {
 		texturefile = "gfx/interface/modifier_icons/army_org.dds"
 	}
 	spriteType = {
-		name = "GFX_research_bonus_land_doctrine"
-		texturefile = "gfx/interface/modifier_icons/research_bonus_land_doctrine.dds"
+		name = "GFX_land_doctrine_cost_factor"
+		texturefile = "gfx/interface/modifier_icons/land_doctrine_cost_factor.dds"
 	}
 	spriteType = {
 		name = "GFX_experience_gain_army"
@@ -697,8 +705,8 @@ spriteTypes = {
 		texturefile = "gfx/interface/modifier_icons/surrender_limit.dds"
 	}
 	spriteType = {
-		name = "GFX_research_bonus_air_doctrine"
-		texturefile = "gfx/interface/modifier_icons/research_bonus_air_doctrine.dds"
+		name = "GFX_air_doctrine_cost_factor"
+		texturefile = "gfx/interface/modifier_icons/air_doctrine_cost_factor.dds"
 	}
 	spriteType = {
 		name = "GFX_research_bonus_air_equipment"
@@ -838,5 +846,32 @@ spriteTypes = {
 		name = "GFX_max_surrender_limit_offset"
 		texturefile = "gfx/interface/modifier_icons/max_surrender_limit_offset.dds"
 	}
-
+	spriteType = {
+		name = "GFX_party_popularity_stability_factor"
+		texturefile = "gfx/interface/modifier_icons/party_popularity_stability_factor.dds"
+	}
+	spriteType = {
+		name = "GFX_production_lack_of_resource_penalty_factor"
+		texturefile = "gfx/interface/modifier_icons/production_lack_of_resource_penalty_factor.dds"
+	}
+	spriteType = {
+		name = "GFX_strategic_bomb_visibility"
+		texturefile = "gfx/interface/modifier_icons/strategic_bomb_visibility.dds"
+	}
+	spriteType = {
+		name = "GFX_resistance_decay"
+		texturefile = "gfx/interface/modifier_icons/resistance_decay.dds"
+	}
+	spriteType = {
+		name = "GFX_critical_receive_chance"
+		texturefile = "gfx/interface/modifier_icons/critical_receive_chance.dds"
+	}
+	spriteType = {
+		name = "GFX_breakthrough_factor"
+		texturefile = "gfx/interface/modifier_icons/breakthrough_factor.dds"
+	}
+	spriteType = {
+		name = "GFX_terrain_penalty_reduction"
+		texturefile = "gfx/interface/modifier_icons/terrain_penalty_reduction.dds"
+	}
 }

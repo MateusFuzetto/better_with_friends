@@ -98,11 +98,26 @@ defined_text = {
 		trigger = {
 			OR = {
 				AND = {
+					check_variable = { v = 3 }
+					OR = {
+						NOT = { has_dlc = "Death or Dishonor" }
+						NOT = { has_dlc = "La Resistance" }
+					}
+				}
+				AND = {
+					check_variable = { v = 8 }
+					NOT = { has_dlc = "Death or Dishonor" }
+				}
+				AND = {
 					check_variable = { v = 10 }
 					OR = {
+						AND = {
+							NOT = { has_dlc = "Together for Victory" }
+							NOT = { has_dlc = "Death or Dishonor" }
+							NOT = { has_dlc = "Waking the Tiger" }
+						}
 						NOT = { has_dlc = "Man the Guns" }
 						NOT = { has_dlc = "La Resistance" }
-						NOT = { has_dlc = "Together for Victory" }
 					}
 				}
 				AND = {
@@ -138,40 +153,43 @@ defined_text = {
 
 	text = {
 		trigger = {
-			check_variable = { v = 10 }
-			OR = {
-				NOT = { has_dlc = "Man the Guns" }
-				NOT = { has_dlc = "La Resistance" }
-				NOT = { has_dlc = "Together for Victory" }
-			}
+			check_variable = { v = 3 }
 		}
-		localization_key = "[GetConfirmIdeaGroupDLCNotificationManTheGuns][GetConfirmIdeaGroupDLCNotificationLaResistance][GetConfirmIdeaGroupDLCNotificationTogetherForVictory]"
+		localization_key = "[GetConfirmIdeaGroupDLCNotificationDeathOrDishonor][GetConfirmIdeaGroupDLCNotificationLaResistance]"
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 8 }
+		}
+		localization_key = "[GetConfirmIdeaGroupDLCNotificationDeathOrDishonor]"
+	}
+	text = {
+		trigger = {
+			check_variable = { v = 10 }
+		}
+		localization_key = "[GetConfirmIdeaGroupDLCNotificationTogetherForVictory][GetConfirmIdeaGroupDLCNotificationManTheGuns][GetConfirmIdeaGroupDLCNotificationLaResistance]"
 	}
 	text = {
 		trigger = {
 			check_variable = { v = 11 }
-			NOT = { has_dlc = "Man the Guns" }
 		}
 		localization_key = "[GetConfirmIdeaGroupDLCNotificationManTheGuns]"
 	}
 	text = {
 		trigger = {
 			check_variable = { v = 23 }
-			NOT = { has_dlc = "Man the Guns" }
 		}
 		localization_key = "[GetConfirmIdeaGroupDLCNotificationLaResistance]"
 	}
 	text = {
 		trigger = {
 			check_variable = { v = 26 }
-			NOT = { has_dlc = "Man the Guns" }
 		}
 		localization_key = "[GetConfirmIdeaGroupDLCNotificationLaResistance]"
 	}
 	text = {
 		trigger = {
 			check_variable = { v = 27 }
-			NOT = { has_dlc = "Man the Guns" }
 		}
 		localization_key = "[GetConfirmIdeaGroupDLCNotificationLaResistance]"
 	}
@@ -443,12 +461,6 @@ defined_text = {
 		}
 		localization_key = string_alert_can_take_policy
 	}
-	text = {
-		trigger = {
-			check_variable = { v = 4 }
-		}
-		localization_key = string_alert_can_swap_national_ideas
-	}
 }
 
 defined_text = {
@@ -471,12 +483,6 @@ defined_text = {
 			check_variable = { v = 3 }
 		}
 		localization_key = string_alert_can_take_policy_desc
-	}
-	text = {
-		trigger = {
-			check_variable = { v = 4 }
-		}
-		localization_key = string_alert_can_swap_national_ideas_desc
 	}
 }
 
@@ -561,27 +567,6 @@ defined_text = {
 	}
 }
 
-defined_text = {
-	name = GetIfEu4LikeAlertIsAddedBack4
-
-	text = {
-		trigger = {
-			NOT = { has_country_flag = disabled_eu4_like_ideas_alerts_4 }
-			has_country_flag = temporarily_disabled_eu4_like_ideas_alerts_4
-			NOT = { is_in_array = { eu4_like_ideas_alerts = 4 } }
-			can_change_national_idea_group = yes
-			set_temp_variable = { v = 4 }
-		}
-		localization_key = string_eu4_like_ideas_dismissed_alert
-	}
-	text = {
-		trigger = {
-			always = yes
-		}
-		localization_key = ""
-	}
-}
-
 # DLCs
 defined_text = {
 	name = GetConfirmIdeaGroupDLCNotificationManTheGuns
@@ -623,8 +608,27 @@ defined_text = {
 	text = {
 		trigger = {
 			NOT = { has_dlc = "Together for Victory" }
+			NOT = { has_dlc = "Death or Dishonor" }
+			NOT = { has_dlc = "Waking the Tiger" }
 		}
 		localization_key = string_confirm_select_idea_group_dlc_notification_dlc_together_for_victory
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = GetConfirmIdeaGroupDLCNotificationDeathOrDishonor
+
+	text = {
+		trigger = {
+			NOT = { has_dlc = "Death or Dishonor" }
+		}
+		localization_key = string_confirm_select_idea_group_dlc_notification_dlc_death_or_dishonor
 	}
 	text = {
 		trigger = {

@@ -1,6 +1,6 @@
 defined_text = {
 	name = GetRemovePolicyTooltip
-	
+
 	text = {
 		trigger = {
 			meta_trigger = {
@@ -28,7 +28,7 @@ defined_text = {
 
 defined_text = {
 	name = GetConfirmPolicyName
-	
+
 	text = {
 		trigger = {
 			set_temp_variable = { policy_out_of_context = confirm_policy }
@@ -40,7 +40,7 @@ defined_text = {
 
 defined_text = {
 	name = GetConfirmPolicyEffects
-	
+
 	text = {
 		trigger = {
 			set_temp_variable = { policy_out_of_context = confirm_policy }
@@ -52,7 +52,7 @@ defined_text = {
 
 defined_text = {
 	name = GetConfirmPolicyEstimatedRemoveDate
-	
+
 	text = {
 		trigger = {
 			set_temp_variable = { estimated_required_date_to_remove_policy = global.date }
@@ -65,7 +65,7 @@ defined_text = {
 
 defined_text = {
 	name = GetPolicyNameOtherContext
-	
+
 	text = {
 		trigger = {
 			check_variable = { policy_out_of_context = 1 }
@@ -540,12 +540,12 @@ defined_text = {
 		}
 		localization_key = eu4_like_policy_79
 	}
-	
+
 }
 
 defined_text = {
 	name = GetPolicyEffectsOtherContext
-	
+
 	text = {
 		trigger = {
 			check_variable = { policy_out_of_context = 1 }
@@ -1020,12 +1020,12 @@ defined_text = {
 		}
 		localization_key = eu4_like_policy_79_effects
 	}
-	
+
 }
 
 defined_text = {
 	name = GetPolicyName
-	
+
 	text = {
         trigger = {
             set_temp_variable = { policy_out_of_context = v }
@@ -1037,7 +1037,7 @@ defined_text = {
 
 defined_text = {
 	name = GetPolicyEffects
-	
+
 	text = {
         trigger = {
             set_temp_variable = { policy_out_of_context = v }
@@ -1049,7 +1049,7 @@ defined_text = {
 
 defined_text = {
 	name = GetPolicyPicture
-	
+
 	text = {
 		trigger = {
 			check_variable = { v = 1 }
@@ -1524,7 +1524,7 @@ defined_text = {
 		}
 		localization_key = "GFX_compliance_growth"
 	}
-	
+
 	text = {
 		trigger = {
 			always = yes
@@ -1535,7 +1535,7 @@ defined_text = {
 
 defined_text = {
 	name = GetPossiblePolicyFromIdeaGroup1
-	
+
 	text = {
 		trigger = {
 			OR = {
@@ -1647,7 +1647,7 @@ defined_text = {
 					check_variable = { v = 27 }
 					set_temp_variable = { policy_out_of_context = 75 }
 				}
-				
+
 			}
 		}
 		localization_key = string_possible_policy_for_idea_group
@@ -1656,7 +1656,7 @@ defined_text = {
 
 defined_text = {
 	name = GetPossiblePolicyFromIdeaGroup2
-	
+
 	text = {
 		trigger = {
 			OR = {
@@ -1768,7 +1768,7 @@ defined_text = {
 					check_variable = { v = 27 }
 					set_temp_variable = { policy_out_of_context = 76 }
 				}
-				
+
 			}
 		}
 		localization_key = string_possible_policy_for_idea_group
@@ -1777,7 +1777,7 @@ defined_text = {
 
 defined_text = {
 	name = GetPossiblePolicyFromIdeaGroup3
-	
+
 	text = {
 		trigger = {
 			OR = {
@@ -1889,7 +1889,7 @@ defined_text = {
 					check_variable = { v = 27 }
 					set_temp_variable = { policy_out_of_context = 77 }
 				}
-				
+
 			}
 		}
 		localization_key = string_possible_policy_for_idea_group
@@ -1898,7 +1898,7 @@ defined_text = {
 
 defined_text = {
 	name = GetPossiblePolicyFromIdeaGroup4
-	
+
 	text = {
 		trigger = {
 			OR = {
@@ -2010,7 +2010,7 @@ defined_text = {
 					check_variable = { v = 27 }
 					set_temp_variable = { policy_out_of_context = 78 }
 				}
-				
+
 			}
 		}
 		localization_key = string_possible_policy_for_idea_group
@@ -2019,7 +2019,7 @@ defined_text = {
 
 defined_text = {
 	name = GetPossiblePolicyFromIdeaGroup5
-	
+
 	text = {
 		trigger = {
 			OR = {
@@ -2131,7 +2131,7 @@ defined_text = {
 					check_variable = { v = 27 }
 					set_temp_variable = { policy_out_of_context = 79 }
 				}
-				
+
 			}
 		}
 		localization_key = string_possible_policy_for_idea_group
@@ -2140,7 +2140,7 @@ defined_text = {
 
 defined_text = {
 	name = GetPossiblePolicyFromIdeaGroup6
-	
+
 	text = {
 		trigger = {
 			OR = {
@@ -2218,7 +2218,7 @@ defined_text = {
 
 defined_text = {
 	name = GetPossiblePolicyFromIdeaGroup7
-	
+
 	text = {
 		trigger = {
 			OR = {
@@ -2264,7 +2264,7 @@ defined_text = {
 
 defined_text = {
 	name = GetPossiblePolicyFromIdeaGroup8
-	
+
 	text = {
 		trigger = {
 			OR = {
@@ -2286,21 +2286,20 @@ defined_text = {
 
 defined_text = {
 	name = GetRequiredIdeaGroupForPolicy
-	
+
 	text = {
 		trigger = {
+			set_temp_variable = { idea_group_out_of_context = 0 }
 			OR = {
 				AND = {
 					check_variable = { policy_out_of_context = 1 }
 					OR = {
 						AND = {
 							check_variable = { v = 5 }
-							NOT = { is_in_array = { selected_idea_groups = 8 } }
 							set_temp_variable = { idea_group_out_of_context = 8 }
 						}
 						AND = {
 							check_variable = { v = 8 }
-							NOT = { is_in_array = { selected_idea_groups = 5 } }
 							set_temp_variable = { idea_group_out_of_context = 5 }
 						}
 					}
@@ -2310,12 +2309,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 1 }
-							NOT = { is_in_array = { selected_idea_groups = 2 } }
 							set_temp_variable = { idea_group_out_of_context = 2 }
 						}
 						AND = {
 							check_variable = { v = 2 }
-							NOT = { is_in_array = { selected_idea_groups = 1 } }
 							set_temp_variable = { idea_group_out_of_context = 1 }
 						}
 					}
@@ -2325,12 +2322,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 3 }
-							NOT = { is_in_array = { selected_idea_groups = 10 } }
 							set_temp_variable = { idea_group_out_of_context = 10 }
 						}
 						AND = {
 							check_variable = { v = 10 }
-							NOT = { is_in_array = { selected_idea_groups = 3 } }
 							set_temp_variable = { idea_group_out_of_context = 3 }
 						}
 					}
@@ -2340,12 +2335,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 2 }
-							NOT = { is_in_array = { selected_idea_groups = 15 } }
 							set_temp_variable = { idea_group_out_of_context = 15 }
 						}
 						AND = {
 							check_variable = { v = 15 }
-							NOT = { is_in_array = { selected_idea_groups = 2 } }
 							set_temp_variable = { idea_group_out_of_context = 2 }
 						}
 					}
@@ -2355,12 +2348,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 5 }
-							NOT = { is_in_array = { selected_idea_groups = 7 } }
 							set_temp_variable = { idea_group_out_of_context = 7 }
 						}
 						AND = {
 							check_variable = { v = 7 }
-							NOT = { is_in_array = { selected_idea_groups = 5 } }
 							set_temp_variable = { idea_group_out_of_context = 5 }
 						}
 					}
@@ -2370,12 +2361,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 15 }
-							NOT = { is_in_array = { selected_idea_groups = 17 } }
 							set_temp_variable = { idea_group_out_of_context = 17 }
 						}
 						AND = {
 							check_variable = { v = 17 }
-							NOT = { is_in_array = { selected_idea_groups = 15 } }
 							set_temp_variable = { idea_group_out_of_context = 15 }
 						}
 					}
@@ -2385,12 +2374,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 6 }
-							NOT = { is_in_array = { selected_idea_groups = 16 } }
 							set_temp_variable = { idea_group_out_of_context = 16 }
 						}
 						AND = {
 							check_variable = { v = 16 }
-							NOT = { is_in_array = { selected_idea_groups = 6 } }
 							set_temp_variable = { idea_group_out_of_context = 6 }
 						}
 					}
@@ -2400,12 +2387,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 1 }
-							NOT = { is_in_array = { selected_idea_groups = 13 } }
 							set_temp_variable = { idea_group_out_of_context = 13 }
 						}
 						AND = {
 							check_variable = { v = 13 }
-							NOT = { is_in_array = { selected_idea_groups = 1 } }
 							set_temp_variable = { idea_group_out_of_context = 1 }
 						}
 					}
@@ -2415,12 +2400,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 1 }
-							NOT = { is_in_array = { selected_idea_groups = 4 } }
 							set_temp_variable = { idea_group_out_of_context = 4 }
 						}
 						AND = {
 							check_variable = { v = 4 }
-							NOT = { is_in_array = { selected_idea_groups = 1 } }
 							set_temp_variable = { idea_group_out_of_context = 1 }
 						}
 					}
@@ -2430,12 +2413,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 4 }
-							NOT = { is_in_array = { selected_idea_groups = 17 } }
 							set_temp_variable = { idea_group_out_of_context = 17 }
 						}
 						AND = {
 							check_variable = { v = 17 }
-							NOT = { is_in_array = { selected_idea_groups = 4 } }
 							set_temp_variable = { idea_group_out_of_context = 4 }
 						}
 					}
@@ -2445,12 +2426,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 1 }
-							NOT = { is_in_array = { selected_idea_groups = 16 } }
 							set_temp_variable = { idea_group_out_of_context = 16 }
 						}
 						AND = {
 							check_variable = { v = 16 }
-							NOT = { is_in_array = { selected_idea_groups = 1 } }
 							set_temp_variable = { idea_group_out_of_context = 1 }
 						}
 					}
@@ -2460,12 +2439,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 1 }
-							NOT = { is_in_array = { selected_idea_groups = 10 } }
 							set_temp_variable = { idea_group_out_of_context = 10 }
 						}
 						AND = {
 							check_variable = { v = 10 }
-							NOT = { is_in_array = { selected_idea_groups = 1 } }
 							set_temp_variable = { idea_group_out_of_context = 1 }
 						}
 					}
@@ -2475,12 +2452,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 2 }
-							NOT = { is_in_array = { selected_idea_groups = 4 } }
 							set_temp_variable = { idea_group_out_of_context = 4 }
 						}
 						AND = {
 							check_variable = { v = 4 }
-							NOT = { is_in_array = { selected_idea_groups = 2 } }
 							set_temp_variable = { idea_group_out_of_context = 2 }
 						}
 					}
@@ -2490,12 +2465,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 2 }
-							NOT = { is_in_array = { selected_idea_groups = 7 } }
 							set_temp_variable = { idea_group_out_of_context = 7 }
 						}
 						AND = {
 							check_variable = { v = 7 }
-							NOT = { is_in_array = { selected_idea_groups = 2 } }
 							set_temp_variable = { idea_group_out_of_context = 2 }
 						}
 					}
@@ -2505,12 +2478,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 2 }
-							NOT = { is_in_array = { selected_idea_groups = 8 } }
 							set_temp_variable = { idea_group_out_of_context = 8 }
 						}
 						AND = {
 							check_variable = { v = 8 }
-							NOT = { is_in_array = { selected_idea_groups = 2 } }
 							set_temp_variable = { idea_group_out_of_context = 2 }
 						}
 					}
@@ -2520,12 +2491,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 3 }
-							NOT = { is_in_array = { selected_idea_groups = 11 } }
 							set_temp_variable = { idea_group_out_of_context = 11 }
 						}
 						AND = {
 							check_variable = { v = 11 }
-							NOT = { is_in_array = { selected_idea_groups = 3 } }
 							set_temp_variable = { idea_group_out_of_context = 3 }
 						}
 					}
@@ -2535,12 +2504,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 3 }
-							NOT = { is_in_array = { selected_idea_groups = 12 } }
 							set_temp_variable = { idea_group_out_of_context = 12 }
 						}
 						AND = {
 							check_variable = { v = 12 }
-							NOT = { is_in_array = { selected_idea_groups = 3 } }
 							set_temp_variable = { idea_group_out_of_context = 3 }
 						}
 					}
@@ -2550,12 +2517,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 3 }
-							NOT = { is_in_array = { selected_idea_groups = 14 } }
 							set_temp_variable = { idea_group_out_of_context = 14 }
 						}
 						AND = {
 							check_variable = { v = 14 }
-							NOT = { is_in_array = { selected_idea_groups = 3 } }
 							set_temp_variable = { idea_group_out_of_context = 3 }
 						}
 					}
@@ -2565,12 +2530,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 3 }
-							NOT = { is_in_array = { selected_idea_groups = 18 } }
 							set_temp_variable = { idea_group_out_of_context = 18 }
 						}
 						AND = {
 							check_variable = { v = 18 }
-							NOT = { is_in_array = { selected_idea_groups = 3 } }
 							set_temp_variable = { idea_group_out_of_context = 3 }
 						}
 					}
@@ -2580,12 +2543,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 4 }
-							NOT = { is_in_array = { selected_idea_groups = 15 } }
 							set_temp_variable = { idea_group_out_of_context = 15 }
 						}
 						AND = {
 							check_variable = { v = 15 }
-							NOT = { is_in_array = { selected_idea_groups = 4 } }
 							set_temp_variable = { idea_group_out_of_context = 4 }
 						}
 					}
@@ -2595,12 +2556,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 4 }
-							NOT = { is_in_array = { selected_idea_groups = 13 } }
 							set_temp_variable = { idea_group_out_of_context = 13 }
 						}
 						AND = {
 							check_variable = { v = 13 }
-							NOT = { is_in_array = { selected_idea_groups = 4 } }
 							set_temp_variable = { idea_group_out_of_context = 4 }
 						}
 					}
@@ -2610,12 +2569,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 5 }
-							NOT = { is_in_array = { selected_idea_groups = 9 } }
 							set_temp_variable = { idea_group_out_of_context = 9 }
 						}
 						AND = {
 							check_variable = { v = 9 }
-							NOT = { is_in_array = { selected_idea_groups = 5 } }
 							set_temp_variable = { idea_group_out_of_context = 5 }
 						}
 					}
@@ -2625,12 +2582,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 5 }
-							NOT = { is_in_array = { selected_idea_groups = 17 } }
 							set_temp_variable = { idea_group_out_of_context = 17 }
 						}
 						AND = {
 							check_variable = { v = 17 }
-							NOT = { is_in_array = { selected_idea_groups = 5 } }
 							set_temp_variable = { idea_group_out_of_context = 5 }
 						}
 					}
@@ -2640,12 +2595,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 5 }
-							NOT = { is_in_array = { selected_idea_groups = 10 } }
 							set_temp_variable = { idea_group_out_of_context = 10 }
 						}
 						AND = {
 							check_variable = { v = 10 }
-							NOT = { is_in_array = { selected_idea_groups = 5 } }
 							set_temp_variable = { idea_group_out_of_context = 5 }
 						}
 					}
@@ -2655,12 +2608,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 6 }
-							NOT = { is_in_array = { selected_idea_groups = 13 } }
 							set_temp_variable = { idea_group_out_of_context = 13 }
 						}
 						AND = {
 							check_variable = { v = 13 }
-							NOT = { is_in_array = { selected_idea_groups = 6 } }
 							set_temp_variable = { idea_group_out_of_context = 6 }
 						}
 					}
@@ -2670,12 +2621,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 6 }
-							NOT = { is_in_array = { selected_idea_groups = 14 } }
 							set_temp_variable = { idea_group_out_of_context = 14 }
 						}
 						AND = {
 							check_variable = { v = 14 }
-							NOT = { is_in_array = { selected_idea_groups = 6 } }
 							set_temp_variable = { idea_group_out_of_context = 6 }
 						}
 					}
@@ -2685,12 +2634,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 6 }
-							NOT = { is_in_array = { selected_idea_groups = 15 } }
 							set_temp_variable = { idea_group_out_of_context = 15 }
 						}
 						AND = {
 							check_variable = { v = 15 }
-							NOT = { is_in_array = { selected_idea_groups = 6 } }
 							set_temp_variable = { idea_group_out_of_context = 6 }
 						}
 					}
@@ -2700,12 +2647,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 6 }
-							NOT = { is_in_array = { selected_idea_groups = 12 } }
 							set_temp_variable = { idea_group_out_of_context = 12 }
 						}
 						AND = {
 							check_variable = { v = 12 }
-							NOT = { is_in_array = { selected_idea_groups = 6 } }
 							set_temp_variable = { idea_group_out_of_context = 6 }
 						}
 					}
@@ -2715,12 +2660,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 7 }
-							NOT = { is_in_array = { selected_idea_groups = 11 } }
 							set_temp_variable = { idea_group_out_of_context = 11 }
 						}
 						AND = {
 							check_variable = { v = 11 }
-							NOT = { is_in_array = { selected_idea_groups = 7 } }
 							set_temp_variable = { idea_group_out_of_context = 7 }
 						}
 					}
@@ -2730,12 +2673,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 7 }
-							NOT = { is_in_array = { selected_idea_groups = 14 } }
 							set_temp_variable = { idea_group_out_of_context = 14 }
 						}
 						AND = {
 							check_variable = { v = 14 }
-							NOT = { is_in_array = { selected_idea_groups = 7 } }
 							set_temp_variable = { idea_group_out_of_context = 7 }
 						}
 					}
@@ -2745,12 +2686,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 7 }
-							NOT = { is_in_array = { selected_idea_groups = 10 } }
 							set_temp_variable = { idea_group_out_of_context = 10 }
 						}
 						AND = {
 							check_variable = { v = 10 }
-							NOT = { is_in_array = { selected_idea_groups = 7 } }
 							set_temp_variable = { idea_group_out_of_context = 7 }
 						}
 					}
@@ -2760,12 +2699,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 8 }
-							NOT = { is_in_array = { selected_idea_groups = 9 } }
 							set_temp_variable = { idea_group_out_of_context = 9 }
 						}
 						AND = {
 							check_variable = { v = 9 }
-							NOT = { is_in_array = { selected_idea_groups = 8 } }
 							set_temp_variable = { idea_group_out_of_context = 8 }
 						}
 					}
@@ -2775,12 +2712,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 8 }
-							NOT = { is_in_array = { selected_idea_groups = 10 } }
 							set_temp_variable = { idea_group_out_of_context = 10 }
 						}
 						AND = {
 							check_variable = { v = 10 }
-							NOT = { is_in_array = { selected_idea_groups = 8 } }
 							set_temp_variable = { idea_group_out_of_context = 8 }
 						}
 					}
@@ -2790,12 +2725,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 8 }
-							NOT = { is_in_array = { selected_idea_groups = 13 } }
 							set_temp_variable = { idea_group_out_of_context = 13 }
 						}
 						AND = {
 							check_variable = { v = 13 }
-							NOT = { is_in_array = { selected_idea_groups = 8 } }
 							set_temp_variable = { idea_group_out_of_context = 8 }
 						}
 					}
@@ -2805,12 +2738,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 9 }
-							NOT = { is_in_array = { selected_idea_groups = 11 } }
 							set_temp_variable = { idea_group_out_of_context = 11 }
 						}
 						AND = {
 							check_variable = { v = 11 }
-							NOT = { is_in_array = { selected_idea_groups = 9 } }
 							set_temp_variable = { idea_group_out_of_context = 9 }
 						}
 					}
@@ -2820,12 +2751,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 9 }
-							NOT = { is_in_array = { selected_idea_groups = 12 } }
 							set_temp_variable = { idea_group_out_of_context = 12 }
 						}
 						AND = {
 							check_variable = { v = 12 }
-							NOT = { is_in_array = { selected_idea_groups = 9 } }
 							set_temp_variable = { idea_group_out_of_context = 9 }
 						}
 					}
@@ -2835,12 +2764,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 9 }
-							NOT = { is_in_array = { selected_idea_groups = 16 } }
 							set_temp_variable = { idea_group_out_of_context = 16 }
 						}
 						AND = {
 							check_variable = { v = 16 }
-							NOT = { is_in_array = { selected_idea_groups = 9 } }
 							set_temp_variable = { idea_group_out_of_context = 9 }
 						}
 					}
@@ -2850,12 +2777,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 11 }
-							NOT = { is_in_array = { selected_idea_groups = 12 } }
 							set_temp_variable = { idea_group_out_of_context = 12 }
 						}
 						AND = {
 							check_variable = { v = 12 }
-							NOT = { is_in_array = { selected_idea_groups = 11 } }
 							set_temp_variable = { idea_group_out_of_context = 11 }
 						}
 					}
@@ -2865,12 +2790,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 11 }
-							NOT = { is_in_array = { selected_idea_groups = 18 } }
 							set_temp_variable = { idea_group_out_of_context = 18 }
 						}
 						AND = {
 							check_variable = { v = 18 }
-							NOT = { is_in_array = { selected_idea_groups = 11 } }
 							set_temp_variable = { idea_group_out_of_context = 11 }
 						}
 					}
@@ -2880,12 +2803,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 12 }
-							NOT = { is_in_array = { selected_idea_groups = 14 } }
 							set_temp_variable = { idea_group_out_of_context = 14 }
 						}
 						AND = {
 							check_variable = { v = 14 }
-							NOT = { is_in_array = { selected_idea_groups = 12 } }
 							set_temp_variable = { idea_group_out_of_context = 12 }
 						}
 					}
@@ -2895,12 +2816,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 13 }
-							NOT = { is_in_array = { selected_idea_groups = 18 } }
 							set_temp_variable = { idea_group_out_of_context = 18 }
 						}
 						AND = {
 							check_variable = { v = 18 }
-							NOT = { is_in_array = { selected_idea_groups = 13 } }
 							set_temp_variable = { idea_group_out_of_context = 13 }
 						}
 					}
@@ -2910,12 +2829,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 14 }
-							NOT = { is_in_array = { selected_idea_groups = 17 } }
 							set_temp_variable = { idea_group_out_of_context = 17 }
 						}
 						AND = {
 							check_variable = { v = 17 }
-							NOT = { is_in_array = { selected_idea_groups = 14 } }
 							set_temp_variable = { idea_group_out_of_context = 14 }
 						}
 					}
@@ -2925,12 +2842,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 15 }
-							NOT = { is_in_array = { selected_idea_groups = 16 } }
 							set_temp_variable = { idea_group_out_of_context = 16 }
 						}
 						AND = {
 							check_variable = { v = 16 }
-							NOT = { is_in_array = { selected_idea_groups = 15 } }
 							set_temp_variable = { idea_group_out_of_context = 15 }
 						}
 					}
@@ -2940,12 +2855,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 16 }
-							NOT = { is_in_array = { selected_idea_groups = 18 } }
 							set_temp_variable = { idea_group_out_of_context = 18 }
 						}
 						AND = {
 							check_variable = { v = 18 }
-							NOT = { is_in_array = { selected_idea_groups = 16 } }
 							set_temp_variable = { idea_group_out_of_context = 16 }
 						}
 					}
@@ -2955,12 +2868,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 17 }
-							NOT = { is_in_array = { selected_idea_groups = 18 } }
 							set_temp_variable = { idea_group_out_of_context = 18 }
 						}
 						AND = {
 							check_variable = { v = 18 }
-							NOT = { is_in_array = { selected_idea_groups = 17 } }
 							set_temp_variable = { idea_group_out_of_context = 17 }
 						}
 					}
@@ -2970,12 +2881,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 19 }
-							NOT = { is_in_array = { selected_idea_groups = 22 } }
 							set_temp_variable = { idea_group_out_of_context = 22 }
 						}
 						AND = {
 							check_variable = { v = 22 }
-							NOT = { is_in_array = { selected_idea_groups = 19 } }
 							set_temp_variable = { idea_group_out_of_context = 19 }
 						}
 					}
@@ -2985,12 +2894,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 19 }
-							NOT = { is_in_array = { selected_idea_groups = 23 } }
 							set_temp_variable = { idea_group_out_of_context = 23 }
 						}
 						AND = {
 							check_variable = { v = 23 }
-							NOT = { is_in_array = { selected_idea_groups = 19 } }
 							set_temp_variable = { idea_group_out_of_context = 19 }
 						}
 					}
@@ -3000,12 +2907,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 20 }
-							NOT = { is_in_array = { selected_idea_groups = 24 } }
 							set_temp_variable = { idea_group_out_of_context = 24 }
 						}
 						AND = {
 							check_variable = { v = 24 }
-							NOT = { is_in_array = { selected_idea_groups = 20 } }
 							set_temp_variable = { idea_group_out_of_context = 20 }
 						}
 					}
@@ -3015,12 +2920,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 21 }
-							NOT = { is_in_array = { selected_idea_groups = 24 } }
 							set_temp_variable = { idea_group_out_of_context = 24 }
 						}
 						AND = {
 							check_variable = { v = 24 }
-							NOT = { is_in_array = { selected_idea_groups = 21 } }
 							set_temp_variable = { idea_group_out_of_context = 21 }
 						}
 					}
@@ -3030,12 +2933,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 22 }
-							NOT = { is_in_array = { selected_idea_groups = 21 } }
 							set_temp_variable = { idea_group_out_of_context = 21 }
 						}
 						AND = {
 							check_variable = { v = 21 }
-							NOT = { is_in_array = { selected_idea_groups = 22 } }
 							set_temp_variable = { idea_group_out_of_context = 22 }
 						}
 					}
@@ -3045,12 +2946,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 22 }
-							NOT = { is_in_array = { selected_idea_groups = 23 } }
 							set_temp_variable = { idea_group_out_of_context = 23 }
 						}
 						AND = {
 							check_variable = { v = 23 }
-							NOT = { is_in_array = { selected_idea_groups = 22 } }
 							set_temp_variable = { idea_group_out_of_context = 22 }
 						}
 					}
@@ -3060,12 +2959,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 21 }
-							NOT = { is_in_array = { selected_idea_groups = 23 } }
 							set_temp_variable = { idea_group_out_of_context = 23 }
 						}
 						AND = {
 							check_variable = { v = 23 }
-							NOT = { is_in_array = { selected_idea_groups = 21 } }
 							set_temp_variable = { idea_group_out_of_context = 21 }
 						}
 					}
@@ -3075,12 +2972,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 20 }
-							NOT = { is_in_array = { selected_idea_groups = 23 } }
 							set_temp_variable = { idea_group_out_of_context = 23 }
 						}
 						AND = {
 							check_variable = { v = 23 }
-							NOT = { is_in_array = { selected_idea_groups = 20 } }
 							set_temp_variable = { idea_group_out_of_context = 20 }
 						}
 					}
@@ -3090,12 +2985,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 24 }
-							NOT = { is_in_array = { selected_idea_groups = 23 } }
 							set_temp_variable = { idea_group_out_of_context = 23 }
 						}
 						AND = {
 							check_variable = { v = 23 }
-							NOT = { is_in_array = { selected_idea_groups = 24 } }
 							set_temp_variable = { idea_group_out_of_context = 24 }
 						}
 					}
@@ -3105,12 +2998,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 24 }
-							NOT = { is_in_array = { selected_idea_groups = 22 } }
 							set_temp_variable = { idea_group_out_of_context = 22 }
 						}
 						AND = {
 							check_variable = { v = 22 }
-							NOT = { is_in_array = { selected_idea_groups = 24 } }
 							set_temp_variable = { idea_group_out_of_context = 24 }
 						}
 					}
@@ -3120,12 +3011,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 20 }
-							NOT = { is_in_array = { selected_idea_groups = 22 } }
 							set_temp_variable = { idea_group_out_of_context = 22 }
 						}
 						AND = {
 							check_variable = { v = 22 }
-							NOT = { is_in_array = { selected_idea_groups = 20 } }
 							set_temp_variable = { idea_group_out_of_context = 20 }
 						}
 					}
@@ -3135,12 +3024,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 24 }
-							NOT = { is_in_array = { selected_idea_groups = 3 } }
 							set_temp_variable = { idea_group_out_of_context = 3 }
 						}
 						AND = {
 							check_variable = { v = 3 }
-							NOT = { is_in_array = { selected_idea_groups = 24 } }
 							set_temp_variable = { idea_group_out_of_context = 24 }
 						}
 					}
@@ -3150,12 +3037,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 19 }
-							NOT = { is_in_array = { selected_idea_groups = 17 } }
 							set_temp_variable = { idea_group_out_of_context = 17 }
 						}
 						AND = {
 							check_variable = { v = 17 }
-							NOT = { is_in_array = { selected_idea_groups = 19 } }
 							set_temp_variable = { idea_group_out_of_context = 19 }
 						}
 					}
@@ -3165,12 +3050,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 19 }
-							NOT = { is_in_array = { selected_idea_groups = 10 } }
 							set_temp_variable = { idea_group_out_of_context = 10 }
 						}
 						AND = {
 							check_variable = { v = 10 }
-							NOT = { is_in_array = { selected_idea_groups = 19 } }
 							set_temp_variable = { idea_group_out_of_context = 19 }
 						}
 					}
@@ -3180,12 +3063,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 19 }
-							NOT = { is_in_array = { selected_idea_groups = 13 } }
 							set_temp_variable = { idea_group_out_of_context = 13 }
 						}
 						AND = {
 							check_variable = { v = 13 }
-							NOT = { is_in_array = { selected_idea_groups = 19 } }
 							set_temp_variable = { idea_group_out_of_context = 19 }
 						}
 					}
@@ -3195,12 +3076,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 20 }
-							NOT = { is_in_array = { selected_idea_groups = 11 } }
 							set_temp_variable = { idea_group_out_of_context = 11 }
 						}
 						AND = {
 							check_variable = { v = 11 }
-							NOT = { is_in_array = { selected_idea_groups = 20 } }
 							set_temp_variable = { idea_group_out_of_context = 20 }
 						}
 					}
@@ -3210,12 +3089,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 20 }
-							NOT = { is_in_array = { selected_idea_groups = 9 } }
 							set_temp_variable = { idea_group_out_of_context = 9 }
 						}
 						AND = {
 							check_variable = { v = 9 }
-							NOT = { is_in_array = { selected_idea_groups = 20 } }
 							set_temp_variable = { idea_group_out_of_context = 20 }
 						}
 					}
@@ -3225,12 +3102,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 21 }
-							NOT = { is_in_array = { selected_idea_groups = 2 } }
 							set_temp_variable = { idea_group_out_of_context = 2 }
 						}
 						AND = {
 							check_variable = { v = 2 }
-							NOT = { is_in_array = { selected_idea_groups = 21 } }
 							set_temp_variable = { idea_group_out_of_context = 21 }
 						}
 					}
@@ -3240,12 +3115,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 21 }
-							NOT = { is_in_array = { selected_idea_groups = 6 } }
 							set_temp_variable = { idea_group_out_of_context = 6 }
 						}
 						AND = {
 							check_variable = { v = 6 }
-							NOT = { is_in_array = { selected_idea_groups = 21 } }
 							set_temp_variable = { idea_group_out_of_context = 21 }
 						}
 					}
@@ -3255,12 +3128,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 25 }
-							NOT = { is_in_array = { selected_idea_groups = 5 } }
 							set_temp_variable = { idea_group_out_of_context = 5 }
 						}
 						AND = {
 							check_variable = { v = 5 }
-							NOT = { is_in_array = { selected_idea_groups = 25 } }
 							set_temp_variable = { idea_group_out_of_context = 25 }
 						}
 					}
@@ -3270,12 +3141,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 25 }
-							NOT = { is_in_array = { selected_idea_groups = 22 } }
 							set_temp_variable = { idea_group_out_of_context = 22 }
 						}
 						AND = {
 							check_variable = { v = 22 }
-							NOT = { is_in_array = { selected_idea_groups = 25 } }
 							set_temp_variable = { idea_group_out_of_context = 25 }
 						}
 					}
@@ -3285,12 +3154,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 25 }
-							NOT = { is_in_array = { selected_idea_groups = 10 } }
 							set_temp_variable = { idea_group_out_of_context = 10 }
 						}
 						AND = {
 							check_variable = { v = 10 }
-							NOT = { is_in_array = { selected_idea_groups = 25 } }
 							set_temp_variable = { idea_group_out_of_context = 25 }
 						}
 					}
@@ -3300,12 +3167,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 25 }
-							NOT = { is_in_array = { selected_idea_groups = 8 } }
 							set_temp_variable = { idea_group_out_of_context = 8 }
 						}
 						AND = {
 							check_variable = { v = 8 }
-							NOT = { is_in_array = { selected_idea_groups = 25 } }
 							set_temp_variable = { idea_group_out_of_context = 25 }
 						}
 					}
@@ -3315,12 +3180,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 25 }
-							NOT = { is_in_array = { selected_idea_groups = 1 } }
 							set_temp_variable = { idea_group_out_of_context = 1 }
 						}
 						AND = {
 							check_variable = { v = 1 }
-							NOT = { is_in_array = { selected_idea_groups = 25 } }
 							set_temp_variable = { idea_group_out_of_context = 25 }
 						}
 					}
@@ -3330,12 +3193,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 26 }
-							NOT = { is_in_array = { selected_idea_groups = 5 } }
 							set_temp_variable = { idea_group_out_of_context = 5 }
 						}
 						AND = {
 							check_variable = { v = 5 }
-							NOT = { is_in_array = { selected_idea_groups = 26 } }
 							set_temp_variable = { idea_group_out_of_context = 26 }
 						}
 					}
@@ -3345,12 +3206,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 26 }
-							NOT = { is_in_array = { selected_idea_groups = 17 } }
 							set_temp_variable = { idea_group_out_of_context = 17 }
 						}
 						AND = {
 							check_variable = { v = 17 }
-							NOT = { is_in_array = { selected_idea_groups = 26 } }
 							set_temp_variable = { idea_group_out_of_context = 26 }
 						}
 					}
@@ -3360,12 +3219,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 26 }
-							NOT = { is_in_array = { selected_idea_groups = 10 } }
 							set_temp_variable = { idea_group_out_of_context = 10 }
 						}
 						AND = {
 							check_variable = { v = 10 }
-							NOT = { is_in_array = { selected_idea_groups = 26 } }
 							set_temp_variable = { idea_group_out_of_context = 26 }
 						}
 					}
@@ -3375,12 +3232,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 26 }
-							NOT = { is_in_array = { selected_idea_groups = 23 } }
 							set_temp_variable = { idea_group_out_of_context = 23 }
 						}
 						AND = {
 							check_variable = { v = 23 }
-							NOT = { is_in_array = { selected_idea_groups = 26 } }
 							set_temp_variable = { idea_group_out_of_context = 26 }
 						}
 					}
@@ -3390,12 +3245,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 26 }
-							NOT = { is_in_array = { selected_idea_groups = 9 } }
 							set_temp_variable = { idea_group_out_of_context = 9 }
 						}
 						AND = {
 							check_variable = { v = 9 }
-							NOT = { is_in_array = { selected_idea_groups = 26 } }
 							set_temp_variable = { idea_group_out_of_context = 26 }
 						}
 					}
@@ -3405,12 +3258,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 27 }
-							NOT = { is_in_array = { selected_idea_groups = 6 } }
 							set_temp_variable = { idea_group_out_of_context = 6 }
 						}
 						AND = {
 							check_variable = { v = 6 }
-							NOT = { is_in_array = { selected_idea_groups = 27 } }
 							set_temp_variable = { idea_group_out_of_context = 27 }
 						}
 					}
@@ -3420,12 +3271,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 27 }
-							NOT = { is_in_array = { selected_idea_groups = 4 } }
 							set_temp_variable = { idea_group_out_of_context = 4 }
 						}
 						AND = {
 							check_variable = { v = 4 }
-							NOT = { is_in_array = { selected_idea_groups = 27 } }
 							set_temp_variable = { idea_group_out_of_context = 27 }
 						}
 					}
@@ -3435,12 +3284,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 27 }
-							NOT = { is_in_array = { selected_idea_groups = 16 } }
 							set_temp_variable = { idea_group_out_of_context = 16 }
 						}
 						AND = {
 							check_variable = { v = 16 }
-							NOT = { is_in_array = { selected_idea_groups = 27 } }
 							set_temp_variable = { idea_group_out_of_context = 27 }
 						}
 					}
@@ -3450,12 +3297,10 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 27 }
-							NOT = { is_in_array = { selected_idea_groups = 23 } }
 							set_temp_variable = { idea_group_out_of_context = 23 }
 						}
 						AND = {
 							check_variable = { v = 23 }
-							NOT = { is_in_array = { selected_idea_groups = 27 } }
 							set_temp_variable = { idea_group_out_of_context = 27 }
 						}
 					}
@@ -3465,1054 +3310,34 @@ defined_text = {
 					OR = {
 						AND = {
 							check_variable = { v = 27 }
-							NOT = { is_in_array = { selected_idea_groups = 1 } }
 							set_temp_variable = { idea_group_out_of_context = 1 }
 						}
 						AND = {
 							check_variable = { v = 1 }
-							NOT = { is_in_array = { selected_idea_groups = 27 } }
 							set_temp_variable = { idea_group_out_of_context = 27 }
 						}
 					}
 				}
-				
+
 			}
 		}
 		localization_key = string_required_idea_group_for_policy
 	}
+}
+
+defined_text = {
+	name = GetIdeaGroupColorForPolicyTooltip
+
 	text = {
 		trigger = {
-			OR = {
-				AND = {
-					check_variable = { policy_out_of_context = 1 }
-					OR = {
-						AND = {
-							check_variable = { v = 5 }
-							set_temp_variable = { idea_group_out_of_context = 8 }
-						}
-						AND = {
-							check_variable = { v = 8 }
-							set_temp_variable = { idea_group_out_of_context = 5 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 2 }
-					OR = {
-						AND = {
-							check_variable = { v = 1 }
-							set_temp_variable = { idea_group_out_of_context = 2 }
-						}
-						AND = {
-							check_variable = { v = 2 }
-							set_temp_variable = { idea_group_out_of_context = 1 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 3 }
-					OR = {
-						AND = {
-							check_variable = { v = 3 }
-							set_temp_variable = { idea_group_out_of_context = 10 }
-						}
-						AND = {
-							check_variable = { v = 10 }
-							set_temp_variable = { idea_group_out_of_context = 3 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 4 }
-					OR = {
-						AND = {
-							check_variable = { v = 2 }
-							set_temp_variable = { idea_group_out_of_context = 15 }
-						}
-						AND = {
-							check_variable = { v = 15 }
-							set_temp_variable = { idea_group_out_of_context = 2 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 5 }
-					OR = {
-						AND = {
-							check_variable = { v = 5 }
-							set_temp_variable = { idea_group_out_of_context = 7 }
-						}
-						AND = {
-							check_variable = { v = 7 }
-							set_temp_variable = { idea_group_out_of_context = 5 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 6 }
-					OR = {
-						AND = {
-							check_variable = { v = 15 }
-							set_temp_variable = { idea_group_out_of_context = 17 }
-						}
-						AND = {
-							check_variable = { v = 17 }
-							set_temp_variable = { idea_group_out_of_context = 15 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 7 }
-					OR = {
-						AND = {
-							check_variable = { v = 6 }
-							set_temp_variable = { idea_group_out_of_context = 16 }
-						}
-						AND = {
-							check_variable = { v = 16 }
-							set_temp_variable = { idea_group_out_of_context = 6 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 8 }
-					OR = {
-						AND = {
-							check_variable = { v = 1 }
-							set_temp_variable = { idea_group_out_of_context = 13 }
-						}
-						AND = {
-							check_variable = { v = 13 }
-							set_temp_variable = { idea_group_out_of_context = 1 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 9 }
-					OR = {
-						AND = {
-							check_variable = { v = 1 }
-							set_temp_variable = { idea_group_out_of_context = 4 }
-						}
-						AND = {
-							check_variable = { v = 4 }
-							set_temp_variable = { idea_group_out_of_context = 1 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 10 }
-					OR = {
-						AND = {
-							check_variable = { v = 4 }
-							set_temp_variable = { idea_group_out_of_context = 17 }
-						}
-						AND = {
-							check_variable = { v = 17 }
-							set_temp_variable = { idea_group_out_of_context = 4 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 11 }
-					OR = {
-						AND = {
-							check_variable = { v = 1 }
-							set_temp_variable = { idea_group_out_of_context = 16 }
-						}
-						AND = {
-							check_variable = { v = 16 }
-							set_temp_variable = { idea_group_out_of_context = 1 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 12 }
-					OR = {
-						AND = {
-							check_variable = { v = 1 }
-							set_temp_variable = { idea_group_out_of_context = 10 }
-						}
-						AND = {
-							check_variable = { v = 10 }
-							set_temp_variable = { idea_group_out_of_context = 1 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 13 }
-					OR = {
-						AND = {
-							check_variable = { v = 2 }
-							set_temp_variable = { idea_group_out_of_context = 4 }
-						}
-						AND = {
-							check_variable = { v = 4 }
-							set_temp_variable = { idea_group_out_of_context = 2 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 14 }
-					OR = {
-						AND = {
-							check_variable = { v = 2 }
-							set_temp_variable = { idea_group_out_of_context = 7 }
-						}
-						AND = {
-							check_variable = { v = 7 }
-							set_temp_variable = { idea_group_out_of_context = 2 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 15 }
-					OR = {
-						AND = {
-							check_variable = { v = 2 }
-							set_temp_variable = { idea_group_out_of_context = 8 }
-						}
-						AND = {
-							check_variable = { v = 8 }
-							set_temp_variable = { idea_group_out_of_context = 2 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 16 }
-					OR = {
-						AND = {
-							check_variable = { v = 3 }
-							set_temp_variable = { idea_group_out_of_context = 11 }
-						}
-						AND = {
-							check_variable = { v = 11 }
-							set_temp_variable = { idea_group_out_of_context = 3 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 17 }
-					OR = {
-						AND = {
-							check_variable = { v = 3 }
-							set_temp_variable = { idea_group_out_of_context = 12 }
-						}
-						AND = {
-							check_variable = { v = 12 }
-							set_temp_variable = { idea_group_out_of_context = 3 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 18 }
-					OR = {
-						AND = {
-							check_variable = { v = 3 }
-							set_temp_variable = { idea_group_out_of_context = 14 }
-						}
-						AND = {
-							check_variable = { v = 14 }
-							set_temp_variable = { idea_group_out_of_context = 3 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 19 }
-					OR = {
-						AND = {
-							check_variable = { v = 3 }
-							set_temp_variable = { idea_group_out_of_context = 18 }
-						}
-						AND = {
-							check_variable = { v = 18 }
-							set_temp_variable = { idea_group_out_of_context = 3 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 20 }
-					OR = {
-						AND = {
-							check_variable = { v = 4 }
-							set_temp_variable = { idea_group_out_of_context = 15 }
-						}
-						AND = {
-							check_variable = { v = 15 }
-							set_temp_variable = { idea_group_out_of_context = 4 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 21 }
-					OR = {
-						AND = {
-							check_variable = { v = 4 }
-							set_temp_variable = { idea_group_out_of_context = 13 }
-						}
-						AND = {
-							check_variable = { v = 13 }
-							set_temp_variable = { idea_group_out_of_context = 4 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 22 }
-					OR = {
-						AND = {
-							check_variable = { v = 5 }
-							set_temp_variable = { idea_group_out_of_context = 9 }
-						}
-						AND = {
-							check_variable = { v = 9 }
-							set_temp_variable = { idea_group_out_of_context = 5 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 23 }
-					OR = {
-						AND = {
-							check_variable = { v = 5 }
-							set_temp_variable = { idea_group_out_of_context = 17 }
-						}
-						AND = {
-							check_variable = { v = 17 }
-							set_temp_variable = { idea_group_out_of_context = 5 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 24 }
-					OR = {
-						AND = {
-							check_variable = { v = 5 }
-							set_temp_variable = { idea_group_out_of_context = 10 }
-						}
-						AND = {
-							check_variable = { v = 10 }
-							set_temp_variable = { idea_group_out_of_context = 5 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 25 }
-					OR = {
-						AND = {
-							check_variable = { v = 6 }
-							set_temp_variable = { idea_group_out_of_context = 13 }
-						}
-						AND = {
-							check_variable = { v = 13 }
-							set_temp_variable = { idea_group_out_of_context = 6 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 26 }
-					OR = {
-						AND = {
-							check_variable = { v = 6 }
-							set_temp_variable = { idea_group_out_of_context = 14 }
-						}
-						AND = {
-							check_variable = { v = 14 }
-							set_temp_variable = { idea_group_out_of_context = 6 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 27 }
-					OR = {
-						AND = {
-							check_variable = { v = 6 }
-							set_temp_variable = { idea_group_out_of_context = 15 }
-						}
-						AND = {
-							check_variable = { v = 15 }
-							set_temp_variable = { idea_group_out_of_context = 6 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 28 }
-					OR = {
-						AND = {
-							check_variable = { v = 6 }
-							set_temp_variable = { idea_group_out_of_context = 12 }
-						}
-						AND = {
-							check_variable = { v = 12 }
-							set_temp_variable = { idea_group_out_of_context = 6 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 29 }
-					OR = {
-						AND = {
-							check_variable = { v = 7 }
-							set_temp_variable = { idea_group_out_of_context = 11 }
-						}
-						AND = {
-							check_variable = { v = 11 }
-							set_temp_variable = { idea_group_out_of_context = 7 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 30 }
-					OR = {
-						AND = {
-							check_variable = { v = 7 }
-							set_temp_variable = { idea_group_out_of_context = 14 }
-						}
-						AND = {
-							check_variable = { v = 14 }
-							set_temp_variable = { idea_group_out_of_context = 7 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 31 }
-					OR = {
-						AND = {
-							check_variable = { v = 7 }
-							set_temp_variable = { idea_group_out_of_context = 10 }
-						}
-						AND = {
-							check_variable = { v = 10 }
-							set_temp_variable = { idea_group_out_of_context = 7 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 32 }
-					OR = {
-						AND = {
-							check_variable = { v = 8 }
-							set_temp_variable = { idea_group_out_of_context = 9 }
-						}
-						AND = {
-							check_variable = { v = 9 }
-							set_temp_variable = { idea_group_out_of_context = 8 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 33 }
-					OR = {
-						AND = {
-							check_variable = { v = 8 }
-							set_temp_variable = { idea_group_out_of_context = 10 }
-						}
-						AND = {
-							check_variable = { v = 10 }
-							set_temp_variable = { idea_group_out_of_context = 8 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 34 }
-					OR = {
-						AND = {
-							check_variable = { v = 8 }
-							set_temp_variable = { idea_group_out_of_context = 13 }
-						}
-						AND = {
-							check_variable = { v = 13 }
-							set_temp_variable = { idea_group_out_of_context = 8 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 35 }
-					OR = {
-						AND = {
-							check_variable = { v = 9 }
-							set_temp_variable = { idea_group_out_of_context = 11 }
-						}
-						AND = {
-							check_variable = { v = 11 }
-							set_temp_variable = { idea_group_out_of_context = 9 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 36 }
-					OR = {
-						AND = {
-							check_variable = { v = 9 }
-							set_temp_variable = { idea_group_out_of_context = 12 }
-						}
-						AND = {
-							check_variable = { v = 12 }
-							set_temp_variable = { idea_group_out_of_context = 9 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 37 }
-					OR = {
-						AND = {
-							check_variable = { v = 9 }
-							set_temp_variable = { idea_group_out_of_context = 16 }
-						}
-						AND = {
-							check_variable = { v = 16 }
-							set_temp_variable = { idea_group_out_of_context = 9 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 38 }
-					OR = {
-						AND = {
-							check_variable = { v = 11 }
-							set_temp_variable = { idea_group_out_of_context = 12 }
-						}
-						AND = {
-							check_variable = { v = 12 }
-							set_temp_variable = { idea_group_out_of_context = 11 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 39 }
-					OR = {
-						AND = {
-							check_variable = { v = 11 }
-							set_temp_variable = { idea_group_out_of_context = 18 }
-						}
-						AND = {
-							check_variable = { v = 18 }
-							set_temp_variable = { idea_group_out_of_context = 11 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 40 }
-					OR = {
-						AND = {
-							check_variable = { v = 12 }
-							set_temp_variable = { idea_group_out_of_context = 14 }
-						}
-						AND = {
-							check_variable = { v = 14 }
-							set_temp_variable = { idea_group_out_of_context = 12 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 41 }
-					OR = {
-						AND = {
-							check_variable = { v = 13 }
-							set_temp_variable = { idea_group_out_of_context = 18 }
-						}
-						AND = {
-							check_variable = { v = 18 }
-							set_temp_variable = { idea_group_out_of_context = 13 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 42 }
-					OR = {
-						AND = {
-							check_variable = { v = 14 }
-							set_temp_variable = { idea_group_out_of_context = 17 }
-						}
-						AND = {
-							check_variable = { v = 17 }
-							set_temp_variable = { idea_group_out_of_context = 14 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 43 }
-					OR = {
-						AND = {
-							check_variable = { v = 15 }
-							set_temp_variable = { idea_group_out_of_context = 16 }
-						}
-						AND = {
-							check_variable = { v = 16 }
-							set_temp_variable = { idea_group_out_of_context = 15 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 44 }
-					OR = {
-						AND = {
-							check_variable = { v = 16 }
-							set_temp_variable = { idea_group_out_of_context = 18 }
-						}
-						AND = {
-							check_variable = { v = 18 }
-							set_temp_variable = { idea_group_out_of_context = 16 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 45 }
-					OR = {
-						AND = {
-							check_variable = { v = 17 }
-							set_temp_variable = { idea_group_out_of_context = 18 }
-						}
-						AND = {
-							check_variable = { v = 18 }
-							set_temp_variable = { idea_group_out_of_context = 17 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 46 }
-					OR = {
-						AND = {
-							check_variable = { v = 19 }
-							set_temp_variable = { idea_group_out_of_context = 22 }
-						}
-						AND = {
-							check_variable = { v = 22 }
-							set_temp_variable = { idea_group_out_of_context = 19 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 47 }
-					OR = {
-						AND = {
-							check_variable = { v = 19 }
-							set_temp_variable = { idea_group_out_of_context = 23 }
-						}
-						AND = {
-							check_variable = { v = 23 }
-							set_temp_variable = { idea_group_out_of_context = 19 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 48 }
-					OR = {
-						AND = {
-							check_variable = { v = 20 }
-							set_temp_variable = { idea_group_out_of_context = 24 }
-						}
-						AND = {
-							check_variable = { v = 24 }
-							set_temp_variable = { idea_group_out_of_context = 20 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 49 }
-					OR = {
-						AND = {
-							check_variable = { v = 21 }
-							set_temp_variable = { idea_group_out_of_context = 24 }
-						}
-						AND = {
-							check_variable = { v = 24 }
-							set_temp_variable = { idea_group_out_of_context = 21 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 50 }
-					OR = {
-						AND = {
-							check_variable = { v = 22 }
-							set_temp_variable = { idea_group_out_of_context = 21 }
-						}
-						AND = {
-							check_variable = { v = 21 }
-							set_temp_variable = { idea_group_out_of_context = 22 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 51 }
-					OR = {
-						AND = {
-							check_variable = { v = 22 }
-							set_temp_variable = { idea_group_out_of_context = 23 }
-						}
-						AND = {
-							check_variable = { v = 23 }
-							set_temp_variable = { idea_group_out_of_context = 22 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 52 }
-					OR = {
-						AND = {
-							check_variable = { v = 21 }
-							set_temp_variable = { idea_group_out_of_context = 23 }
-						}
-						AND = {
-							check_variable = { v = 23 }
-							set_temp_variable = { idea_group_out_of_context = 21 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 53 }
-					OR = {
-						AND = {
-							check_variable = { v = 20 }
-							set_temp_variable = { idea_group_out_of_context = 23 }
-						}
-						AND = {
-							check_variable = { v = 23 }
-							set_temp_variable = { idea_group_out_of_context = 20 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 54 }
-					OR = {
-						AND = {
-							check_variable = { v = 24 }
-							set_temp_variable = { idea_group_out_of_context = 23 }
-						}
-						AND = {
-							check_variable = { v = 23 }
-							set_temp_variable = { idea_group_out_of_context = 24 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 55 }
-					OR = {
-						AND = {
-							check_variable = { v = 24 }
-							set_temp_variable = { idea_group_out_of_context = 22 }
-						}
-						AND = {
-							check_variable = { v = 22 }
-							set_temp_variable = { idea_group_out_of_context = 24 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 56 }
-					OR = {
-						AND = {
-							check_variable = { v = 20 }
-							set_temp_variable = { idea_group_out_of_context = 22 }
-						}
-						AND = {
-							check_variable = { v = 22 }
-							set_temp_variable = { idea_group_out_of_context = 20 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 57 }
-					OR = {
-						AND = {
-							check_variable = { v = 24 }
-							set_temp_variable = { idea_group_out_of_context = 3 }
-						}
-						AND = {
-							check_variable = { v = 3 }
-							set_temp_variable = { idea_group_out_of_context = 24 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 58 }
-					OR = {
-						AND = {
-							check_variable = { v = 19 }
-							set_temp_variable = { idea_group_out_of_context = 17 }
-						}
-						AND = {
-							check_variable = { v = 17 }
-							set_temp_variable = { idea_group_out_of_context = 19 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 59 }
-					OR = {
-						AND = {
-							check_variable = { v = 19 }
-							set_temp_variable = { idea_group_out_of_context = 10 }
-						}
-						AND = {
-							check_variable = { v = 10 }
-							set_temp_variable = { idea_group_out_of_context = 19 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 60 }
-					OR = {
-						AND = {
-							check_variable = { v = 19 }
-							set_temp_variable = { idea_group_out_of_context = 13 }
-						}
-						AND = {
-							check_variable = { v = 13 }
-							set_temp_variable = { idea_group_out_of_context = 19 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 61 }
-					OR = {
-						AND = {
-							check_variable = { v = 20 }
-							set_temp_variable = { idea_group_out_of_context = 11 }
-						}
-						AND = {
-							check_variable = { v = 11 }
-							set_temp_variable = { idea_group_out_of_context = 20 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 62 }
-					OR = {
-						AND = {
-							check_variable = { v = 20 }
-							set_temp_variable = { idea_group_out_of_context = 9 }
-						}
-						AND = {
-							check_variable = { v = 9 }
-							set_temp_variable = { idea_group_out_of_context = 20 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 63 }
-					OR = {
-						AND = {
-							check_variable = { v = 21 }
-							set_temp_variable = { idea_group_out_of_context = 2 }
-						}
-						AND = {
-							check_variable = { v = 2 }
-							set_temp_variable = { idea_group_out_of_context = 21 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 64 }
-					OR = {
-						AND = {
-							check_variable = { v = 21 }
-							set_temp_variable = { idea_group_out_of_context = 6 }
-						}
-						AND = {
-							check_variable = { v = 6 }
-							set_temp_variable = { idea_group_out_of_context = 21 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 65 }
-					OR = {
-						AND = {
-							check_variable = { v = 25 }
-							set_temp_variable = { idea_group_out_of_context = 5 }
-						}
-						AND = {
-							check_variable = { v = 5 }
-							set_temp_variable = { idea_group_out_of_context = 25 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 66 }
-					OR = {
-						AND = {
-							check_variable = { v = 25 }
-							set_temp_variable = { idea_group_out_of_context = 22 }
-						}
-						AND = {
-							check_variable = { v = 22 }
-							set_temp_variable = { idea_group_out_of_context = 25 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 67 }
-					OR = {
-						AND = {
-							check_variable = { v = 25 }
-							set_temp_variable = { idea_group_out_of_context = 10 }
-						}
-						AND = {
-							check_variable = { v = 10 }
-							set_temp_variable = { idea_group_out_of_context = 25 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 68 }
-					OR = {
-						AND = {
-							check_variable = { v = 25 }
-							set_temp_variable = { idea_group_out_of_context = 8 }
-						}
-						AND = {
-							check_variable = { v = 8 }
-							set_temp_variable = { idea_group_out_of_context = 25 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 69 }
-					OR = {
-						AND = {
-							check_variable = { v = 25 }
-							set_temp_variable = { idea_group_out_of_context = 1 }
-						}
-						AND = {
-							check_variable = { v = 1 }
-							set_temp_variable = { idea_group_out_of_context = 25 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 70 }
-					OR = {
-						AND = {
-							check_variable = { v = 26 }
-							set_temp_variable = { idea_group_out_of_context = 5 }
-						}
-						AND = {
-							check_variable = { v = 5 }
-							set_temp_variable = { idea_group_out_of_context = 26 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 71 }
-					OR = {
-						AND = {
-							check_variable = { v = 26 }
-							set_temp_variable = { idea_group_out_of_context = 17 }
-						}
-						AND = {
-							check_variable = { v = 17 }
-							set_temp_variable = { idea_group_out_of_context = 26 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 72 }
-					OR = {
-						AND = {
-							check_variable = { v = 26 }
-							set_temp_variable = { idea_group_out_of_context = 10 }
-						}
-						AND = {
-							check_variable = { v = 10 }
-							set_temp_variable = { idea_group_out_of_context = 26 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 73 }
-					OR = {
-						AND = {
-							check_variable = { v = 26 }
-							set_temp_variable = { idea_group_out_of_context = 23 }
-						}
-						AND = {
-							check_variable = { v = 23 }
-							set_temp_variable = { idea_group_out_of_context = 26 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 74 }
-					OR = {
-						AND = {
-							check_variable = { v = 26 }
-							set_temp_variable = { idea_group_out_of_context = 9 }
-						}
-						AND = {
-							check_variable = { v = 9 }
-							set_temp_variable = { idea_group_out_of_context = 26 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 75 }
-					OR = {
-						AND = {
-							check_variable = { v = 27 }
-							set_temp_variable = { idea_group_out_of_context = 6 }
-						}
-						AND = {
-							check_variable = { v = 6 }
-							set_temp_variable = { idea_group_out_of_context = 27 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 76 }
-					OR = {
-						AND = {
-							check_variable = { v = 27 }
-							set_temp_variable = { idea_group_out_of_context = 4 }
-						}
-						AND = {
-							check_variable = { v = 4 }
-							set_temp_variable = { idea_group_out_of_context = 27 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 77 }
-					OR = {
-						AND = {
-							check_variable = { v = 27 }
-							set_temp_variable = { idea_group_out_of_context = 16 }
-						}
-						AND = {
-							check_variable = { v = 16 }
-							set_temp_variable = { idea_group_out_of_context = 27 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 78 }
-					OR = {
-						AND = {
-							check_variable = { v = 27 }
-							set_temp_variable = { idea_group_out_of_context = 23 }
-						}
-						AND = {
-							check_variable = { v = 23 }
-							set_temp_variable = { idea_group_out_of_context = 27 }
-						}
-					}
-				}
-				AND = {
-					check_variable = { policy_out_of_context = 79 }
-					OR = {
-						AND = {
-							check_variable = { v = 27 }
-							set_temp_variable = { idea_group_out_of_context = 1 }
-						}
-						AND = {
-							check_variable = { v = 1 }
-							set_temp_variable = { idea_group_out_of_context = 27 }
-						}
-					}
-				}
-				
-			}
+			has_selected_idea_group = yes
 		}
 		localization_key = string_required_idea_group_for_policy_colored
+	}
+	text = {
+		trigger = {
+			always = yes
+		}
+		localization_key = string_required_idea_group_for_policy_not_colored
 	}
 }

@@ -1,25 +1,21 @@
 scripted_gui = {
 	eu4_like_ideas_custom_national_ideas_window = {
 		context_type = player_context
-		
+
 		window_name = "eu4_like_ideas_custom_national_ideas_window"
-		
+
+		dirty = show_eu4_like_ideas_custom_national_ideas_window
+
 		visible = {
 			is_ai = no
-			NOT = {
-				has_game_rule = {
-					rule = eu4_like_ideas_national_idea_groups_rule
-					option = DEFAULT
-				}
-			}
+			has_variable = show_eu4_like_ideas_custom_national_ideas_window
 			NOT = { has_country_flag = selected_custom_national_idea_group }
-			check_variable = { eu4_like_ideas_custom_national_ideas_window > 0 }
 		}
-		
+
 		effects = {
 			close_button_click = {
 				clear_variable = show_eu4_like_ideas_custom_national_ideas_group_list_window
-				clear_variable = eu4_like_ideas_custom_national_ideas_window
+				clear_variable = show_eu4_like_ideas_custom_national_ideas_window
 				set_country_flag = selected_custom_national_idea_group
 			}
 			select_national_idea_group_button_click = {
@@ -32,6 +28,7 @@ scripted_gui = {
 				else = {
 					set_variable = { show_eu4_like_ideas_custom_national_ideas_group_list_window = 1 }
 				}
+				update_custom_national_ideas_window = yes
 			}
 			select_national_idea_group_button_right_click = {
 				if = {
@@ -40,45 +37,49 @@ scripted_gui = {
 					}
 					swap_national_ideas_effect = yes
 				}
+				update_custom_national_ideas_window = yes
 			}
 		}
 	}
-	
+
 	eu4_like_ideas_custom_national_ideas_group_side_panel = {
 		context_type = player_context
-		
+
 		window_name = "eu4_like_ideas_custom_national_ideas_group_side_panel"
 		parent_window_name = "eu4_like_ideas_custom_national_ideas_window"
-		
+
 		visible = {
 			always = yes
 		}
 	}
-	
+
 	eu4_like_ideas_custom_national_ideas_group_list_window = {
 		context_type = player_context
-		
+
 		window_name = "eu4_like_ideas_custom_national_ideas_group_list_window"
 		parent_window_name = "eu4_like_ideas_custom_national_ideas_group_side_panel_instance"
-		
+
+		dirty = show_eu4_like_ideas_custom_national_ideas_window
+
 		visible = {
-			check_variable = { show_eu4_like_ideas_custom_national_ideas_group_list_window > 0 }
+			has_variable = show_eu4_like_ideas_custom_national_ideas_group_list_window
 		}
-		
+
 		effects = {
 			close_button_click = {
 				clear_variable = show_eu4_like_ideas_custom_national_ideas_group_list_window
+				update_custom_national_ideas_window = yes
 			}
 			select_national_idea_group_list_button_click = {
 				swap_national_ideas_effect = yes
-				set_country_flag = swap_to_custom_national_ideas
+				set_temp_variable = { swap_to_custom_national_ideas = 1 }
 				set_variable = { selected_custom_national_ideas_id = v }
 				swap_national_ideas_effect = yes
-				clr_country_flag = swap_to_custom_national_ideas
 				clear_variable = show_eu4_like_ideas_custom_national_ideas_group_list_window
+				update_custom_national_ideas_window = yes
 			}
 		}
-		
+
 		triggers = {
 			select_national_idea_group_list_button_visible = {
 				set_temp_variable = { national_ideas_id_other_context = v }
@@ -87,7 +88,7 @@ scripted_gui = {
 				check_variable = { national_ideas_id = v }
 			}
 		}
-		
+
 		dynamic_lists = {
 			national_idea_group_selection_gridbox = {
 				array = global.national_idea_group_selection_array

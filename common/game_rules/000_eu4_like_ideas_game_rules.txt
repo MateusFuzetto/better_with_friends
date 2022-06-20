@@ -38,46 +38,6 @@ eu4_like_ideas_rule_limited_idea_groups_from_same_type = {
 	}
 }
 
-eu4_like_ideas_rule_unlock_dates_for_ideas = {
-	name = "EU4_LIKE_IDEAS_RULE_UNLOCK_DATES_FOR_IDEAS"
-	group = "EU4_LIKE_IDEAS_RULES"
-	default = {
-		name = "DEFAULT"
-		desc = "DEFAULT_EU4_LIKE_IDEAS_RULE_UNLOCK_DATES_FOR_IDEAS_DESC"
-		text = "DEFAULT"
-		allow_achievements = yes
-	}
-	option = {
-		name = "RELATIVE"
-		desc = "RELATIVE_EU4_LIKE_IDEAS_RULE_UNLOCK_DATES_FOR_IDEAS_DESC"
-		text = "RELATIVE"
-		allow_achievements = yes
-	}
-}
-
-eu4_like_ideas_rule_historical_idea_groups = {
-	name = "EU4_LIKE_IDEAS_RULE_HISTORICAL_IDEA_GROUPS"
-	group = "EU4_LIKE_IDEAS_RULES"
-	default = {
-		name = "ENABLED"
-		desc = "ENABLED_EU4_LIKE_IDEAS_RULE_HISTORICAL_IDEA_GROUPS_DESC"
-		text = "ENABLED"
-		allow_achievements = yes
-	}
-	option = {
-		name = "LIMITED"
-		desc = "LIMITED_EU4_LIKE_IDEAS_RULE_HISTORICAL_IDEA_GROUPS_DESC"
-		text = "RULE_OPTION_LIMITED"
-		allow_achievements = yes
-	}
-	option = {
-		name = "DISABLED"
-		desc = "DISABLED_EU4_LIKE_IDEAS_RULE_HISTORICAL_IDEA_GROUPS_DESC"
-		text = "DISABLED"
-		allow_achievements = yes
-	}
-}
-
 eu4_like_ideas_rule_idea_cost_modifier = {
 	name = "EU4_LIKE_IDEAS_RULE_IDEA_COST"
 	group = "EU4_LIKE_IDEAS_RULES"

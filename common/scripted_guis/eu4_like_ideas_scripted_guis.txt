@@ -1,3 +1,5 @@
+@LAST_POLICY_ID = 79
+
 scripted_gui = {
 	show_their_ideas_window = {
 		context_type = selected_country_context
@@ -24,22 +26,22 @@ scripted_gui = {
 
 		effects = {
 			open_button_click = {
-				set_temp_variable = { show = 1 }
-				subtract_from_temp_variable = { show = show_ideas_window }
-				set_variable = { show_ideas_window = show }
 				if = {
 					limit = {
-						check_variable = { show_ideas_window > 0 }
+						has_variable = show_ideas_window
 					}
+					clear_variable = show_ideas_window
+				}
+				else = {
 					set_ideas_up_at_start_effect = yes
 					clear_variable = show_selectable_idea_groups_window
 					clear_variable = show_ideas_window_confirm_alert
 					clear_variable = confirm_idea_group
 					clear_variable = confirm_idea
-					clear_variable = show_swap_ideas_buttons
 					clear_variable = show_policies_window
 					remove_flags_for_available_dismissed_alerts = yes
 					refresh_eu4_like_alerts = yes
+					set_variable = { show_ideas_window = 1 }
 				}
 			}
 		}
@@ -61,8 +63,8 @@ scripted_gui = {
 		ai_test_variance = 1
 
 		ai_check = {
-			check_variable = { show_ideas_window < 1 }
-			check_variable = { show_selectable_idea_groups_window < 1 }
+			NOT = { has_variable = show_ideas_window }
+			NOT = { has_variable = show_selectable_idea_groups_window }
 			OR = {
 				AND = {
 					can_select_any_idea_group = yes
@@ -75,7 +77,6 @@ scripted_gui = {
 					}
 				}
 				can_select_any_idea = yes
-				can_change_national_idea_group = yes
 				AI_can_remove_any_idea_group = yes
 				can_select_any_policy = yes
 				AI_might_want_to_remove_any_policy = yes
@@ -92,35 +93,23 @@ scripted_gui = {
 
 					modifier = {
 						factor = 0
-						check_variable = { show_ideas_window > 0 }
+						has_variable = show_ideas_window
+					}
+					modifier = {
+						factor = 0
+						has_global_flag = eu4_like_ideas_ai_disabled
 					}
 					modifier = {
 						factor = 0
 						NOT = {
 							OR = {
 								AND = {
+									NOT = { has_global_flag = eu4_like_ideas_ai_only_majors }
+									NOT = { has_global_flag = eu4_like_ideas_ai_only_minors }
 									OR = {
-										has_game_rule = {
-											rule = eu4_like_ideas_rule_AI
-											option = ENABLED
-										}
-										has_game_rule = {
-											rule = eu4_like_ideas_rule_AI
-											option = DISALLOW_IDEAS_THAT_ALLOW_COLLAB_GOVS
-										}
-									}
-									OR = {
-										has_game_rule = {
-											rule = eu4_like_ideas_AI_idea_usage_delay
-											option = NONE
-										}
+										NOT = { has_global_flag = eu4_like_ideas_ai_idea_usage_delayed }
 										AND = {
-											NOT = {
-												has_game_rule = {
-													rule = eu4_like_ideas_AI_idea_usage_delay
-													option = NONE
-												}
-											}
+											has_global_flag = eu4_like_ideas_ai_idea_usage_delayed
 											meta_trigger = {
 												text = {
 													date > [DATE]
@@ -132,22 +121,11 @@ scripted_gui = {
 								}
 								AND = {
 									is_major = yes
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_AI
-										option = ONLY_MAJORS
-									}
+									has_global_flag = eu4_like_ideas_ai_only_majors
 									OR = {
-										has_game_rule = {
-											rule = eu4_like_ideas_AI_idea_usage_delay
-											option = NONE
-										}
+										NOT = { has_global_flag = eu4_like_ideas_ai_idea_usage_delayed }
 										AND = {
-											NOT = {
-												has_game_rule = {
-													rule = eu4_like_ideas_AI_idea_usage_delay
-													option = NONE
-												}
-											}
+											has_global_flag = eu4_like_ideas_ai_idea_usage_delayed
 											meta_trigger = {
 												text = {
 													date > [DATE]
@@ -159,22 +137,11 @@ scripted_gui = {
 								}
 								AND = {
 									is_major = no
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_AI
-										option = ONLY_MINORS
-									}
+									has_global_flag = eu4_like_ideas_ai_only_minors
 									OR = {
-										has_game_rule = {
-											rule = eu4_like_ideas_AI_idea_usage_delay
-											option = NONE
-										}
+										NOT = { has_global_flag = eu4_like_ideas_ai_idea_usage_delayed }
 										AND = {
-											NOT = {
-												has_game_rule = {
-													rule = eu4_like_ideas_AI_idea_usage_delay
-													option = NONE
-												}
-											}
+											has_global_flag = eu4_like_ideas_ai_idea_usage_delayed
 											meta_trigger = {
 												text = {
 													date > [DATE]
@@ -197,14 +164,15 @@ scripted_gui = {
 
 		window_name = "ideas_window"
 
+		dirty = show_ideas_window
+
 		visible = {
-			check_variable = { show_ideas_window > 0 }
+			has_variable = show_ideas_window
 		}
 
 		effects = {
 			close_button_click = {
 				clear_variable = show_ideas_window
-				clear_variable = show_swap_ideas_buttons
 			}
 			flag_click = {
 				capital_scope = {
@@ -212,63 +180,16 @@ scripted_gui = {
 						goto_state = PREV
 					}
 				}
-				clear_variable = show_swap_ideas_buttons
-			}
-			flag_right_click = {
-				set_temp_variable = { show = 1 }
-				subtract_from_temp_variable = { show = show_swap_ideas_buttons }
-				set_variable = { show_swap_ideas_buttons = show }
-			}
-			swap_ideas_button_click = {
-				set_temp_variable = { current_national_idea_set = national_ideas_id }
-				if = {
-					limit = {
-						can_change_national_idea_group = yes
-					}
-					swap_national_ideas_effect = yes
-				}
-				clear_variable = show_swap_ideas_buttons
-				if = {
-					limit = {
-						NOT = { check_variable = { current_national_idea_set = national_ideas_id } }
-					}
-					clr_country_flag = recently_swapped_ideas
-					set_country_flag = recently_swapped_ideas
-				}
-				if = {
-					limit = {
-						NOT = { can_change_national_idea_group = yes }
-						is_in_array = { eu4_like_ideas_alerts = 4 }
-					}
-					remove_from_array = { eu4_like_ideas_alerts = 4 }
-				}
-			}
-			swap_ideas_to_generic_button_click = {
-				set_country_flag = swap_to_generic_national_ideas
-				swap_national_ideas_effect = yes
-				clr_country_flag = swap_to_generic_national_ideas
-				clear_variable = show_swap_ideas_buttons
-				clr_country_flag = recently_swapped_ideas
-				set_country_flag = recently_swapped_ideas
-			}
-			swap_ideas_to_previous_button_click = {
-				set_country_flag = swap_to_previous_national_ideas
-				swap_national_ideas_effect = yes
-				clr_country_flag = swap_to_previous_national_ideas
-				clear_variable = show_swap_ideas_buttons
-				clr_country_flag = recently_swapped_ideas
-				set_country_flag = recently_swapped_ideas
+				update_main_ideas_window = yes
 			}
 			add_policy_button_click = {
 				set_variable = { show_policies_window = 1 }
 				update_policies_effect = yes
 				clear_variable = show_ideas_window
-				clear_variable = show_swap_ideas_buttons
 			}
 			show_remaining_idea_groups_button_click = {
 				set_variable = { show_selectable_idea_groups_window = 1 }
 				clear_variable = show_ideas_window
-				clear_variable = show_swap_ideas_buttons
 			}
 
 			remove_policy_button_click = {
@@ -298,12 +219,12 @@ scripted_gui = {
 						remove_policy = yes
 					}
 				}
+				update_main_ideas_window = yes
 			}
 
 			open_selectable_ideas_button_click = {
 				set_variable = { show_selectable_idea_groups_window = 1 }
 				clear_variable = show_ideas_window
-				clear_variable = show_swap_ideas_buttons
 			}
 			remove_idea_group_button_click = {
 				if = {
@@ -316,6 +237,7 @@ scripted_gui = {
 				else = {
 					remove_idea_group_effect = yes
 				}
+				update_main_ideas_window = yes
 			}
 			select_idea_button_1_click = {
 				update_idea_cost_modifiers = yes
@@ -329,20 +251,12 @@ scripted_gui = {
 					set_variable = { confirm_idea = 1 }
 				}
 				else = {
-					meta_effect = {
-						text = {
-							add_to_variable = { completed_ideas_of_group_[GROUP] = 1 }
-						}
-						GROUP = "[?v]"
-					}
 					set_temp_variable = { pp_to_pay = idea_cost_var }
 					multiply_temp_variable = { pp_to_pay = -1 }
 					add_political_power = pp_to_pay
 					complete_1_idea_of_group = yes
-					add_to_national_ideas_threshold = yes
-					update_idea_cost_modifiers = yes
-					update_policy_costs = yes
 				}
+				update_main_ideas_window = yes
 			}
 			select_idea_button_2_click = {
 				update_idea_cost_modifiers = yes
@@ -356,20 +270,12 @@ scripted_gui = {
 					set_variable = { confirm_idea = 2 }
 				}
 				else = {
-					meta_effect = {
-						text = {
-							add_to_variable = { completed_ideas_of_group_[GROUP] = 1 }
-						}
-						GROUP = "[?v]"
-					}
 					set_temp_variable = { pp_to_pay = idea_cost_var }
 					multiply_temp_variable = { pp_to_pay = -1 }
 					add_political_power = pp_to_pay
 					complete_2_idea_of_group = yes
-					add_to_national_ideas_threshold = yes
-					update_idea_cost_modifiers = yes
-					update_policy_costs = yes
 				}
+				update_main_ideas_window = yes
 			}
 			select_idea_button_3_click = {
 				update_idea_cost_modifiers = yes
@@ -383,20 +289,12 @@ scripted_gui = {
 					set_variable = { confirm_idea = 3 }
 				}
 				else = {
-					meta_effect = {
-						text = {
-							add_to_variable = { completed_ideas_of_group_[GROUP] = 1 }
-						}
-						GROUP = "[?v]"
-					}
 					set_temp_variable = { pp_to_pay = idea_cost_var }
 					multiply_temp_variable = { pp_to_pay = -1 }
 					add_political_power = pp_to_pay
 					complete_3_idea_of_group = yes
-					add_to_national_ideas_threshold = yes
-					update_idea_cost_modifiers = yes
-					update_policy_costs = yes
 				}
+				update_main_ideas_window = yes
 			}
 			select_idea_button_4_click = {
 				update_idea_cost_modifiers = yes
@@ -410,20 +308,12 @@ scripted_gui = {
 					set_variable = { confirm_idea = 4 }
 				}
 				else = {
-					meta_effect = {
-						text = {
-							add_to_variable = { completed_ideas_of_group_[GROUP] = 1 }
-						}
-						GROUP = "[?v]"
-					}
 					set_temp_variable = { pp_to_pay = idea_cost_var }
 					multiply_temp_variable = { pp_to_pay = -1 }
 					add_political_power = pp_to_pay
 					complete_4_idea_of_group = yes
-					add_to_national_ideas_threshold = yes
-					update_idea_cost_modifiers = yes
-					update_policy_costs = yes
 				}
+				update_main_ideas_window = yes
 			}
 			select_idea_button_5_click = {
 				update_idea_cost_modifiers = yes
@@ -437,20 +327,12 @@ scripted_gui = {
 					set_variable = { confirm_idea = 5 }
 				}
 				else = {
-					meta_effect = {
-						text = {
-							add_to_variable = { completed_ideas_of_group_[GROUP] = 1 }
-						}
-						GROUP = "[?v]"
-					}
 					set_temp_variable = { pp_to_pay = idea_cost_var }
 					multiply_temp_variable = { pp_to_pay = -1 }
 					add_political_power = pp_to_pay
 					complete_5_idea_of_group = yes
-					add_to_national_ideas_threshold = yes
-					update_idea_cost_modifiers = yes
-					update_policy_costs = yes
 				}
+				update_main_ideas_window = yes
 			}
 			select_idea_button_6_click = {
 				update_idea_cost_modifiers = yes
@@ -464,20 +346,12 @@ scripted_gui = {
 					set_variable = { confirm_idea = 6 }
 				}
 				else = {
-					meta_effect = {
-						text = {
-							add_to_variable = { completed_ideas_of_group_[GROUP] = 1 }
-						}
-						GROUP = "[?v]"
-					}
 					set_temp_variable = { pp_to_pay = idea_cost_var }
 					multiply_temp_variable = { pp_to_pay = -1 }
 					add_political_power = pp_to_pay
 					complete_6_idea_of_group = yes
-					add_to_national_ideas_threshold = yes
-					update_idea_cost_modifiers = yes
-					update_policy_costs = yes
 				}
+				update_main_ideas_window = yes
 			}
 			select_idea_button_7_click = {
 				update_idea_cost_modifiers = yes
@@ -491,65 +365,18 @@ scripted_gui = {
 					set_variable = { confirm_idea = 7 }
 				}
 				else = {
-					meta_effect = {
-						text = {
-							add_to_variable = { completed_ideas_of_group_[GROUP] = 1 }
-						}
-						GROUP = "[?v]"
-					}
 					set_temp_variable = { pp_to_pay = idea_cost_var }
 					multiply_temp_variable = { pp_to_pay = -1 }
 					add_political_power = pp_to_pay
 					complete_7_idea_of_group = yes
-					add_to_national_ideas_threshold = yes
-					update_idea_cost_modifiers = yes
-					update_policy_costs = yes
 				}
+				update_main_ideas_window = yes
 			}
 		}
 
 		triggers = {
 			close_button_click_enabled = {
-				check_variable = { show_ideas_window_confirm_alert < 1 }
-			}
-			swap_ideas_button_visible = {
-				check_variable = { show_swap_ideas_buttons > 0 }
-			}
-			swap_ideas_button_click_enabled = {
-				OR = {
-					NOT = { has_country_flag = recently_swapped_ideas }
-					has_country_flag = {
-						flag = recently_swapped_ideas
-						days > 50
-					}
-				}
-			}
-			swap_ideas_to_generic_button_visible = {
-				check_variable = { show_swap_ideas_buttons > 0 }
-				NOT = { check_variable = { national_ideas_id = 1000 } }
-			}
-			swap_ideas_to_generic_button_click_enabled = {
-				OR = {
-					NOT = { has_country_flag = recently_swapped_ideas }
-					has_country_flag = {
-						flag = recently_swapped_ideas
-						days > 50
-					}
-				}
-			}
-			swap_ideas_to_previous_button_visible = {
-				check_variable = { show_swap_ideas_buttons > 0 }
-				has_variable = previous_national_ideas_id
-				NOT = { check_variable = { national_ideas_id = previous_national_ideas_id } }
-			}
-			swap_ideas_to_previous_button_click_enabled = {
-				OR = {
-					NOT = { has_country_flag = recently_swapped_ideas }
-					has_country_flag = {
-						flag = recently_swapped_ideas
-						days > 50
-					}
-				}
+				NOT = { has_variable = show_ideas_window_confirm_alert }
 			}
 			add_policy_button_click_enabled = {
 				OR = {
@@ -606,37 +433,14 @@ scripted_gui = {
 				}
 			}
 			national_idea_progress_green_visible = {
-				is_ai = no
 				check_variable = { completed_national_ideas < 7 }
+				check_variable = { national_ideas_progress > 0 }
 			}
 			national_idea_progress_black_visible = {
-				is_ai = no
 				check_variable = { completed_national_ideas < 7 }
 			}
 			national_idea_progress_frame_visible = {
-				is_ai = no
 				check_variable = { completed_national_ideas < 7 }
-			}
-			national_idea_1_visible = {
-				is_ai = no
-			}
-			national_idea_2_visible = {
-				is_ai = no
-			}
-			national_idea_3_visible = {
-				is_ai = no
-			}
-			national_idea_4_visible = {
-				is_ai = no
-			}
-			national_idea_5_visible = {
-				is_ai = no
-			}
-			national_idea_6_visible = {
-				is_ai = no
-			}
-			national_idea_7_visible = {
-				is_ai = no
 			}
 			national_idea_1_click_enabled = {
 				check_variable = { completed_national_ideas > 0 }
@@ -670,1717 +474,323 @@ scripted_gui = {
 					AND = {
 						check_variable = { i = 1 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_2.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1938.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1912.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1009.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_2.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^0 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_4
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_6
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_8
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_10
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_12
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_14
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 2 }
 						check_variable = { i = 2 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_3.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1939.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1913.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1010.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_3.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^1 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_4
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_6
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_8
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_10
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_12
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_14
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 2 }
 						check_variable = { i = 3 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_4.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1940.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1914.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1011.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_4.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^2 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_6
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_8
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_10
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_12
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_14
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 4 }
 						check_variable = { i = 4 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_5.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1941.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1915.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1012.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_5.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^3 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_6
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_8
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_10
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_12
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_14
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 4 }
 						check_variable = { i = 5 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_6.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1942.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1916.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1013.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_6.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^4 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_8
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_10
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_12
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_14
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 6 }
 						check_variable = { i = 6 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_7.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1943.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1917.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1014.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_7.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^5 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_8
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_10
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_12
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_14
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 6 }
 						check_variable = { i = 7 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_8.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1944.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1918.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1015.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_8.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^6 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_10
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_12
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_14
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 8 }
 						check_variable = { i = 8 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_9.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1945.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1919.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1016.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_9.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^7 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_10
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_12
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_14
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 8 }
 						check_variable = { i = 9 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_10.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1946.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1920.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1017.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_10.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^8 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_12
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_14
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 10 }
 						check_variable = { i = 10 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_11.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1947.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1921.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1018.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_11.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^9 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_12
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_14
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 10 }
 						check_variable = { i = 11 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_12.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1948.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1922.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1019.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_12.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^10 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_14
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 12 }
 						check_variable = { i = 12 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_13.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1949.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1923.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1020.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_13.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^11 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_14
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 12 }
 						check_variable = { i = 13 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_14.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1950.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1924.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1021.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_14.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^12 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 14 }
 						check_variable = { i = 14 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_15.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1951.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1925.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1022.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_15.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^13 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_16
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 14 }
 						check_variable = { i = 15 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_16.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1952.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1926.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1023.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_16.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^14 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 16 }
 						check_variable = { i = 16 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_17.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1953.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1927.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1024.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_17.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^15 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_18
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 16 }
 						check_variable = { i = 17 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_18.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1954.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1928.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1025.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_18.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^16 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 18 }
 						check_variable = { i = 18 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_19.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1955.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1929.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1026.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_19.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^17 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_20
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 18 }
 						check_variable = { i = 19 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_20.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1956.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1930.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1027.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_20.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^18 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 20 }
 						check_variable = { i = 20 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_21.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1957.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1931.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1028.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_21.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^19 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_22
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 20 }
 						check_variable = { i = 21 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_22.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1958.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1932.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1029.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_22.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^20 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 22 }
 						check_variable = { i = 22 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_23.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1959.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1933.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1030.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_23.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^21 = 0 } }
 						}
 					}
 					AND = {
-						OR = {
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_24
-							}
-							has_game_rule = {
-								rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-								option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-							}
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 22 }
 						check_variable = { i = 23 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_24.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1960.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1934.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1031.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_24.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^22 = 0 } }
 						}
 					}
 					AND = {
-						has_game_rule = {
-							rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-							option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 24 }
 						check_variable = { i = 24 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_25.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1961.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1935.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1032.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_25.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^23 = 0 } }
 						}
 					}
 					AND = {
-						has_game_rule = {
-							rule = eu4_like_ideas_num_of_selectable_idea_groups_rule
-							option = EU4_LIKE_IDEAS_NUM_OF_SELECTABLE_IDEA_GROUPS_RULE_26
-						}
+						check_variable = { global.num_of_unlockable_idea_groups > 24 }
 						check_variable = { i = 25 }
 						OR = {
-							AND = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-									option = RELATIVE
+							meta_trigger = {
+								text = {
+									date > [DATE]
 								}
-								meta_trigger = {
-									text = {
-										date > [DATE]
-									}
-									DATE = "[?global.unlock_date_for_idea_group_26.GetDateStringNoHour]"
-								}
-							}
-							AND = {
-								NOT = {
-									has_game_rule = {
-										rule = eu4_like_ideas_rule_unlock_dates_for_ideas
-										option = RELATIVE
-									}
-								}
-								OR = {
-									AND = {
-										has_start_date > 1933.1.1
-										date > 1962.1.1
-									}
-									AND = {
-										has_start_date > 1910.4.30
-										NOT = { has_start_date > 1933.1.1 }
-										date > 1936.1.1
-									}
-									AND = {
-										has_start_date > 1006.12.31
-										NOT = { has_start_date > 1910.4.30 }
-										date > 1033.1.1
-									}
-								}
+								DATE = "[?global.unlock_date_for_idea_group_26.GetDateStringNoHour]"
 							}
 							NOT = { check_variable = { selected_idea_groups^24 = 0 } }
 						}
@@ -2393,18 +803,15 @@ scripted_gui = {
 				specific_idea_group_slot_is_unlocked = yes
 			}
 			text_unlocked_at_visible = {
-				is_ai = no
 				check_variable = { v = 0 }
 			}
 			selected_idea_groups_bg_visible = {
 				check_variable = { v > 0 }
 			}
 			selected_idea_resource_icon_visible = {
-				is_ai = no
 				check_variable = { v > 0 }
 			}
 			selected_idea_icon_visible = {
-				is_ai = no
 				check_variable = { v > 0 }
 			}
 			selected_idea_name_visible = {
@@ -2457,7 +864,6 @@ scripted_gui = {
 				NOT = { has_political_power < idea_cost_var }
 			}
 			selected_idea_icon_1_visible = {
-				is_ai = no
 				check_variable = { v > 0 }
 				meta_trigger = {
 					text = {
@@ -2509,7 +915,6 @@ scripted_gui = {
 				NOT = { has_political_power < idea_cost_var }
 			}
 			selected_idea_icon_2_visible = {
-				is_ai = no
 				check_variable = { v > 0 }
 				meta_trigger = {
 					text = {
@@ -2561,7 +966,6 @@ scripted_gui = {
 				NOT = { has_political_power < idea_cost_var }
 			}
 			selected_idea_icon_3_visible = {
-				is_ai = no
 				check_variable = { v > 0 }
 				meta_trigger = {
 					text = {
@@ -2613,7 +1017,6 @@ scripted_gui = {
 				NOT = { has_political_power < idea_cost_var }
 			}
 			selected_idea_icon_4_visible = {
-				is_ai = no
 				check_variable = { v > 0 }
 				meta_trigger = {
 					text = {
@@ -2665,7 +1068,6 @@ scripted_gui = {
 				NOT = { has_political_power < idea_cost_var }
 			}
 			selected_idea_icon_5_visible = {
-				is_ai = no
 				check_variable = { v > 0 }
 				meta_trigger = {
 					text = {
@@ -2717,7 +1119,6 @@ scripted_gui = {
 				NOT = { has_political_power < idea_cost_var }
 			}
 			selected_idea_icon_6_visible = {
-				is_ai = no
 				check_variable = { v > 0 }
 				meta_trigger = {
 					text = {
@@ -2769,7 +1170,6 @@ scripted_gui = {
 				NOT = { has_political_power < idea_cost_var }
 			}
 			selected_idea_icon_7_visible = {
-				is_ai = no
 				check_variable = { v > 0 }
 				meta_trigger = {
 					text = {
@@ -2816,6 +1216,16 @@ scripted_gui = {
 					}
 					GROUP = "[?v]"
 				}
+				set_temp_variable = { idea_group_progress = political_power }
+				divide_temp_variable = { idea_group_progress = idea_cost_var }
+				multiply_temp_variable = { idea_group_progress = 100 }
+				round_temp_variable = idea_group_progress
+				clamp_temp_variable = {
+					var = idea_group_progress
+					min = 0
+					max = 100
+				}
+				check_variable = { idea_group_progress > 0 }
 			}
 			next_idea_progress_red_visible = {
 				is_ai = no
@@ -2825,22 +1235,6 @@ scripted_gui = {
 						check_variable = { completed_ideas_of_group_[GROUP] < 7 }
 					}
 					GROUP = "[?v]"
-				}
-				set_temp_variable = { idea_group_progress = political_power }
-				round_temp_variable = idea_group_progress
-				if = {
-					limit = {
-						check_variable = { idea_group_progress > idea_cost_var }
-					}
-					set_temp_variable = { idea_group_progress = idea_cost_var }
-				}
-				divide_temp_variable = { idea_group_progress = idea_cost_var }
-				multiply_temp_variable = { idea_group_progress = 178 }
-				if = {
-					limit = {
-						check_variable = { idea_group_progress < 0 }
-					}
-					set_temp_variable = { idea_group_progress = 0 }
 				}
 			}
 		}
@@ -3094,14 +1488,14 @@ scripted_gui = {
 			flag = {
 				image = "[This.GetFlag]"
 			}
-			national_idea_progress_black = {
-				x = national_ideas_progress
+			national_idea_progress_green = {
+				frame = national_ideas_progress
 			}
 			selected_idea_icon = {
 				image = "[This.GetIdeaGroupIcon]"
 			}
-			next_idea_progress_red = {
-				x = idea_group_progress
+			next_idea_progress_green = {
+				frame = idea_group_progress
 			}
 
 			traditions_icon_1 = {
@@ -3194,46 +1588,12 @@ scripted_gui = {
 		ai_test_variance = 1
 
 		ai_check = {
-			check_variable = { show_ideas_window > 0 }
-			check_variable = { show_ideas_window_confirm_alert < 1 }
+			has_variable = show_ideas_window
+			NOT = { has_variable = show_ideas_window_confirm_alert }
 		}
 
 		ai_max_weight_taken_per_test = 5
 		ai_weights = {
-			flag_right_click = {
-				ai_will_do = {
-					base = 0
-
-					modifier = {
-						factor = 0
-						check_variable = { show_swap_ideas_buttons > 0 }
-					}
-					modifier = {
-						add = 1
-						can_change_national_idea_group = yes
-					}
-				}
-			}
-			swap_ideas_button_click = {
-				ai_will_do = {
-					factor = 0
-
-					modifier = {
-						add = 1
-						can_change_national_idea_group = yes
-					}
-				}
-			}
-			swap_ideas_to_generic_button_click = {
-				ai_will_do = {
-					factor = 0
-				}
-			}
-			swap_ideas_to_previous_button_click = {
-				ai_will_do = {
-					factor = 0
-				}
-			}
 			close_button_click = {
 				ai_will_do = {
 					base = 0
@@ -3242,7 +1602,6 @@ scripted_gui = {
 						add = 1
 						NOT = { can_select_any_idea_group = yes }
 						NOT = { can_select_any_idea = yes }
-						NOT = { can_change_national_idea_group = yes }
 						NOT = { AI_can_remove_any_idea_group = yes }
 						NOT = { can_select_any_policy = yes }
 						NOT = { AI_might_want_to_remove_any_policy = yes }
@@ -3250,7 +1609,6 @@ scripted_gui = {
 					modifier = {
 						add = 1000
 						NOT = { can_select_any_idea = yes }
-						NOT = { can_change_national_idea_group = yes }
 						NOT = { AI_can_remove_any_idea_group = yes }
 						NOT = { can_select_any_policy = yes }
 						NOT = { AI_might_want_to_remove_any_policy = yes }
@@ -3285,8 +1643,10 @@ scripted_gui = {
 
 		window_name = "selectable_idea_groups_window"
 
+		dirty = show_selectable_idea_groups_window
+
 		visible = {
-			check_variable = { show_selectable_idea_groups_window > 0 }
+			has_variable = show_selectable_idea_groups_window
 		}
 
 		effects = {
@@ -3312,12 +1672,13 @@ scripted_gui = {
 				else = {
 					select_idea_group_effect = yes
 				}
+				update_selectable_idea_groups_window = yes
 			}
 		}
 
 		triggers = {
 			close_button_click_enabled = {
-				check_variable = { show_ideas_window_confirm_alert < 1 }
+				NOT = { has_variable = show_ideas_window_confirm_alert }
 			}
 			adm_idea_groups_empty_info_visible = {
 				check_variable = { adm_idea_groups^num < 1 }
@@ -3343,12 +1704,7 @@ scripted_gui = {
 				divide_temp_variable = { total_num_of_selected_ideas = 2 }
 				OR = {
 					has_global_flag = eu4_like_ideas_test_flag
-					NOT = {
-						has_game_rule = {
-							rule = eu4_like_ideas_rule_limited_idea_groups_from_same_type
-							option = ENABLED
-						}
-					}
+					has_global_flag = eu4_like_ideas_limit_for_idea_groups_from_same_type_disabled
 					AND = {
 						OR = {
 							check_variable = { v = 1 }
@@ -3401,39 +1757,6 @@ scripted_gui = {
 						}
 					}
 				}
-			}
-			icon_visible = {
-				is_ai = no
-			}
-			policy_icon_visible = {
-				is_ai = no
-			}
-			resource_icon_visible = {
-				is_ai = no
-			}
-			completed_icon_visible = {
-				is_ai = no
-			}
-			idea_icon_1_visible = {
-				is_ai = no
-			}
-			idea_icon_2_visible = {
-				is_ai = no
-			}
-			idea_icon_3_visible = {
-				is_ai = no
-			}
-			idea_icon_4_visible = {
-				is_ai = no
-			}
-			idea_icon_5_visible = {
-				is_ai = no
-			}
-			idea_icon_6_visible = {
-				is_ai = no
-			}
-			idea_icon_7_visible = {
-				is_ai = no
 			}
 		}
 
@@ -3519,18 +1842,33 @@ scripted_gui = {
 									check_variable = { v = 19 }
 								}
 								OR = {
-									is_in_array = { selected_idea_groups = 4 }
-									is_in_array = { selected_idea_groups = 5 }
-									is_in_array = { selected_idea_groups = 6 }
-									is_in_array = { selected_idea_groups = 19 }
+									AND = {
+										set_temp_variable = { idea_group_out_of_context = 4 }
+										has_selected_idea_group = yes
+									}
+									AND = {
+										set_temp_variable = { idea_group_out_of_context = 5 }
+										has_selected_idea_group = yes
+									}
+									AND = {
+										set_temp_variable = { idea_group_out_of_context = 6 }
+										has_selected_idea_group = yes
+									}
+									AND = {
+										set_temp_variable = { idea_group_out_of_context = 19 }
+										has_selected_idea_group = yes
+									}
 								}
 							}
 							modifier = {
 								add = 50
 								check_variable = { v = 4 }
-								NOT = { is_in_array = { selected_idea_groups = 5 } }
-								NOT = { is_in_array = { selected_idea_groups = 6 } }
-								NOT = { is_in_array = { selected_idea_groups = 19 } }
+								set_temp_variable = { idea_group_out_of_context = 5 }
+								NOT = { has_selected_idea_group = yes }
+								set_temp_variable = { idea_group_out_of_context = 6 }
+								NOT = { has_selected_idea_group = yes }
+								set_temp_variable = { idea_group_out_of_context = 19 }
+								NOT = { has_selected_idea_group = yes }
 								NOT = { AI_is_set_to_become_democratic = yes }
 								NOT = { AI_is_set_to_become_fascist = yes }
 								NOT = { AI_is_set_to_become_neutral = yes }
@@ -3548,9 +1886,12 @@ scripted_gui = {
 							modifier = {
 								add = 50
 								check_variable = { v = 5 }
-								NOT = { is_in_array = { selected_idea_groups = 4 } }
-								NOT = { is_in_array = { selected_idea_groups = 6 } }
-								NOT = { is_in_array = { selected_idea_groups = 19 } }
+								set_temp_variable = { idea_group_out_of_context = 4 }
+								NOT = { has_selected_idea_group = yes }
+								set_temp_variable = { idea_group_out_of_context = 6 }
+								NOT = { has_selected_idea_group = yes }
+								set_temp_variable = { idea_group_out_of_context = 19 }
+								NOT = { has_selected_idea_group = yes }
 								NOT = { AI_is_set_to_become_communist = yes }
 								NOT = { AI_is_set_to_become_fascist = yes }
 								NOT = { AI_is_set_to_become_neutral = yes }
@@ -3568,9 +1909,12 @@ scripted_gui = {
 							modifier = {
 								add = 50
 								check_variable = { v = 6 }
-								NOT = { is_in_array = { selected_idea_groups = 4 } }
-								NOT = { is_in_array = { selected_idea_groups = 5 } }
-								NOT = { is_in_array = { selected_idea_groups = 19 } }
+								set_temp_variable = { idea_group_out_of_context = 4 }
+								NOT = { has_selected_idea_group = yes }
+								set_temp_variable = { idea_group_out_of_context = 5 }
+								NOT = { has_selected_idea_group = yes }
+								set_temp_variable = { idea_group_out_of_context = 19 }
+								NOT = { has_selected_idea_group = yes }
 								NOT = { AI_is_set_to_become_communist = yes }
 								NOT = { AI_is_set_to_become_democratic = yes }
 								NOT = { AI_is_set_to_become_neutral = yes }
@@ -3588,9 +1932,12 @@ scripted_gui = {
 							modifier = {
 								add = 50
 								check_variable = { v = 19 }
-								NOT = { is_in_array = { selected_idea_groups = 4 } }
-								NOT = { is_in_array = { selected_idea_groups = 5 } }
-								NOT = { is_in_array = { selected_idea_groups = 19 } }
+								set_temp_variable = { idea_group_out_of_context = 4 }
+								NOT = { has_selected_idea_group = yes }
+								set_temp_variable = { idea_group_out_of_context = 5 }
+								NOT = { has_selected_idea_group = yes }
+								set_temp_variable = { idea_group_out_of_context = 19 }
+								NOT = { has_selected_idea_group = yes }
 								NOT = { AI_is_set_to_become_communist = yes }
 								NOT = { AI_is_set_to_become_democratic = yes }
 								NOT = { AI_is_set_to_become_fascist = yes }
@@ -3915,7 +2262,8 @@ scripted_gui = {
 							modifier = {
 								add = 2
 								check_variable = { v = 26 }
-								NOT = { is_in_array = { selected_idea_groups = 27 } }
+								set_temp_variable = { idea_group_out_of_context = 27 }
+								NOT = { has_selected_idea_group = yes }
 								OR = {
 									has_defensive_war = yes
 									has_capitulated = yes
@@ -3942,7 +2290,8 @@ scripted_gui = {
 							modifier = {
 								add = 100
 								check_variable = { v = 26 }
-								NOT = { is_in_array = { selected_idea_groups = 27 } }
+								set_temp_variable = { idea_group_out_of_context = 27 }
+								NOT = { has_selected_idea_group = yes }
 								tag = FRA
 								has_government = democratic
 							}
@@ -4014,7 +2363,8 @@ scripted_gui = {
 							modifier = {
 								add = 2
 								check_variable = { v = 16 }
-								NOT = { is_in_array = { selected_idea_groups = 17 } }
+								set_temp_variable = { idea_group_out_of_context = 17 }
+								NOT = { has_selected_idea_group = yes }
 								OR = {
 									has_offensive_war = yes
 									has_tech = elastic_defence
@@ -4031,7 +2381,8 @@ scripted_gui = {
 							modifier = {
 								add = 2
 								check_variable = { v = 17 }
-								NOT = { is_in_array = { selected_idea_groups = 16 } }
+								set_temp_variable = { idea_group_out_of_context = 16 }
+								NOT = { has_selected_idea_group = yes }
 								OR = {
 									has_defensive_war = yes
 									has_tech = grand_battle_plan
@@ -4056,7 +2407,8 @@ scripted_gui = {
 							modifier = {
 								add = 100
 								check_variable = { v = 17 }
-								NOT = { is_in_array = { selected_idea_groups = 16 } }
+								set_temp_variable = { idea_group_out_of_context = 16 }
+								NOT = { has_selected_idea_group = yes }
 								tag = FRA
 								has_government = democratic
 							}
@@ -4103,7 +2455,8 @@ scripted_gui = {
 							modifier = {
 								add = 2
 								check_variable = { v = 27 }
-								NOT = { is_in_array = { selected_idea_groups = 26 } }
+								set_temp_variable = { idea_group_out_of_context = 26 }
+								NOT = { has_selected_idea_group = yes }
 								OR = {
 									has_offensive_war = yes
 									num_occupied_states > 14
@@ -4120,10 +2473,7 @@ scripted_gui = {
 							modifier = {
 								factor = 0
 								check_variable = { v = 27 }
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_AI
-									option = DISALLOW_IDEAS_THAT_ALLOW_COLLAB_GOVS
-								}
+								has_global_flag = eu4_like_ideas_ai_disabled_collab_govs
 							}
 						}
 					}
@@ -4169,8 +2519,8 @@ scripted_gui = {
 		ai_test_variance = 1
 
 		ai_check = {
-			check_variable = { show_selectable_idea_groups_window > 0 }
-			check_variable = { show_ideas_window_confirm_alert < 1 }
+			has_variable = show_selectable_idea_groups_window
+			NOT = { has_variable = show_ideas_window_confirm_alert }
 		}
 
 		ai_weights = {
@@ -4189,7 +2539,7 @@ scripted_gui = {
 
 		visible = {
 			is_ai = no
-			check_variable = { show_ideas_window_confirm_alert > 0 }
+			has_variable = show_ideas_window_confirm_alert
 		}
 
 		effects = {
@@ -4198,6 +2548,9 @@ scripted_gui = {
 				clear_variable = confirm_idea_group
 				clear_variable = confirm_idea
 				clear_variable = confirm_policy
+				update_selectable_idea_groups_window = yes
+				update_policy_window = yes
+				update_main_ideas_window = yes
 			}
 			accept_button_click = {
 				if = {
@@ -4214,16 +2567,11 @@ scripted_gui = {
 						check_variable = { show_ideas_window_confirm_alert = 1 }
 					}
 					select_idea_group_effect = yes
+					scoped_sound_effect = "new_eu4_like_national_idea_unlocked"
 				}
 				else_if = {
 					limit = {
 						check_variable = { show_ideas_window_confirm_alert = 2 }
-					}
-					meta_effect = {
-						text = {
-							add_to_variable = { completed_ideas_of_group_[GROUP] = 1 }
-						}
-						GROUP = "[?v]"
 					}
 					set_temp_variable = { pp_to_pay = idea_cost_var }
 					multiply_temp_variable = { pp_to_pay = -1 }
@@ -4234,15 +2582,14 @@ scripted_gui = {
 						}
 						IDEA = "[?confirm_idea]"
 					}
-					add_to_national_ideas_threshold = yes
-					update_idea_cost_modifiers = yes
-					update_policy_costs = yes
+					scoped_sound_effect = "click_accept_select_eu4_like_idea"
 				}
 				else_if = {
 					limit = {
 						check_variable = { show_ideas_window_confirm_alert = 3 }
 					}
 					remove_idea_group_effect = yes
+					scoped_sound_effect = "disband"
 				}
 				else_if = {
 					limit = {
@@ -4252,17 +2599,22 @@ scripted_gui = {
 					set_variable = { show_ideas_window = 1 }
 					clear_variable = show_policies_window
 					clear_array = selectable_policies_array
+					scoped_sound_effect = "click_select_eu4_like_idea"
 				}
 				else_if = {
 					limit = {
 						check_variable = { show_ideas_window_confirm_alert = 5 }
 					}
 					remove_policy = yes
+					scoped_sound_effect = "disband"
 				}
 				clear_variable = show_ideas_window_confirm_alert
 				clear_variable = confirm_idea_group
 				clear_variable = confirm_idea
 				clear_variable = confirm_policy
+				update_selectable_idea_groups_window = yes
+				update_policy_window = yes
+				update_main_ideas_window = yes
 			}
 		}
 	}
@@ -4272,9 +2624,11 @@ scripted_gui = {
 
 		window_name = "ideas_window_national_idea_unlocked_alert"
 
+		dirty = show_ideas_window_national_idea_unlocked_alert
+
 		visible = {
 			is_ai = no
-			check_variable = { show_ideas_window_national_idea_unlocked_alert > 0 }
+			has_variable = show_ideas_window_national_idea_unlocked_alert
 			NOT = { has_country_flag = disabled_ideas_window_national_idea_unlocked_alert }
 		}
 
@@ -4320,8 +2674,8 @@ scripted_gui = {
 		parent_window_token = top_bar
 
 		visible = {
-			has_dlc = "La Resistance"
 			is_ai = no
+			has_dlc = "La Resistance"
 			OR = {
 				NOT = { check_variable = { eu4_like_ideas_alerts^0 = 0 } }
 				can_remove_flags_for_available_dismissed_alerts = yes
@@ -4336,7 +2690,6 @@ scripted_gui = {
 
 			alert_button_click = {
 				clear_variable = show_ideas_window
-				clear_variable = show_swap_ideas_buttons
 				clear_variable = show_selectable_idea_groups_window
 				clear_variable = show_policies_window
 				clear_array = selectable_policies_array
@@ -4356,15 +2709,9 @@ scripted_gui = {
 					set_variable = { show_policies_window = 1 }
 					update_policies_effect = yes
 				}
-				else_if = {
-					limit = {
-						check_variable = { v = 4 }
-					}
-					set_variable = { show_ideas_window = 1 }
-					set_variable = { show_swap_ideas_buttons = 1 }
-				}
 				remove_flags_for_available_dismissed_alerts = yes
 				refresh_eu4_like_alerts = yes
+				update_main_ideas_window = yes
 			}
 			alert_button_right_click = {
 				meta_effect = {
@@ -4404,6 +2751,7 @@ scripted_gui = {
 					}
 					set_variable = { show_eu4_like_ideas_alerts_policies_options_window = 1 }
 				}
+				update_alerts_policies_options_window = yes
 			}
 		}
 
@@ -4431,12 +2779,6 @@ scripted_gui = {
 					}
 					can_select_any_policy = yes
 				}
-				else_if = {
-					limit = {
-						check_variable = { v = 4 }
-					}
-					can_change_national_idea_group = yes
-				}
 			}
 			alert_icon_visible = {
 				if = {
@@ -4457,12 +2799,6 @@ scripted_gui = {
 					}
 					can_select_any_policy = yes
 				}
-				else_if = {
-					limit = {
-						check_variable = { v = 4 }
-					}
-					can_change_national_idea_group = yes
-				}
 			}
 			yellow_alert_glow_visible = {
 				if = {
@@ -4482,12 +2818,6 @@ scripted_gui = {
 						check_variable = { v = 3 }
 					}
 					can_select_any_policy = yes
-				}
-				else_if = {
-					limit = {
-						check_variable = { v = 4 }
-					}
-					can_change_national_idea_group = yes
 				}
 			}
 		}
@@ -4514,8 +2844,8 @@ scripted_gui = {
 		parent_window_token = top_bar
 
 		visible = {
-			NOT = { has_dlc = "La Resistance" }
 			is_ai = no
+			NOT = { has_dlc = "La Resistance" }
 			OR = {
 				NOT = { check_variable = { eu4_like_ideas_alerts^0 = 0 } }
 				can_remove_flags_for_available_dismissed_alerts = yes
@@ -4530,7 +2860,6 @@ scripted_gui = {
 
 			alert_button_click = {
 				clear_variable = show_ideas_window
-				clear_variable = show_swap_ideas_buttons
 				clear_variable = show_selectable_idea_groups_window
 				clear_variable = show_policies_window
 				clear_array = selectable_policies_array
@@ -4550,15 +2879,9 @@ scripted_gui = {
 					set_variable = { show_policies_window = 1 }
 					update_policies_effect = yes
 				}
-				else_if = {
-					limit = {
-						check_variable = { v = 4 }
-					}
-					set_variable = { show_ideas_window = 1 }
-					set_variable = { show_swap_ideas_buttons = 1 }
-				}
 				remove_flags_for_available_dismissed_alerts = yes
 				refresh_eu4_like_alerts = yes
+				update_main_ideas_window = yes
 			}
 			alert_button_right_click = {
 				meta_effect = {
@@ -4591,13 +2914,16 @@ scripted_gui = {
 					}
 					clear_array = eu4_like_ideas_alerts_policies_options_array
 					for_loop_effect = {
-						start = 1
-						end = 80
+						start = 0
+						end = @LAST_POLICY_ID
 						value = j
-						add_to_array = { eu4_like_ideas_alerts_policies_options_array = j }
+						set_temp_variable = { j_temp = j }
+						add_to_temp_variable = { j_temp = 1 }
+						add_to_array = { eu4_like_ideas_alerts_policies_options_array = j_temp }
 					}
 					set_variable = { show_eu4_like_ideas_alerts_policies_options_window = 1 }
 				}
+				update_alerts_policies_options_window = yes
 			}
 		}
 
@@ -4625,12 +2951,6 @@ scripted_gui = {
 					}
 					can_select_any_policy = yes
 				}
-				else_if = {
-					limit = {
-						check_variable = { v = 4 }
-					}
-					can_change_national_idea_group = yes
-				}
 			}
 			alert_icon_visible = {
 				if = {
@@ -4651,12 +2971,6 @@ scripted_gui = {
 					}
 					can_select_any_policy = yes
 				}
-				else_if = {
-					limit = {
-						check_variable = { v = 4 }
-					}
-					can_change_national_idea_group = yes
-				}
 			}
 			yellow_alert_glow_visible = {
 				if = {
@@ -4676,12 +2990,6 @@ scripted_gui = {
 						check_variable = { v = 3 }
 					}
 					can_select_any_policy = yes
-				}
-				else_if = {
-					limit = {
-						check_variable = { v = 4 }
-					}
-					can_change_national_idea_group = yes
 				}
 			}
 		}
@@ -4705,9 +3013,11 @@ scripted_gui = {
 
 		window_name = "eu4_like_ideas_alerts_policies_options_window"
 
+		dirty = show_eu4_like_ideas_alerts_policies_options_window
+
 		visible = {
 			is_ai = no
-			check_variable = { show_eu4_like_ideas_alerts_policies_options_window > 0 }
+			has_variable = show_eu4_like_ideas_alerts_policies_options_window
 		}
 
 		effects = {
@@ -4720,29 +3030,36 @@ scripted_gui = {
 			open_side_menu_button_click = {
 				clear_array = eu4_like_ideas_deactivated_alerts_options_array
 				for_loop_effect = {
-					start = 1
-					end = 5
+					start = 0
+					end = 3
 					value = j
-					add_to_array = { eu4_like_ideas_deactivated_alerts_options_array = j }
+					set_temp_variable = { j_temp = j }
+					add_to_temp_variable = { j_temp = 1 }
+					add_to_array = { eu4_like_ideas_deactivated_alerts_options_array = j_temp }
 				}
 				set_variable = { show_eu4_like_ideas_alerts_policies_options_side_menu_window = 1 }
+				update_alerts_policies_options_window = yes
 			}
 			close_side_menu_button_click = {
 				clear_array = eu4_like_ideas_deactivated_alerts_options_array
 				clear_variable = show_eu4_like_ideas_alerts_policies_options_side_menu_window
+				update_alerts_policies_options_window = yes
 			}
 
 			select_button_click = {
 				remove_from_array = { deactivated_policies_for_alert = v }
 				refresh_eu4_like_alerts = yes
+				update_alerts_policies_options_window = yes
 			}
 			select_button_shift_click = {
 				clear_array = deactivated_policies_for_alert
 				refresh_eu4_like_alerts = yes
+				update_alerts_policies_options_window = yes
 			}
 			deselect_button_click = {
 				add_to_array = { deactivated_policies_for_alert = v }
 				refresh_eu4_like_alerts = yes
+				update_alerts_policies_options_window = yes
 			}
 			deselect_button_shift_click = {
 				clear_array = deactivated_policies_for_alert
@@ -4752,15 +3069,16 @@ scripted_gui = {
 					add_to_array = { deactivated_policies_for_alert = j }
 				}
 				refresh_eu4_like_alerts = yes
+				update_alerts_policies_options_window = yes
 			}
 		}
 
 		triggers = {
 			open_side_menu_button_visible = {
-				NOT = { check_variable = { show_eu4_like_ideas_alerts_policies_options_side_menu_window > 0 } }
+				NOT = { has_variable = show_eu4_like_ideas_alerts_policies_options_side_menu_window }
 			}
 			close_side_menu_button_visible = {
-				check_variable = { show_eu4_like_ideas_alerts_policies_options_side_menu_window > 0 }
+				has_variable = show_eu4_like_ideas_alerts_policies_options_side_menu_window
 			}
 
 			select_button_visible = {
@@ -4804,7 +3122,7 @@ scripted_gui = {
 
 		visible = {
 			is_ai = no
-			check_variable = { show_eu4_like_ideas_alerts_policies_options_side_menu_window > 0 }
+			has_variable = show_eu4_like_ideas_alerts_policies_options_side_menu_window
 		}
 
 		effects = {
@@ -4890,8 +3208,10 @@ scripted_gui = {
 
 		window_name = "policies_window"
 
+		dirty = show_policies_window
+
 		visible = {
-			check_variable = { show_policies_window > 0 }
+			has_variable = show_policies_window
 		}
 
 		effects = {
@@ -4938,16 +3258,20 @@ scripted_gui = {
 			activate_policy_for_alert_button_click = {
 				remove_from_array = { deactivated_policies_for_alert = v }
 				refresh_eu4_like_alerts = yes
+				update_policy_window = yes
+				update_alerts_policies_options_window = yes
 			}
 			deactivate_policy_for_alert_button_click = {
 				add_to_array = { deactivated_policies_for_alert = v }
 				refresh_eu4_like_alerts = yes
+				update_policy_window = yes
+				update_alerts_policies_options_window = yes
 			}
 		}
 
 		triggers = {
 			close_button_click_enabled = {
-				check_variable = { show_ideas_window_confirm_alert < 1 }
+				NOT = { has_variable = show_ideas_window_confirm_alert }
 			}
 			no_policies_available_info_visible = {
 				check_variable = { selectable_policies_array^num < 1 }
@@ -4997,8 +3321,8 @@ scripted_gui = {
 		ai_test_variance = 1
 
 		ai_check = {
-			check_variable = { show_policies_window > 0 }
-			check_variable = { show_ideas_window_confirm_alert < 1 }
+			has_variable = show_policies_window
+			NOT = { has_variable = show_ideas_window_confirm_alert }
 		}
 
 		ai_weights = {

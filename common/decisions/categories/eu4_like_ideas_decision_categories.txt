@@ -1,6 +1,6 @@
 FRA_eu4_like_ideas_decisions = {
 	picture = generic_propaganda
-	
+
 	allowed = {
 		tag = FRA
 	}
@@ -8,11 +8,12 @@ FRA_eu4_like_ideas_decisions = {
 
 eu4_like_ideas_formables_decisions = {
 	icon = generic_formable_nations
-	
+
 	visible = {
-		has_game_rule = {
-			rule = eu4_like_ideas_rule_formables
-			option = ENABLED
-		}
+		has_global_flag = eu4_like_ideas_formables_enabled
 	}
+}
+
+eu4_like_ideas_decisions = {
+	icon = ideas
 }

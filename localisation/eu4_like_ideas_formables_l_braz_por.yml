@@ -1,13 +1,13 @@
 ﻿l_braz_por:
  # Decisions:
  eu4_like_ideas_formables_decisions: "Formable Nations"
- 
+
  form_macedonian_empire_eu4_style_ideas: "Form the Macedonian Empire"
  form_macedonian_empire_eu4_style_ideas_desc: "The §YMacedonian Empire§!, the Empire of Alexander the Great, once a world power and sign of Greek supremacy, has to be restored by us!"
- 
+
  form_qing_empire: "Form the Qing Empire"
  form_qing_empire_desc: "The §YQing Empire§! has to be restored by us!"
- 
+
  CONTROLS_GREECE: "Controls all states in the §Y$strategic_region_greece$§! strategic region"
  CONTROLS_ASIA_MINOR: "Controls all states in the §Y$strategic_region_asia_minor$§! strategic region"
  CONTROLS_IRAN: "Controls all states in the §Y$strategic_region_iran$§! strategic region"
@@ -19,11 +19,10 @@
  OWNS_AND_CONTROLS_WESTERN_CHINA: "Owns and controls all states in the §Y$strategic_region_western_china$§! strategic region"
  OWNS_AND_CONTROLS_SOUTHERN_CHINA: "All states in the §Y$strategic_region_southern_china$§! strategic region: \n   One of the following must be true: \n      Owned and controlled by §Y[Root.GetName]§! \n      Is §Y[728.GetName]§! \n      Is §Y[729.GetName]§! \n      Is §Y[326.GetName]§!"
  OWNS_AND_CONTROLS_QINGHAI: "Owns and controls all states in the §Y$strategic_region_qinghai$§! strategic region"
- 
+
  FORMABLE_GAINS_CORES: "Gains a §Ycore§! in all required states.\n"
  FORMABLE_GAINS_CORES_REQUIRED_OWNED: "Gains a §Ycore§! in all states that §Y[Root.GetName]§! must own.\n"
- EU4_LIKE_IDEAS_SWAP_NATIONAL_IDEAS: "\nSwap §YNational Ideas§!.\n"
- 
+
  # Countries:
  GRE_MACEDONIAN_EMPIRE: "Macedonian Empire"
  GRE_MACEDONIAN_EMPIRE_ADJ: "Macedonian"
@@ -40,7 +39,7 @@
  GRE_MACEDONIAN_EMPIRE_neutrality: "Macedonian Empire"
  GRE_MACEDONIAN_EMPIRE_neutrality_ADJ: "Macedonian"
  GRE_MACEDONIAN_EMPIRE_neutrality_DEF: "the Macedonian Empire"
- 
+
  CHI_QING_EMPIRE: "Qing Empire"
  CHI_QING_EMPIRE_ADJ: "Chinese"
  CHI_QING_EMPIRE_DEF: "the Qing Empire"
@@ -56,4 +55,3 @@
  CHI_QING_EMPIRE_neutrality: "Qing Empire"
  CHI_QING_EMPIRE_neutrality_ADJ: "Chinese"
  CHI_QING_EMPIRE_neutrality_DEF: "the Qing Empire"
- 

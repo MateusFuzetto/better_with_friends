@@ -1,24 +1,22 @@
 scripted_gui = {
 	eu4_like_ideas_startup_window = {
 		context_type = player_context
-		
+
 		window_name = "eu4_like_ideas_startup_window"
-		
+
+		dirty = show_eu4_like_ideas_startup_window
+
 		visible = {
 			is_ai = no
-			has_game_rule = {
-				rule = eu4_like_ideas_rule_show_introduction
-				option = YES
-			}
 			has_variable = show_eu4_like_ideas_startup_window
 		}
-		
+
 		effects = {
 			close_button_click = {
 				clear_variable = show_eu4_like_ideas_startup_window
 			}
 		}
-		
+
 		properties = {
 			image_1 = {
 				image = "[This.GetEU4LikeIdeasIntroductionImage1]"
@@ -59,7 +57,7 @@ scripted_gui = {
 			image_13 = {
 				image = "[This.GetEU4LikeIdeasIntroductionImage13]"
 			}
-			
+
 		}
 	}
 }

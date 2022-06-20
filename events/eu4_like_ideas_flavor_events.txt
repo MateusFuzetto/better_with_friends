@@ -5,15 +5,15 @@ country_event = {
 	title = eu4_like_ideas_flavor_events.EVTNAME1
 	desc = eu4_like_ideas_flavor_events.EVTDESC1
 	picture = GFX_report_event_bismarck_launch
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = GER
 		has_government = fascism
 		date > 1939.2.13
-		is_in_array = { selected_idea_groups = 11 }
-		check_variable = { completed_ideas_of_group_11 > 6 }
+		set_temp_variable = { idea_group_out_of_context = 11 }
+		has_completed_idea_group = yes
 		OR = {
 			AND = {
 				has_dlc = "Man the Guns"
@@ -35,16 +35,16 @@ country_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 1
 	}
-	
+
 	option = {
 		name = eu4_like_ideas_flavor_events1.EVTOPT1
-		
+
 		ai_chance = { factor = 100 }
-		
+
 		custom_effect_tooltip = EU4_LIKE_IDEAS_GAIN_BISMARCK_TT
 		if = {
 			limit = {

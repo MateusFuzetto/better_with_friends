@@ -104,10 +104,13 @@ eu4_like_ideas_formables_decisions = {
 			set_global_flag = formed_macedonian_empire
 			set_cosmetic_tag = GRE_MACEDONIAN_EMPIRE
 			custom_effect_tooltip = FORMABLE_GAINS_CORES
-			set_temp_variable = { idea_swap_through_formable = 1 }
-			custom_effect_tooltip = EU4_LIKE_IDEAS_SWAP_NATIONAL_IDEAS
+			if = {
+				limit = {
+					NOT = { check_variable = { national_ideas_id = 14 } }
+				}
+				country_event = { id = eu4_like_ideas_events.3 }
+			}
 			hidden_effect = {
-				swap_national_ideas_effect = yes
 				every_state = {
 					limit = {
 						OR = {
@@ -410,11 +413,9 @@ eu4_like_ideas_formables_decisions = {
 				limit = {
 					NOT = { check_variable = { national_ideas_id = 16 } }
 				}
-				set_temp_variable = { idea_swap_through_formable = 1 }
-				custom_effect_tooltip = EU4_LIKE_IDEAS_SWAP_NATIONAL_IDEAS
+				country_event = { id = eu4_like_ideas_events.3 }
 			}
 			hidden_effect = {
-				swap_national_ideas_effect = yes
 				every_state = {
 					limit = {
 						OR = {

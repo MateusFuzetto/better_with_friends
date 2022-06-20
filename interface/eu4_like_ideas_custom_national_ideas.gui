@@ -1,17 +1,19 @@
 guiTypes = {
 	containerWindowType = {
 		name = "eu4_like_ideas_custom_national_ideas_window"
-		position = { x = -606 y = 78 }
-		show_position = { x = -6 y = 78 }
-		size = { width = 550 height = 100%% }
+		position = { x = 0 y = 0 }
+		size = { width = 550 height = 708 }
+		orientation = center
+		origo = center
 
-		show_animation_type = decelerated
-		hide_animation_type = accelerated
-		animation_time = 300
+		fade_time = 300
+		fade_type = linear
 
 		show_sound = menu_open_window
 
 		clipping = no
+		moveable = yes
+		click_to_front = yes
 
 		background = {
 			name = "background"
@@ -20,30 +22,21 @@ guiTypes = {
 
 		iconType = {
 			name = "title_bg"
-			spriteType = "GFX_header_bg"
-			position = { x = 5 y = 7 }
+			spriteType = "GFX_eu4_like_ideas_custom_header"
+			position = { x = 2 y = 4 }
 			alwaystransparent = yes
 		}
 
 		instantTextboxType = {
 			name = "title"
-			position = { x = 25 y = 8 }
+			position = { x = 25 y = 2 }
 			font = "hoi_36header"
 			text = "EU4_LIKE_IDEAS_CUSTOM_NATIONAL_IDEAS_TITLE"
-			maxWidth = 460
-			multiline = no
+			maxWidth = 500
+			maxHeight = 36
+			fixedsize = yes
 			format = center
-		}
-
-		buttonType = {
-			name = "close_button"
-			position = { x = -43 y = 9 }
-			spriteType = "GFX_closebutton"
-			shortcut = "ESCAPE"
-			orientation = upper_right
-			clicksound = click_close
-			pdx_tooltip = "DIPLOMACY_CLOSE"
-			pdx_tooltip_delayed = "EU4_LIKE_IDEAS_CUSTOM_NATIONAL_IDEAS_WINDOW_CLOSE_BUTTON_TT"
+			alwaystransparent = yes
 		}
 
 		containerWindowType = {
@@ -63,7 +56,9 @@ guiTypes = {
 				font = "hoi_18mbs"
 				format = center
 				maxWidth = 480
-				multiline = no
+				maxHeight = 20
+				fixedsize = yes
+				alwaystransparent = yes
 			}
 
 			buttonType = {
@@ -80,7 +75,7 @@ guiTypes = {
 			name = "entry_window"
 			position = { x = 0 y = 164 }
 			size = { width = 100%% height = 100%% }
-			margin = { left = 12 right = 24 top = 0 bottom = 12 }
+			margin = { left = 12 right = 24 top = 0 bottom = 60 }
 			verticalScrollbar = "right_vertical_slider"
 			scroll_wheel_factor = 123
 
@@ -106,7 +101,9 @@ guiTypes = {
 					font = "hoi_18mbs"
 					format = center
 					maxWidth = 480
-					multiline = no
+					maxHeight = 20
+					fixedsize = yes
+					alwaystransparent = yes
 				}
 
 				containerWindowType = {
@@ -151,7 +148,8 @@ guiTypes = {
 					font = "hoi_18mbs"
 					format = center
 					maxWidth = 480
-					multiline = no
+					maxHeight = 20
+					fixedsize = yes
 					pdx_tooltip = "SELECT_NATIONAL_IDEA_GROUP_IDEA_1_DESC"
 				}
 
@@ -197,7 +195,8 @@ guiTypes = {
 					font = "hoi_18mbs"
 					format = center
 					maxWidth = 480
-					multiline = no
+					maxHeight = 20
+					fixedsize = yes
 					pdx_tooltip = "SELECT_NATIONAL_IDEA_GROUP_IDEA_2_DESC"
 				}
 
@@ -243,7 +242,8 @@ guiTypes = {
 					font = "hoi_18mbs"
 					format = center
 					maxWidth = 480
-					multiline = no
+					maxHeight = 20
+					fixedsize = yes
 					pdx_tooltip = "SELECT_NATIONAL_IDEA_GROUP_IDEA_3_DESC"
 				}
 
@@ -289,7 +289,8 @@ guiTypes = {
 					font = "hoi_18mbs"
 					format = center
 					maxWidth = 480
-					multiline = no
+					maxHeight = 20
+					fixedsize = yes
 					pdx_tooltip = "SELECT_NATIONAL_IDEA_GROUP_IDEA_4_DESC"
 				}
 
@@ -335,7 +336,8 @@ guiTypes = {
 					font = "hoi_18mbs"
 					format = center
 					maxWidth = 480
-					multiline = no
+					maxHeight = 20
+					fixedsize = yes
 					pdx_tooltip = "SELECT_NATIONAL_IDEA_GROUP_IDEA_5_DESC"
 				}
 
@@ -381,7 +383,8 @@ guiTypes = {
 					font = "hoi_18mbs"
 					format = center
 					maxWidth = 480
-					multiline = no
+					maxHeight = 20
+					fixedsize = yes
 					pdx_tooltip = "SELECT_NATIONAL_IDEA_GROUP_IDEA_6_DESC"
 				}
 
@@ -427,7 +430,8 @@ guiTypes = {
 					font = "hoi_18mbs"
 					format = center
 					maxWidth = 480
-					multiline = no
+					maxHeight = 20
+					fixedsize = yes
 					pdx_tooltip = "SELECT_NATIONAL_IDEA_GROUP_IDEA_7_DESC"
 				}
 
@@ -473,7 +477,9 @@ guiTypes = {
 					font = "hoi_18mbs"
 					format = center
 					maxWidth = 480
-					multiline = no
+					maxHeight = 20
+					fixedsize = yes
+					alwaystransparent = yes
 				}
 
 				containerWindowType = {
@@ -507,6 +513,27 @@ guiTypes = {
 			spriteType = "GFX_trade_header"
 			position = { x = 11 y = 131 }
 			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "bottom_bar"
+			spriteType = "GFX_eu4_like_ideas_bottom_bar"
+			position = { x = 8 y = -63 }
+			orientation = lower_left
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "close_button"
+			position = { x = 164 y = -54 }
+			spriteType = "GFX_button_221x34"
+			buttonFont = "hoi_18mbs"
+			buttonText = "HOTJOIN_CONFIRM"
+			shortcut = "RETURN"
+			orientation = lower_left
+			clicksound = set_research_effect
+			pdx_tooltip = "HOTJOIN_CONFIRM"
+			pdx_tooltip_delayed = "EU4_LIKE_IDEAS_CUSTOM_NATIONAL_IDEAS_WINDOW_CLOSE_BUTTON_TT"
 		}
 	}
 
@@ -565,7 +592,9 @@ guiTypes = {
 				font = "hoi_18mbs"
 				format = center
 				maxWidth = 350
-				multiline = no
+				maxHeight = 20
+				fixedsize = yes
+				alwaystransparent = yes
 			}
 		}
 

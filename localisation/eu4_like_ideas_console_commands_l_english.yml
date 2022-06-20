@@ -23,3 +23,6 @@
  D_REMOVE_IDEA_GROUP_TT: "(§Y[This.GetName]§!): Selected idea group removed: §Y[This.GetIdeaGroupName]§!."
  D_REMOVE_IDEA_GROUP_TT_CANT_REMOVE_IDEA: "(§Y[This.GetName]§!): §RThe specified idea group cannot be removed, because it is not selected.§!"
  D_REMOVE_IDEA_GROUP_TT_INVALID_ARGUMENTS: "§RInvalid amount of arguments.§!"
+
+ d_swap_national_idea_group_DESC: "Swaps our national idea group to the specified one. \nUsage: §Yswap_national_idea_group <ID>§! \nWith no ID specified, it swaps to the idea group we meet the triggers of."
+ D_SWAP_NATIONAL_IDEA_GROUP_TT: "Swapped national ideas to §Y[This.GetNationalIdeasName]§!."

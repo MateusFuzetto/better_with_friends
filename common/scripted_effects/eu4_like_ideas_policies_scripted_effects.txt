@@ -1,5 +1,3 @@
-@REQUIRED_IDEAS_FOR_POLICY_MINUS_1 = 6
-
 add_policy = {
 	add_to_array = { selected_policies_array = v }
 	meta_effect = {
@@ -19,12 +17,16 @@ add_policy = {
 	remove_from_array = { selectable_policies_array = v }
 	update_idea_cost_modifiers = yes
 	update_policy_costs = yes
+	update_policy_window = yes
+	update_main_ideas_window = yes
 }
 
 remove_policy = {
 	country_event = { id = remove_policy_events.1 }
 	update_idea_cost_modifiers = yes
 	update_policy_costs = yes
+	update_policy_window = yes
+	update_main_ideas_window = yes
 }
 
 check_and_perhaps_remove_current_policies_effect = {
@@ -33,10 +35,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 1 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 5 } }
-				NOT = { check_variable = { completed_ideas_of_group_5 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 8 } }
-				NOT = { check_variable = { completed_ideas_of_group_8 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 5 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 8 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 1 }
@@ -45,10 +51,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 2 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 1 } }
-				NOT = { check_variable = { completed_ideas_of_group_1 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 2 } }
-				NOT = { check_variable = { completed_ideas_of_group_2 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 1 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 2 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 2 }
@@ -57,10 +67,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 3 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 3 } }
-				NOT = { check_variable = { completed_ideas_of_group_3 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 10 } }
-				NOT = { check_variable = { completed_ideas_of_group_10 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 3 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 10 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 3 }
@@ -69,10 +83,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 4 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 2 } }
-				NOT = { check_variable = { completed_ideas_of_group_2 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 15 } }
-				NOT = { check_variable = { completed_ideas_of_group_15 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 2 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 15 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 4 }
@@ -81,10 +99,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 5 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 5 } }
-				NOT = { check_variable = { completed_ideas_of_group_5 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 7 } }
-				NOT = { check_variable = { completed_ideas_of_group_7 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 5 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 7 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 5 }
@@ -93,10 +115,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 6 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 15 } }
-				NOT = { check_variable = { completed_ideas_of_group_15 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 17 } }
-				NOT = { check_variable = { completed_ideas_of_group_17 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 15 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 17 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 6 }
@@ -105,10 +131,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 7 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 6 } }
-				NOT = { check_variable = { completed_ideas_of_group_6 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 16 } }
-				NOT = { check_variable = { completed_ideas_of_group_16 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 6 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 16 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 7 }
@@ -117,10 +147,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 8 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 1 } }
-				NOT = { check_variable = { completed_ideas_of_group_1 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 13 } }
-				NOT = { check_variable = { completed_ideas_of_group_13 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 1 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 13 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 8 }
@@ -129,10 +163,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 9 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 1 } }
-				NOT = { check_variable = { completed_ideas_of_group_1 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 4 } }
-				NOT = { check_variable = { completed_ideas_of_group_4 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 1 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 4 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 9 }
@@ -141,10 +179,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 10 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 4 } }
-				NOT = { check_variable = { completed_ideas_of_group_4 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 17 } }
-				NOT = { check_variable = { completed_ideas_of_group_17 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 4 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 17 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 10 }
@@ -153,10 +195,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 11 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 1 } }
-				NOT = { check_variable = { completed_ideas_of_group_1 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 16 } }
-				NOT = { check_variable = { completed_ideas_of_group_16 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 1 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 16 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 11 }
@@ -165,10 +211,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 12 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 1 } }
-				NOT = { check_variable = { completed_ideas_of_group_1 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 10 } }
-				NOT = { check_variable = { completed_ideas_of_group_10 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 1 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 10 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 12 }
@@ -177,10 +227,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 13 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 2 } }
-				NOT = { check_variable = { completed_ideas_of_group_2 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 4 } }
-				NOT = { check_variable = { completed_ideas_of_group_4 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 2 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 4 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 13 }
@@ -189,10 +243,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 14 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 2 } }
-				NOT = { check_variable = { completed_ideas_of_group_2 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 7 } }
-				NOT = { check_variable = { completed_ideas_of_group_7 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 2 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 7 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 14 }
@@ -201,10 +259,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 15 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 2 } }
-				NOT = { check_variable = { completed_ideas_of_group_2 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 8 } }
-				NOT = { check_variable = { completed_ideas_of_group_8 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 2 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 8 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 15 }
@@ -213,10 +275,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 16 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 3 } }
-				NOT = { check_variable = { completed_ideas_of_group_3 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 11 } }
-				NOT = { check_variable = { completed_ideas_of_group_11 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 3 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 11 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 16 }
@@ -225,10 +291,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 17 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 3 } }
-				NOT = { check_variable = { completed_ideas_of_group_3 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 12 } }
-				NOT = { check_variable = { completed_ideas_of_group_12 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 3 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 12 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 17 }
@@ -237,10 +307,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 18 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 3 } }
-				NOT = { check_variable = { completed_ideas_of_group_3 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 14 } }
-				NOT = { check_variable = { completed_ideas_of_group_14 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 3 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 14 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 18 }
@@ -249,10 +323,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 19 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 3 } }
-				NOT = { check_variable = { completed_ideas_of_group_3 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 18 } }
-				NOT = { check_variable = { completed_ideas_of_group_18 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 3 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 18 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 19 }
@@ -261,10 +339,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 20 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 4 } }
-				NOT = { check_variable = { completed_ideas_of_group_4 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 15 } }
-				NOT = { check_variable = { completed_ideas_of_group_15 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 4 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 15 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 20 }
@@ -273,10 +355,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 21 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 4 } }
-				NOT = { check_variable = { completed_ideas_of_group_4 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 13 } }
-				NOT = { check_variable = { completed_ideas_of_group_13 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 4 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 13 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 21 }
@@ -285,10 +371,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 22 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 5 } }
-				NOT = { check_variable = { completed_ideas_of_group_5 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 9 } }
-				NOT = { check_variable = { completed_ideas_of_group_9 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 5 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 9 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 22 }
@@ -297,10 +387,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 23 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 5 } }
-				NOT = { check_variable = { completed_ideas_of_group_5 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 17 } }
-				NOT = { check_variable = { completed_ideas_of_group_17 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 5 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 17 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 23 }
@@ -309,10 +403,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 24 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 5 } }
-				NOT = { check_variable = { completed_ideas_of_group_5 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 10 } }
-				NOT = { check_variable = { completed_ideas_of_group_10 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 5 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 10 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 24 }
@@ -321,10 +419,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 25 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 6 } }
-				NOT = { check_variable = { completed_ideas_of_group_6 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 13 } }
-				NOT = { check_variable = { completed_ideas_of_group_13 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 6 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 13 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 25 }
@@ -333,10 +435,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 26 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 6 } }
-				NOT = { check_variable = { completed_ideas_of_group_6 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 14 } }
-				NOT = { check_variable = { completed_ideas_of_group_14 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 6 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 14 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 26 }
@@ -345,10 +451,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 27 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 6 } }
-				NOT = { check_variable = { completed_ideas_of_group_6 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 15 } }
-				NOT = { check_variable = { completed_ideas_of_group_15 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 6 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 15 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 27 }
@@ -357,10 +467,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 28 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 6 } }
-				NOT = { check_variable = { completed_ideas_of_group_6 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 12 } }
-				NOT = { check_variable = { completed_ideas_of_group_12 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 6 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 12 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 28 }
@@ -369,10 +483,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 29 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 7 } }
-				NOT = { check_variable = { completed_ideas_of_group_7 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 11 } }
-				NOT = { check_variable = { completed_ideas_of_group_11 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 7 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 11 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 29 }
@@ -381,10 +499,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 30 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 7 } }
-				NOT = { check_variable = { completed_ideas_of_group_7 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 14 } }
-				NOT = { check_variable = { completed_ideas_of_group_14 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 7 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 14 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 30 }
@@ -393,10 +515,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 31 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 7 } }
-				NOT = { check_variable = { completed_ideas_of_group_7 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 10 } }
-				NOT = { check_variable = { completed_ideas_of_group_10 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 7 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 10 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 31 }
@@ -405,10 +531,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 32 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 8 } }
-				NOT = { check_variable = { completed_ideas_of_group_8 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 9 } }
-				NOT = { check_variable = { completed_ideas_of_group_9 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 8 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 9 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 32 }
@@ -417,10 +547,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 33 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 8 } }
-				NOT = { check_variable = { completed_ideas_of_group_8 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 10 } }
-				NOT = { check_variable = { completed_ideas_of_group_10 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 8 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 10 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 33 }
@@ -429,10 +563,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 34 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 8 } }
-				NOT = { check_variable = { completed_ideas_of_group_8 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 13 } }
-				NOT = { check_variable = { completed_ideas_of_group_13 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 8 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 13 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 34 }
@@ -441,10 +579,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 35 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 9 } }
-				NOT = { check_variable = { completed_ideas_of_group_9 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 11 } }
-				NOT = { check_variable = { completed_ideas_of_group_11 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 9 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 11 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 35 }
@@ -453,10 +595,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 36 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 9 } }
-				NOT = { check_variable = { completed_ideas_of_group_9 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 12 } }
-				NOT = { check_variable = { completed_ideas_of_group_12 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 9 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 12 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 36 }
@@ -465,10 +611,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 37 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 9 } }
-				NOT = { check_variable = { completed_ideas_of_group_9 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 16 } }
-				NOT = { check_variable = { completed_ideas_of_group_16 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 9 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 16 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 37 }
@@ -477,10 +627,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 38 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 11 } }
-				NOT = { check_variable = { completed_ideas_of_group_11 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 12 } }
-				NOT = { check_variable = { completed_ideas_of_group_12 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 11 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 12 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 38 }
@@ -489,10 +643,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 39 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 11 } }
-				NOT = { check_variable = { completed_ideas_of_group_11 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 18 } }
-				NOT = { check_variable = { completed_ideas_of_group_18 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 11 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 18 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 39 }
@@ -501,10 +659,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 40 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 12 } }
-				NOT = { check_variable = { completed_ideas_of_group_12 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 14 } }
-				NOT = { check_variable = { completed_ideas_of_group_14 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 12 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 14 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 40 }
@@ -513,10 +675,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 41 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 13 } }
-				NOT = { check_variable = { completed_ideas_of_group_13 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 18 } }
-				NOT = { check_variable = { completed_ideas_of_group_18 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 13 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 18 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 41 }
@@ -525,10 +691,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 42 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 14 } }
-				NOT = { check_variable = { completed_ideas_of_group_14 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 17 } }
-				NOT = { check_variable = { completed_ideas_of_group_17 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 14 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 17 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 42 }
@@ -537,10 +707,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 43 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 15 } }
-				NOT = { check_variable = { completed_ideas_of_group_15 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 16 } }
-				NOT = { check_variable = { completed_ideas_of_group_16 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 15 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 16 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 43 }
@@ -549,10 +723,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 44 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 16 } }
-				NOT = { check_variable = { completed_ideas_of_group_16 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 18 } }
-				NOT = { check_variable = { completed_ideas_of_group_18 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 16 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 18 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 44 }
@@ -561,10 +739,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 45 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 17 } }
-				NOT = { check_variable = { completed_ideas_of_group_17 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 18 } }
-				NOT = { check_variable = { completed_ideas_of_group_18 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 17 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 18 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 45 }
@@ -573,10 +755,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 46 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 19 } }
-				NOT = { check_variable = { completed_ideas_of_group_19 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 22 } }
-				NOT = { check_variable = { completed_ideas_of_group_22 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 19 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 22 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 46 }
@@ -585,10 +771,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 47 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 19 } }
-				NOT = { check_variable = { completed_ideas_of_group_19 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 23 } }
-				NOT = { check_variable = { completed_ideas_of_group_23 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 19 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 23 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 47 }
@@ -597,10 +787,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 48 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 20 } }
-				NOT = { check_variable = { completed_ideas_of_group_20 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 24 } }
-				NOT = { check_variable = { completed_ideas_of_group_24 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 20 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 24 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 48 }
@@ -609,10 +803,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 49 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 21 } }
-				NOT = { check_variable = { completed_ideas_of_group_21 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 24 } }
-				NOT = { check_variable = { completed_ideas_of_group_24 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 21 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 24 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 49 }
@@ -621,10 +819,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 50 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 22 } }
-				NOT = { check_variable = { completed_ideas_of_group_22 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 21 } }
-				NOT = { check_variable = { completed_ideas_of_group_21 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 22 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 21 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 50 }
@@ -633,10 +835,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 51 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 22 } }
-				NOT = { check_variable = { completed_ideas_of_group_22 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 23 } }
-				NOT = { check_variable = { completed_ideas_of_group_23 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 22 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 23 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 51 }
@@ -645,10 +851,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 52 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 21 } }
-				NOT = { check_variable = { completed_ideas_of_group_21 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 23 } }
-				NOT = { check_variable = { completed_ideas_of_group_23 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 21 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 23 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 52 }
@@ -657,10 +867,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 53 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 20 } }
-				NOT = { check_variable = { completed_ideas_of_group_20 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 23 } }
-				NOT = { check_variable = { completed_ideas_of_group_23 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 20 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 23 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 53 }
@@ -669,10 +883,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 54 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 24 } }
-				NOT = { check_variable = { completed_ideas_of_group_24 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 23 } }
-				NOT = { check_variable = { completed_ideas_of_group_23 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 24 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 23 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 54 }
@@ -681,10 +899,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 55 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 24 } }
-				NOT = { check_variable = { completed_ideas_of_group_24 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 22 } }
-				NOT = { check_variable = { completed_ideas_of_group_22 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 24 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 22 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 55 }
@@ -693,10 +915,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 56 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 20 } }
-				NOT = { check_variable = { completed_ideas_of_group_20 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 22 } }
-				NOT = { check_variable = { completed_ideas_of_group_22 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 20 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 22 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 56 }
@@ -705,10 +931,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 57 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 24 } }
-				NOT = { check_variable = { completed_ideas_of_group_24 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 3 } }
-				NOT = { check_variable = { completed_ideas_of_group_3 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 24 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 3 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 57 }
@@ -717,10 +947,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 58 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 19 } }
-				NOT = { check_variable = { completed_ideas_of_group_19 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 17 } }
-				NOT = { check_variable = { completed_ideas_of_group_17 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 19 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 17 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 58 }
@@ -729,10 +963,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 59 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 19 } }
-				NOT = { check_variable = { completed_ideas_of_group_19 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 10 } }
-				NOT = { check_variable = { completed_ideas_of_group_10 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 19 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 10 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 59 }
@@ -741,10 +979,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 60 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 19 } }
-				NOT = { check_variable = { completed_ideas_of_group_19 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 13 } }
-				NOT = { check_variable = { completed_ideas_of_group_13 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 19 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 13 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 60 }
@@ -753,10 +995,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 61 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 20 } }
-				NOT = { check_variable = { completed_ideas_of_group_20 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 11 } }
-				NOT = { check_variable = { completed_ideas_of_group_11 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 20 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 11 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 61 }
@@ -765,10 +1011,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 62 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 20 } }
-				NOT = { check_variable = { completed_ideas_of_group_20 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 9 } }
-				NOT = { check_variable = { completed_ideas_of_group_9 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 20 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 9 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 62 }
@@ -777,10 +1027,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 63 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 21 } }
-				NOT = { check_variable = { completed_ideas_of_group_21 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 2 } }
-				NOT = { check_variable = { completed_ideas_of_group_2 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 21 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 2 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 63 }
@@ -789,10 +1043,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 64 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 21 } }
-				NOT = { check_variable = { completed_ideas_of_group_21 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 6 } }
-				NOT = { check_variable = { completed_ideas_of_group_6 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 21 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 6 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 64 }
@@ -801,10 +1059,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 65 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 25 } }
-				NOT = { check_variable = { completed_ideas_of_group_25 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 5 } }
-				NOT = { check_variable = { completed_ideas_of_group_5 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 25 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 5 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 65 }
@@ -813,10 +1075,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 66 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 25 } }
-				NOT = { check_variable = { completed_ideas_of_group_25 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 22 } }
-				NOT = { check_variable = { completed_ideas_of_group_22 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 25 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 22 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 66 }
@@ -825,10 +1091,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 67 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 25 } }
-				NOT = { check_variable = { completed_ideas_of_group_25 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 10 } }
-				NOT = { check_variable = { completed_ideas_of_group_10 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 25 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 10 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 67 }
@@ -837,10 +1107,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 68 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 25 } }
-				NOT = { check_variable = { completed_ideas_of_group_25 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 8 } }
-				NOT = { check_variable = { completed_ideas_of_group_8 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 25 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 8 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 68 }
@@ -849,10 +1123,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 69 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 25 } }
-				NOT = { check_variable = { completed_ideas_of_group_25 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 1 } }
-				NOT = { check_variable = { completed_ideas_of_group_1 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 25 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 1 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 69 }
@@ -861,10 +1139,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 70 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 26 } }
-				NOT = { check_variable = { completed_ideas_of_group_26 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 5 } }
-				NOT = { check_variable = { completed_ideas_of_group_5 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 26 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 5 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 70 }
@@ -873,10 +1155,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 71 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 26 } }
-				NOT = { check_variable = { completed_ideas_of_group_26 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 17 } }
-				NOT = { check_variable = { completed_ideas_of_group_17 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 26 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 17 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 71 }
@@ -885,10 +1171,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 72 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 26 } }
-				NOT = { check_variable = { completed_ideas_of_group_26 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 10 } }
-				NOT = { check_variable = { completed_ideas_of_group_10 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 26 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 10 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 72 }
@@ -897,10 +1187,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 73 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 26 } }
-				NOT = { check_variable = { completed_ideas_of_group_26 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 23 } }
-				NOT = { check_variable = { completed_ideas_of_group_23 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 26 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 23 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 73 }
@@ -909,10 +1203,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 74 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 26 } }
-				NOT = { check_variable = { completed_ideas_of_group_26 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 9 } }
-				NOT = { check_variable = { completed_ideas_of_group_9 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 26 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 9 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 74 }
@@ -921,10 +1219,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 75 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 27 } }
-				NOT = { check_variable = { completed_ideas_of_group_27 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 6 } }
-				NOT = { check_variable = { completed_ideas_of_group_6 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 27 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 6 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 75 }
@@ -933,10 +1235,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 76 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 27 } }
-				NOT = { check_variable = { completed_ideas_of_group_27 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 4 } }
-				NOT = { check_variable = { completed_ideas_of_group_4 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 27 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 4 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 76 }
@@ -945,10 +1251,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 77 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 27 } }
-				NOT = { check_variable = { completed_ideas_of_group_27 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 16 } }
-				NOT = { check_variable = { completed_ideas_of_group_16 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 27 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 16 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 77 }
@@ -957,10 +1267,14 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 78 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 27 } }
-				NOT = { check_variable = { completed_ideas_of_group_27 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 23 } }
-				NOT = { check_variable = { completed_ideas_of_group_23 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 27 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 23 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 78 }
@@ -969,15 +1283,19 @@ check_and_perhaps_remove_current_policies_effect = {
 		limit = {
 			is_in_array = { selected_policies_array = 79 }
 			OR = {
-				NOT = { is_in_array = { selected_idea_groups = 27 } }
-				NOT = { check_variable = { completed_ideas_of_group_27 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
-				NOT = { is_in_array = { selected_idea_groups = 1 } }
-				NOT = { check_variable = { completed_ideas_of_group_1 > @REQUIRED_IDEAS_FOR_POLICY_MINUS_1 } }
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 27 }
+					NOT = { has_completed_idea_group = yes }
+				}
+				AND = {
+					set_temp_variable = { idea_group_out_of_context = 1 }
+					NOT = { has_completed_idea_group = yes }
+				}
 			}
 		}
 		add_to_temp_array = { policies_to_be_removed_temp = 79 }
 	}
-	
+
 	if = {
 		limit = {
 			check_variable = { policies_to_be_removed_temp^num > 0 }
@@ -1017,794 +1335,794 @@ update_policies_effect = {
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 1 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 5 }
-				is_in_array = { selected_idea_groups = 8 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 5 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 8 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 1 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 2 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 1 }
-				is_in_array = { selected_idea_groups = 2 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 1 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 2 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 2 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 3 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 3 }
-				is_in_array = { selected_idea_groups = 10 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 3 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 10 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 3 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 4 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 2 }
-				is_in_array = { selected_idea_groups = 15 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 2 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 15 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 4 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 5 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 5 }
-				is_in_array = { selected_idea_groups = 7 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 5 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 7 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 5 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 6 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 15 }
-				is_in_array = { selected_idea_groups = 17 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 15 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 17 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 6 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 7 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 6 }
-				is_in_array = { selected_idea_groups = 16 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 6 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 16 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 7 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 8 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 1 }
-				is_in_array = { selected_idea_groups = 13 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 1 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 13 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 8 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 9 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 1 }
-				is_in_array = { selected_idea_groups = 4 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 1 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 4 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 9 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 10 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 4 }
-				is_in_array = { selected_idea_groups = 17 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 4 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 17 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 10 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 11 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 1 }
-				is_in_array = { selected_idea_groups = 16 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 1 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 16 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 11 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 12 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 1 }
-				is_in_array = { selected_idea_groups = 10 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 1 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 10 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 12 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 13 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 2 }
-				is_in_array = { selected_idea_groups = 4 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 2 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 4 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 13 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 14 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 2 }
-				is_in_array = { selected_idea_groups = 7 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 2 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 7 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 14 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 15 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 2 }
-				is_in_array = { selected_idea_groups = 8 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 2 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 8 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 15 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 16 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 3 }
-				is_in_array = { selected_idea_groups = 11 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 3 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 11 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 16 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 17 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 3 }
-				is_in_array = { selected_idea_groups = 12 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 3 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 12 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 17 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 18 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 3 }
-				is_in_array = { selected_idea_groups = 14 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 3 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 14 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 18 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 19 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 3 }
-				is_in_array = { selected_idea_groups = 18 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 3 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 18 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 19 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 20 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 4 }
-				is_in_array = { selected_idea_groups = 15 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 4 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 15 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 20 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 21 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 4 }
-				is_in_array = { selected_idea_groups = 13 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 4 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 13 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 21 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 22 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 5 }
-				is_in_array = { selected_idea_groups = 9 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 5 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 9 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 22 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 23 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 5 }
-				is_in_array = { selected_idea_groups = 17 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 5 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 17 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 23 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 24 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 5 }
-				is_in_array = { selected_idea_groups = 10 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 5 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 10 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 24 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 25 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 6 }
-				is_in_array = { selected_idea_groups = 13 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 6 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 13 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 25 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 26 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 6 }
-				is_in_array = { selected_idea_groups = 14 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 6 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 14 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 26 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 27 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 6 }
-				is_in_array = { selected_idea_groups = 15 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 6 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 15 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 27 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 28 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 6 }
-				is_in_array = { selected_idea_groups = 12 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 6 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 12 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 28 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 29 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 7 }
-				is_in_array = { selected_idea_groups = 11 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 7 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 11 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 29 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 30 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 7 }
-				is_in_array = { selected_idea_groups = 14 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 7 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 14 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 30 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 31 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 7 }
-				is_in_array = { selected_idea_groups = 10 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 7 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 10 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 31 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 32 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 8 }
-				is_in_array = { selected_idea_groups = 9 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 8 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 9 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 32 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 33 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 8 }
-				is_in_array = { selected_idea_groups = 10 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 8 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 10 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 33 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 34 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 8 }
-				is_in_array = { selected_idea_groups = 13 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 8 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 13 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 34 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 35 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 9 }
-				is_in_array = { selected_idea_groups = 11 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 9 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 11 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 35 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 36 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 9 }
-				is_in_array = { selected_idea_groups = 12 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 9 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 12 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 36 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 37 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 9 }
-				is_in_array = { selected_idea_groups = 16 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 9 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 16 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 37 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 38 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 11 }
-				is_in_array = { selected_idea_groups = 12 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 11 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 12 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 38 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 39 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 11 }
-				is_in_array = { selected_idea_groups = 18 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 11 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 18 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 39 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 40 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 12 }
-				is_in_array = { selected_idea_groups = 14 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 12 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 14 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 40 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 41 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 13 }
-				is_in_array = { selected_idea_groups = 18 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 13 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 18 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 41 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 42 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 14 }
-				is_in_array = { selected_idea_groups = 17 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 14 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 17 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 42 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 43 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 15 }
-				is_in_array = { selected_idea_groups = 16 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 15 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 16 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 43 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 44 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 16 }
-				is_in_array = { selected_idea_groups = 18 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 16 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 18 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 44 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 45 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 17 }
-				is_in_array = { selected_idea_groups = 18 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 17 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 18 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 45 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 46 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 19 }
-				is_in_array = { selected_idea_groups = 22 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 19 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 22 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 46 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 47 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 19 }
-				is_in_array = { selected_idea_groups = 23 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 19 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 23 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 47 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 48 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 20 }
-				is_in_array = { selected_idea_groups = 24 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 20 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 24 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 48 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 49 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 21 }
-				is_in_array = { selected_idea_groups = 24 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 21 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 24 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 49 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 50 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 22 }
-				is_in_array = { selected_idea_groups = 21 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 22 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 21 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 50 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 51 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 22 }
-				is_in_array = { selected_idea_groups = 23 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 22 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 23 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 51 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 52 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 21 }
-				is_in_array = { selected_idea_groups = 23 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 21 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 23 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 52 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 53 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 20 }
-				is_in_array = { selected_idea_groups = 23 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 20 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 23 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 53 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 54 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 24 }
-				is_in_array = { selected_idea_groups = 23 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 24 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 23 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 54 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 55 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 24 }
-				is_in_array = { selected_idea_groups = 22 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 24 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 22 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 55 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 56 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 20 }
-				is_in_array = { selected_idea_groups = 22 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 20 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 22 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 56 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 57 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 24 }
-				is_in_array = { selected_idea_groups = 3 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 24 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 3 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 57 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 58 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 19 }
-				is_in_array = { selected_idea_groups = 17 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 19 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 17 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 58 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 59 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 19 }
-				is_in_array = { selected_idea_groups = 10 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 19 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 10 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 59 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 60 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 19 }
-				is_in_array = { selected_idea_groups = 13 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 19 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 13 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 60 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 61 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 20 }
-				is_in_array = { selected_idea_groups = 11 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 20 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 11 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 61 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 62 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 20 }
-				is_in_array = { selected_idea_groups = 9 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 20 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 9 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 62 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 63 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 21 }
-				is_in_array = { selected_idea_groups = 2 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 21 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 2 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 63 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 64 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 21 }
-				is_in_array = { selected_idea_groups = 6 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 21 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 6 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 64 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 65 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 25 }
-				is_in_array = { selected_idea_groups = 5 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 25 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 5 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 65 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 66 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 25 }
-				is_in_array = { selected_idea_groups = 22 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 25 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 22 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 66 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 67 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 25 }
-				is_in_array = { selected_idea_groups = 10 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 25 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 10 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 67 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 68 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 25 }
-				is_in_array = { selected_idea_groups = 8 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 25 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 8 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 68 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 69 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 25 }
-				is_in_array = { selected_idea_groups = 1 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 25 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 1 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 69 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 70 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 26 }
-				is_in_array = { selected_idea_groups = 5 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 26 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 5 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 70 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 71 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 26 }
-				is_in_array = { selected_idea_groups = 17 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 26 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 17 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 71 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 72 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 26 }
-				is_in_array = { selected_idea_groups = 10 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 26 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 10 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 72 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 73 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 26 }
-				is_in_array = { selected_idea_groups = 23 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 26 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 23 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 73 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 74 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 26 }
-				is_in_array = { selected_idea_groups = 9 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 26 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 9 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 74 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 75 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 27 }
-				is_in_array = { selected_idea_groups = 6 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 27 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 6 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 75 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 76 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 27 }
-				is_in_array = { selected_idea_groups = 4 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 27 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 4 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 76 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 77 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 27 }
-				is_in_array = { selected_idea_groups = 16 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 27 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 16 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 77 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 78 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 27 }
-				is_in_array = { selected_idea_groups = 23 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 27 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 23 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 78 }
 	}
 	if = {
 		limit = {
 			NOT = { is_in_array = { selected_policies_array = 79 } }
-			OR = {
-				is_in_array = { selected_idea_groups = 27 }
-				is_in_array = { selected_idea_groups = 1 }
-			}
+			set_temp_variable = { idea_group_out_of_context = 27 }
+			has_selected_idea_group = yes
+			set_temp_variable = { idea_group_out_of_context = 1 }
+			has_selected_idea_group = yes
 		}
 		add_to_array = { selectable_policies_array = 79 }
 	}
-	
+	update_policy_window = yes
 }
 
 update_policy_costs = {

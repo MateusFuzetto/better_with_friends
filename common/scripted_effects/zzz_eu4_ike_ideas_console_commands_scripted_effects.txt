@@ -5,24 +5,26 @@ d_eu4_style_ideas_console_commands = {
 	log = "   - lock_all_idea_slots_as_normal"
 	log = "   - select_idea_group"
 	log = "   - remove_idea_group"
+	log = "   - swap_national_idea_group"
 	log = D_EU4_STYLE_IDEAS_CONSOLE_COMMANDS_TT_2
 }
 
 d_unlock_all_idea_slots = {
 	log = D_UNLOCK_ALL_IDEA_SLOTS_TT
 	set_global_flag = eu4_like_ideas_test_flag
+	update_main_ideas_window = yes
+	refresh_eu4_like_alerts = yes
 }
 
 d_lock_all_idea_slots_as_normal = {
 	log = D_LOCK_ALL_IDEA_SLOTS_AS_NORMAL_TT
 	clr_global_flag = eu4_like_ideas_test_flag
+	update_main_ideas_window = yes
+	refresh_eu4_like_alerts = yes
 }
 
 d_select_idea_group = {
-	if = {
-		limit = {
-			exists = yes
-		}
+	FROM = {
 		if = {
 			limit = {
 				check_variable = { args^num = 1 }
@@ -53,12 +55,7 @@ d_select_idea_group = {
 						divide_temp_variable = { total_num_of_selected_ideas = 2 }
 						OR = {
 							has_global_flag = eu4_like_ideas_test_flag
-							NOT = {
-								has_game_rule = {
-									rule = eu4_like_ideas_rule_limited_idea_groups_from_same_type
-									option = ENABLED
-								}
-							}
+							has_global_flag = eu4_like_ideas_limit_for_idea_groups_from_same_type_disabled
 							AND = {
 								OR = {
 									check_variable = { v = 1 }
@@ -127,16 +124,10 @@ d_select_idea_group = {
 			log = D_SELECT_IDEA_GROUP_TT_INVALID_ARGUMENTS
 		}
 	}
-	else = {
-		log = EU4_STYLE_IDEAS_CC_USED_IN_WRONG_SCOPE
-	}
 }
 
 d_remove_idea_group = {
-	if = {
-		limit = {
-			exists = yes
-		}
+	FROM = {
 		if = {
 			limit = {
 				check_variable = { args^num = 1 }
@@ -162,7 +153,35 @@ d_remove_idea_group = {
 			log = D_REMOVE_IDEA_GROUP_TT_INVALID_ARGUMENTS
 		}
 	}
-	else = {
-		log = EU4_STYLE_IDEAS_CC_USED_IN_WRONG_SCOPE
+}
+
+d_swap_national_idea_group = {
+	FROM = {
+		if = {
+			limit = {
+				check_variable = { args^0 = 0 }
+			}
+			swap_national_ideas_effect = yes
+		}
+		else = {
+			if = {
+				limit = {
+					NOT = { check_variable = { national_ideas_id = 0 } }
+				}
+				calculate_progress_of_national_ideas = yes
+				clear_national_ideas = yes
+				if = {
+					limit = {
+						NOT = { check_variable = { national_ideas_id = 1000 } }
+						NOT = { has_country_flag = swap_to_previous_national_ideas }
+					}
+					set_variable = { previous_national_ideas_id = national_ideas_id }
+				}
+			}
+			set_variable = { national_ideas_id = args^0 }
+			complete_national_idea_0 = yes
+			calculate_progress_of_national_ideas = yes
+		}
+		log = D_SWAP_NATIONAL_IDEA_GROUP_TT
 	}
 }

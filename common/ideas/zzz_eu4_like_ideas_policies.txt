@@ -121,6 +121,8 @@ ideas = {
 				research_speed_factor = 0.025
 				idea_cost_modifier = -0.05
 			}
+
+			picture = "generic_research_bonus"
 		}
 
 		eu4_like_policy_4 = {
@@ -134,31 +136,31 @@ ideas = {
 			equipment_bonus = {
 				infantry = {
 					instant = yes
-					build_cost_ic = -0.10
+					build_cost_ic = -0.05
 				}
 				mechanized = {
 					instant = yes
-					build_cost_ic = -0.10
+					build_cost_ic = -0.05
 				}
 				motorized = {
 					instant = yes
-					build_cost_ic = -0.10
+					build_cost_ic = -0.05
 				}
 				artillery = {
 					instant = yes
-					build_cost_ic = -0.10
+					build_cost_ic = -0.05
 				}
 				anti_air = {
 					instant = yes
-					build_cost_ic = -0.10
+					build_cost_ic = -0.05
 				}
 				anti_tank = {
 					instant = yes
-					build_cost_ic = -0.10
+					build_cost_ic = -0.05
 				}
 				armor = {
 					instant = yes
-					build_cost_ic = -0.10
+					build_cost_ic = -0.05
 				}
 			}
 		}
@@ -207,7 +209,7 @@ ideas = {
 			}
 
 			research_bonus = {
-				armor = 0.1
+				armor = 0.05
 			}
 
 			picture = "generic_research_bonus"
@@ -236,7 +238,7 @@ ideas = {
 			}
 
 			modifier = {
-				resistance_growth = -0.1
+				resistance_growth = -0.05
 				industrial_capacity_factory = 0.05
 			}
 		}
@@ -338,7 +340,7 @@ ideas = {
 			}
 
 			modifier = {
-				naval_doctrine_cost_factor = -0.1
+				naval_doctrine_cost_factor = -0.05
 			}
 
 			picture = "generic_research_bonus"
@@ -357,7 +359,7 @@ ideas = {
 			}
 
 			modifier = {
-				naval_doctrine_cost_factor = -0.1
+				naval_doctrine_cost_factor = -0.05
 			}
 
 			picture = "generic_research_bonus"
@@ -376,7 +378,7 @@ ideas = {
 			}
 
 			modifier = {
-				land_doctrine_cost_factor = -0.1
+				land_doctrine_cost_factor = -0.05
 			}
 
 			picture = "generic_research_bonus"
@@ -395,7 +397,7 @@ ideas = {
 			}
 
 			modifier = {
-				air_doctrine_cost_factor = -0.1
+				air_doctrine_cost_factor = -0.05
 			}
 
 			picture = "generic_research_bonus"
@@ -410,7 +412,7 @@ ideas = {
 			}
 
 			modifier = {
-				conscription_factor = 0.1
+				conscription_factor = 0.05
 				war_support_factor = 0.05
 			}
 		}
@@ -452,7 +454,7 @@ ideas = {
 			}
 
 			modifier = {
-				production_speed_bunker_factor = 0.05
+				production_speed_bunker_factor = 0.1
 				surrender_limit = 0.05
 			}
 		}
@@ -581,7 +583,7 @@ ideas = {
 
 			equipment_bonus = {
 				armor = {
-					build_cost_ic = -0.1
+					build_cost_ic = -0.05
 				}
 			}
 		}
@@ -672,7 +674,7 @@ ideas = {
 			}
 
 			modifier = {
-				justify_war_goal_time = -0.1
+				justify_war_goal_time = -0.05
 				amphibious_invasion = 0.05
 			}
 		}
@@ -815,7 +817,7 @@ ideas = {
 			}
 
 			modifier = {
-				justify_war_goal_time = -0.1
+				justify_war_goal_time = -0.05
 				drift_defence_factor = 0.1
 			}
 		}
@@ -891,7 +893,7 @@ ideas = {
 			}
 
 			research_bonus = {
-				armor = 0.1
+				armor = 0.05
 			}
 
 			modifier = {
@@ -978,7 +980,7 @@ ideas = {
 			}
 
 			research_bonus = {
-				nuclear = 0.15
+				nuclear = 0.1
 			}
 
 			equipment_bonus = {
@@ -1062,7 +1064,7 @@ ideas = {
 			}
 
 			modifier = {
-				naval_doctrine_cost_factor = -0.1
+				naval_doctrine_cost_factor = -0.05
 			}
 
 			equipment_bonus = {
@@ -1084,7 +1086,7 @@ ideas = {
 			}
 
 			modifier = {
-				navy_max_range_factor = 0.1
+				navy_max_range_factor = 0.05
 			}
 
 			equipment_bonus = {
@@ -1104,7 +1106,7 @@ ideas = {
 			}
 
 			modifier = {
-				army_armor_speed_factor = 0.1
+				army_armor_speed_factor = 0.05
 			}
 
 			equipment_bonus = {
@@ -1124,7 +1126,7 @@ ideas = {
 			}
 
 			research_bonus = {
-				cat_heavy_armor = 0.1
+				cat_heavy_armor = 0.05
 			}
 
 			equipment_bonus = {
@@ -1146,7 +1148,7 @@ ideas = {
 			}
 
 			modifier = {
-				democratic_drift = 0.01
+				democratic_drift = 0.03
 				policy_cost = -0.1
 			}
 		}
@@ -1215,7 +1217,7 @@ ideas = {
 			}
 
 			modifier = {
-				max_surrender_limit_offset = -0.05
+				max_surrender_limit_offset = 0.05
 			}
 		}
 
@@ -1306,7 +1308,7 @@ ideas = {
 			}
 
 			modifier = {
-				required_garrison_factor = -0.05
+				required_garrison_factor = -0.1
 			}
 		}
 

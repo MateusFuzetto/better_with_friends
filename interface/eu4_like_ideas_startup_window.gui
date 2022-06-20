@@ -5,17 +5,17 @@ guiTypes = {
 		size = { width = 857 height = 550 }
 		orientation = center
 		origo = center
-		
+
 		click_to_front = yes
 		moveable = yes
-		
+
 		show_sound = menu_open_window
-		
+
 		background = {
 			name = "background"
 			spriteType = "GFX_tiled_window_w_close"
 		}
-		
+
 		buttonType = {
 			name = "close_button"
 			spriteType = "GFX_closebutton"
@@ -25,38 +25,39 @@ guiTypes = {
 			shortcut = "ESCAPE"
 			clicksound = click_close
 		}
-		
+
 		iconType = {
 			name = "title_bg"
 			spriteType = "GFX_eu4_like_ideas_title_bg"
 			position = { x = 264 y = 20 }
 			alwaystransparent = yes
 		}
-		
+
 		instantTextBoxType = {
 			name = "title"
-			position = { x = 286 y = 23 }
+			position = { x = 281 y = 23 }
 			text = "EU4_LIKE_IDEAS_STARTUP_WINDOW_TITLE"
 			font = "hoi_24header"
 			format = center
-			maxWidth = 250
+			maxWidth = 265
 			maxHeight = 10
 			fixedsize = yes
 			alwaystransparent = yes
 		}
-		
+
 		containerWindowType = {
 			name = "entry_window"
 			position = { x = 0 y = 50 }
 			size = { width = 847 height = 497 }
 			margin = { top = 5 bottom = 10 right = 0 left = 12 }
 			verticalScrollbar = "right_vertical_sliderno_bg"
-			
+			scroll_wheel_factor = 300
+
 			background = {
 				name = "background"
 				spriteType = "GFX_tiled_window_transparent"
 			}
-			
+
 			instantTextBoxType = {
 				name = "image_1_text"
 				position = { x = 10 y = 10 }
@@ -72,7 +73,7 @@ guiTypes = {
 				spriteType = "GFX_english_introduction_image_001"
 				position = { x = 10 y = 130 }
 			}
-			
+
 			instantTextBoxType = {
 				name = "image_2_text"
 				position = { x = 10 y = 295 }
@@ -88,7 +89,7 @@ guiTypes = {
 				spriteType = "GFX_english_introduction_image_002"
 				position = { x = 10 y = 430 }
 			}
-			
+
 			instantTextBoxType = {
 				name = "image_3_text"
 				position = { x = 10 y = 1100 }
@@ -104,7 +105,7 @@ guiTypes = {
 				spriteType = "GFX_english_introduction_image_003"
 				position = { x = 10 y = 1270 }
 			}
-			
+
 			instantTextBoxType = {
 				name = "image_4_5_text"
 				position = { x = 10 y = 1410 }
@@ -125,7 +126,7 @@ guiTypes = {
 				spriteType = "GFX_english_introduction_image_005"
 				position = { x = 200 y = 1460 }
 			}
-			
+
 			instantTextBoxType = {
 				name = "image_6_text"
 				position = { x = 10 y = 1930 }
@@ -141,7 +142,7 @@ guiTypes = {
 				spriteType = "GFX_english_introduction_image_006"
 				position = { x = 10 y = 2150 }
 			}
-			
+
 			instantTextBoxType = {
 				name = "image_7_text"
 				position = { x = 10 y = 2240 }
@@ -157,7 +158,7 @@ guiTypes = {
 				spriteType = "GFX_english_introduction_image_007"
 				position = { x = 10 y = 2310 }
 			}
-			
+
 			instantTextBoxType = {
 				name = "image_8_text"
 				position = { x = 10 y = 2670 }
@@ -173,7 +174,7 @@ guiTypes = {
 				spriteType = "GFX_english_introduction_image_008"
 				position = { x = 10 y = 2750 }
 			}
-			
+
 			instantTextBoxType = {
 				name = "image_9_text"
 				position = { x = 10 y = 2940 }
@@ -189,7 +190,7 @@ guiTypes = {
 				spriteType = "GFX_english_introduction_image_009"
 				position = { x = 10 y = 3000 }
 			}
-			
+
 			instantTextBoxType = {
 				name = "image_10_text"
 				position = { x = 10 y = 3170 }
@@ -205,7 +206,7 @@ guiTypes = {
 				spriteType = "GFX_english_introduction_image_010"
 				position = { x = 10 y = 3270 }
 			}
-			
+
 			instantTextBoxType = {
 				name = "image_11_text"
 				position = { x = 10 y = 3750 }
@@ -221,7 +222,7 @@ guiTypes = {
 				spriteType = "GFX_english_introduction_image_011"
 				position = { x = 10 y = 3880 }
 			}
-			
+
 			instantTextBoxType = {
 				name = "image_12_text"
 				position = { x = 10 y = 4020 }
@@ -237,7 +238,7 @@ guiTypes = {
 				spriteType = "GFX_english_introduction_image_012"
 				position = { x = 10 y = 4240 }
 			}
-			
+
 			instantTextBoxType = {
 				name = "image_13_text"
 				position = { x = 10 y = 4490 }

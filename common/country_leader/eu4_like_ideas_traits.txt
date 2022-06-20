@@ -91,7 +91,7 @@ leader_traits = {
 	minister_ideas_bonus_silent_workhorse = {
 		random = yes
 		sprite = 13
-		political_power_factor = 0.23
+		political_power_factor = 0.25
 
 		ai_will_do = {
 			factor = 1

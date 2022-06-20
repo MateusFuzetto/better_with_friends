@@ -7,11 +7,10 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-			cancel_if_invalid = yes
-			visible = {
-				is_ai = yes
+			cancel = {
+				is_ai = no
 			}
-			
+
 			modifier = {
 				trade_laws_cost_factor = -0.05
 				political_advisor_cost_factor = -0.05
@@ -26,10 +25,10 @@ ideas = {
 				industrial_concern_cost_factor = -0.05
 				theorist_cost_factor = -0.05
 			}
-			
+
 			picture = generic_research_bonus
 		}
-		
+
 		eu4_like_ideas_AI_pp_cost_reduction_10 = {
 			allowed = {
 				always = no
@@ -37,11 +36,10 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-			cancel_if_invalid = yes
-			visible = {
-				is_ai = yes
+			cancel = {
+				is_ai = no
 			}
-			
+
 			modifier = {
 				trade_laws_cost_factor = -0.1
 				political_advisor_cost_factor = -0.1
@@ -56,10 +54,10 @@ ideas = {
 				industrial_concern_cost_factor = -0.1
 				theorist_cost_factor = -0.1
 			}
-			
+
 			picture = generic_research_bonus
 		}
-		
+
 		eu4_like_ideas_AI_pp_cost_reduction_15 = {
 			allowed = {
 				always = no
@@ -67,11 +65,10 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-			cancel_if_invalid = yes
-			visible = {
-				is_ai = yes
+			cancel = {
+				is_ai = no
 			}
-			
+
 			modifier = {
 				trade_laws_cost_factor = -0.15
 				political_advisor_cost_factor = -0.15
@@ -86,10 +83,10 @@ ideas = {
 				industrial_concern_cost_factor = -0.15
 				theorist_cost_factor = -0.15
 			}
-			
+
 			picture = generic_research_bonus
 		}
-		
+
 		eu4_like_ideas_AI_pp_cost_reduction_20 = {
 			allowed = {
 				always = no
@@ -97,11 +94,10 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-			cancel_if_invalid = yes
-			visible = {
-				is_ai = yes
+			cancel = {
+				is_ai = no
 			}
-			
+
 			modifier = {
 				trade_laws_cost_factor = -0.2
 				political_advisor_cost_factor = -0.2
@@ -116,10 +112,10 @@ ideas = {
 				industrial_concern_cost_factor = -0.2
 				theorist_cost_factor = -0.2
 			}
-			
+
 			picture = generic_research_bonus
 		}
-		
+
 		eu4_like_ideas_AI_pp_cost_reduction_25 = {
 			allowed = {
 				always = no
@@ -127,11 +123,10 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-			cancel_if_invalid = yes
-			visible = {
-				is_ai = yes
+			cancel = {
+				is_ai = no
 			}
-			
+
 			modifier = {
 				trade_laws_cost_factor = -0.25
 				political_advisor_cost_factor = -0.25
@@ -146,10 +141,10 @@ ideas = {
 				industrial_concern_cost_factor = -0.25
 				theorist_cost_factor = -0.25
 			}
-			
+
 			picture = generic_research_bonus
 		}
-		
+
 		eu4_like_ideas_AI_pp_cost_reduction_30 = {
 			allowed = {
 				always = no
@@ -157,11 +152,10 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-			cancel_if_invalid = yes
-			visible = {
-				is_ai = yes
+			cancel = {
+				is_ai = no
 			}
-			
+
 			modifier = {
 				trade_laws_cost_factor = -0.3
 				political_advisor_cost_factor = -0.3
@@ -176,10 +170,10 @@ ideas = {
 				industrial_concern_cost_factor = -0.3
 				theorist_cost_factor = -0.3
 			}
-			
+
 			picture = generic_research_bonus
 		}
-		
+
 		eu4_like_ideas_AI_pp_cost_reduction_35 = {
 			allowed = {
 				always = no
@@ -187,11 +181,10 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-			cancel_if_invalid = yes
-			visible = {
-				is_ai = yes
+			cancel = {
+				is_ai = no
 			}
-			
+
 			modifier = {
 				trade_laws_cost_factor = -0.35
 				political_advisor_cost_factor = -0.35
@@ -206,10 +199,10 @@ ideas = {
 				industrial_concern_cost_factor = -0.35
 				theorist_cost_factor = -0.35
 			}
-			
+
 			picture = generic_research_bonus
 		}
-		
+
 		eu4_like_ideas_AI_pp_cost_reduction_40 = {
 			allowed = {
 				always = no
@@ -217,11 +210,10 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-			cancel_if_invalid = yes
-			visible = {
-				is_ai = yes
+			cancel = {
+				is_ai = no
 			}
-			
+
 			modifier = {
 				trade_laws_cost_factor = -0.4
 				political_advisor_cost_factor = -0.4
@@ -236,10 +228,10 @@ ideas = {
 				industrial_concern_cost_factor = -0.4
 				theorist_cost_factor = -0.4
 			}
-			
+
 			picture = generic_research_bonus
 		}
-		
+
 		eu4_like_ideas_AI_pp_cost_reduction_45 = {
 			allowed = {
 				always = no
@@ -247,11 +239,10 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-			cancel_if_invalid = yes
-			visible = {
-				is_ai = yes
+			cancel = {
+				is_ai = no
 			}
-			
+
 			modifier = {
 				trade_laws_cost_factor = -0.45
 				political_advisor_cost_factor = -0.45
@@ -266,10 +257,10 @@ ideas = {
 				industrial_concern_cost_factor = -0.45
 				theorist_cost_factor = -0.45
 			}
-			
+
 			picture = generic_research_bonus
 		}
-		
+
 		eu4_like_ideas_AI_pp_cost_reduction_50 = {
 			allowed = {
 				always = no
@@ -277,11 +268,10 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-			cancel_if_invalid = yes
-			visible = {
-				is_ai = yes
+			cancel = {
+				is_ai = no
 			}
-			
+
 			modifier = {
 				trade_laws_cost_factor = -0.5
 				political_advisor_cost_factor = -0.5
@@ -296,7 +286,7 @@ ideas = {
 				industrial_concern_cost_factor = -0.5
 				theorist_cost_factor = -0.5
 			}
-			
+
 			picture = generic_research_bonus
 		}
 	}
