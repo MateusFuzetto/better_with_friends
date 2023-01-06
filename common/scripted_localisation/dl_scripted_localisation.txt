@@ -1,0 +1,53 @@
+
+defined_text = {
+	name = leader_rank
+	
+	text = {
+		trigger = {
+			is_navy_leader = yes
+		}
+		localization_key = "Admiral"
+	}
+	
+	text = {
+		trigger = {
+			is_army_leader = yes
+			is_field_marshal = yes
+		}
+		localization_key = "Field Marshal"
+	}
+	
+	text = {
+		trigger = {
+			is_army_leader = yes
+			is_field_marshal = no
+		}
+		localization_key = "General"
+	}
+	
+	text = {
+		localization_key = "Character"
+	}
+}
+
+defined_text = {
+	name = leader_background
+	
+	text = {
+		trigger = {
+			is_assigned = yes
+		}
+		localization_key = "GFX_dl_leader_entry_assigned"
+	}
+	
+	text = {
+		trigger = {
+			is_assigned = no
+		}
+		localization_key = "GFX_dl_leader_entry"
+	}
+	
+	text = {
+		localization_key = "GFX_dl_leader_entry"
+	}
+}
