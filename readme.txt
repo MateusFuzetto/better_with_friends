@@ -8,3 +8,5 @@ EU4 Style Ages
 Recall Volunteers
 SOO Optimization
 EU4 Style Monuments
+Dismiss Leaders
+Modifier Icons
