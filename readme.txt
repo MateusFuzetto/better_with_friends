@@ -10,3 +10,4 @@ SOO Optimization
 EU4 Style Monuments
 Dismiss Leaders
 Modifier Icons
+Linear XP Gain
