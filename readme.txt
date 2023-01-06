@@ -11,3 +11,5 @@ EU4 Style Monuments
 Dismiss Leaders
 Modifier Icons
 Linear XP Gain
+Ship designer - Universal
+Division Icons Overhauled
