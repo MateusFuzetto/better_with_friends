@@ -1,0 +1,31 @@
+ENG_exre = {
+	stop_reliance_on_colonies = {
+
+		icon = generic_political_discourse
+
+		cost = 75
+
+		fire_only_once = yes
+
+		available = {
+			OR = {
+			date > 1940.01.01
+			has_war_with = GER
+			}
+		}
+		#days_remove = 30
+		
+		#modifier = {
+		#	civilian_factory_use = 2
+		#}
+		complete_effect = {
+			remove_ideas = ENG_resource_eff
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		#remove_effect = {
+		#	
+		#}
+	}
+}

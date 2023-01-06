@@ -1,0 +1,26 @@
+GER_exre = {
+	streamline_ration_production = {
+
+		icon = generic_industry
+
+		cost = 125
+
+		fire_only_once = yes
+
+		available = {
+			has_war = yes
+		}
+		complete_effect = {
+			add_timed_idea = {
+    			idea = DECISION_streamline_ration_production
+    			days = 365
+				}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = {
+			
+		}
+	}
+}

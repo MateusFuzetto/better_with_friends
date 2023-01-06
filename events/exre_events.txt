@@ -1,0 +1,807 @@
+﻿add_namespace = exre
+
+#### You may use these events in your mod; just ask me for permission and give credit: MrKmproductions
+# Opening Event
+country_event = {
+	id = exre.0
+	title = exre.0.t
+	desc = exre.0.d
+	picture = GFX_report_event_canada_army
+	
+	fire_only_once = no
+	
+	trigger = {
+		NOT = {
+			has_country_flag = exre_diff_selected
+		}
+	}
+
+	option = {
+		name = exre.0.a
+		trigger = { is_ai = no }
+		add_ideas = GEN_easy_difficulty
+		set_technology = {
+   		 grain_conversion = 1
+		}
+		set_technology = {
+   		 light_ammo = 1
+		}
+		set_technology = {
+   		 heavy_ammo = 1
+		}
+		set_technology = {
+   		 exre_uniforms = 1
+		}
+		set_technology = {
+   		 exre_grain_farms = 1
+		}
+		random_owned_state = {
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+			add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+			add_extra_state_shared_building_slots = 4
+		}
+		random_owned_state = {
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+			add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+			add_extra_state_shared_building_slots = 4
+		}
+		random_owned_state = {
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+			add_extra_state_shared_building_slots = 2
+		}
+		ai_chance = { factor = 0 }
+		set_country_flag = exre_diff_selected
+	}
+	option = {
+		name = exre.0.b
+		trigger = { is_ai = no }
+		set_technology = {
+   		 grain_conversion = 1
+		}
+		set_technology = {
+   		 light_ammo = 1
+		}
+		set_technology = {
+   		 heavy_ammo = 1
+		}
+		set_technology = {
+   		 exre_uniforms = 1
+		}
+		set_technology = {
+   		 exre_grain_farms = 1
+		}
+		random_owned_state = {
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+			add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+			add_extra_state_shared_building_slots = 4
+		}
+		random_owned_state = {
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			add_extra_state_shared_building_slots = 3
+		}
+		ai_chance = { factor = 0 }
+		set_country_flag = exre_diff_selected
+	}
+	option = {
+		name = exre.0.c
+		trigger = { is_ai = no }
+		add_ideas = GEN_hard_difficulty
+		set_technology = {
+   		 grain_conversion = 1
+		}
+		set_technology = {
+   		 light_ammo = 1
+		}
+		set_technology = {
+   		 heavy_ammo = 1
+		}
+		set_technology = {
+   		 exre_uniforms = 1
+		}
+		set_technology = {
+   		 exre_grain_farms = 1
+		}
+		random_owned_state = {
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			add_extra_state_shared_building_slots = 3
+		}
+		ai_chance = { factor = 0 }
+		set_country_flag = exre_diff_selected
+	}
+	option = {
+		name = exre.0.e
+		trigger = { is_ai = no }
+		country_event = exre.999
+		set_technology = {
+   		 grain_conversion = 1
+		}
+		set_technology = {
+   		 light_ammo = 1
+		}
+		set_technology = {
+   		 heavy_ammo = 1
+		}
+		set_technology = {
+   		 exre_uniforms = 1
+		}
+		set_technology = {
+   		 exre_grain_farms = 1
+		}
+		random_owned_state = {
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+			add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+			add_extra_state_shared_building_slots = 4
+		}
+		random_owned_state = {
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+			add_building_construction = { type = industrial_complex level = 1 instant_build = yes }
+			add_extra_state_shared_building_slots = 3
+		}
+		ai_chance = { factor = 0 }
+		set_country_flag = exre_diff_selected
+	}
+	option = {
+		name = exre.0.f
+		trigger = { is_ai = yes }
+		add_ideas = GEN_ai_difficulty
+		set_technology = {
+   		 grain_conversion = 1
+		}
+		set_technology = {
+   		 light_ammo = 1
+		}
+		set_technology = {
+   		 heavy_ammo = 1
+		}
+		set_technology = {
+   		 exre_uniforms = 1
+		}
+		set_technology = {
+   		 exre_grain_farms = 1
+		}
+		random_owned_state = {
+			add_building_construction = { type = arms_factory level = 3 instant_build = yes }
+			add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+			add_extra_state_shared_building_slots = 5
+			set_state_flag = exre_ai_added1
+		}
+		random_owned_state = {
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+			add_building_construction = { type = industrial_complex level = 2 instant_build = yes }
+			add_extra_state_shared_building_slots = 4
+			set_state_flag = exre_ai_added2
+		}
+		random_owned_state = {
+			add_building_construction = { type = arms_factory level = 2 instant_build = yes }
+			add_extra_state_shared_building_slots = 2
+			set_state_flag = exre_ai_added3
+		}
+		ai_chance = { factor = 100 }
+		set_country_flag = exre_diff_selected
+		set_country_flag = exre_ai_controlled
+	}
+}
+country_event = {
+	id = exre.999
+	title = exre.999.t
+	desc = exre.999.d
+	picture = GFX_report_event_canada_army
+	
+	is_triggered_only = yes
+	fire_only_once = no
+	
+	trigger = {
+
+	}
+
+	option = {
+		name = exre.999.a
+	}
+}
+country_event = {
+	id = exre.9999
+	title = exre.9999.t
+	desc = exre.9999.d
+	picture = GFX_report_event_canada_army
+	
+	fire_only_once = no
+	
+	trigger = {
+		is_ai = yes
+		OR = {
+			NOT = {
+				has_tech = grain_conversion	
+			}
+			NOT = {
+				has_tech = light_ammo
+			}
+			NOT = {
+				has_tech = heavy_ammo
+			}
+			NOT = {
+				has_tech = exre_uniforms
+			}
+			
+		}
+	}
+
+	option = {
+		name = exre.9999.a
+		set_technology = {
+ 		 grain_conversion = 1
+		}
+		set_technology = {
+   		 light_ammo = 1
+		}
+		set_technology = {
+  		 heavy_ammo = 1
+		}
+		set_technology = {
+   		 exre_uniforms = 1
+		}
+		set_technology = {
+   		 exre_grain_farms = 1
+		}
+	}
+}
+# SOV Idea after 5 year plan
+country_event = {
+	id = exre.1
+	title = exre.1.t
+	desc = exre.1.d
+	picture = GFX_report_event_stalin_meeting
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SOV
+	 	has_completed_focus = SOV_finish_the_five_year_plan
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = exre.1.a
+		add_ideas = SOV_five_year_plan
+	}
+}
+# SOV Idea after Purge
+country_event = {
+	id = exre.2
+	title = exre.2.t
+	desc = exre.2.d
+	picture = GFX_report_event_soviet_purge_officers_01
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SOV
+	 	has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites #SOV_great_purge no longer exists as of 1.11
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = exre.2.a
+		add_timed_idea = {
+			idea = SOV_the_great_purge
+			days = 1460
+		}
+	}
+}
+# GER Idea After Rhineland
+country_event = {
+	id = exre.3
+	title = exre.3.t
+	desc = exre.3.d
+	picture = GFX_report_event_generic_military_parade
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GER
+	 	42 = { is_demilitarized_zone = no }
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = exre.3.a
+		remove_ideas = GER_rhineland_idea
+	}
+}
+# FRA Idea After Rhineland
+country_event = {
+	id = exre.4
+	title = exre.4.t
+	desc = exre.4.d
+	picture = GFX_report_event_generic_conference
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = FRA
+		42 = { is_demilitarized_zone = no }
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = exre.4.a
+		remove_ideas = FRA_rhineland_idea
+	}
+}
+#Generic Without Food Event Add Idea
+country_event = {
+	id = exre.5
+	title = exre.5.t
+	desc = exre.5.d
+	picture = GFX_report_event_generic_battle
+	
+	fire_only_once = no
+	
+	hidden = no
+
+	trigger = {
+		is_ai = no
+		has_equipment = { grain_conversion_eq < 1 }	# < 1
+		has_war = yes
+		NOT = {
+		has_idea = GEN_no_rations
+		}
+	}
+	#mean_time_to_happen = {
+	#	days = 1
+	#}
+
+	option = {
+		name = exre.5.a
+		add_ideas = GEN_no_rations
+	}
+}
+
+#Generic Without Food Event Remove Idea
+country_event = {
+	id = exre.6
+	title = exre.6.t
+	desc = exre.6.d
+	picture = GFX_report_event_generic_battle
+	
+	fire_only_once = no
+	
+	hidden = no
+	
+	trigger = {
+		is_ai = no
+		has_equipment = { grain_conversion_eq > 199 }
+		has_idea = GEN_no_rations
+
+	}
+	#mean_time_to_happen = {
+	#	days = 1
+	#}
+
+	option = {
+		name = exre.6.a
+		remove_ideas = GEN_no_rations
+	}
+}
+#Soviet Event Giving Manpower After Poland Annexed
+country_event = {
+	id = exre.7
+	title = exre.7.t
+	desc = exre.7.d
+	picture = GFX_report_event_generic_battle
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SOV
+		SOV = { 
+		has_full_control_of_state = 89
+		has_full_control_of_state = 91
+		has_full_control_of_state = 93
+		has_full_control_of_state = 94
+		has_full_control_of_state = 97
+		has_full_control_of_state = 95
+		has_full_control_of_state = 96
+		}	
+
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = exre.7.a
+		add_manpower = 300000
+	}
+}
+#Making the Soviet Invasion harder
+#country_event = {
+#	id = exre.8
+#	title = exre.8.t
+#	desc = exre.8.d
+#	picture = GFX_report_event_stalin_01
+#	
+#	fire_only_once = yes
+#	
+#	trigger = {
+#		is_ai = yes
+#		tag = SOV 
+#		SOV = { 
+#		has_war_with = GER 
+#		surrender_progress > 0.15
+#		}
+#			
+#
+#	}
+#	mean_time_to_happen = {
+#		days = 1
+#	}
+#
+#	option = {
+#		name = exre.8.a
+#		add_war_support = 0.25
+#		add_stability = 0.1
+#		add_ideas = SOV_determined_nation
+#		remove_ideas = SOV_the_great_purge
+#	}
+#}
+#German Scorched Earth
+country_event = {
+	id = exre.9
+	title = exre.9.t
+	desc = exre.9.d
+	picture = GFX_report_event_stalin_01
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GER 
+		SOV = { 
+		has_war_with = GER 
+		surrender_progress > 0.10
+		}
+			
+
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = exre.9.a
+		add_war_support = -0.1
+		add_ideas = GER_scorched_earth
+	}
+}
+#Removing Scorched Earth
+country_event = {
+	id = exre.10
+	title = exre.10.t
+	desc = exre.10.d
+	picture = GFX_report_event_stalin_01
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = GER 
+		NOT = {
+		GER = { 
+		has_war_with = SOV 
+		}
+		}
+		has_idea = GER_scorched_earth
+			
+
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = exre.10.a
+		add_war_support = 0.1
+		remove_ideas = GER_scorched_earth
+	}
+}
+#Harder AI : Special thanks to Expert AI for your innovation in AI events. This would not be possible without your brilliance.
+country_event = {
+	id = exre.11
+	title = exre.11.t
+	desc = exre.11.d
+	picture = GFX_report_event_stalin_01
+	
+	fire_only_once = no
+	
+	trigger = {
+		is_ai = yes
+		any_enemy_country = { is_ai = no }
+		has_war = yes 
+		NOT = {
+		 has_idea = GEN_wartime_production
+		 tag = SOV
+		}
+		surrender_progress > 0.07
+		}			
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = exre.10.a
+		add_timed_idea = {
+			idea = GEN_wartime_production
+			days = 912
+		}
+	}
+}
+#Military Might
+country_event = {
+	id = exre.12
+	title = exre.12.t
+	desc = exre.12.d
+	picture = GFX_report_event_tank_factory
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = USA 
+		USA = {
+		has_war_with = GER 
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = exre.12.a
+		add_war_support = 0.2
+		add_timed_idea = {
+			idea = USA_military_might
+			days = 1460
+		}
+	}
+}
+#England Never Surrender
+country_event = {
+	id = exre.13
+	title = exre.13.t
+	desc = exre.13.d
+	picture = GFX_report_event_generic_military_parade
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = ENG 
+		ENG = {
+		has_war_with = GER 
+		}
+		FRA = {
+		has_capitulated = yes
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = exre.13.a
+		add_war_support = 0.15
+		add_stability = -0.1
+		add_timed_idea = {
+			idea = ENG_never_surrender
+			days = 1460
+		}
+	}
+}
+#AI Lack of Food National Spirit event ADD IDEA
+country_event = {
+	id = exre.15
+	title = exre.15.t
+	desc = exre.15.d
+	picture = GFX_report_event_generic_military_parade
+	
+	fire_only_once = no
+	
+	hidden = no
+
+	trigger = {
+		is_ai = yes
+		has_equipment = { grain_conversion_eq < 1 }	# < 1
+		has_war = yes
+		NOT = {
+		has_idea = GEN_lack_of_food_ai
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = exre.15.a
+		add_ideas = GEN_lack_of_food_ai
+	}
+}
+#AI Lack of Food National Spirit event REMOVE IDEA
+country_event = {
+	id = exre.16
+	title = exre.16.t
+	desc = exre.16.d
+	picture = GFX_report_event_generic_battle
+	
+	fire_only_once = no
+	
+	hidden = no
+	
+	trigger = {
+		is_ai = yes
+		has_equipment = { grain_conversion_eq > 199 }
+		has_idea = GEN_lack_of_food_ai
+
+	}
+	#mean_time_to_happen = {
+	#	days = 1
+	#}
+
+	option = {
+		name = exre.16.a
+		remove_ideas = GEN_lack_of_food_ai
+	}
+}
+#Sov Bonus MP
+country_event = {
+	id = exre.17
+	title = exre.17.t
+	desc = exre.17.d
+	picture = GFX_report_event_generic_battle
+	
+	fire_only_once = yes
+	
+	hidden = no
+	
+	trigger = {
+		is_ai = no
+		tag = SOV 
+		SOV = { 
+		has_war_with = GER 
+		surrender_progress > 0.15
+		}
+
+	}
+	#mean_time_to_happen = {
+	#	days = 1
+	#}
+
+	option = {
+		name = exre.17.a
+		add_war_support = 0.25
+		add_stability = 0.1
+		add_ideas = SOV_determined_nation_mp
+	}
+}
+#Sov Overwhelming Offensive
+country_event = {
+	id = exre.18
+	title = exre.18.t
+	desc = exre.18.d
+	picture = GFX_report_event_generic_battle
+	
+	fire_only_once = yes
+	
+	hidden = no
+	
+	trigger = {
+		tag = SOV 
+		SOV = { 
+		has_war_with = GER 
+		}
+		date > 1941.11.30
+
+	}
+	#mean_time_to_happen = {
+	#	days = 1
+	#}
+
+	option = {
+		name = exre.18.a
+		add_timed_idea = { idea = SOV_overwhelming_offensive days = 120 }
+	}
+}
+#Generic Without Food Event Remove Idea NoWar
+country_event = {
+	id = exre.19
+	title = exre.19.t
+	desc = exre.19.d
+	picture = GFX_report_event_generic_battle
+	
+	fire_only_once = no
+	
+	trigger = {
+		has_war = no
+		OR = {
+			has_idea = GEN_no_rations
+			has_idea = GEN_lack_of_food_ai
+		}
+	}
+	#mean_time_to_happen = {
+	#	days = 1
+	#}
+
+	option = {
+		name = exre.19.a
+		remove_ideas = GEN_no_rations
+		remove_ideas = GEN_lack_of_food_ai
+	}
+}
+#Hotjoin event
+country_event = {
+	id = exre.777
+	title = exre.777.t
+	desc = exre.777.d
+	picture = GFX_report_event_canada_army
+	
+	fire_only_once = no
+	
+	trigger = {
+		is_ai = no
+		has_country_flag = exre_ai_controlled
+	}
+
+	option = {
+		name = exre.777.a
+		remove_ideas = GEN_ai_difficulty
+		clr_country_flag = exre_ai_controlled
+		clr_country_flag = exre_diff_selected
+		random_owned_state = {
+			limit = { has_state_flag = exre_ai_added1 }
+			remove_building = { type = arms_factory level = 3 }
+			remove_building = { type = industrial_complex level = 2 }
+			add_extra_state_shared_building_slots = -5
+			clr_state_flag = exre_ai_added1
+		}
+		random_owned_state = {
+			limit = { has_state_flag = exre_ai_added2 }
+			remove_building = { type = arms_factory level = 2 }
+			remove_building = { type = industrial_complex level = 2 }
+			add_extra_state_shared_building_slots = -4
+			clr_state_flag = exre_ai_added2
+		}
+		random_owned_state = {
+			limit = { has_state_flag = exre_ai_added3 }
+			remove_building = { type = arms_factory level = 2 }
+			add_extra_state_shared_building_slots = -2
+			clr_state_flag = exre_ai_added3
+		}
+		country_event = exre.0
+	}
+}
+#Modern Industry Event
+country_event = {
+	id = exre.20
+	title = exre.20.t
+	desc = exre.20.d
+	picture = GFX_report_event_generic_factory
+	
+	fire_only_once = no
+	
+	trigger = {
+		has_tech = assembly_line_production
+		NOT = { has_country_flag = exre_modern_industry }
+	}
+
+	option = {
+		name = exre.20.a
+		set_country_flag = exre_modern_industry
+		add_ideas = GEN_exre_modern_industry
+	}
+}
