@@ -13,3 +13,5 @@ Modifier Icons
 Linear XP Gain
 Ship designer - Universal
 Division Icons Overhauled
+Universal Formable Nations
+将领等级上限
