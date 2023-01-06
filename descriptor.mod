@@ -18,5 +18,8 @@ tags={
 }
 picture="thumbnail.png"
 name="Better With Friends"
+dependencies={
+	"The Road to 56"
+}
 supported_version="1.11.12"
 remote_file_id="2782841398"
