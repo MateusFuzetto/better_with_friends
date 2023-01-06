@@ -1,8 +1,0 @@
-update_monument_mapmode = {
-	force_update_map_mode = {
-		limit = {
-			always = yes
-		}
-		mapmode = global_monuments_map_mode
-	}
-}
