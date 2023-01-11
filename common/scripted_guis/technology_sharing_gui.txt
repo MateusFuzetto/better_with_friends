@@ -1,0 +1,4263 @@
+scripted_gui = {
+
+    ###TECHNOLOGY SHARING PROGRESS INDICATORS IN THE RESEARCH TAB###
+    diplomacy_tab_technology_sharing = {
+        window_name = technology_sharing_diplo
+        context_type = selected_country_context
+        parent_window_token = selected_country_view_diplomacy
+        visible = {
+            always = yes
+        }
+        
+        effects = {
+            open_technology_sharing_button_click = {
+                if = {
+                    limit = {
+                        NOT = {
+                            ROOT = {
+                                has_country_flag = ROOT_tech_sharing_window_open
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_country_flag = ROOT_tech_sharing_window_open
+
+                        set_variable = { tech_category_state = 1 }
+
+                        set_variable = { selected_tech_for_sharing = 0 }
+
+                        set_variable = { sharing_level = 5 }
+
+                        set_variable = { sharing_factory = 0 }
+
+                        set_variable = { sharing_factory_amount = 0 }
+                    }
+                }
+                else = {
+                    ROOT = {
+                        clr_country_flag = ROOT_tech_sharing_window_open
+                        clr_country_flag = price_checkbox_checked
+
+                        set_variable = { tech_category_state = 0 }
+
+                        set_variable = { selected_tech_for_sharing = 0 }
+
+                        set_variable = { sharing_level = 5 }
+
+                        set_variable = { sharing_factory = 0 }
+
+                        set_variable = { sharing_factory_amount = 0 }
+                    }
+                }
+            }
+        }
+        
+        triggers = {
+            open_technology_sharing_button_click_enabled = {
+                ROOT = {
+                    NOT = {
+                        has_war_with = THIS
+                        has_country_flag = technology_sharing_cooldown
+                    }
+                }
+                THIS = {
+                    NOT = {
+                        is_ai = yes
+                        has_country_flag = technology_sharing_cooldown
+                    }
+                }
+            }
+        }
+        
+        properties = {
+            
+        }
+
+    }
+
+    ###TECHNOLOGY SHARING START WINDOW - WE SHARE WITH SOMEONE###
+    technology_sharing_setup_window = {
+        window_name = technology_sharing_setup_window
+        context_type = selected_country_context
+        parent_window_token = selected_country_view_diplomacy
+        #context_type = selected_country_context
+
+        visible = {
+            ROOT = {
+                has_country_flag = ROOT_tech_sharing_window_open
+            }
+        }
+        
+        effects = {
+            tech_category_01_button_click = {
+                ROOT = {
+                    set_variable = { tech_category_state = 1 }
+                }
+                
+            }
+            tech_category_02_button_click = {
+                ROOT = {
+                    set_variable = { tech_category_state = 2 }
+                }
+            }
+            tech_category_03_button_click = {
+                ROOT = {
+                    set_variable = { tech_category_state = 3 }
+                }
+            }
+            tech_category_04_button_click = {
+                ROOT = {
+                    set_variable = { tech_category_state = 4 }
+                }
+            }
+            tech_category_05_button_click = {
+                ROOT = {
+                    set_variable = { tech_category_state = 5 }
+                }
+            }
+            tech_category_06_button_click = {
+                ROOT = {
+                    set_variable = { tech_category_state = 6 }
+                }
+            }
+            tech_category_07_button_click = {
+                ROOT = {
+                    set_variable = { tech_category_state = 7 }
+                }
+            }
+
+            tech_share_cancel_click = {
+                ROOT = {
+                    clr_country_flag = ROOT_tech_sharing_window_open
+                    clr_country_flag = price_checkbox_checked
+
+                    set_variable = { tech_category_state = 0 }
+
+                    set_variable = { selected_tech_for_sharing = 0 }
+
+                    set_variable = { sharing_level = 5 }
+
+                    set_variable = { sharing_factory = 0 }
+
+                    set_variable = { sharing_factory_amount = 0 }
+                }
+            }
+            tech_share_send_click = {
+                THIS = {
+                    save_global_event_target_as = tech_sharing_country_01
+                }
+                ROOT = {
+                    save_global_event_target_as = tech_sharing_country_02
+                }
+
+                set_variable = { global.selected_tech_for_sharing = ROOT.selected_tech_for_sharing }
+                set_variable = { global.sharing_level = ROOT.sharing_level }
+                set_variable = { global.sharing_factory = ROOT.sharing_factory }
+                set_variable = { global.sharing_factory_amount = ROOT.sharing_factory_amount }
+
+                ROOT = {
+                    clr_country_flag = ROOT_tech_sharing_window_open
+                    clr_country_flag = price_checkbox_checked
+
+                    set_variable = { tech_category_state = 0 }
+
+                    set_variable = { selected_tech_for_sharing = 0 }
+
+                    set_variable = { sharing_level = 5 }
+
+                    set_variable = { sharing_factory = 0 }
+
+                    set_variable = { sharing_factory_amount = 0 }
+                }
+
+                event_target:tech_sharing_country_01 = {
+                    set_country_flag = technology_sharing_notif_window_open
+                }
+            }
+
+            ###FINER SETTINGS###
+
+            ###SHARING AMOUNT###
+            tech_share_descrease_level_click = {
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_level = 1 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_level = 1 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_level = 2 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_level = 1 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_level = 3 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_level = 2 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_level = 4 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_level = 3 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_level = 5 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_level = 4 }
+                    }
+                }
+            }
+            tech_share_increase_level_click = {
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_level = 5 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_level = 5 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_level = 4 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_level = 5 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_level = 3 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_level = 4 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_level = 2 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_level = 3 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_level = 1 }   
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_level = 2 }
+                    }
+                }
+            }
+
+            ###SHARING PRICE CHECKBOX###
+            tech_share_price_checkbox_click = {
+                if = {
+                    limit = {
+                        ROOT = {
+                            NOT = {
+                                has_country_flag = price_checkbox_checked
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory = 1 }
+                        set_variable = { sharing_factory_amount = 1 }
+                        set_country_flag = price_checkbox_checked
+                    }
+                }
+                else = {
+                    ROOT = {
+                        set_variable = { sharing_factory = 0 }
+                        set_variable = { sharing_factory_amount = 0 }
+                        clr_country_flag = price_checkbox_checked
+                    }
+                }
+            }
+            ###FACTORY TYPE###
+            tech_share_factory_descrease_level_click = {
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory = 1 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory = 1 }
+                        set_variable = { sharing_factory_amount = 1 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory = 2 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory = 1 }
+                        set_variable = { sharing_factory_amount = 1 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory = 3 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory = 2 }
+                        set_variable = { sharing_factory_amount = 1 }
+                    }
+                }
+            }
+            tech_share_factory_increase_level_click = {
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory = 3 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory = 3 }
+                        set_variable = { sharing_factory_amount = 1 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            any_core_state = {
+                                is_coastal = yes
+                            }
+                            check_variable = { sharing_factory = 2 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory = 3 }
+                        set_variable = { sharing_factory_amount = 1 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            any_core_state = {
+                                is_coastal = no
+                            }
+                            check_variable = { sharing_factory = 2 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory = 2 }
+                        set_variable = { sharing_factory_amount = 1 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory = 1 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory = 2 }
+                        set_variable = { sharing_factory_amount = 1 }
+                    }
+                }
+            }
+
+            ###FACTORY AMOUNT###
+            tech_share_factory_amount_descrease_level_click = {
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 1 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 1 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 2 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 1 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 3 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 2 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount =4 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 3 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 5 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 4 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 6 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 5 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 7 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 6 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 8 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 7 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 9 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 8 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 10 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 9 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 11 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 10 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 12 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 11 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 13 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 12 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 14 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 13 }
+                    }
+                }
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 15 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 14 }
+                    }
+                }
+            }
+            tech_share_factory_amount_increase_level_click = {
+                if = {
+                    limit = {
+                        ROOT = {
+                            check_variable = { sharing_factory_amount = 15 }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 15 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 14 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 14
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 14
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 14
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 15 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 13 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 13
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 13
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 13
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 14 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 12 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 12
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 12
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 12
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 13 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 11 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 11
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 11
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 11
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 12 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 10 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 10
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 10
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 10
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 11 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 9 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 9
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 9
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 9
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 10 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 8 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 8
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 8
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 8
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 9 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 7 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 7
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 7
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 7
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOt = {
+                        set_variable = { sharing_factory_amount = 8 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 6 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 6
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 6
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 6
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 7 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 5 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 5
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 5
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 5
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 6 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 4 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 4
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 4
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 4
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 5 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 3 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 3
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 3
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 3
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 4 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 2 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 2
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 2
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 2
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 3 }
+                    }
+                }
+                if = {
+                    limit = {
+                        AND = {
+                            ROOT = {
+                                check_variable = { sharing_factory_amount = 1 }
+                            }
+                            OR = {
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 1 }
+                                    }
+                                    THIS = {
+                                        industrial_complex > 1
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 2 }
+                                    }
+                                    THIS = {
+                                        arms_factory > 1
+                                    }
+                                }
+                                AND = {
+                                    ROOT = {
+                                        check_variable = { sharing_factory = 3 }
+                                    }
+                                    THIS = {
+                                        dockyard > 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ROOT = {
+                        set_variable = { sharing_factory_amount = 2 }
+                    }
+                }
+            }
+        }
+        
+        triggers = {
+
+            tech_share_descrease_level_click_enabled = {
+                always = no
+            }
+
+            ###TECH CATEGORY FOLDER BUTTONS
+            tech_category_01_visible = {
+                ROOT = {
+                    check_variable = { tech_category_state = 1 }
+                }
+            }
+            tech_category_02_visible = {
+                ROOT = {
+                    check_variable = { tech_category_state = 2 }
+                }
+            }
+            tech_category_03_visible = {
+                ROOT = {
+                    check_variable = { tech_category_state = 3 }
+                }
+            }
+            tech_category_04_visible = {
+                ROOT = {
+                    check_variable = { tech_category_state = 4 }
+                }
+            }
+            tech_category_05_visible = {
+                ROOT = {
+                    check_variable = { tech_category_state = 5 }
+                }
+            }
+            tech_category_06_visible = {
+                ROOT = {
+                    check_variable = { tech_category_state = 6 }
+                }
+            }
+            tech_category_07_visible = {
+                ROOT = {
+                    check_variable = { tech_category_state = 7 }
+                }
+            }
+
+            ###SLIDERS AND STUFF IF PRICE IS CHECKED
+            technology_sharing_factory_scrollbar_visible = {
+                ROOT = {
+                    has_country_flag = price_checkbox_checked
+                }
+            }
+            technology_sharing_factory_scrollbar_track_visible = {
+                ROOT = {
+                    has_country_flag = price_checkbox_checked
+                }
+            }
+            tech_share_factory_descrease_level_visible = {
+                ROOT = {
+                    has_country_flag = price_checkbox_checked
+                }
+            }
+            tech_share_factory_increase_level_visible = {
+                ROOT = {
+                    has_country_flag = price_checkbox_checked
+                }
+            }
+            tech_sharing_factory_textbox_visible = {
+                ROOT = {
+                    has_country_flag = price_checkbox_checked
+                }
+            }
+            tech_sharing_factory_min_title_visible = {
+                ROOT = {
+                    has_country_flag = price_checkbox_checked
+                }
+            }
+            tech_sharing_factory_amount_min_title_visible = {
+                ROOT = {
+                    has_country_flag = price_checkbox_checked
+                }
+            }
+            technology_sharing_factory_amount_scrollbar_track_visible = {
+                ROOT = {
+                    has_country_flag = price_checkbox_checked
+                }
+            }
+            tech_share_factory_amount_descrease_level_visible = {
+                ROOT = {
+                    has_country_flag = price_checkbox_checked
+                }
+            }
+            tech_share_factory_amount_increase_level_visible = {
+                ROOT = {
+                    has_country_flag = price_checkbox_checked
+                }
+            }
+            tech_sharing_factory_amount_textbox_visible = {
+                ROOT = {
+                    has_country_flag = price_checkbox_checked
+                }
+            }
+        }
+        
+        properties = {
+            technology_sharing_level_scrollbar_track = {
+                frame = ROOT.sharing_level
+            }
+            technology_sharing_factory_scrollbar_track = {
+                frame = ROOT.sharing_factory
+            }
+            technology_sharing_factory_amount_scrollbar_track = {
+                frame = ROOT.sharing_factory_amount
+            }
+            tech_share_price_checkbox = {
+                image = "[ROOTSetPriceCheckBox]"
+            }
+
+        }
+
+    }
+
+    ###NOTIFICATION WINDOW
+    technology_sharing_notif_window = {
+        window_name = technology_sharing_notif_window
+        context_type = player_context
+        
+         
+        visible = {
+            has_country_flag = technology_sharing_notif_window_open
+        }
+        
+        effects = {
+            tech_share_cancel_click = {
+                clr_country_flag = technology_sharing_notif_window_open
+
+                set_variable = { global.selected_tech_for_sharing = 0 }
+                set_variable = { global.sharing_level = 5 }
+                set_variable = { global.sharing_factory = 0 }
+                set_variable = { global.sharing_factory_amount = 0 }
+
+                event_target:tech_sharing_country_02 = {
+                    set_country_flag = technology_sharing_notif_window_rejected
+                }
+            }
+            tech_share_send_click = {
+                clr_country_flag = technology_sharing_notif_window_open
+                tech_sharing_01_effect = yes
+                tech_sharing_02_effect = yes
+
+                set_variable = { global.selected_tech_for_sharing = 0 }
+                set_variable = { global.sharing_level = 5 }
+                set_variable = { global.sharing_factory = 0 }
+                set_variable = { global.sharing_factory_amount = 0 }
+
+                event_target:tech_sharing_country_02 = {
+                    set_country_flag = technology_sharing_notif_window_accepted
+                    set_country_flag = technology_sharing_cooldown
+
+                    activate_mission = technology_sharing_cooldown
+                }
+
+                event_target:tech_sharing_country_01 = {
+                    activate_mission = technology_sharing_cooldown
+                }
+            }
+        }
+        
+        triggers = {
+            
+        }
+        
+        properties = {
+            their_flag = {
+                image = "[tech_sharing_country_01.GetFlag]"
+            }
+            our_flag = {
+                image = "[tech_sharing_country_02.GetFlag]"
+            }
+        }
+
+    }
+
+    ###NOTIFICATION WINDOW ACCEPTED
+    technology_sharing_notif_window_accepted = {
+        window_name = technology_sharing_notif_window_accepted
+        context_type = player_context
+        
+         
+        visible = {
+            has_country_flag = technology_sharing_notif_window_accepted
+        }
+        
+        effects = {
+            tech_share_send_click = {
+                clr_country_flag = technology_sharing_notif_window_accepted
+
+                clear_global_event_target = tech_sharing_country_01
+                clear_global_event_target = tech_sharing_country_02
+
+                set_variable = { global.selected_tech_for_sharing = 0 }
+                set_variable = { global.sharing_level = 5 }
+                set_variable = { global.sharing_factory = 0 }
+                set_variable = { global.sharing_factory_amount = 0 }
+            }
+        }
+        
+        triggers = {
+            
+        }
+        
+        properties = {
+            their_flag = {
+                image = "[tech_sharing_country_01.GetFlag]"
+            }
+            our_flag = {
+                image = "[tech_sharing_country_02.GetFlag]"
+            }
+        }
+
+    }
+    
+    ###NOTIFICATION WINDOW REJECTED
+    technology_sharing_notif_window_rejected = {
+        window_name = technology_sharing_notif_window_rejected
+        context_type = player_context
+        
+         
+        visible = {
+            has_country_flag = technology_sharing_notif_window_rejected
+        }
+        
+        effects = {
+            tech_share_send_click = {
+                clr_country_flag = technology_sharing_notif_window_rejected
+
+                clear_global_event_target = tech_sharing_country_01
+                clear_global_event_target = tech_sharing_country_02
+
+                set_variable = { global.selected_tech_for_sharing = 0 }
+                set_variable = { global.sharing_level = 5 }
+                set_variable = { global.sharing_factory = 0 }
+                set_variable = { global.sharing_factory_amount = 0 }
+            }
+        }
+        
+        triggers = {
+            
+        }
+        
+        properties = {
+            their_flag = {
+                image = "[tech_sharing_country_01.GetFlag]"
+            }
+            our_flag = {
+                image = "[tech_sharing_country_02.GetFlag]"
+            }
+        }
+
+    }
+
+    ###TECHNOLOGY FOLDERS - THESE ARE NEEDED FOR NEW TECH CATEGORIES###
+
+    ###INFANTRY FOLDER###
+    technology_tab_infantry_folder = {
+        window_name = technology_sharing_setup_window_infantry_folder
+        context_type = selected_country_context
+        parent_window_token = selected_country_view_diplomacy
+         
+        visible = {
+            ROOT = {
+                check_variable = { tech_category_state = 1 }
+            }
+        }
+        
+        effects = {
+            tech_infantry_01_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 1 }
+                }
+            }
+            tech_infantry_02_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 2 }
+                }
+            }
+            tech_infantry_03_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 3 }
+                }
+            }
+            tech_infantry_04_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 4 }
+                }
+            }
+            tech_infantry_05_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 5 }
+                }
+            }
+            tech_infantry_06_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 6 }
+                }
+            }
+            tech_infantry_07_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 7 }
+                }
+            }
+            tech_infantry_08_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 8 }
+                }
+            }
+            tech_infantry_09_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 9 }
+                }
+            }
+            tech_infantry_10_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 10 }
+                }
+            }
+            tech_infantry_11_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 11 }
+                }
+            }
+            tech_infantry_12_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 12 }
+                }
+            }
+            tech_infantry_13_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 13 }
+                }
+            }
+            tech_infantry_14_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 14 }
+                }
+            }
+            tech_infantry_15_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 15 }
+                }
+            }
+            tech_infantry_16_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 16 }
+                }
+            }
+            tech_infantry_17_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 17 }
+                }
+            }
+            tech_infantry_18_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 18 }
+                }
+            }
+            tech_infantry_19_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 19 }
+                }
+            }
+            tech_infantry_20_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 20 }
+                }
+            }
+            tech_infantry_21_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 21 }
+                }
+            }
+            tech_infantry_22_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 22 }
+                }
+            }
+            tech_infantry_23_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 23 }
+                }
+            }
+            tech_infantry_24_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 24 }
+                }
+            }
+        }
+        
+        triggers = {
+            tech_infantry_01_click_enabled = {
+                THIS = {
+                    NOT = {
+                        has_tech = infantry_weapons
+                    }
+                }
+                ROOT = {
+                    has_tech = infantry_weapons
+                }
+            }
+            tech_infantry_01_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 1 }
+                }
+            }
+
+            tech_infantry_02_click_enabled = {
+                THIS = {
+                    NOT = {
+                        has_tech = infantry_weapons1
+                    }
+                }
+                ROOT = {
+                    has_tech = infantry_weapons1
+                    
+                }
+            }
+            tech_infantry_02_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 2 }
+                }
+            }
+
+            tech_infantry_03_click_enabled = {
+                THIS = {
+                    NOT = {
+                        has_tech = improved_infantry_weapons
+                    }
+                }
+                ROOT = {
+                    has_tech = improved_infantry_weapons
+                }
+            }
+            tech_infantry_03_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 3 }
+                }
+            }
+
+            tech_infantry_04_click_enabled = {
+                THIS = {
+                    NOT = {
+                        has_tech = advanced_infantry_weapons
+                    }
+                }
+                ROOT = {
+                    has_tech = advanced_infantry_weapons
+                }
+            }
+            tech_infantry_04_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 4 }
+                }
+            }
+
+            tech_infantry_05_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = infantry_at
+                    }
+                }
+                ROOT = {
+                    has_tech = infantry_at
+                }
+            }
+            tech_infantry_05_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 5 }
+                }
+            }
+
+            tech_infantry_06_click_enabled = {
+                THIS = {
+                    NOT = {
+                        has_tech = infantry_at2
+                    }
+                    
+                }
+                ROOT = {
+                    has_tech = infantry_at2
+                }
+            }
+            tech_infantry_06_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 6 }
+                }
+            }
+
+            tech_infantry_07_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = night_vision
+                    }
+                }
+                ROOT = {
+                    has_tech = night_vision
+                }
+            }
+            tech_infantry_07_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 7 }
+                }
+            }
+
+            tech_infantry_08_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = night_vision2
+                    }
+                }
+                ROOT = {
+                    has_tech = night_vision2
+                }
+            }
+            tech_infantry_08_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 8 }
+                }
+            }
+
+            tech_infantry_09_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = motorised_infantry
+                    }
+                }
+                ROOT = {
+                    has_tech = motorised_infantry
+                }
+            }
+            tech_infantry_09_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 9 }
+                }
+            }
+
+            tech_infantry_10_click_enabled = {
+                THIS = {
+                    NOT = {
+                        has_tech = mechanised_infantry
+                    }
+                    
+                }
+                ROOT = {
+                    has_tech = mechanised_infantry
+                }
+            }
+            tech_infantry_10_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 10 }
+                }
+            }
+
+            tech_infantry_11_click_enabled = {
+                THIS = {
+                    NOT = {
+                        has_tech = mechanised_infantry2
+                    }
+                }
+                ROOT = {
+                    
+                    has_tech = mechanised_infantry2
+                }
+            }
+            tech_infantry_11_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 11 }
+                }
+            }
+
+            tech_infantry_12_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = mechanised_infantry3
+                    }
+                }
+                ROOT = {
+                    has_tech = mechanised_infantry3
+                }
+            }
+            tech_infantry_12_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 12 }
+                }
+            }
+
+            tech_infantry_13_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = armored_car1
+                    }
+                }
+                ROOT = {
+                    has_tech = armored_car1
+                }
+            }
+            tech_infantry_13_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 13 }
+                }
+            }
+
+            tech_infantry_14_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = armored_car2
+                    }
+                }
+                ROOT = {
+                    has_tech = armored_car2
+                }
+            }
+            tech_infantry_14_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 14 }
+                }
+            }
+
+            tech_infantry_15_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = armored_car3
+                    }
+                }
+                ROOT = {
+                    has_tech = armored_car3
+                }
+            }
+            tech_infantry_15_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 15 }
+                }
+            }
+
+            tech_infantry_16_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = marines
+                    }
+                }
+                ROOT = {
+                    has_tech = marines
+                }
+            }
+            tech_infantry_16_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 16 }
+                }
+            }
+
+            tech_infantry_17_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = marines2
+                    }
+                }
+                ROOT = {
+                    has_tech = marines2
+                }
+            }
+            tech_infantry_17_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 17 }
+                }
+            }
+
+            tech_infantry_18_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = marines3
+                    }
+                }
+                ROOT = {
+                    has_tech = marines3
+                }
+            }
+            tech_infantry_18_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 18 }
+                }
+            }
+
+            tech_infantry_19_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = paratroopers
+                    }
+                }
+                ROOT = {
+                    has_tech = paratroopers
+                }
+            }
+            tech_infantry_19_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 19 }
+                }
+            }
+
+            tech_infantry_20_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = paratroopers2
+                    }
+                }
+                ROOT = {
+                    has_tech = paratroopers2
+                }
+            }
+            tech_infantry_20_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 20 }
+                }
+            }
+
+            tech_infantry_21_click_enabled = {
+                THIS = {
+                    NOT = {
+                        has_tech = paratroopers3
+                    }
+                }
+                ROOT = {
+                    
+                    has_tech = paratroopers3
+                }
+            }
+            tech_infantry_21_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 21 }
+                }
+            }
+
+            tech_infantry_22_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_mountaineers
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_mountaineers
+                }
+            }
+            tech_infantry_22_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 22 }
+                }
+            }
+
+            tech_infantry_23_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_mountaineers2
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_mountaineers2
+                }
+            }
+            tech_infantry_23_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 23 }
+                }
+            }
+
+            tech_infantry_24_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_mountaineers3
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_mountaineers3
+                }
+            }
+            tech_infantry_24_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 24 }
+                }
+            }
+        }
+        
+        properties = {
+            
+        }
+
+    }
+
+    ###SUPPORT FOLDER###
+    technology_tab_support_folder = {
+        window_name = technology_sharing_setup_window_support_folder
+        context_type = selected_country_context
+        parent_window_token = selected_country_view_diplomacy
+         
+        visible = {
+            ROOT = {
+                check_variable = { tech_category_state = 2 }
+            }
+        }
+        
+        effects = {
+            tech_support_25_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 25 }
+                }
+            }
+            tech_support_26_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 26 }
+                }
+            }
+            tech_support_27_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 27 }
+                }
+            }
+            tech_support_28_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 28 }
+                }
+            }
+            tech_support_29_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 29 }
+                }
+            }
+            tech_support_30_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 30 }
+                }
+            }
+            tech_support_31_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 31 }
+                }
+            }
+            tech_support_32_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 32 }
+                }
+            }
+            tech_support_33_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 33 }
+                }
+            }
+            tech_support_34_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 34 }
+                }
+            }
+            tech_support_35_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 35 }
+                }
+            }
+            tech_support_36_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 36 }
+                }
+            }
+            tech_support_37_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 37 }
+                }
+            }
+            tech_support_38_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 38 }
+                }
+            }
+            tech_support_39_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 39 }
+                }
+            }
+            tech_support_40_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 40 }
+                }
+            }
+            tech_support_41_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 41 }
+                }
+            }
+            tech_support_42_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 42 }
+                }
+            }
+            tech_support_43_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 43 }
+                }
+            }
+            tech_support_44_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 44 }
+                }
+            }
+            tech_support_45_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 45 }
+                }
+            }
+            tech_support_46_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 46 }
+                }
+            }
+            tech_support_47_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 47 }
+                }
+            }
+            tech_support_48_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 48 }
+                }
+            }
+            tech_support_49_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 49 }
+                }
+            }
+            tech_support_50_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 50 }
+                }
+            }
+            tech_support_51_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 51 }
+                }
+            }
+            tech_support_52_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 52 }
+                }
+            }
+            tech_support_53_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 53 }
+                }
+            }
+            tech_support_54_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 54 }
+                }
+            }
+            tech_support_55_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 55 }
+                }
+            }
+            tech_support_56_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 56 }
+                }
+            }
+        }
+        
+        triggers = {
+            tech_support_25_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_engineers
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_engineers
+                }
+            }
+            tech_support_25_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 25 }
+                }
+            }
+
+            tech_support_26_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_engineers2
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_engineers2
+                }
+            }
+            tech_support_26_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 26 }
+                }
+            }
+
+            tech_support_27_click_enabled = {
+                THIS = {
+                    NOT = {
+                        has_tech = tech_engineers3
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_engineers3
+                }
+            }
+            tech_support_27_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 27 }
+                }
+            }
+
+            tech_support_28_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_engineers4
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_engineers4
+                }
+            }
+            tech_support_28_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 28 }
+                }
+            }
+
+            tech_support_29_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_recon
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_recon
+                }
+            }
+            tech_support_29_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 29 }
+                }
+            }
+
+            tech_support_30_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_recon2
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_recon2
+                }
+            }
+            tech_support_30_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 30 }
+                }
+            }
+
+            tech_support_31_click_enabled = {
+                THIS = {
+                   
+                    NOT = {
+                        has_tech = tech_recon3
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_recon3
+                }
+            }
+            tech_support_31_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 31 }
+                }
+            }
+
+            tech_support_32_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_recon4
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_recon4
+                }
+            }
+            tech_support_32_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 32 }
+                }
+            }
+
+            tech_support_33_click_enabled = {
+                THIS = {
+                    NOT = {
+                        has_tech = tech_military_police
+                    }
+                }
+                ROOT = {
+                    
+                    has_tech = tech_military_police
+                }
+            }
+            tech_support_33_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 33 }
+                }
+            }
+
+            tech_support_34_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_military_police2
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_military_police2
+                }
+            }
+            tech_support_34_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 34 }
+                }
+            }
+
+            tech_support_35_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_military_police3
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_military_police3
+                }
+            }
+            tech_support_35_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 35 }
+                }
+            }
+
+            tech_support_36_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_military_police4
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_military_police4
+                }
+            }
+            tech_support_36_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 36 }
+                }
+            }
+
+            tech_support_37_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_maintenance_company
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_maintenance_company
+                }
+            }
+            tech_support_37_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 37 }
+                }
+            }
+
+            tech_support_38_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_maintenance_company2
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_maintenance_company2
+                }
+            }
+            tech_support_38_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 38 }
+                }
+            }
+
+            tech_support_39_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_maintenance_company3
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_maintenance_company3
+                }
+            }
+            tech_support_39_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 39 }
+                }
+            }
+
+            tech_support_40_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_maintenance_company4
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_maintenance_company4
+                }
+            }
+            tech_support_40_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 40 }
+                }
+            }
+
+            tech_support_41_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_field_hospital
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_field_hospital
+                }
+            }
+            tech_support_41_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 41 }
+                }
+            }
+
+            tech_support_42_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_field_hospital2
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_field_hospital2
+                }
+            }
+            tech_support_42_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 42 }
+                }
+            }
+
+            tech_support_43_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_field_hospital3
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_field_hospital3
+                }
+            }
+            tech_support_43_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 43 }
+                }
+            }
+
+            tech_support_44_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_field_hospital4
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_field_hospital4
+                }
+            }
+            tech_support_44_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 44 }
+                }
+            }
+
+            tech_support_45_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_logistics_company
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_logistics_company
+                }
+            }
+            tech_support_45_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 45 }
+                }
+            }
+
+            tech_support_46_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_logistics_company2
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_logistics_company2
+                }
+            }
+            tech_support_46_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 46 }
+                }
+            }
+
+            tech_support_47_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_logistics_company3
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_logistics_company3
+                }
+            }
+            tech_support_47_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 47 }
+                }
+            }
+
+            tech_support_48_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_logistics_company4
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_logistics_company4
+                }
+            }
+            tech_support_48_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 48 }
+                }
+            }
+
+            tech_support_49_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_signal_company
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_signal_company
+                }
+            }
+            tech_support_49_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 49 }
+                }
+            }
+
+            tech_support_50_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_signal_company2
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_signal_company2
+                }
+            }
+            tech_support_50_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 50 }
+                }
+            }
+
+            tech_support_51_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_signal_company3
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_signal_company3
+                }
+            }
+            tech_support_51_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 51 }
+                }
+            }
+
+            tech_support_52_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = tech_signal_company4
+                    }
+                }
+                ROOT = {
+                    has_tech = tech_signal_company4
+                }
+            }
+            tech_support_52_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 52 }
+                }
+            }
+
+            tech_support_53_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = basic_train
+                    }
+                }
+                ROOT = {
+                    has_tech = basic_train
+                }
+            }
+            tech_support_53_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 53 }
+                }
+            }
+
+            tech_support_54_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = wartime_train
+                    }
+                }
+                ROOT = {
+                    has_tech = wartime_train
+                }
+            }
+            tech_support_54_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 54 }
+                }
+            }
+
+            tech_support_55_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = armored_train
+                    }
+                }
+                ROOT = {
+                    has_tech = armored_train
+                }
+            }
+            tech_support_55_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 55 }
+                }
+            }
+
+            tech_support_56_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = railway_gun
+                    }
+                }
+                ROOT = {
+                    has_tech = railway_gun
+                }
+            }
+            tech_support_56_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 56 }
+                }
+            }
+        }
+        
+        properties = {
+            
+        }
+
+    }
+
+    ###ARMOR FOLDER###
+    technology_tab_armor_folder = {
+        window_name = technology_sharing_setup_window_armor_folder
+        context_type = selected_country_context
+        parent_window_token = selected_country_view_diplomacy
+         
+        visible = {
+            ROOT = {
+                check_variable = { tech_category_state = 3 }
+            }
+        }
+        
+        effects = {
+            tech_armor_57_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 57 }
+                }
+            }
+            tech_armor_58_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 58 }
+                }
+            }
+            tech_armor_59_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 59 }
+                }
+            }
+            tech_armor_60_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 60 }
+                }
+            }
+            tech_armor_61_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 61 }
+                }
+            }
+            tech_armor_62_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 62 }
+                }
+            }
+            tech_armor_63_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 63 }
+                }
+            }
+            tech_armor_64_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 64 }
+                }
+            }
+            tech_armor_65_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 65 }
+                }
+            }
+            tech_armor_66_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 66 }
+                }
+            }
+            tech_armor_67_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 67 }
+                }
+            }
+            tech_armor_68_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 68 }
+                }
+            }
+            tech_armor_69_click =  {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 69 }
+                }
+            }
+        }
+        
+        triggers = {
+            tech_armor_57_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = gwtank_chassis
+                    }
+                }
+                ROOT = {
+                    has_tech = gwtank_chassis
+                }
+            }
+            tech_armor_57_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 57 }
+                }
+            }
+
+            tech_armor_58_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = basic_light_tank_chassis
+                    }
+                }
+                ROOT = {
+                    has_tech = basic_light_tank_chassis
+                }
+            }
+            tech_armor_58_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 58 }
+                }
+            }
+
+            tech_armor_59_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = improved_light_tank_chassis
+                    }
+                }
+                ROOT = {
+                    has_tech = improved_light_tank_chassis
+                }
+            }
+            tech_armor_59_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 59 }
+                }
+            }
+
+            tech_armor_60_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = advanced_light_tank_chassis
+                    }
+                }
+                ROOT = {
+                    has_tech = advanced_light_tank_chassis
+                }
+            }
+            tech_armor_60_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 60 }
+                }
+            }
+
+            tech_armor_61_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = amphibious_tank_chassis
+                    }
+                }
+                ROOT = {
+                    has_tech = amphibious_tank_chassis
+                }
+            }
+            tech_armor_61_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 61 }
+                }
+            }
+
+            tech_armor_62_click_enabled = {
+                THIS = {
+                   
+                    NOT = {
+                        has_tech = basic_medium_tank_chassis
+                    }
+                }
+                ROOT = {
+                    has_tech = basic_medium_tank_chassis
+                }
+            }
+            tech_armor_62_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 62 }
+                }
+            }
+
+            tech_armor_63_click_enabled = {
+                THIS = {
+                    NOT = {
+                        has_tech = improved_medium_tank_chassis
+                    }
+                    
+                }
+                ROOT = {
+                    has_tech = improved_medium_tank_chassis
+                }
+            }
+            tech_armor_63_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 63 }
+                }
+            }
+
+            tech_armor_64_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = advanced_medium_tank_chassis
+                    }
+                }
+                ROOT = {
+                    has_tech = advanced_medium_tank_chassis
+                }
+            }
+            tech_armor_64_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 64 }
+                }
+            }
+
+            tech_armor_65_click_enabled = {
+                THIS = {
+                   
+                    NOT = {
+                        has_tech = basic_heavy_tank_chassis
+                    }
+                }
+                ROOT = {
+                    has_tech = basic_heavy_tank_chassis
+                }
+            }
+            tech_armor_65_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 65 }
+                }
+            }
+
+            tech_armor_66_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = improved_heavy_tank_chassis
+                    }
+                }
+                ROOT = {
+                    has_tech = improved_heavy_tank_chassis
+                }
+            }
+            tech_armor_66_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 66 }
+                }
+            }
+
+            tech_armor_67_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = advanced_heavy_tank_chassis
+                    }
+                }
+                ROOT = {
+                    has_tech = advanced_heavy_tank_chassis
+                }
+            }
+            tech_armor_67_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 67 }
+                }
+            }
+
+            tech_armor_68_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = super_heavy_tank_chassis
+                    }
+                }
+                ROOT = {
+                    has_tech = super_heavy_tank_chassis
+                }
+            }
+            tech_armor_68_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 68 }
+                }
+            }
+
+            tech_armor_69_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = main_battle_tank_chassis
+                    }
+                }
+                ROOT = {
+                    has_tech = main_battle_tank_chassis
+                }
+            }
+            tech_armor_69_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 69 }
+                }
+            }
+        }
+        
+        properties = {
+            
+        }
+
+    }
+
+    ###ARTILLERY###
+    technology_tab_artillery_folder = {
+        window_name = technology_sharing_setup_window_artillery_folder
+        context_type = selected_country_context
+        parent_window_token = selected_country_view_diplomacy
+         
+        visible = {
+            ROOT = {
+                check_variable = { tech_category_state = 4 }
+            }
+        }
+        
+        effects = {
+            tech_artillery_70_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 70 }
+                }
+            }
+            tech_artillery_71_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 71 }
+                }
+            }
+            tech_artillery_72_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 72 }
+                }
+            }
+            tech_artillery_73_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 73 }
+                }
+            }
+            tech_artillery_74_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 74 }
+                }
+            }
+            tech_artillery_75_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 75 }
+                }
+            }
+            tech_artillery_76_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 76 }
+                }
+            }
+            tech_artillery_77_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 77 }
+                }
+            }
+            tech_artillery_78_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 78 }
+                }
+            }
+            tech_artillery_79_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 79 }
+                }
+            }
+            tech_artillery_80_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 80 }
+                    log = "Current value of myVar: [?selected_tech_for_sharing]"
+                }
+            }
+        }
+        
+        triggers = {
+            tech_artillery_70_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = gw_artillery
+                    }
+                }
+                ROOT = {
+                    has_tech = gw_artillery
+                }
+            }
+            tech_artillery_70_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 70 }
+                }
+            }
+
+            tech_artillery_71_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = artillery1
+                    }
+                }
+                ROOT = {
+                    has_tech = artillery1
+                }
+            }
+            tech_artillery_71_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 71 }
+                }
+            }
+
+            tech_artillery_72_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = artillery4
+                    }
+                }
+                ROOT = {
+                    has_tech = artillery4
+                }
+            }
+            tech_artillery_72_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 72 }
+                }
+            }
+
+            tech_artillery_73_click_enabled = {
+                THIS = {
+                   
+                    NOT = {
+                        has_tech = rocket_artillery
+                    }
+                }
+                ROOT = {
+                    has_tech = rocket_artillery
+                }
+            }
+            tech_artillery_73_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 73 }
+                }
+            }
+
+            tech_artillery_74_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = rocket_artillery4
+                    }
+                }
+                ROOT = {
+                    has_tech = rocket_artillery4
+                }
+            }
+            tech_artillery_74_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 74 }
+                }
+            }
+
+            tech_artillery_75_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = interwar_antiair
+                    }
+                }
+                ROOT = {
+                    has_tech = interwar_antiair
+                }
+            }
+            tech_artillery_75_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 75 }
+                }
+            }
+
+            tech_artillery_76_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = antiair2
+                    }
+                }
+                ROOT = {
+                    has_tech = antiair2
+                }
+            }
+            tech_artillery_76_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 76 }
+                }
+            }
+
+            tech_artillery_77_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = antiair5
+                    }
+                }
+                ROOT = {
+                    has_tech = antiair5 
+                }
+            }
+            tech_artillery_77_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 77 }
+                }
+            }
+
+            tech_artillery_78_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = interwar_antitank
+                    }
+                }
+                ROOT = {
+                    has_tech = interwar_antitank
+                }
+            }
+            tech_artillery_78_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 78 }
+                }
+            }
+
+            tech_artillery_79_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = antitank3
+                    }
+                }
+                ROOT = {
+                    has_tech = antitank3
+                }
+            }
+            tech_artillery_79_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 79 }
+                }
+            }
+
+            tech_artillery_80_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = antitank5
+                    }
+                }
+                ROOT = {
+                    has_tech = antitank5
+                }
+            }
+            tech_artillery_80_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 80 }
+                }
+            }
+        }
+        
+        properties = {
+            
+        }
+
+    }
+
+    ###NAVY FOLDER###
+    technology_tab_naval_folder = {
+        window_name = technology_sharing_setup_window_naval_folder
+        context_type = selected_country_context
+        parent_window_token = selected_country_view_diplomacy
+         
+        visible = {
+            ROOT = {
+                check_variable = { tech_category_state = 5 }
+            }
+        }
+        
+        effects = {
+            tech_naval_81_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 81 }
+                }
+            }
+            tech_naval_82_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 82 }
+                }
+            }
+            tech_naval_83_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 83 }
+                }
+            }
+            tech_naval_84_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 84 }
+                }
+            }
+            tech_naval_85_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 85 }
+                }
+            }
+            tech_naval_86_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 86 }
+                }
+            }
+            tech_naval_87_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 87 }
+                }
+            }
+            tech_naval_88_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 88 }
+                }
+            }
+            tech_naval_89_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 89 }
+                }
+            }
+            tech_naval_90_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 90 }
+                }
+            }
+            tech_naval_91_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 91 }
+                }
+            }
+            tech_naval_92_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 92 }
+                }
+            }
+            tech_naval_93_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 93 }
+                }
+            }
+            tech_naval_94_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 94 }
+                }
+            }
+            tech_naval_95_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 95 }
+                }
+            }
+            tech_naval_96_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 96 }
+                }
+            }
+            tech_naval_97_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 97 }
+                }
+            }
+            tech_naval_98_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 98 }
+                }
+            }
+            tech_naval_99_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 99 }
+                }
+            }
+            tech_naval_100_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 100 }
+                }
+            }
+            tech_naval_101_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 101 }
+                }
+            }
+            tech_naval_102_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 102 }
+                }
+            }
+            tech_naval_103_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 103 }
+                }
+            }
+        }
+        
+        triggers = {
+            tech_naval_81_click_enabled = {
+                THIS = {
+                    has_tech = early_ship_hull_light
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = early_ship_hull_light
+                    }
+                }
+            }
+            tech_naval_81_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 81 }
+                }
+            }
+
+            tech_naval_82_click_enabled = {
+                THIS = {
+                    has_tech = basic_ship_hull_light
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = basic_ship_hull_light
+                    }
+                }
+            }
+            tech_naval_82_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 82 }
+                }
+            }
+
+            tech_naval_83_click_enabled = {
+                THIS = {
+                    has_tech = improved_ship_hull_light
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = improved_ship_hull_light
+                    }
+                }
+            }
+            tech_naval_83_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 83 }
+                }
+            }
+
+            tech_naval_84_click_enabled = {
+                THIS = {
+                    has_tech = advanced_ship_hull_light
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = advanced_ship_hull_light
+                    }
+                }
+            }
+            tech_naval_84_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 84 }
+                }
+            }
+
+            tech_naval_85_click_enabled = {
+                THIS = {
+                    has_tech = early_ship_hull_cruiser
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = early_ship_hull_cruiser
+                    }
+                }
+            }
+            tech_naval_85_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 85 }
+                }
+            }
+
+            tech_naval_86_click_enabled = {
+                THIS = {
+                    has_tech = basic_ship_hull_cruiser
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = basic_ship_hull_cruiser
+                    }
+                }
+            }
+            tech_naval_86_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 86 }
+                }
+            }
+
+            tech_naval_87_click_enabled = {
+                THIS = {
+                    has_tech = improved_ship_hull_cruiser
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = improved_ship_hull_cruiser
+                    }
+                }
+            }
+            tech_naval_87_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 87 }
+                }
+            }
+
+            tech_naval_88_click_enabled = {
+                THIS = {
+                    has_tech = advanced_ship_hull_cruiser
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = advanced_ship_hull_cruiser
+                    }
+                }
+            }
+            tech_naval_88_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 88 }
+                }
+            }
+
+            tech_naval_89_click_enabled = {
+                THIS = {
+                    has_tech = early_ship_hull_heavy
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = early_ship_hull_heavy
+                    }
+                }
+            }
+            tech_naval_89_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 89 }
+                }
+            }
+
+            tech_naval_90_click_enabled = {
+                THIS = {
+                    has_tech = basic_ship_hull_heavy
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = basic_ship_hull_heavy
+                    }
+                }
+            }
+            tech_naval_90_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 90 }
+                }
+            }
+
+            tech_naval_91_click_enabled = {
+                THIS = {
+                    has_tech = improved_ship_hull_heavy
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = improved_ship_hull_heavy
+                    }
+                }
+            }
+            tech_naval_91_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 91 }
+                }
+            }
+
+            tech_naval_92_click_enabled = {
+                THIS = {
+                    has_tech = advanced_ship_hull_heavy
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = advanced_ship_hull_heavy
+                    }
+                }
+            }
+            tech_naval_92_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 92 }
+                }
+            }
+
+            tech_naval_93_click_enabled = {
+                THIS = {
+                    has_tech = early_ship_hull_carrier
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = early_ship_hull_carrier
+                    }
+                }
+            }
+            tech_naval_93_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 93 }
+                }
+            }
+
+            tech_naval_94_click_enabled = {
+                THIS = {
+                    has_tech = basic_ship_hull_carrier
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = basic_ship_hull_carrier
+                    }
+                }
+            }
+            tech_naval_94_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 94 }
+                }
+            }
+
+            tech_naval_95_click_enabled = {
+                THIS = {
+                    has_tech = improved_ship_hull_carrier
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = improved_ship_hull_carrier
+                    }
+                }
+            }
+            tech_naval_95_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 95 }
+                }
+            }
+
+            tech_naval_96_click_enabled = {
+                THIS = {
+                    has_tech = advanced_ship_hull_carrier
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = advanced_ship_hull_carrier
+                    }
+                }
+            }
+            tech_naval_96_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 96 }
+                }
+            }
+
+            tech_naval_97_click_enabled = {
+                THIS = {
+                    has_tech = early_ship_hull_submarine
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = early_ship_hull_submarine
+                    }
+                }
+            }
+            tech_naval_97_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 97 }
+                }
+            }
+
+            tech_naval_98_click_enabled = {
+                THIS = {
+                    has_tech = basic_ship_hull_submarine
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = basic_ship_hull_submarine
+                    }
+                }
+            }
+            tech_naval_98_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 98 }
+                }
+            }
+
+            tech_naval_99_click_enabled = {
+                THIS = {
+                    has_tech = improved_ship_hull_submarine
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = improved_ship_hull_submarine
+                    }
+                }
+            }
+            tech_naval_99_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 99 }
+                }
+            }
+
+            tech_naval_100_click_enabled = {
+                THIS = {
+                    has_tech = advanced_ship_hull_submarine
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = advanced_ship_hull_submarine
+                    }
+                }
+            }
+            tech_naval_100_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 100 }
+                }
+            }
+
+            tech_naval_101_click_enabled = {
+                THIS = {
+                    has_tech = mtg_transport
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = mtg_transport
+                    }
+                }
+            }
+            tech_naval_101_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 101 }
+                }
+            }
+
+            tech_naval_102_click_enabled = {
+                THIS = {
+                    has_tech = mtg_landing_craft
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = mtg_landing_craft
+                    }
+                }
+            }
+            tech_naval_102_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 102 }
+                }
+            }
+
+            tech_naval_103_click_enabled = {
+                THIS = {
+                    has_tech = mtg_tank_landing_craft
+                }
+                ROOT = {
+                    NOT = {
+                        has_tech = mtg_tank_landing_craft
+                    }
+                }
+            }
+            tech_naval_103_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 103 }
+                }
+            }
+        }
+        
+        properties = {
+            
+        }
+
+    }
+
+    ###AIR FOLDER###
+    technology_tab_air_folder = {
+        window_name = technology_sharing_setup_window_air_folder
+        context_type = selected_country_context
+        parent_window_token = selected_country_view_diplomacy
+         
+        visible = {
+            ROOT = {
+                check_variable = { tech_category_state = 6 }
+            }
+        }
+        
+        effects = {
+            tech_air_104_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 104 }
+                }
+            }
+            tech_air_105_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 105 }
+                }
+            }
+            tech_air_106_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 106 }
+                }
+            }
+            tech_air_107_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 107 }
+                }
+            }
+            tech_air_108_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 108 }
+                }
+            }
+            tech_air_109_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 109 }
+                }
+            }
+            tech_air_110_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 110 }
+                }
+            }
+            tech_air_111_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 111 }
+                }
+            }
+            tech_air_112_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 112 }
+                }
+            }
+            tech_air_113_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 113 }
+                }
+            }
+            tech_air_114_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 114 }
+                }
+            }
+            tech_air_115_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 115 }
+                }
+            }
+            tech_air_116_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 116 }
+                }
+            }
+            tech_air_117_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 117 }
+                }
+            }
+            tech_air_118_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 118 }
+                }
+            }
+        }
+        
+        triggers = {
+            tech_air_104_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = iw_small_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = iw_small_airframe
+                }
+            }
+            tech_air_104_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 104 }
+                }
+            }
+
+            tech_air_105_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = basic_small_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = basic_small_airframe
+                }
+            }
+            tech_air_105_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 105 }
+                }
+            }
+
+            tech_air_106_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = improved_small_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = improved_small_airframe 
+                }
+            }
+            tech_air_106_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 106 }
+                }
+            }
+
+            tech_air_107_click_enabled = {
+                THIS = {
+                    NOT = {
+                        has_tech = advanced_small_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = advanced_small_airframe
+                }
+            }
+            tech_air_107_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 107 }
+                }
+            }
+
+            tech_air_108_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = modern_small_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = modern_small_airframe
+                }
+            }
+            tech_air_108_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 108 }
+                }
+            }
+
+            tech_air_109_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = iw_medium_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = iw_medium_airframe
+                }
+            }
+            tech_air_109_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 109 }
+                }
+            }
+
+            tech_air_110_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = basic_medium_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = basic_medium_airframe
+                }
+            }
+            tech_air_110_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 110 }
+                }
+            }
+
+            tech_air_111_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = improved_medium_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = improved_medium_airframe
+                }
+            }
+            tech_air_111_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 111 }
+                }
+            }
+
+            tech_air_112_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = advanced_medium_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = advanced_medium_airframe
+                }
+            }
+            tech_air_112_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 112 }
+                }
+            }
+
+            tech_air_113_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = modern_medium_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = modern_medium_airframe
+                }
+            }
+            tech_air_113_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 113 }
+                }
+            }
+
+            tech_air_114_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = iw_large_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = iw_large_airframe
+                }
+            }
+            tech_air_114_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 114 }
+                }
+            }
+
+            tech_air_115_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = basic_large_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = basic_large_airframe
+                }
+            }
+            tech_air_115_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 115 }
+                }
+            }
+
+            tech_air_116_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = improved_large_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = improved_large_airframe
+                }
+            }
+            tech_air_116_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 116 }
+                }
+            }
+
+            tech_air_117_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = advanced_large_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = advanced_large_airframe
+                }
+            }
+            tech_air_117_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 117 }
+                }
+            }
+
+            tech_air_118_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = modern_large_airframe
+                    }
+                }
+                ROOT = {
+                    has_tech = modern_large_airframe
+                }
+            }
+            tech_air_118_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 118 }
+                }
+            }
+        }
+        
+        properties = {
+            
+        }
+
+    }
+
+    ###ENGINEERING FOLDER###
+    technology_tab_engineering_folder = {
+        window_name = technology_sharing_setup_window_engineering_folder
+        context_type = selected_country_context
+        parent_window_token = selected_country_view_diplomacy
+         
+        visible = {
+            ROOT = {
+                check_variable = { tech_category_state = 7 }
+            }
+        }
+        
+        effects = {
+            tech_engineering_119_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 119 }
+                }
+            }
+            tech_engineering_120_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 120 }
+                }
+            }
+            tech_engineering_121_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 121 }
+                }
+            }
+            tech_engineering_122_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 122 }
+                }
+            }
+            tech_engineering_123_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 123 }
+                }
+            }
+            tech_engineering_124_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 124 }
+                }
+            }
+            tech_engineering_125_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 125 }
+                }
+            }
+            tech_engineering_126_click = {
+                ROOT = {
+                    set_variable = { selected_tech_for_sharing = 126 }
+                }
+            }
+        }
+        
+        triggers = {
+            tech_engineering_119_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = experimental_rockets
+                    }
+                }
+                ROOT = {
+                    has_tech = experimental_rockets
+                }
+            }
+            tech_engineering_119_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 119 }
+                }
+            }
+
+            tech_engineering_120_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = rocket_engines
+                    }
+                }
+                ROOT = {
+                    has_tech = rocket_engines
+                }
+            }
+            tech_engineering_120_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 120 }
+                }
+            }
+
+            tech_engineering_121_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = improved_rocket_engines
+                    }
+                }
+                ROOT = {
+                    has_tech = improved_rocket_engines
+                }
+            }
+            tech_engineering_121_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 121 }
+                }
+            }
+
+            tech_engineering_122_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = advanced_rocket_engines
+                    }
+                }
+                ROOT = {
+                    has_tech = advanced_rocket_engines
+                }
+            }
+            tech_engineering_122_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 122 }
+                }
+            }
+
+            tech_engineering_123_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = jet_engines
+                    }
+                }
+                ROOT = {
+                    has_tech = jet_engines
+                }
+            }
+            tech_engineering_123_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 123 }
+                }
+            }
+
+            tech_engineering_124_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = atomic_research
+                    }
+                }
+                ROOT = {
+                    has_tech = atomic_research
+                }
+            }
+            tech_engineering_124_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 124 }
+                }
+            }
+
+            tech_engineering_125_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = nuclear_reactor
+                    }
+                }
+                ROOT = {
+                    has_tech = nuclear_reactor
+                }
+            }
+            tech_engineering_125_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 125 }
+                }
+            }
+
+            tech_engineering_126_click_enabled = {
+                THIS = {
+                    
+                    NOT = {
+                        has_tech = nukes
+                    }
+                }
+                ROOT = {
+                    has_tech = nukes
+                }
+            }
+            tech_engineering_126_glow_visible = {
+                ROOT = {
+                    check_variable = { selected_tech_for_sharing = 126 }
+                }
+            }
+        }
+        
+        properties = {
+            
+        }
+
+    }
+}

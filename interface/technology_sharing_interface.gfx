@@ -1,0 +1,315 @@
+spriteTypes = {
+
+	###SPRITETYPES###
+	#################
+
+	spriteType = {
+		name = "GFX_technology_sharing_ledger_button_transparent"
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_ledger_button_transparent.dds"	
+	}
+
+	spriteType = {
+		name = "GFX_TSI_flag_small_01"
+		textureFile = "gfx/interface/technology_sharing_interface/TSI_flag_small_01.dds"	
+	}
+
+	spriteType = {
+		name = "GFX_TSI_flag_small_02"
+		textureFile = "gfx/interface/technology_sharing_interface/TSI_flag_small_02.dds"	
+	}
+
+	spriteType = {
+		name = "GFX_tech_tier_1"
+		textureFile = "gfx/interface/technology_sharing_interface/tech_tier_1.dds"	
+	}
+
+	spriteType = {
+		name = "GFX_tech_tier_2"
+		textureFile = "gfx/interface/technology_sharing_interface/tech_tier_2.dds"	
+	}
+
+	spriteType = {
+		name = "GFX_tech_tier_3"
+		textureFile = "gfx/interface/technology_sharing_interface/tech_tier_3.dds"	
+	}
+
+	spriteType = {
+		name = "GFX_tech_tier_4"
+		textureFile = "gfx/interface/technology_sharing_interface/tech_tier_4.dds"	
+	}
+
+	spriteType = {
+		name = "GFX_TSI_checkbox_01"
+		texturefile = "gfx/interface/technology_sharing_interface/TSI_checkbox_01.dds"
+	}
+
+	spriteType = {
+		name = "GFX_TSI_checkbox_02"
+		texturefile = "gfx/interface/technology_sharing_interface/TSI_checkbox_02.dds"
+	}
+
+	###SPRITE STRIPS###
+	###################
+
+	spriteType = {
+		name = "GFX_technology_share_level_scrollbar"
+		texturefile = "gfx/interface/technology_sharing_interface/technology_share_level_scrollbar.dds"
+		noOfFrames = 5
+	}
+
+	spriteType = {
+		name = "GFX_technology_share_factory_scrollbar"
+		texturefile = "gfx/interface/technology_sharing_interface/technology_share_factory_scrollbar.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_technology_share_factory_amount_scrollbar"
+		texturefile = "gfx/interface/technology_sharing_interface/technology_share_factory_amount_scrollbar.dds"
+		noOfFrames = 15
+	}
+
+	spriteType = {
+		name = "GFX_diplo_tab_share_tech_share_button_strip"
+		texturefile = "gfx/interface/technology_sharing_interface/diplo_tab_share_tech_share_button_strip.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_diplo_tab_share_tech_request_button_strip"
+		texturefile = "gfx/interface/technology_sharing_interface/diplo_tab_share_tech_request_button_strip.dds"
+		noOfFrames = 2
+	}
+	
+
+	###TEXTICONS###
+	###############
+
+
+	spriteType = {
+		name = "GFX_dockyard_texticon"
+		texturefile = "gfx/interface/technology_sharing_interface/dockyard_texticon.dds"
+		legacy_lazy_load = no
+	}
+
+	###CORNEREDTILESPRITES###
+	#########################
+
+	corneredTileSpriteType = {
+		name = "GFX_tiled_window2_2b_border_mirrored"
+		size= { x=190 y=190 }
+		textureFile = "gfx/interface/technology_sharing_interface/tiled_window2_2b_border_mirrored.dds"
+		borderSize = { x=35 y=35 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_entry_tiled"
+		size= { x=519 y=121 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_entry.dds"
+		borderSize = { x=4 y=4 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_header_fullscreen"
+		size= { x=1920 y=90 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_header_fullscreen.dds"
+		borderSize = { x=45 y=45 }
+		tilingCenter = yes
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_header_big"
+		size= { x=1080 y=90 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_header_big.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_header_small"
+		size= { x=550 y=46 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_header_small.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_last_shared_cooldown_bg"
+		size= { x=510 y=74 }
+		textureFile = "gfx/interface/technology_sharing_interface/last_shared_cooldown_bg.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_header_02"
+		size= { x=507 y=37 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_header_02.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_ledger_bg"
+		size= { x=1920 y=100 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_ledger_bg.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_ledger_01"
+		size= { x=490 y=64 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_ledger_01_small.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_ledger_02"
+		size= { x=490 y=64 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_ledger_02_small.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_ledger_03"
+		size= { x=490 y=64 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_ledger_03_small.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_ledger_04"
+		size= { x=490 y=64 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_ledger_04_small.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_ledger_05"
+		size= { x=490 y=64 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_ledger_05_small.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_ledger_06"
+		size= { x=490 y=64 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_ledger_06_small.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_ledger_07"
+		size= { x=490 y=64 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_ledger_07_small.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_summary_bg"
+		size= { x=584 y=50 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_summary_bg.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_share_details_bg"
+		size= { x=505 y=108 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_share_details_bg.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_summary"
+		size= { x=505 y=108 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_summary.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_summary"
+		size= { x=505 y=244 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_summary.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_action_buttons_bg"
+		size= { x=505 y=50 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_action_buttons_bg.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = yes
+	}
+
+	corneredTileSpriteType = {
+		name = "GFX_technology_sharing_diplo_binder"
+		size= { x=269 y=35 }
+		textureFile = "gfx/interface/technology_sharing_interface/technology_sharing_diplo_binder.dds"
+		borderSize = { x=0 y=0 }
+		alwaystransparent = yes
+	}
+
+	#corneredTileSpriteType = {
+	#	name = "GFX_tech_sharing_button_pressed_overlay"
+	#	size= { x=486 y=71 }
+	#	textureFile = "gfx/interface/technology_sharing_interface/tech_sharing_button_pressed_overlay.dds"
+	#	borderSize = { x=1 y=1 }
+	#	alwaystransparent = yes
+	#}
+
+	###ANIMATED SPRITE TYPES###
+
+	frameAnimatedSpriteType = {
+		name = "GFX_tech_sharing_button_pressed_overlay"
+		texturefile = "gfx/interface/technology_sharing_interface/tech_sharing_button_pressed_overlay.dds"
+		noOfFrames = 2
+		animation_rate_fps = 0.6
+		looping = yes
+		play_on_show = yes
+		pause_on_loop = 0.0
+		alwaystransparent = yes
+		effectFile = "gfx/FX/buttonstate_blendframes.lua"
+	}
+
+	###PROGRESSBARS###
+	##################
+
+	progressbartype = {
+		name = "GFX_technology_sharing_progressbar_green"
+		textureFile1 = "gfx/interface/technology_sharing_interface/technology_sharing_progressbar_green.dds"
+		textureFile2 = "gfx/interface/operations/operation_progress_bar_frame.dds"
+		size = { x = 134 y = 24 }
+		effectFile = "gfx/FX/progress_minmax.lua"
+		effectFile = "gfx/FX/progress_startend.lua"
+		effectFile = "gfx/FX/progress_reverse.lua"
+		effectFile = "gfx/FX/progress.lua"
+		horizontal = yes
+		steps = 1000
+	}
+
+	progressbartype = {
+		name = "GFX_technology_sharing_progressbar_orange"
+		textureFile1 = "gfx/interface/technology_sharing_interface/technology_sharing_progressbar_orange.dds"
+		textureFile2 = "gfx/interface/operations/operation_progress_bar_frame.dds"
+		size = { x = 134 y = 24 }
+		effectFile = "gfx//FX//progress.lua"
+		horizontal = yes
+		steps = 1000
+	}
+	
+}

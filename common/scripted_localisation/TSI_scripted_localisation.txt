@@ -1,0 +1,2566 @@
+# Allows you to create your own dynamic keys
+# to be called in localization.
+# defined_text -> this is it, we're defining the text
+# text -> a discrete entry that can be picked to display in loc.
+# trigger -> determines if a text entry will be picked or not.
+# (The triggers need to be valid for the scope the key is called in
+# (eg Root or From.From).)
+# localization_key -> points to the localization key
+# that'll be used if trigger passes
+
+###SHARING LEVEL###
+defined_text = { # Country
+	name = ROOTGetSharingLevel
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_level = 1 }
+			}
+		}
+		localization_key = ROOTTechSharingLevel1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_level = 2 }
+			}
+		}
+		localization_key = ROOTTechSharingLevel2
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_level = 3 }
+			}
+		}
+		localization_key = ROOTTechSharingLevel3
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_level = 4 }
+			}
+		}
+		localization_key = ROOTTechSharingLevel4
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_level = 5 }
+			}
+		}
+		localization_key = ROOTTechSharingLevel5
+	}
+}
+
+###PRICE CHECKBOX ICON
+defined_text = { # Country
+	name = ROOTSetPriceCheckBox
+	text = {
+		trigger = {
+			ROOT = {
+				has_country_flag = price_checkbox_checked
+			}
+		}
+		localization_key = GFX_TSI_checkbox_02
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				NOT = {
+					has_country_flag = price_checkbox_checked
+				}
+			}
+		}
+		localization_key = GFX_TSI_checkbox_01
+	}
+}
+
+###FACTORY TYPE###
+defined_text = { # Country
+	name = ROOTGetSharingFactoryPrice
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory = 0 }
+			}
+		}
+		localization_key = ROOTTechSharingFactory0
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory = 1 }
+			}
+		}
+		localization_key = ROOTTechSharingFactory1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory = 2 }
+			}
+		}
+		localization_key = ROOTTechSharingFactory2
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory = 3 }
+			}
+		}
+		localization_key = ROOTTechSharingFactory3
+	}
+}
+
+###Factory Type Scrollbar Helper
+defined_text = { # Country
+	name = ROOTGetFactoryTypeScrolBarIncreaseText
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory = 1 }
+			}
+		}
+		localization_key = ROOTGetFactoryTypeScrolBarIncreaseText1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory = 2 }
+				any_core_state = {
+					is_coastal = yes
+				}
+			}
+		}
+		localization_key = ROOTGetFactoryTypeScrolBarIncreaseText2
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory = 2 }
+				any_core_state = {
+					is_coastal = no
+				}
+			}
+		}
+		localization_key = ROOTGetFactoryTypeScrolBarIncreaseText3
+	}
+}
+
+defined_text = { # Country
+	name = ROOTGetFactoryTypeScrolBarDecreaseText
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory = 3 }
+			}
+		}
+		localization_key = ROOTGetFactoryTypeScrolBarDecreaseText1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory = 2 }
+			}
+		}
+		localization_key = ROOTGetFactoryTypeScrolBarDecreaseText2
+	}
+}
+
+
+###FACTORY AMOUNT
+defined_text = { # Country
+	name = ROOTGetSharingFactoryAmount
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 1 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 2 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount2
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 3 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount3
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 4 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount4
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 5 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount5
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 6 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount6
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 7 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount7
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 8 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount8
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 9 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount9
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 10 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount10
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 11 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount11
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 12 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount12
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 13 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount13
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 14 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount14
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_factory_amount = 15 }
+			}
+		}
+		localization_key = ROOTTechSharingFactoryAmount15
+	}
+}
+
+###SUMMARY TEXTBOX SELECTED TECH###
+defined_text = { # Country
+	name = ROOTSummaryTextBoxTech
+
+	###INFANTRY FOLDER###
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 1 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 2 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech2
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 3 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech3
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 4 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech4
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 5 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech5
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 6 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech6
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 7 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech7
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 8 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech8
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 9 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 10 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech10
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 11 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech11
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 12 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech12
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 13 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech13
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 14 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech14
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 15 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech15
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 16 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech16
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 17 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech17
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 18 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech18
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 19 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech19
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 20 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech20
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 21 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech21
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 22 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech22
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 23 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech23
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 24 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech24
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 25 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech25
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 26 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech26
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 27 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech27
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 28 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech28
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 29 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech29
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 30 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech30
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 31 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech31
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 32 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech32
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 33 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech33
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 34 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech34
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 35 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech35
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 36 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech36
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 37 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech37
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 38 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech38
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 39 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech39
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 40 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech40
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 41 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech41
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 42 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech42
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 43 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech43
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 44 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech44
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 45 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech45
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 46 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech46
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 47 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech47
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 48 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech48
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 49 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech49
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 50 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech50
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 51 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech51
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 52 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech52
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 53 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech53
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 54 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech54
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 55 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech55
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 56 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech56
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 57 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech57
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 58 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech58
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 59 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech59
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 60 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech60
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 61 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech61
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 62 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech62
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 63 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech63
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 64 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech64
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 65 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech65
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 66 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech66
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 67 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech67
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 68 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech68
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 69 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech69
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 70 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech70
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 71 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech71
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 72 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech72
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 73 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech73
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 74 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech74
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 75 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech75
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 76 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech76
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 77 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech77
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 78 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech78
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 79 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech79
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 80 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech80
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 81 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech81
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 82 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech82
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 83 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech83
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 84 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech84
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 85 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech85
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 86 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech86
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 87 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech87
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 88 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech88
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 89 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech89
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 90 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech90
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 91 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech91
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 92 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech92
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 93 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech93
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 94 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech94
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 95 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech95
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 96 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech96
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 97 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech97
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 98 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech98
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 99 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech99
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 100 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech100
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 101 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech101
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 102 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech102
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 103 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech103
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 104 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech104
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 105 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech105
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 106 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech106
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 107 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech107
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 108 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech108
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 109 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech109
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 110 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech110
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 111 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech111
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 112 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech112
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 113 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech113
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 114 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech114
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 115 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech115
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 116 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech116
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 117 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech117
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 118 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech118
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 119 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech119
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 120 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech120
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 121 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech121
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 122 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech122
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 123 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech123
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 124 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech124
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 125 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech125
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { selected_tech_for_sharing = 126 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTech126
+	}
+}
+
+###SUMMARY TEXTBOX SELECTED SHARE LEVEL
+defined_text = { # Country
+	name = ROOTSummaryTextBoxSharingLevel
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_level = 1 }
+			}
+		}
+		localization_key = ROOTSummaryTextBoxSharingLevel1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_level = 2 }
+			}
+		}
+		localization_key = ROOTSummaryTextBoxSharingLevel2
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_level = 3 }
+			}
+		}
+		localization_key = ROOTSummaryTextBoxSharingLevel3
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_level = 4 }
+			}
+		}
+		localization_key = ROOTSummaryTextBoxSharingLevel4
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { sharing_level = 5 }
+			}
+		}
+		localization_key = ROOTSummaryTextBoxSharingLevel5
+	}
+}
+
+
+
+
+###FACTORY TYPE NOTIFICATION
+defined_text = { # Country
+	name = ROOTGetSharingFactoryPriceNotif
+	text = {
+		trigger = {
+			check_variable = { global.sharing_factory = 1 }
+		}
+		localization_key = ROOTGetSharingFactoryPriceNotif1
+	}
+	text = {
+		trigger = {
+			check_variable = { global.sharing_factory = 2 }
+		}
+		localization_key = ROOTGetSharingFactoryPriceNotif2
+	}
+	text = {
+		trigger = {
+			check_variable = { global.sharing_factory = 3 }
+		}
+		localization_key = ROOTGetSharingFactoryPriceNotif3
+	}
+}
+
+###FACTORY AMOUNT
+defined_text = { # Country
+	name = ROOTGetSharingFactoryAmountNotif
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 1 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 2 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif2
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 3 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif3
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 4 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif4
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 5 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif5
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 6 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif6
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 7 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif7
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 8 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif8
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 9 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif9
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 10 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif10
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 11 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif11
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 12 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif12
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 13 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif13
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 14 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif14
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_factory_amount = 15 }
+			}
+		}
+		localization_key = ROOTGetSharingFactoryAmountNotif15
+	}
+}
+
+###SUMMARY TEXTBOX SELECTED SHARE LEVEL NOTIFICATION
+defined_text = { # Country
+	name = ROOTSummaryTextBoxSharingLevelNotif
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_level = 1 }
+			}
+		}
+		localization_key = ROOTSummaryTextBoxSharingLevelNotif1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_level = 2 }
+			}
+		}
+		localization_key = ROOTSummaryTextBoxSharingLevelNotif2
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_level = 3 }
+			}
+		}
+		localization_key = ROOTSummaryTextBoxSharingLevelNotif3
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_level = 4 }
+			}
+		}
+		localization_key = ROOTSummaryTextBoxSharingLevelNotif4
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { global.sharing_level = 5 }
+			}
+		}
+		localization_key = ROOTSummaryTextBoxSharingLevelNotif5
+	}
+}
+
+###SUMMARY TEXTBOX SELECTED TECH NOTIFICATION###
+defined_text = { # Country
+	name = ROOTSummaryTextBoxTechNotif
+
+	###INFANTRY FOLDER###
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 1 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 2 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif2
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 3 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif3
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 4 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif4
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 5 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif5
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 6 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif6
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 7 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif7
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 8 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif8
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 9 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif1
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 10 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif10
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 11 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif11
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 12 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif12
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 13 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif13
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 14 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif14
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 15 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif15
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 16 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif16
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 17 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif17
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 18 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif18
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 19 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif19
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 20 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif20
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 21 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif21
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 22 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif22
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 23 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif23
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 24 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif24
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 25 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif25
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 26 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif26
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 27 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif27
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 28 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif28
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 29 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif29
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 30 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif30
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 31 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif31
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 32 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif32
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 33 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif33
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 34 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif34
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 35 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif35
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 36 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif36
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 37 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif37
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 38 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif38
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 39 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif39
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 40 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif40
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 41 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif41
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 42 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif42
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 43 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif43
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 44 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif44
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 45 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif45
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 46 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif46
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 47 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif47
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 48 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif48
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 49 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif49
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 50 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif50
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 51 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif51
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 52 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif52
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 53 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif53
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 54 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif54
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 55 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif55
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 56 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif56
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 57 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif57
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 58 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif58
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 59 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif59
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 60 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif60
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 61 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif61
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 62 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif62
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 63 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif63
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 64 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif64
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 65 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif65
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 66 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif66
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 67 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif67
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 68 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif68
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 69 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif69
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 70 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif70
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 71 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif71
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 72 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif72
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 73 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif73
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 74 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif74
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 75 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif75
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 76 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif76
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 77 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif77
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 78 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif78
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 79 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif79
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 80 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif80
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 81 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif81
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 82 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif82
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 83 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif83
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 84 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif84
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 85 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif85
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 86 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif86
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 87 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif87
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 88 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif88
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 89 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif89
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 90 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif90
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 91 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif91
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 92 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif92
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 93 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif93
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 94 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif94
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 95 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif95
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 96 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif96
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 97 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif97
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 98 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif98
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 99 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif99
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 100 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif100
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 101 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif101
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 102 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif102
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 103 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif103
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 104 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif104
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 105 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif105
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 106 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif106
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 107 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif107
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 108 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif108
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 109 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif109
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 110 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif110
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 111 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif111
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 112 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif112
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 113 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif113
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 114 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif114
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 115 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif115
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 116 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif116
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 117 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif117
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 118 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif118
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 119 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif119
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 120 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif120
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 121 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif121
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 122 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif122
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 123 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif123
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 124 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif124
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 125 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif125
+	}
+	text = {
+		trigger = {
+			ROOT = {
+                check_variable = { global.selected_tech_for_sharing = 126 }
+            }
+		}
+		localization_key = ROOTSummaryTextBoxTechNotif126
+	}
+}

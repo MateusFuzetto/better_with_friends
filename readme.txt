@@ -16,3 +16,4 @@ Division Icons Overhauled
 Universal Formable Nations
 将领等级上限
 Yearly Event Cards
+Technology Sharing and Integration

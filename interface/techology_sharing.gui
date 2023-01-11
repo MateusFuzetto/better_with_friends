@@ -1,0 +1,7212 @@
+guiTypes = {
+
+	###DIPLO PART FFS
+	containerWindowType = {
+		name = "technology_sharing_diplo"
+		position = { x=12 y=821 }
+		size = { width = 268 height = 78}
+
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_window_1b_thin_border"
+		}
+
+		iconType = {
+			name = "technology_sharing_win_header_short"
+			spriteType = "GFX_win_header_short"
+			position = { x=10 y = 4 }
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "open_technology_sharing_button"
+			quadTextureSprite = "GFX_diplo_actions_bg"
+			position = { x=10 y = 35 }
+			pdx_tooltip = "open_technology_sharing_button_tt"
+		}
+
+		instantTextboxType = {
+			name = "open_technology_sharing_button_title"
+			position = { x = 15 y =42 }
+			font = "hoi_18mbs"
+			borderSize = {x = 0 y = 0}
+			text = "Share Technology"
+			maxWidth = 203
+			maxHeight = 30
+			format = left
+			alwaystransparent = yes
+		}
+	}
+
+	###TECHNOLOGY SHARING NOTIF WINDOW - SOMEONE WANTS TO SHARE WITH US###
+	containerWindowType = {
+		name = "technology_sharing_notif_window"
+		position = { x=0 y=0 }
+		size = { width = 600 height = 35%}
+		orientation = center
+		moveable = yes
+
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_bg"
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_notif_window_header"
+			position = { x=0 y=0 }
+			size = { width = 600 height = 65}
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_technology_sharing_header_big"
+			}
+
+			instantTextboxType = {
+				name = "technology_sharing_notif_window_header_title"
+				position = { x = 170 y = 15 }
+				font = "hoi_30header"
+				borderSize = {x = 0 y = 0}
+				text = "Technology sharing"
+				maxWidth = 400
+				maxHeight = 40
+				format = left
+				alwaystransparent = yes
+			}
+		}
+
+		iconType = {
+			name ="their_flag"
+			spriteType = "GFX_shield_medium"
+			position = { x=36 y=70 }
+			alwaystransparent = yes
+			scale = 1
+		}
+		iconType = {
+			name ="their_flag_frame"
+			spriteType = "GFX_diplo_flag_frame"
+			position = { x=10 y=63 }
+			alwaystransparent = yes
+			scale = 1
+		}
+		iconType = {
+			name ="our_flag"
+			spriteType = "GFX_shield_medium"
+			position = { x=482 y=70 }
+			alwaystransparent = yes
+			scale = 1
+		}
+		iconType = {
+			name ="our_flag_frame"
+			spriteType = "GFX_diplo_flag_frame"
+			position = { x=456 y=63 }
+			alwaystransparent = yes
+			scale = 1
+		}
+		containerWindowType = {
+			name = "technology_sharing_notif_window_desc"
+			position = { x=137 y=60 }
+			size = { width = 332 height = 80}
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_tiled_window_thin_border"
+			}
+
+			instantTextboxType = {
+				name = "technology_sharing_notif_window_desc_title"
+				position = { x = 15 y = 20 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "TechSharingNotifText"
+				maxWidth = 300
+				maxHeight = 40
+				format = center
+				alwaystransparent = yes
+			}
+		}
+		containerWindowType = {
+			name = "technology_sharing_notif_window_summary"
+			position = { x=13 y=138 }
+			size = { width = 572 height = 200}
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_technology_sharing_summary"
+			}
+
+			instantTextboxType = {
+				name = "technology_sharing_notif_window_summary_01"
+				position = { x = 10 y = 10 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "They Will receive:"
+				maxWidth = 280
+				maxHeight = 40
+				format = center
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "technology_sharing_notif_window_summary_011"
+				position = { x = 10 y = 40 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "TechSharingNotifSummary01"
+				maxWidth = 280
+				maxHeight = 40
+				format = center
+				alwaystransparent = yes
+			}
+
+			instantTextboxType = {
+				name = "technology_sharing_notif_window_summary_02"
+				position = { x = 295 y = 10 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "We Will receive:"
+				maxWidth = 280
+				maxHeight = 40
+				format = center
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "technology_sharing_notif_window_summary_022"
+				position = { x = 295 y = 40 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "TechSharingNotifSummary02"
+				maxWidth = 280
+				maxHeight = 40
+				format = center
+				alwaystransparent = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_notif_lower_bar"
+			position = { x=13 y=315 }
+			size = { width = 572 height = 50 }
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_technology_sharing_action_buttons_bg"
+			}
+
+			buttonType = {
+				name = "tech_share_cancel"
+				position = { x =60 y = 2 }
+				quadTextureSprite ="GFX_reinstate_button"
+				buttonText = "Cancel"
+				pdx_tooltip = ""
+				clicksound = click_send
+				shortcut = "ESCAPE"
+			}
+			instantTextboxType = {
+				name = "tech_share_cancel_title"
+				position = { x = 60 y =13 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "Reject"
+				maxWidth = 131
+				maxHeight = 44
+				format = center
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "tech_share_send"
+				position = { x =360 y = 2 }
+				quadTextureSprite ="GFX_reinstate_button"
+				buttonText = "Send"
+				pdx_tooltip = ""
+				clicksound = click_send
+				shortcut = "RETURN"
+			}
+			instantTextboxType = {
+				name = "tech_share_send_title"
+				position = { x = 360 y =13 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "Accept"
+				maxWidth = 131
+				maxHeight = 44
+				format = center
+				alwaystransparent = yes
+			}
+		}
+	}
+
+	###TECHNOLOGY SHARING NOTIF WINDOW - ACCEPTED###
+	containerWindowType = {
+		name = "technology_sharing_notif_window_accepted"
+		position = { x=0 y=0 }
+		size = { width = 600 height = 19%}
+		orientation = center
+		moveable = yes
+
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_bg"
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_notif_window_header"
+			position = { x=0 y=0 }
+			size = { width = 600 height = 65}
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_technology_sharing_header_big"
+			}
+
+			instantTextboxType = {
+				name = "technology_sharing_notif_window_header_title"
+				position = { x = 170 y = 15 }
+				font = "hoi_30header"
+				borderSize = {x = 0 y = 0}
+				text = "Technology sharing"
+				maxWidth = 400
+				maxHeight = 40
+				format = left
+				alwaystransparent = yes
+			}
+		}
+
+		iconType = {
+			name ="their_flag"
+			spriteType = "GFX_shield_medium"
+			position = { x=36 y=70 }
+			alwaystransparent = yes
+			scale = 1
+		}
+		iconType = {
+			name ="their_flag_frame"
+			spriteType = "GFX_diplo_flag_frame"
+			position = { x=10 y=63 }
+			alwaystransparent = yes
+			scale = 1
+		}
+		iconType = {
+			name ="our_flag"
+			spriteType = "GFX_shield_medium"
+			position = { x=482 y=70 }
+			alwaystransparent = yes
+			scale = 1
+		}
+		iconType = {
+			name ="our_flag_frame"
+			spriteType = "GFX_diplo_flag_frame"
+			position = { x=456 y=63 }
+			alwaystransparent = yes
+			scale = 1
+		}
+		containerWindowType = {
+			name = "technology_sharing_notif_window_desc"
+			position = { x=137 y=60 }
+			size = { width = 332 height = 80}
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_tiled_window_thin_border"
+			}
+
+			instantTextboxType = {
+				name = "technology_sharing_notif_window_desc_title"
+				position = { x = 15 y = 20 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "TechSharingNotifTextAccepted"
+				maxWidth = 300
+				maxHeight = 40
+				format = center
+				alwaystransparent = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_notif_lower_bar"
+			position = { x=13 y=140 }
+			size = { width = 572 height = 50 }
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_technology_sharing_action_buttons_bg"
+			}
+			buttonType = {
+				name = "tech_share_send"
+				position = { x =225 y = 2 }
+				quadTextureSprite ="GFX_reinstate_button"
+				buttonText = "Cancel"
+				pdx_tooltip = ""
+				clicksound = click_send
+				shortcut = "RETURN"
+			}
+			instantTextboxType = {
+				name = "tech_share_send_title"
+				position = { x = 225 y =13 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "Cancel"
+				maxWidth = 131
+				maxHeight = 44
+				format = center
+				alwaystransparent = yes
+			}
+		}
+	}
+
+	###TECHNOLOGY SHARING NOTIF WINDOW - Rejected###
+	containerWindowType = {
+		name = "technology_sharing_notif_window_rejected"
+		position = { x=0 y=0 }
+		size = { width = 600 height = 19%}
+		orientation = center
+		moveable = yes
+
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_bg"
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_notif_window_header"
+			position = { x=0 y=0 }
+			size = { width = 600 height = 65}
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_technology_sharing_header_big"
+			}
+
+			instantTextboxType = {
+				name = "technology_sharing_notif_window_header_title"
+				position = { x = 170 y = 15 }
+				font = "hoi_30header"
+				borderSize = {x = 0 y = 0}
+				text = "Technology sharing"
+				maxWidth = 400
+				maxHeight = 40
+				format = left
+				alwaystransparent = yes
+			}
+		}
+
+		iconType = {
+			name ="their_flag"
+			spriteType = "GFX_shield_medium"
+			position = { x=36 y=70 }
+			alwaystransparent = yes
+			scale = 1
+		}
+		iconType = {
+			name ="their_flag_frame"
+			spriteType = "GFX_diplo_flag_frame"
+			position = { x=10 y=63 }
+			alwaystransparent = yes
+			scale = 1
+		}
+		iconType = {
+			name ="our_flag"
+			spriteType = "GFX_shield_medium"
+			position = { x=482 y=70 }
+			alwaystransparent = yes
+			scale = 1
+		}
+		iconType = {
+			name ="our_flag_frame"
+			spriteType = "GFX_diplo_flag_frame"
+			position = { x=456 y=63 }
+			alwaystransparent = yes
+			scale = 1
+		}
+		containerWindowType = {
+			name = "technology_sharing_notif_window_desc"
+			position = { x=137 y=60 }
+			size = { width = 332 height = 80}
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_tiled_window_thin_border"
+			}
+
+			instantTextboxType = {
+				name = "technology_sharing_notif_window_desc_title"
+				position = { x = 15 y = 20 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "TechSharingNotifTextRejected"
+				maxWidth = 300
+				maxHeight = 40
+				format = center
+				alwaystransparent = yes
+			}
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_notif_lower_bar"
+			position = { x=13 y=140 }
+			size = { width = 572 height = 50 }
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_technology_sharing_action_buttons_bg"
+			}
+			buttonType = {
+				name = "tech_share_send"
+				position = { x =225 y = 2 }
+				quadTextureSprite ="GFX_reinstate_button"
+				buttonText = "Send"
+				pdx_tooltip = ""
+				clicksound = click_send
+				shortcut = "RETURN"
+			}
+			instantTextboxType = {
+				name = "tech_share_send_title"
+				position = { x = 225 y =13 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "Cancel"
+				maxWidth = 131
+				maxHeight = 44
+				format = center
+				alwaystransparent = yes
+			}
+		}
+	}
+
+	###TECHNOLOGY SHARING START WINDOW - WE SHARE WITH SOMEONE###
+	containerWindowType = {
+		name = "technology_sharing_setup_window"
+		position = { x=10 y=0 }
+		size = { width = 530 height = 100%%}
+
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_bg"
+		}
+
+		###HEADER###
+		containerWindowType = {
+			name = "technology_sharing_setup_window_header"
+			position = { x=12 y=12 }
+			size = { width = 505 height = 50 }
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_technology_sharing_header_big"
+			}
+
+			instantTextboxType = {
+				name = "tech_sharing_title"
+				position = { x = 0 y = 6 }
+				font = "hoi_30header"
+				borderSize = {x = 0 y = 0}
+				text = "Technology Sharing"
+				maxWidth = 500
+				maxHeight = 30
+				format = center
+			}
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_settings"
+			position = { x=12 y=515 }
+			size = { width = 505 height = 235 }
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_mini_tooltip"
+			}
+
+			###SLIDERS AND BORING STUFF###
+			containerWindowType = {
+				name = "technology_sharing_setup_window_bottom_share_level_entry"
+				position = { x=10 y=30 }
+				size = { width = 485 height = 60}
+
+				background = {
+					name = "Background"		
+					quadTextureSprite ="GFX_mini_tooltip"
+				}
+
+				containerWindowType = {
+					name = "technology_sharing_level_scrollbar"
+					position = { x=10 y=20 }
+					size = { width = 250 height = 18 }
+	
+					iconType = {
+						name = "technology_sharing_level_scrollbar_track"
+						spriteType = "GFX_technology_share_level_scrollbar"
+						position = { x=0 y = 3 }
+						alwaystransparent = yes
+					}
+	
+					buttonType = {
+						name = "tech_share_descrease_level"
+						quadTextureSprite = "GFX_scroll_left"
+						position = { x=2 y = 4 }
+					}
+	
+					buttonType = {
+						name = "tech_share_increase_level"
+						quadTextureSprite = "GFX_scroll_right"
+						position = { x=232 y = 4 }
+					}
+	
+					iconType = {
+						name ="tech_sharing_textbox"
+						spriteType = "GFX_generic_text_bg_203"
+						position = { x=265 y=-2 }
+					}
+		
+					instantTextboxType = {
+						name = "tech_sharing_slider_min_title"
+						position = { x = 265 y =2 }
+						font = "hoi_18mbs"
+						borderSize = {x = 0 y = 0}
+						text = "tech_sharing_level"
+						maxWidth = 203
+						maxHeight = 30
+						format = center
+					}
+				}
+			}
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_bottom_share_level_entry_header"
+				position = { x=12 y=10 }
+				size = { width = 505 height = 60}
+
+				background = {
+					name = "Background"		
+					quadTextureSprite ="GFX_intel_ledger_entry"
+				}
+
+				instantTextboxType = {
+					name = "technology_sharing_setup_window_bottom_share_level_entry_header_title"
+					position = { x =10  y =4 }
+					font = "hoi_18mbs"
+					borderSize = {x = 0 y = 0}
+					text = "Technology Sharing Level"
+					maxWidth = 390
+					maxHeight = 30
+					format = left
+				}
+			}
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_bottom_share_price_entry"
+				position = { x=10 y=125 }
+				size = { width = 485 height = 100}
+
+				background = {
+					name = "Background"		
+					quadTextureSprite ="GFX_mini_tooltip"
+				}
+
+				containerWindowType = {
+					name = "technology_sharing_factory_scrollbar"
+					position = { x=10 y=20 }
+					size = { width = 250 height = 18 }
+	
+					iconType = {
+						name = "technology_sharing_factory_scrollbar_track"
+						spriteType = "GFX_technology_share_factory_scrollbar"
+						position = { x=0 y = 3 }
+						alwaystransparent = yes
+					}
+	
+					buttonType = {
+						name = "tech_share_factory_descrease_level"
+						quadTextureSprite = "GFX_scroll_left"
+						position = { x=2 y = 4 }
+						pdx_tooltip = "FactoryDecreaseButtonText"
+					}
+	
+					buttonType = {
+						name = "tech_share_factory_increase_level"
+						quadTextureSprite = "GFX_scroll_right"
+						position = { x=232 y = 4 }
+						pdx_tooltip = "FactoryIncreaseButtonText"
+					}
+	
+					iconType = {
+						name ="tech_sharing_factory_textbox"
+						spriteType = "GFX_generic_text_bg_203"
+						position = { x=265 y=-2 }
+					}
+		
+					instantTextboxType = {
+						name = "tech_sharing_factory_min_title"
+						position = { x = 265 y =2 }
+						font = "hoi_18mbs"
+						borderSize = {x = 0 y = 0}
+						text = "tech_sharing_factory"
+						maxWidth = 203
+						maxHeight = 30
+						format = center
+					}
+				}
+
+				containerWindowType = {
+					name = "technology_sharing_factory_amount_scrollbar"
+					position = { x=10 y=60 }
+					size = { width = 250 height = 18 }
+	
+					iconType = {
+						name = "technology_sharing_factory_amount_scrollbar_track"
+						spriteType = "GFX_technology_share_factory_amount_scrollbar"
+						position = { x=0 y = 3 }
+						alwaystransparent = yes
+					}
+	
+					buttonType = {
+						name = "tech_share_factory_amount_descrease_level"
+						quadTextureSprite = "GFX_scroll_left"
+						position = { x=2 y = 4 }
+					}
+	
+					buttonType = {
+						name = "tech_share_factory_amount_increase_level"
+						quadTextureSprite = "GFX_scroll_right"
+						position = { x=232 y = 4 }
+					}
+	
+					iconType = {
+						name ="tech_sharing_factory_amount_textbox"
+						spriteType = "GFX_generic_text_bg_203"
+						position = { x=265 y=-2 }
+					}
+		
+					instantTextboxType = {
+						name = "tech_sharing_factory_amount_min_title"
+						position = { x = 265 y =2 }
+						font = "hoi_18mbs"
+						borderSize = {x = 0 y = 0}
+						text = "tech_sharing_factory_amount"
+						maxWidth = 203
+						maxHeight = 30
+						format = center
+					}
+				}
+			}
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_bottom_share_price_entry_header"
+				position = { x=12 y=100 }
+				size = { width = 505 height = 60}
+
+				background = {
+					name = "Background"		
+					quadTextureSprite ="GFX_intel_ledger_entry"
+				}
+
+				buttonType = {
+					name = "tech_share_price_checkbox"
+					quadTextureSprite = "GFX_TSI_checkbox"
+					position = { x=448 y = 3 }
+					scale = 1
+				}
+
+				instantTextboxType = {
+					name = "technology_sharing_setup_window_bottom_share_price_entry_header_title"
+					position = { x =10  y =4 }
+					font = "hoi_18mbs"
+					borderSize = {x = 0 y = 0}
+					text = "Technology Price (Optional)"
+					maxWidth = 390
+					maxHeight = 30
+					format = left
+				}
+			}
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_summary"
+			position = { x=13 y=750 }
+			size = { width = 504 height = 140 }
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_technology_sharing_summary"
+			}
+
+			###WE WILL RECEIVE
+			instantTextboxType = {
+				name = "tech_sharing_summary_us"
+				position = { x = 0 y =5 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "We will receive:"
+				maxWidth = 250
+				maxHeight = 30
+				format = center
+			}
+			instantTextboxType = {
+				name = "tech_sharing_summary_us_section"
+				position = { x = 10 y =40 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "TechSharingSummaryUsText"
+				maxWidth = 230
+				maxHeight = 50
+				format = center
+			}
+
+			###THEY WILL RECEIVE
+			instantTextboxType = {
+				name = "tech_sharing_summary_them"
+				position = { x = 250 y =5 }
+				font = "hoi_24header"
+				borderSize = {x = 0 y = 0}
+				text = "They will receive:"
+				maxWidth = 250
+				maxHeight = 30
+				format = center
+			}
+			instantTextboxType = {
+				name = "tech_sharing_summary_them_section"
+				position = { x = 261 y =40 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "TechSharingSummaryThemText"
+				maxWidth = 220
+				maxHeight = 50
+				format = center
+			}
+		}
+
+		iconType = {
+			name ="tech_sharing_diplo_response"
+			spriteType = "GFX_diplo_response_bg"
+			position = { x=25 y=850 }
+		}
+
+		instantTextboxType = {
+			name = "tech_sharing_diplo_response_title"
+			position = { x = 110 y =854 }
+			font = "hoi_24header"
+			borderSize = {x = 0 y = 0}
+			text = "Player will evaluate"
+			maxWidth = 300
+			maxHeight = 30
+			format = center
+		}
+
+		iconType = {
+			name ="tech_sharing_diplo_player_icon"
+			spriteType = "GFX_players_icon"
+			position = { x=400 y=858 }
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_action_buttons"
+			position = { x=13 y=890 }
+			size = { width = 503 height = 50 }
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_technology_sharing_action_buttons_bg"
+			}
+
+			buttonType = {
+				name = "tech_share_cancel"
+				position = { x =40 y = 2 }
+				quadTextureSprite ="GFX_reinstate_button"
+				buttonText = "Cancel"
+				pdx_tooltip = ""
+				clicksound = click_send
+				shortcut = "ESCAPE"
+			}
+			instantTextboxType = {
+				name = "tech_share_cancel_title"
+				position = { x = 40 y =13 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "Cancel"
+				maxWidth = 131
+				maxHeight = 44
+				format = center
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "tech_share_send"
+				position = { x =320 y = 2 }
+				quadTextureSprite ="GFX_reinstate_button"
+				buttonText = "Send"
+				pdx_tooltip = ""
+				clicksound = click_send
+				shortcut = "RETURN"
+			}
+			instantTextboxType = {
+				name = "tech_share_send_title"
+				position = { x = 320 y =13 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "Send"
+				maxWidth = 131
+				maxHeight = 44
+				format = center
+				alwaystransparent = yes
+			}
+		}
+
+		###FOLDER ENTRIES BACKGROUND###
+		containerWindowType = {
+			name = "technology_sharing_setup_window_folders_bg"
+			position = { x=12 y=90 }
+			size = { width = 505 height = 50 }
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_tiled_paper_bg2"
+			}
+		}
+
+		###THIS CONTAINS THE TECHNOLOGY FOLDER GUIS###
+		containerWindowType = {
+			name = "technology_sharing_setup_window_middle"
+			position = { x=0 y=50 }
+			size = { width = 530 height = 700 }
+	
+			background = {
+				name = "Background"		
+				quadTextureSprite =""
+			}
+
+			###SPECIFICALLY THIS ONE!!!!###
+			containerWindowType = {
+				name = "technology_sharing_setup_window_entries"
+				position = { x=0 y=46 }
+				size = { width = 100% height = 422 }
+		
+				background = {
+					name = "Background"		
+					quadTextureSprite ="GFX_tiled_window"
+				}
+			}
+
+			###FOLDER LEDGERS###
+			containerWindowType = {
+				name = "technology_sharing_setup_window_folders_ledger"
+				position = { x=5 y=-26 }
+				size = { width = 505 height = 50 }
+		
+				iconType = {
+					name ="tech_category_01"
+					spriteType = "GFX_technology_sharing_ledger_01"
+					position = { x=12 y=20 }
+				}
+				iconType = {
+					name ="tech_category_02"
+					spriteType = "GFX_technology_sharing_ledger_02"
+					position = { x=12 y=20 }
+				}
+				iconType = {
+					name ="tech_category_03"
+					spriteType = "GFX_technology_sharing_ledger_03"
+					position = { x=12 y=20 }
+				}
+				iconType = {
+					name ="tech_category_04"
+					spriteType = "GFX_technology_sharing_ledger_04"
+					position = { x=12 y=20 }
+				}
+				iconType = {
+					name ="tech_category_05"
+					spriteType = "GFX_technology_sharing_ledger_05"
+					position = { x=12 y=20 }
+				}
+				iconType = {
+					name ="tech_category_06"
+					spriteType = "GFX_technology_sharing_ledger_06"
+					position = { x=12 y=20 }
+				}
+				iconType = {
+					name ="tech_category_07"
+					spriteType = "GFX_technology_sharing_ledger_07"
+					position = { x=12 y=20 }
+				}
+				buttonType = {
+					name = "tech_category_01_button"
+					position = { x = 22 y = 35 }
+					quadTextureSprite = "GFX_technology_sharing_ledger_button_transparent"
+					clicksound = ui_research_tab_infantry
+					pdx_tooltip = "technology_sharing_ledger_button_01_tt"
+					shortcut = "1"
+				}
+				buttonType = {
+					name = "tech_category_02_button"
+					position = { x = 93 y = 35 }
+					quadTextureSprite = "GFX_technology_sharing_ledger_button_transparent"
+					clicksound = ui_research_tab_support
+					pdx_tooltip = "technology_sharing_ledger_button_02_tt"
+					shortcut = "2"
+				}
+				buttonType = {
+					name = "tech_category_03_button"
+					position = { x = 165 y = 35 }
+					quadTextureSprite = "GFX_technology_sharing_ledger_button_transparent"
+					clicksound = ui_research_tab_armor
+					pdx_tooltip = "technology_sharing_ledger_button_03_tt"
+					shortcut = "3"
+				}
+				buttonType = {
+					name = "tech_category_04_button"
+					position = { x = 237 y = 35 }
+					quadTextureSprite = "GFX_technology_sharing_ledger_button_transparent"
+					clicksound = ui_research_tab_artillery
+					pdx_tooltip = "technology_sharing_ledger_button_04_tt"
+					shortcut = "4"
+				}
+				buttonType = {
+					name = "tech_category_05_button"
+					position = { x = 309 y = 35 }
+					quadTextureSprite = "GFX_technology_sharing_ledger_button_transparent"
+					clicksound = ui_research_tab_naval
+					pdx_tooltip = "technology_sharing_ledger_button_05_tt"
+					shortcut = "5"
+				}
+				buttonType = {
+					name = "tech_category_06_button"
+					position = { x = 382 y = 35 }
+					quadTextureSprite = "GFX_technology_sharing_ledger_button_transparent"
+					clicksound = ui_research_tab_naval
+					pdx_tooltip = "technology_sharing_ledger_button_06_tt"
+					shortcut = "6"
+				}
+				buttonType = {
+					name = "tech_category_07_button"
+					position = { x = 450 y = 35 }
+					quadTextureSprite = "GFX_technology_sharing_ledger_button_transparent"
+					clicksound = ui_research_tab_air
+					pdx_tooltip = "technology_sharing_ledger_button_07_tt"
+					shortcut = "7"
+				}
+			}
+		}
+	}
+
+	###INFANTRY FOLDER###
+
+	###TECH 1-24###
+
+	containerWindowType = {
+		name = "technology_sharing_setup_window_infantry_folder"
+		position = { x=12 y=100 }
+		size = { width = 530 height = 510 }
+		verticalScrollbar = "right_vertical_slider"
+		margin = { top = 15 bottom = 25 right = 10 }
+
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_window_2b_border"
+		}
+
+		###WEAPONS AND EQUIPMENT CATEGORY TITLE###
+		instantTextboxType = {
+			name = "tech_infantry_w&e_title"
+			position = { x = 20 y = 15 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Weapons & Equipment"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		###WEAPONS AND EQUIPMENT###
+		containerWindowType = {
+			name = "technology_sharing_setup_window_infantry_w&e"
+			position = { x=0 y=30 }
+			size = { width = 530 height = 2035 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_01"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_01"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_02_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_01_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Basic Infantry Equipment"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_01_icon"
+					spriteType = "GFX_infantry_weapons_medium"
+					position = { x=45 y=50 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				#iconType = {
+				#	name ="tech_infantry_01_tier_icon"
+				#	spriteType = "GFX_tech_tier_1"
+				#	position = { x=446 y=55 }
+				#	pdx_tooltip = "tech_sharing_tier_1_tech"
+				#	scale = 1
+				#}
+				iconType = {
+					name ="tech_infantry_01_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_02"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_02"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_02_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_02_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Infantry Equipment I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_02_icon"
+					spriteType = "GFX_infantry_weapons1_medium"
+					position = { x=45 y=50 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_02_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_03"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_03"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_03_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_03_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Infantry Equipment II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_03_icon"
+					spriteType = "GFX_improved_infantry_weapons_medium"
+					position = { x=45 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_03_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_04"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_04"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_04_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_04_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Infantry Equipment III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_04_icon"
+					spriteType = "GFX_advanced_infantry_weapons_medium"
+					position = { x=45 y=35 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_04_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_05"
+				position = { x=0 y=300 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_05"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_05_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_05_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Infantry Anti-Tank I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_05_icon"
+					spriteType = "GFX_infantry_at_medium"
+					position = { x=70 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_05_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_06"
+				position = { x=0 y=375 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_06"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_06_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_06_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Infantry Anti-Tank II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_06_icon"
+					spriteType = "GFX_infantry_at2_medium"
+					position = { x=70 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_06_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_07"
+				position = { x=0 y=450 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_07"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_07_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_07_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Night Vision I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_07_icon"
+					spriteType = "GFX_night_vision_medium"
+					position = { x=70 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_07_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_08"
+				position = { x=0 y=525 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_08"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_08_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_08_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Night Vision II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_08_icon"
+					spriteType = "GFX_night_vision2_medium"
+					position = { x=70 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_08_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_infantry_mi_title"
+			position = { x = 20 y = 670 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Mobile Infantry"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_infantry_mi"
+			position = { x=0 y=680 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_09"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_09"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_09_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_09_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Truck"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_09_icon"
+					spriteType = "GFX_motorized_equipment_1_medium"
+					position = { x=50 y=40 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_09_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_10"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_10"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_10_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_10_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Mechanized I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_10_icon"
+					spriteType = "GFX_mechanised_infantry_medium"
+					position = { x=50 y=40 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_10_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_11"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_11"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_11_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_11_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Mechanized II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_11_icon"
+					spriteType = "GFX_mechanised_infantry2_medium"
+					position = { x=50 y=40 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_11_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_12"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_12"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_12_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_12_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Mechanized III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_12_icon"
+					spriteType = "GFX_mechanised_infantry3_medium"
+					position = { x=50 y=40 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_12_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_13"
+				position = { x=0 y=300 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_13"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_13_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_13_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Inter-War Armored Car"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_13_icon"
+					spriteType = "GFX_armored_car1_medium"
+					position = { x=50 y=40 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_13_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_14"
+				position = { x=0 y=375 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_14"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_14_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_14_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Basic Armored Car"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_14_icon"
+					spriteType = "GFX_armored_car2_medium"
+					position = { x=50 y=40 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_14_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_15"
+				position = { x=0 y=450 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_15"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_15_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_15_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Improved Armored Car"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_15_icon"
+					spriteType = "GFX_armored_car3_medium"
+					position = { x=50 y=40 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_15_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_infantry_ma_title"
+			position = { x = 20 y = 1250}
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Marines"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_infantry_ma"
+			position = { x=0 y=1260 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_16"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_16"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_16_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_16_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Marines I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_16_icon"
+					spriteType = "GFX_marines_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_16_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_17"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_17"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_17_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_17_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Marines II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_17_icon"
+					spriteType = "GFX_marines2_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_17_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_18"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_18"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_18_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_18_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Marines III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_18_icon"
+					spriteType = "GFX_marines3_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_18_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_infantry_pa_title"
+			position = { x = 20 y = 1530}
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Paratroopers"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_infantry_pa"
+			position = { x=0 y=1540 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_19"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_19"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_19_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_19_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Paratroopers I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_19_icon"
+					spriteType = "GFX_paratroopers_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_19_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_20"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_20"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_20_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_20_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Paratroopers II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_20_icon"
+					spriteType = "GFX_paratroopers2_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_20_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_21"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_21"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_21_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_21_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Paratroopers III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_21_icon"
+					spriteType = "GFX_paratroopers3_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_21_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_infantry_mo_title"
+			position = { x = 20 y = 1810 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Mountaineers"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_infantry_mo"
+			position = { x=0 y=1820 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_22"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_22"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_22_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_22_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Mountaineers I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_22_icon"
+					spriteType = "GFX_tech_mountaineers_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_22_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_23"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_23"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_23_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_23_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Mountaineers II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_23_icon"
+					spriteType = "GFX_tech_mountaineers2_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_23_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_infantry_button_24"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_infantry_24"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_infantry_24_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_infantry_24_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Mountaineers III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_infantry_24_icon"
+					spriteType = "GFX_tech_mountaineers3_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_infantry_24_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+	}
+
+	###INFANTRY SUPPORT FOLDER###
+
+	###TECH 25-56###
+
+	containerWindowType = {
+		name = "technology_sharing_setup_window_support_folder"
+		position = { x=12 y=100 }
+		size = { width = 530 height = 510 }
+		verticalScrollbar = "right_vertical_slider"
+		margin = { top = 15 bottom = 25 right = 10 }
+
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_window_2b_border"
+		}
+
+		instantTextboxType = {
+			name = "tech_support_ec_title"
+			position = { x = 20 y = 15 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Engineer Companies"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_support_ec"
+			position = { x=0 y=30 }
+			size = { width = 530 height = 2780 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_25"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_25"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_25_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_25_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Engineer Company I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_25_icon"
+					spriteType = "GFX_tech_engineers_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_25_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_26"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_26"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_26_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_26_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Engineer Company II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_26_icon"
+					spriteType = "GFX_tech_engineers2_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_26_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_27"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_27"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_27_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_27_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Engineer Company III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_27_icon"
+					spriteType = "GFX_tech_engineers3_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_27_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_28"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_28"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_28_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_28_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Engineer Company IV"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_28_icon"
+					spriteType = "GFX_tech_engineers4_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_28_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_support_rc_title"
+			position = { x = 20 y = 370 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Recon Companies"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_support_rc"
+			position = { x=0 y=380 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_29"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_29"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_29_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_29_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Recon Company I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_29_icon"
+					spriteType = "GFX_tech_recon_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_29_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_30"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_30"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_30_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_30_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Recon Company II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_30_icon"
+					spriteType = "GFX_tech_recon2_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_30_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_31"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_31"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_31_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_31_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Recon Company III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_31_icon"
+					spriteType = "GFX_tech_recon3_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_31_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_32"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_32"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_32_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_32_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Recon Company IV"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_32_icon"
+					spriteType = "GFX_tech_recon4_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_32_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_support_mp_title"
+			position = { x = 20 y = 720 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Military Police"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_support_mp"
+			position = { x=0 y=730 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_33"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_33"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_33_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_33_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Military Police I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_33_icon"
+					spriteType = "GFX_tech_military_police_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_33_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_34"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_34"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_34_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_34_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Military Police II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_34_icon"
+					spriteType = "GFX_tech_military_police2_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_34_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_35"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_35"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_35_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_35_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Military Police III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_35_icon"
+					spriteType = "GFX_tech_military_police3_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_35_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_36"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_36"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_36_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_36_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Military Police IV"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_36_icon"
+					spriteType = "GFX_tech_military_police4_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_36_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_support_mc_title"
+			position = { x = 20 y = 1080 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Maintenance Company"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_support_mc"
+			position = { x=0 y=1090 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_37"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_37"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_37_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_37_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Maintenance Company I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_37_icon"
+					spriteType = "GFX_tech_maintenance_company_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_37_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_38"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_38"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_38_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_38_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Maintenance Company II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_38_icon"
+					spriteType = "GFX_tech_maintenance_company2_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_38_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_39"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_39"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_39_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_39_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Maintenance Company III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_39_icon"
+					spriteType = "GFX_tech_maintenance_company3_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_39_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_40"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_40"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_40_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_40_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Maintenance Company IV"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_40_icon"
+					spriteType = "GFX_tech_maintenance_company4_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_40_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_support_fh_title"
+			position = { x = 20 y = 1430 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Field Hospital"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_support_fh"
+			position = { x=0 y=1440 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_41"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_41"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_41_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_41_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Field Hospital I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_41_icon"
+					spriteType = "GFX_tech_field_hospital_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_41_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_42"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_42"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_42_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_42_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Field Hospital II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_42_icon"
+					spriteType = "GFX_tech_field_hospital2_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_42_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_43"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_43"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_43_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_43_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Field Hospital III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_43_icon"
+					spriteType = "GFX_tech_field_hospital3_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_43_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_44"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_44"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_44_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_44_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Field Hospital IV"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_44_icon"
+					spriteType = "GFX_tech_field_hospital4_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_44_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_support_lc_title"
+			position = { x = 20 y = 1780 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Logistics Company"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_support_lc"
+			position = { x=0 y=1790 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_45"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_45"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_45_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_45_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Logistics Company I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_45_icon"
+					spriteType = "GFX_tech_logistics_company_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_45_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_46"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_46"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_46_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_46_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Logistics Company II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_46_icon"
+					spriteType = "GFX_tech_logistics_company2_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_46_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_47"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_47"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_47_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_47_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Logistics Company III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_47_icon"
+					spriteType = "GFX_tech_logistics_company3_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_47_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_48"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_48"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_48_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_48_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Logistics Company IV"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_48_icon"
+					spriteType = "GFX_tech_logistics_company4_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_48_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_support_sc_title"
+			position = { x = 20 y = 2130 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Signal Company"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_support_sc"
+			position = { x=0 y=2140 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_49"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_49"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_49_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_49_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Signal Company I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_49_icon"
+					spriteType = "GFX_tech_signal_company_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_49_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_50"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_50"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_50_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_50_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Signal Company II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_50_icon"
+					spriteType = "GFX_tech_signal_company2_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_50_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_51"
+				position = { x=0 y=150}
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_51"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_51_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_51_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Signal Company III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_51_icon"
+					spriteType = "GFX_tech_signal_company3_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_51_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_52"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_52"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_52_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_52_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Signal Company IV"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_52_icon"
+					spriteType = "GFX_tech_signal_company4_medium"
+					position = { x=60 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_52_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_support_tr_title"
+			position = { x = 20 y = 2480 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Trains"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_support_tr"
+			position = { x=0 y=2490 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_53"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_53"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_53_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_53_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Civilian Train"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_53_icon"
+					spriteType = "GFX_train_equipment_medium"
+					position = { x=30 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_53_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_54"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_54"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_54_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_54_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "War Austerity Train"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_54_icon"
+					spriteType = "GFX_train_equipment_2_medium"
+					position = { x=30 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_54_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_55"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_55"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_55_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_55_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Armored Train"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_55_icon"
+					spriteType = "GFX_train_equipment_3_medium"
+					position = { x=30 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_55_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_support_button_56"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_support_56"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_support_56_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_support_56_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Railway Gun"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_support_56_icon"
+					spriteType = "GFX_GER_railway_gun_medium"
+					position = { x=30 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_support_56_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+	}
+
+	###ARMOR FOLDER###
+
+	###TECH 57-69###
+
+	containerWindowType = {
+		name = "technology_sharing_setup_window_armor_folder"
+		position = { x=12 y=100 }
+		size = { width = 530 height = 510 }
+		verticalScrollbar = "right_vertical_slider"
+		margin = { top = 15 bottom = 25 right = 10 }
+
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_window_2b_border"
+		}
+
+		instantTextboxType = {
+			name = "tech_armor_li_title"
+			position = { x = 20 y = 15 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Light Tank Chassis"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_armor_li"
+			position = { x=0 y=30 }
+			size = { width = 530 height = 1265 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_57"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_57"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_57_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_57_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Inter-War Tank Development"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_57_icon"
+					spriteType = "GFX_gwtank_chassis_medium"
+					position = { x=60 y=45 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_57_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_58"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_58"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_58_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_58_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1934 Light Tank Chassis"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_58_icon"
+					spriteType = "GFX_basic_light_tank_chassis_medium"
+					position = { x=20 y=20 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_58_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_59"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_59"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_59_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_59_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1936 Light Tank Chassis"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_59_icon"
+					spriteType = "GFX_improved_light_tank_chassis_medium"
+					position = { x=20 y=20 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_59_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_60"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_60"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_60_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_60_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1941 Light Tank Chassis"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_60_icon"
+					spriteType = "GFX_advanced_light_tank_chassis_medium"
+					position = { x=20 y=20 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_60_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_armor_am_title"
+			position = { x = 20 y = 370 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Amphibious Tank Chassis"
+			maxWidth = 500
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_armor_am"
+			position = { x=0 y=380 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_61"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_61"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_61_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_61_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Amphibious Tank Chassis"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_61_icon"
+					spriteType = "GFX_amphibious_tank_chassis_medium"
+					position = { x=40 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_61_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_armor_me_title"
+			position = { x = 20 y = 500 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Medium Tank Chassis"
+			maxWidth = 500
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_armor_me"
+			position = { x=0 y=510 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_62"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_62"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_62_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_62_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1934 Medium Tank Chassis"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_62_icon"
+					spriteType = "GFX_basic_medium_tank_chassis_medium"
+					position = { x=25 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_62_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_63"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_63"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_63_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_63_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1940 Medium Tank Chassis"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_63_icon"
+					spriteType = "GFX_improved_medium_tank_chassis_medium"
+					position = { x=25 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_63_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_64"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_64"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_64_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_64_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1943 Medium Tank Chassis"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_64_icon"
+					spriteType = "GFX_advanced_medium_tank_chassis_medium"
+					position = { x=25 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_64_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_armor_he_title"
+			position = { x = 20 y = 780 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Heavy Tank Chassis"
+			maxWidth = 500
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_armor_he"
+			position = { x=0 y=790 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_65"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_65"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_65_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_65_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1934 Heavy Tank Chassis"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_65_icon"
+					spriteType = "GFX_basic_heavy_tank_chassis_medium"
+					position = { x=25 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_65_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_66"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_66"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_66_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_66_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1940 Heavy Tank Chassis"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_66_icon"
+					spriteType = "GFX_improved_heavy_tank_chassis_medium"
+					position = { x=25 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_66_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_67"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_67"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_67_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_67_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1943 Heavy Tank Chassis"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_67_icon"
+					spriteType = "GFX_advanced_heavy_tank_chassis_medium"
+					position = { x=25 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_67_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_armor_sh_title"
+			position = { x = 20 y = 1060 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Super-Heavy Tank Chassis"
+			maxWidth = 500
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_armor_sh"
+			position = { x=0 y=1070 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_68"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_68"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_68_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_68_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Super-Heavy Tank Chassis"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_68_icon"
+					spriteType = "GFX_super_heavy_tank_chassis_medium"
+					position = { x=20 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_68_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_armor_mm_title"
+			position = { x = 20 y = 1190 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Modern Tank Chassis"
+			maxWidth = 500
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_armor_mm"
+			position = { x=0 y=1200 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_armor_button_69"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_armor_69"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_armor_69_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_armor_69_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Modern Tank Chassis"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_armor_69_icon"
+					spriteType = "GFX_modern_tank_chassis_medium"
+					position = { x=25 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_armor_69_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+	}
+
+	###ARTILLERY FOLDER###
+
+	###TECH 70-80
+
+	containerWindowType = {
+		name = "technology_sharing_setup_window_artillery_folder"
+		position = { x=12 y=100 }
+		size = { width = 530 height = 510 }
+		verticalScrollbar = "right_vertical_slider"
+		margin = { top = 15 bottom = 25 right = 10 }
+
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_window_2b_border"
+		}
+
+		instantTextboxType = {
+			name = "tech_artillery_ar_title"
+			position = { x = 20 y = 15 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Artillery"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_artillery_ar"
+			position = { x=0 y=30 }
+			size = { width = 530 height = 995 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_artillery_button_70"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_artillery_70"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_artillery_70_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_artillery_70_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Artillery"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_artillery_70_icon"
+					spriteType = "GFX_gw_artillery_medium"
+					position = { x=40 y=35 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_artillery_70_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_artillery_button_71"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_artillery_71"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_artillery_71_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_artillery_71_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Improved Artillery"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_artillery_71_icon"
+					spriteType = "GFX_artillery1_medium"
+					position = { x=30 y=35 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_artillery_71_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_artillery_button_72"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_artillery_72"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_artillery_72_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_artillery_72_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Improved Artillery"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_artillery_72_icon"
+					spriteType = "GFX_artillery4_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_artillery_72_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_artillery_ra_title"
+			position = { x = 20 y = 290 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Rocket Artillery"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_artillery_ra"
+			position = { x=0 y=300 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_artillery_button_73"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_artillery_73"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_artillery_73_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_artillery_73_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Rocket Artillery"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_artillery_73_icon"
+					spriteType = "GFX_rocket_artillery_medium"
+					position = { x=65 y=35 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_artillery_73_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_artillery_button_74"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_artillery_74"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_artillery_74_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_artillery_74_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Advanced Rocket Artillery"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_artillery_74_icon"
+					spriteType = "GFX_rocket_artillery4_medium"
+					position = { x=65 y=35 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_artillery_74_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_artillery_aa_title"
+			position = { x = 20 y = 490 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Anti-Air Cannons"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_artillery_aa"
+			position = { x=0 y=500 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_artillery_button_75"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_artillery_75"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_artillery_75_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_artillery_75_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Anti-Air"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_artillery_75_icon"
+					spriteType = "GFX_interwar_antiair_medium"
+					position = { x=45 y=35 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_artillery_75_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_artillery_button_76"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_artillery_76"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_artillery_76_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_artillery_76_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Improved Anti-Air"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_artillery_76_icon"
+					spriteType = "GFX_antiair2_medium"
+					position = { x=60 y=35 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_artillery_76_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_artillery_button_77"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_artillery_77"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_artillery_77_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_artillery_77_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Advanced Anti-Air"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_artillery_77_icon"
+					spriteType = "GFX_antiair5_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_artillery_77_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		instantTextboxType = {
+			name = "tech_artillery_at_title"
+			position = { x = 20 y = 770 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Anti-Tank"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_artillery_at"
+			position = { x=0 y=780 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_artillery_button_78"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_artillery_78"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_artillery_78_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_artillery_78_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Anti-Tank"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_artillery_78_icon"
+					spriteType = "GFX_interwar_antitank_medium"
+					position = { x=45 y=35 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_artillery_78_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_artillery_button_79"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_artillery_79"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_artillery_79_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_artillery_79_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Improved Anti-Tank"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_artillery_79_icon"
+					spriteType = "GFX_antitank2_medium"
+					position = { x=45 y=35 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_artillery_79_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_artillery_button_80"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_artillery_80"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_artillery_80_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_artillery_80_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Advanced Anti-Tank"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_artillery_80_icon"
+					spriteType = "GFX_antitank5_medium"
+					position = { x=35 y=35 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_artillery_80_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+	}
+
+	###naval FOLDER###
+
+	###TECH 81-103
+
+	containerWindowType = {
+		name = "technology_sharing_setup_window_naval_folder"
+		position = { x=12 y=100 }
+		size = { width = 530 height = 510 }
+		verticalScrollbar = "right_vertical_slider"
+		margin = { top = 15 bottom = 25 right = 10 }
+
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_window_2b_border"
+		}
+
+		###DESTROYER SECTION###
+		instantTextboxType = {
+			name = "tech_naval_de_title"
+			position = { x = 20 y = 15 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Destroyer Hulls"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_naval_de"
+			position = { x=0 y=30 }
+			size = { width = 530 height = 2045 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_81"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_81"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_81_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_81_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Early Destroyer Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_81_icon"
+					spriteType = "GFX_early_destroyer_medium"
+					position = { x=5 y=40 }
+					alwaystransparent = yes
+					scale = 0.65
+				}
+				iconType = {
+					name ="tech_naval_81_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_82"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_82"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_82_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_82_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1936 Destroyer Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_82_icon"
+					spriteType = "GFX_basic_destroyer_medium"
+					position = { x=5 y=40 }
+					alwaystransparent = yes
+					scale = 0.65
+				}
+				iconType = {
+					name ="tech_naval_82_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_83"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_83"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_83_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_83_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1940 Destroyer Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_83_icon"
+					spriteType = "GFX_improved_destroyer_medium"
+					position = { x=5 y=40 }
+					alwaystransparent = yes
+					scale = 0.65
+				}
+				iconType = {
+					name ="tech_naval_83_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_84"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_84"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_84_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_84_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1944 Destroyer Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_84_icon"
+					spriteType = "GFX_advanced_destroyer_medium"
+					position = { x=10 y=40 }
+					alwaystransparent = yes
+					scale = 0.65
+				}
+				iconType = {
+					name ="tech_naval_84_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		###CRUISERS SECTION###
+		instantTextboxType = {
+			name = "tech_naval_cr_title"
+			position = { x = 20 y = 380}
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Cruiser Hulls"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_naval_cr"
+			position = { x=0 y=390 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_85"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_85"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_85_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_85_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Early Cruiser Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_85_icon"
+					spriteType = "GFX_early_battlecruiser_medium"
+					position = { x=25 y=45 }
+					alwaystransparent = yes
+					scale = 0.55
+				}
+				iconType = {
+					name ="tech_naval_85_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_86"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_86"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_86_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_86_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1936 Cruiser Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_86_icon"
+					spriteType = "GFX_basic_battlecruiser_medium"
+					position = { x=25 y=45 }
+					alwaystransparent = yes
+					scale = 0.55
+				}
+				iconType = {
+					name ="tech_naval_86_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_87"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_87"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_87_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_87_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1940 Cruiser Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_87_icon"
+					spriteType = "GFX_improved_battlecruiser_medium"
+					position = { x=25 y=45 }
+					alwaystransparent = yes
+					scale = 0.55
+				}
+				iconType = {
+					name ="tech_naval_87_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_88"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_88"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_88_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_88_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1944 Cruiser Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_88_icon"
+					spriteType = "GFX_advanced_battlecruiser_medium"
+					position = { x=25 y=45 }
+					alwaystransparent = yes
+					scale = 0.55
+				}
+				iconType = {
+					name ="tech_naval_88_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		###BATTLESHIPS SECTION###
+		instantTextboxType = {
+			name = "tech_naval_bs_title"
+			position = { x = 20 y = 740}
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Battleship Hulls"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_naval_bs"
+			position = { x=0 y=750 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_89"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_89"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_89_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_89_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Early Heavy Ship Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_89_icon"
+					spriteType = "GFX_early_ship_hull_heavy_medium"
+					position = { x=25 y=45 }
+					alwaystransparent = yes
+					scale = 0.55
+				}
+				iconType = {
+					name ="tech_naval_89_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_90"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_90"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_90_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_90_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1936 Heavy Ship Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_90_icon"
+					spriteType = "GFX_basic_ship_hull_heavy_medium"
+					position = { x=25 y=45 }
+					alwaystransparent = yes
+					scale = 0.55
+				}
+				iconType = {
+					name ="tech_naval_90_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_91"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_91"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_91_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_91_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1940 Heavy Ship Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_91_icon"
+					spriteType = "GFX_improved_ship_hull_heavy_medium"
+					position = { x=25 y=45 }
+					alwaystransparent = yes
+					scale = 0.55
+				}
+				iconType = {
+					name ="tech_naval_91_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_92"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_92"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_92_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_92_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1944 Heavy Ship Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_92_icon"
+					spriteType = "GFX_advanced_ship_hull_heavy_medium"
+					position = { x=30 y=45 }
+					alwaystransparent = yes
+					scale = 0.55
+				}
+				iconType = {
+					name ="tech_naval_92_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		###BATTLESHIPS SECTION###
+		instantTextboxType = {
+			name = "tech_naval_ca_title"
+			position = { x = 20 y = 1100}
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Carrier Hulls"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_naval_ca"
+			position = { x=0 y=1110 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_93"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_93"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_93_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_93_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Deck Conversions"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_93_icon"
+					spriteType = "GFX_early_carrier_medium"
+					position = { x=25 y=45 }
+					alwaystransparent = yes
+					scale = 0.55
+				}
+				iconType = {
+					name ="tech_naval_93_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_94"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_94"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_94_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_94_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1936 Carrier Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_94_icon"
+					spriteType = "GFX_basic_carrier_medium"
+					position = { x=25 y=45 }
+					alwaystransparent = yes
+					scale = 0.55
+				}
+				iconType = {
+					name ="tech_naval_94_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_95"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_95"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_95_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_95_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1940 Carrier Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_95_icon"
+					spriteType = "GFX_improved_carrier_medium"
+					position = { x=25 y=45 }
+					alwaystransparent = yes
+					scale = 0.55
+				}
+				iconType = {
+					name ="tech_naval_95_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_96"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_96"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_96_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_96_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1944 Carrier Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_96_icon"
+					spriteType = "GFX_advanced_carrier_medium"
+					position = { x=25 y=45 }
+					alwaystransparent = yes
+					scale = 0.55
+				}
+				iconType = {
+					name ="tech_naval_96_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		###SUBMARINES SECTION###
+		instantTextboxType = {
+			name = "tech_naval_su_title"
+			position = { x = 20 y = 1460}
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Submarine Hulls"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_naval_su"
+			position = { x=0 y=1470 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_97"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_97"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_97_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_97_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Early Submarine Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_97_icon"
+					spriteType = "GFX_early_submarine_medium"
+					position = { x=30 y=45 }
+					alwaystransparent = yes
+					scale = 0.5
+				}
+				iconType = {
+					name ="tech_naval_97_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_98"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_98"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_98_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_98_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1936 Submarine Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_98_icon"
+					spriteType = "GFX_basic_submarine_medium"
+					position = { x=30 y=45 }
+					alwaystransparent = yes
+					scale = 0.5
+				}
+				iconType = {
+					name ="tech_naval_98_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_99"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_99"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_99_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_99_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1940 Submarine Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_99_icon"
+					spriteType = "GFX_improved_submarine_medium"
+					position = { x=30 y=45 }
+					alwaystransparent = yes
+					scale = 0.5
+				}
+				iconType = {
+					name ="tech_naval_99_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_100"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_100"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_100_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_100_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "1944 Submarine Hull"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_100_icon"
+					spriteType = "GFX_advanced_submarine_medium"
+					position = { x=30 y=45 }
+					alwaystransparent = yes
+					scale = 0.5
+				}
+				iconType = {
+					name ="tech_naval_100_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		###TRANSPORTS SECTION###
+		instantTextboxType = {
+			name = "tech_naval_tr_title"
+			position = { x = 20 y = 1820}
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Naval Transport"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_naval_tr"
+			position = { x=0 y=1830 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_101"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_101"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_101_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_101_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Transport Ships"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_101_icon"
+					spriteType = "GFX_mtg_transport_medium"
+					position = { x=70 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_naval_101_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_102"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_102"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_102_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_102_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Landing Craft"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_102_icon"
+					spriteType = "GFX_mtg_landing_craft_medium"
+					position = { x=70 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_naval_102_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_naval_button_103"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_naval_103"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_naval_103_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_naval_103_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Advanced Landing Craft"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_naval_103_icon"
+					spriteType = "GFX_mtg_tank_landing_craft_medium"
+					position = { x=70 y=25 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_naval_103_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+	}
+
+	###AIR FOLDER###
+
+	###TECH 104-118
+
+	containerWindowType = {
+		name = "technology_sharing_setup_window_air_folder"
+		position = { x=12 y=100 }
+		size = { width = 530 height = 510 }
+		verticalScrollbar = "right_vertical_slider"
+		margin = { top = 15 bottom = 25 right = 10 }
+
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_window_2b_border"
+		}
+
+		###SMALL AIRFRAME SECTION###
+		instantTextboxType = {
+			name = "tech_air_sf_title"
+			position = { x = 20 y = 15 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Small Airframes"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_air_sf"
+			position = { x=0 y=30 }
+			size = { width = 530 height = 1265 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_104"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_104"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_104_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_104_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Inter-War Small Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_104_icon"
+					spriteType = "GFX_iw_small_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_104_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_105"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_105"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_105_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_105_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Basic Small Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_105_icon"
+					spriteType = "GFX_basic_small_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_105_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_106"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_106"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_106_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_106_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Improved Small Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_106_icon"
+					spriteType = "GFX_improved_small_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_106_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_107"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_107"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_107_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_107_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Advanced Small Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_107_icon"
+					spriteType = "GFX_advanced_small_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_107_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_108"
+				position = { x=0 y=300 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_108"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_108_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_108_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Modern Small Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_108_icon"
+					spriteType = "GFX_modern_small_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_108_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		###MEDIUM AIRFRAMES SECTION###
+		instantTextboxType = {
+			name = "tech_air_mf_title"
+			position = { x = 20 y = 460 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Medium Airframes"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_air_mf"
+			position = { x=0 y=470 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_109"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_109"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_109_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_109_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Inter-War Medium Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_109_icon"
+					spriteType = "GFX_iw_medium_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_109_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_110"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_110"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_110_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_110_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Basic Medium Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_110_icon"
+					spriteType = "GFX_basic_medium_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_110_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_111"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_111"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_111_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_111_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Improved Medium Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_111_icon"
+					spriteType = "GFX_improved_medium_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_111_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_112"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_112"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_112_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_112_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Advanced Medium Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_112_icon"
+					spriteType = "GFX_advanced_medium_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_112_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_113"
+				position = { x=0 y=300 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_113"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_113_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_113_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Modern Medium Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_113_icon"
+					spriteType = "GFX_modern_medium_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_114_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+
+		###LARGE AIRFRAMES SECTION###
+		instantTextboxType = {
+			name = "tech_air_lf_title"
+			position = { x = 20 y = 890 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Large Airframes"
+			maxWidth = 280
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_air_lf"
+			position = { x=0 y=900 }
+			size = { width = 530 height = 0 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_114"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_114"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_114_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_114_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Inter-War Large Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_114_icon"
+					spriteType = "GFX_iw_large_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_114_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_115"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_115"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_115_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_115_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Basic Large Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_115_icon"
+					spriteType = "GFX_basic_large_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_115_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_116"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_116"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_116_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_116_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Improved Large Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_116_icon"
+					spriteType = "GFX_improved_large_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_116_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_117"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_117"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_117_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_117_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Advanced Large Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_117_icon"
+					spriteType = "GFX_advanced_large_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_117_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_air_button_118"
+				position = { x=0 y=300 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_air_118"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_air_118_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_air_118_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Modern Large Airframe"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_air_118_icon"
+					spriteType = "GFX_modern_large_airframe_medium"
+					position = { x=30 y=30 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				iconType = {
+					name ="tech_air_118_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+		}
+	}
+
+	###ENGINEERING FOLDER###
+
+	###TECH 118-126
+
+	containerWindowType = {
+		name = "technology_sharing_setup_window_engineering_folder"
+		position = { x=12 y=100 }
+		size = { width = 530 height = 510 }
+		verticalScrollbar = "right_vertical_slider"
+		margin = { top = 15 bottom = 25 right = 10 }
+
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_window_2b_border"
+		}
+
+		###EXPERIMENTAL ROCKETS
+		instantTextboxType = {
+			name = "tech_engineering_er_title"
+			position = { x = 20 y = 15 }
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "Rockets"
+			maxWidth = 400
+			maxHeight = 40
+			format = left
+			alwaystransparent = yes
+		}
+
+		containerWindowType = {
+			name = "technology_sharing_setup_window_engineering_er"
+			position = { x=0 y=30 }
+			size = { width = 530 height = 745 }
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_engineering_button_119"
+				position = { x=0 y=0 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_engineering_119"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_engineering_119_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_engineering_119_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Experimental Rockets"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_engineering_119_icon"
+					spriteType = "GFX_experimental_rockets_medium"
+					position = { x=70 y=30 }
+					alwaystransparent = yes
+					scale = 0.9
+				}
+				iconType = {
+					name ="tech_engineering_119_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_engineering_button_120"
+				position = { x=0 y=75 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_engineering_120"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_engineering_120_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_engineering_120_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Rocket Engines I"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_engineering_120_icon"
+					spriteType = "GFX_rocket_engines_medium"
+					position = { x=70 y=30 }
+					alwaystransparent = yes
+					scale = 0.9
+				}
+				iconType = {
+					name ="tech_engineering_120_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_engineering_button_121"
+				position = { x=0 y=150 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_engineering_121"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_engineering_121_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_engineering_121_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Rocket Engines II"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_engineering_121_icon"
+					spriteType = "GFX_improved_rocket_engines_medium"
+					position = { x=70 y=30 }
+					alwaystransparent = yes
+					scale = 0.9
+				}
+				iconType = {
+					name ="tech_engineering_121_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+			containerWindowType = {
+				name = "technology_sharing_setup_window_engineering_button_122"
+				position = { x=0 y=225 }
+				size = { width = 530 height = 100% }
+	
+				buttonType = {
+					name = "tech_engineering_122"
+					position = { x =15 y = 20 }
+					quadTextureSprite = "GFX_lendlease_big_bg"
+					clicksound = ui_research_tab_industry
+				}
+				iconType = {
+					name ="tech_engineering_122_textbox"
+					spriteType = "GFX_generic_text_bg_258"
+					position = { x=195 y=56 }
+					alwaystransparent = yes
+					scale = 1
+				}
+				instantTextboxType = {
+					name = "tech_engineering_122_title"
+					position = { x = 205 y = 60 }
+					font = "hoi_16typewriter"
+					borderSize = {x = 0 y = 0}
+					text = "Rocket Engines III"
+					maxWidth = 280
+					maxHeight = 40
+					format = left
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="tech_engineering_122_icon"
+					spriteType = "GFX_advanced_rocket_engines_medium"
+					position = { x=70 y=30 }
+					alwaystransparent = yes
+					scale = 0.9
+				}
+				iconType = {
+					name ="tech_engineering_122_glow"
+					spriteType = "GFX_tech_sharing_button_pressed_overlay"
+					position = { x=16 y=20 }
+					scale = 1
+				}
+			}
+
+			###JET ENGINES
+			instantTextboxType = {
+				name = "tech_engineering_je_title"
+				position = { x = 20 y = 350 }
+				font = "hoi_30header"
+				borderSize = {x = 0 y = 0}
+				text = "Jet Engine"
+				maxWidth = 400
+				maxHeight = 40
+				format = left
+				alwaystransparent = yes
+			}
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_engineering_je"
+				position = { x=0 y=360 }
+				size = { width = 530 height = 0 }
+
+				containerWindowType = {
+					name = "technology_sharing_setup_window_engineering_button_123"
+					position = { x=0 y=0 }
+					size = { width = 530 height = 100% }
+		
+					buttonType = {
+						name = "tech_engineering_123"
+						position = { x =15 y = 20 }
+						quadTextureSprite = "GFX_lendlease_big_bg"
+						clicksound = ui_research_tab_industry
+					}
+					iconType = {
+						name ="tech_engineering_123_textbox"
+						spriteType = "GFX_generic_text_bg_258"
+						position = { x=195 y=56 }
+						alwaystransparent = yes
+						scale = 1
+					}
+					instantTextboxType = {
+						name = "tech_engineering_123_title"
+						position = { x = 205 y = 60 }
+						font = "hoi_16typewriter"
+						borderSize = {x = 0 y = 0}
+						text = "Jet Engines"
+						maxWidth = 280
+						maxHeight = 40
+						format = left
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="tech_engineering_123_icon"
+						spriteType = "GFX_jet_engines_medium"
+						position = { x=70 y=30 }
+						alwaystransparent = yes
+						scale = 0.9
+					}
+					iconType = {
+						name ="tech_engineering_123_glow"
+						spriteType = "GFX_tech_sharing_button_pressed_overlay"
+						position = { x=16 y=20 }
+						scale = 1
+					}
+				}
+			}
+
+			###ATOMIC RESEARCH
+			instantTextboxType = {
+				name = "tech_engineering_ar_title"
+				position = { x = 20 y = 490 }
+				font = "hoi_30header"
+				borderSize = {x = 0 y = 0}
+				text = "Atomic Research"
+				maxWidth = 400
+				maxHeight = 40
+				format = left
+				alwaystransparent = yes
+			}
+
+			containerWindowType = {
+				name = "technology_sharing_setup_window_engineering_at"
+				position = { x=0 y=500 }
+				size = { width = 530 height = 0 }
+
+				containerWindowType = {
+					name = "technology_sharing_setup_window_engineering_button_124"
+					position = { x=0 y=0 }
+					size = { width = 530 height = 100% }
+		
+					buttonType = {
+						name = "tech_engineering_124"
+						position = { x =15 y = 20 }
+						quadTextureSprite = "GFX_lendlease_big_bg"
+						clicksound = ui_research_tab_industry
+					}
+					iconType = {
+						name ="tech_engineering_124_textbox"
+						spriteType = "GFX_generic_text_bg_258"
+						position = { x=195 y=56 }
+						alwaystransparent = yes
+						scale = 1
+					}
+					instantTextboxType = {
+						name = "tech_engineering_124_title"
+						position = { x = 205 y = 60 }
+						font = "hoi_16typewriter"
+						borderSize = {x = 0 y = 0}
+						text = "Atomic Research"
+						maxWidth = 280
+						maxHeight = 40
+						format = left
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="tech_engineering_124_icon"
+						spriteType = "GFX_atomic_research_medium"
+						position = { x=70 y=30 }
+						alwaystransparent = yes
+						scale = 0.9
+					}
+					iconType = {
+						name ="tech_engineering_124_glow"
+						spriteType = "GFX_tech_sharing_button_pressed_overlay"
+						position = { x=16 y=20 }
+						scale = 1
+					}
+				}
+				containerWindowType = {
+					name = "technology_sharing_setup_window_engineering_button_125"
+					position = { x=0 y=75 }
+					size = { width = 530 height = 100% }
+		
+					buttonType = {
+						name = "tech_engineering_125"
+						position = { x =15 y = 20 }
+						quadTextureSprite = "GFX_lendlease_big_bg"
+						clicksound = ui_research_tab_industry
+					}
+					iconType = {
+						name ="tech_engineering_125_textbox"
+						spriteType = "GFX_generic_text_bg_258"
+						position = { x=195 y=56 }
+						alwaystransparent = yes
+						scale = 1
+					}
+					instantTextboxType = {
+						name = "tech_engineering_125_title"
+						position = { x = 205 y = 60 }
+						font = "hoi_16typewriter"
+						borderSize = {x = 0 y = 0}
+						text = "Nuclear Reactor"
+						maxWidth = 280
+						maxHeight = 40
+						format = left
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="tech_engineering_125_icon"
+						spriteType = "GFX_nuclear_reactor_medium"
+						position = { x=70 y=30 }
+						alwaystransparent = yes
+						scale = 0.9
+					}
+					iconType = {
+						name ="tech_engineering_125_glow"
+						spriteType = "GFX_tech_sharing_button_pressed_overlay"
+						position = { x=16 y=20 }
+						scale = 1
+					}
+				}
+				containerWindowType = {
+					name = "technology_sharing_setup_window_engineering_button_126"
+					position = { x=0 y=150 }
+					size = { width = 530 height = 100% }
+		
+					buttonType = {
+						name = "tech_engineering_126"
+						position = { x =15 y = 20 }
+						quadTextureSprite = "GFX_lendlease_big_bg"
+						clicksound = ui_research_tab_industry
+					}
+					iconType = {
+						name ="tech_engineering_126_textbox"
+						spriteType = "GFX_generic_text_bg_258"
+						position = { x=195 y=56 }
+						alwaystransparent = yes
+						scale = 1
+					}
+					instantTextboxType = {
+						name = "tech_engineering_126_title"
+						position = { x = 205 y = 60 }
+						font = "hoi_16typewriter"
+						borderSize = {x = 0 y = 0}
+						text = "Nuclear Bomb"
+						maxWidth = 280
+						maxHeight = 40
+						format = left
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="tech_engineering_126_icon"
+						spriteType = "GFX_nukes_medium"
+						position = { x=70 y=30 }
+						alwaystransparent = yes
+						scale = 0.9
+					}
+					iconType = {
+						name ="tech_engineering_126_glow"
+						spriteType = "GFX_tech_sharing_button_pressed_overlay"
+						position = { x=16 y=20 }
+						scale = 1
+					}
+				}
+			}
+		}
+	}
+}

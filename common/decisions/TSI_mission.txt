@@ -1,0 +1,15 @@
+political_actions = {
+	technology_sharing_cooldown = {
+		available = {
+			always = no
+		}
+
+		icon = mission_icon     # For GFX_decision_mission_icon
+		is_good = no
+		days_mission_timeout = 250
+
+		timeout_effect = {
+			clr_country_flag = technology_sharing_cooldown
+		}
+	}
+}
