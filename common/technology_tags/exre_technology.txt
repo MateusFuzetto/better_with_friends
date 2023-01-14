@@ -1,7 +1,0 @@
-technology_categories = {
-	exre_stuff
-}
-
-technology_folders = {
-	exre_folder
-}

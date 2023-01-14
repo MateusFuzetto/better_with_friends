@@ -1,6 +1,0 @@
-WAR_exre = {
-	visible = {
-		has_war = yes
-	}
-	icon = generic_propaganda
-}

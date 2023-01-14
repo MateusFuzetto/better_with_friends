@@ -1,6 +1,0 @@
-CHI_exre = {
-	allowed = {
-		original_tag = CHI
-	}
-	icon = generic_propaganda
-}

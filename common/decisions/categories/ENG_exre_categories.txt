@@ -1,6 +1,0 @@
-ENG_exre = {
-	allowed = {
-		original_tag = ENG
-	}
-	icon = generic_propaganda
-}

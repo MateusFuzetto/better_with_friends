@@ -1,6 +1,0 @@
-SOV_exre = {
-	allowed = {
-		original_tag = SOV
-	}
-	icon = generic_propaganda
-}

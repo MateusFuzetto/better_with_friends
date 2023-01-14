@@ -1,6 +1,0 @@
-GER_exre = {
-	allowed = {
-		original_tag = GER
-	}
-	icon = generic_propaganda
-}

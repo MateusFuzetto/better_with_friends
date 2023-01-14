@@ -1,6 +1,0 @@
-PEACE_exre = {
-	#allowed = {
-	#	original_tag = GER
-	#}
-	icon = generic_prospect_for_resources
-}
