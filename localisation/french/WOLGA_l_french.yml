@@ -1,0 +1,8 @@
+﻿l_french:
+ VOLGA_DON_CANAL:0 "Canal Volga-Don"
+ Volga_don_blocked_tt:0 "§RLe canal Volga-Don n'est pas construit ou est bloqué§!"
+
+ build_volga_don_canal:0 "Construire le canal Volga-Don"
+ build_volga_don_canal_desc:0 "Nos forces navales limitées dans la mer Caspienne ont longtemps été isolées de notre branche principale, en construisant un canal pour la relier à la mer Noire, nous pouvons enfin déplacer nos forces navales vers et depuis la mer à volonté."
+ VOLGA_DON_BUILT_tt:0 "§YLe canal Volga-Don permettra aux navires de traverser§!."
+ VOLGA_DON_NOT_BUILT:0 "Le canal Volga-Don n'a pas été construit"
