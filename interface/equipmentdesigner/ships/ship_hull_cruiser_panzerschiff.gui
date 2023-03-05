@@ -514,7 +514,7 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_2_mine_layer_ger"
+						spriteType = "GFX_SM_cruiser_hull_rear_mine_layer_ger"
 						position = { x=366 y=0 }
 					}
 				}
@@ -525,7 +525,7 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_2_mine_layer_ger@highlight"
+						spriteType = "GFX_SM_cruiser_hull_rear_mine_layer_ger@highlight"
 						position = { x=366 y=0 }
 					}
 				}

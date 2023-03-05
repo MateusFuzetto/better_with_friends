@@ -850,7 +850,7 @@
  MODIFIER_COMMAND_POWER_GAIN_MULT:0 "£command_power_texticon  Коэффициент прироста командного ресурса в день"
  MODIFIER_MAX_COMMAND_POWER_MULT:0 "£command_power_max_texticon  Максимальный коэффициент прироста командного ресурса"
  MODIFIER_COMMAND_ABILITIES_COST_FACTOR:0 "£ability_cost_texticon  Стоимость способностей командира"
- MODIFIER_ATTACK_BONUS_AGAINST_A_COUNTRY:0 "£attack_texticon  Бонус к атаке против страны"
+ MODIFIER_ATTACK_BONUS_AGAINST_A_COUNTRY:0 " £attack_texticon  Бонус к атаке против страны"
  MODIFIER_ATTACK_BONUS_AGAINST_A_COUNTRY_ON_ITS_CORES:0 "£attack_core_texticon  Атака на национальной территории"
  MODIFIER_DEFENSE_BONUS_AGAINST_A_COUNTRY:1 "£defence_texticon  Бонус к защите против страны"
  MODIFIER_CIVILIAN_FACTORY_USE:0 "£civ_factory  Использование фабрик"

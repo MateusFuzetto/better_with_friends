@@ -22,25 +22,14 @@ spriteTypes = {
 # Destroyer
 ###################################################
 
-
-   spriteType = {
-		name = "GFX_SM_light_hull_anti_air_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_fixed_anti_air.dds"
-	}
 	spriteType = {
-		name = "GFX_SM_light_hull_anti_air_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_fixed_anti_air@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_light_hull_front_1_anti_air_ita"
+		name = "GFX_SM_light_hull_front_anti_air_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_front_anti_air.dds"
 	}
 	spriteType = {
-		name = "GFX_SM_light_hull_front_1_anti_air_ita@highlight"
+		name = "GFX_SM_light_hull_front_anti_air_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_front_anti_air@highlight.dds"
 	}
-
 	spriteType = {
 		name = "GFX_SM_light_hull_mid_1_anti_air_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_mid_anti_air.dds"
@@ -49,35 +38,24 @@ spriteTypes = {
 		name = "GFX_SM_light_hull_mid_1_anti_air_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_mid_anti_air@highlight.dds"
 	}
-
-   spriteType = {
-		name = "GFX_SM_light_hull_mid_2_anti_air_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_mid2_anti_air.dds"
-	}
 	spriteType = {
-		name = "GFX_SM_light_hull_mid_2_anti_air_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_mid2_anti_air@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_light_hull_rear_1_anti_air_ita"
+		name = "GFX_SM_light_hull_rear_anti_air_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_rear_anti_air.dds"
 	}
 	spriteType = {
-		name = "GFX_SM_light_hull_rear_1_anti_air_ita@highlight"
+		name = "GFX_SM_light_hull_rear_anti_air_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_rear_anti_air@highlight.dds"
 	}
 
    #light battery
 	spriteType = {
-		name = "GFX_SM_light_hull_light_battery_ita"
+		name = "GFX_SM_light_hull_fixed_light_battery_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_fixed_light_battery.dds"
 	}
 	spriteType = {
-		name = "GFX_SM_light_hull_light_battery_ita@highlight"
+		name = "GFX_SM_light_hull_fixed_light_battery_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_fixed_light_battery@highlight.dds"
 	}
-
 	spriteType = {
 		name = "GFX_SM_light_hull_rear_light_battery_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_rear_light_battery.dds"
@@ -87,26 +65,7 @@ spriteTypes = {
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_rear_light_battery@highlight.dds"
 	}
 
-   #light battery 
-   
-   spriteType = {
-		name = "GFX_SM_light_hull_light_battery_dp_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_fixed_light_battery_dp.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_light_hull_light_battery_dp_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_fixed_light_battery_dp@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_light_hull_rear_light_battery_dp_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_rear_light_battery_dp.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_light_hull_rear_light_battery_dp_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_rear_light_battery_dp@highlight.dds"
-	}
-
+   ## Depth charge
    spriteType = {
 		name = "GFX_SM_light_hull_front_depth_charge_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_front_depth_charge.dds"
@@ -115,7 +74,6 @@ spriteTypes = {
 		name = "GFX_SM_light_hull_front_depth_charge_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_front_depth_charge@highlight.dds"
 	}
-
 	spriteType = {
 		name = "GFX_SM_light_hull_mid_1_depth_charge_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_mid_depth_charge.dds"
@@ -124,13 +82,12 @@ spriteTypes = {
 		name = "GFX_SM_light_hull_mid_1_depth_charge_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_mid_depth_charge@highlight.dds"
 	}
-
 	spriteType = {
-		name = "GFX_SM_light_hull_rear_1_depth_charge_ita"
+		name = "GFX_SM_light_hull_rear_depth_charge_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_rear_depth_charge.dds"
 	}
 	spriteType = {
-		name = "GFX_SM_light_hull_rear_1_depth_charge_ita@highlight"
+		name = "GFX_SM_light_hull_rear_depth_charge_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_rear_depth_charge@highlight.dds"
 	}
 
@@ -142,13 +99,12 @@ spriteTypes = {
 		name = "GFX_SM_light_hull_mid_1_mine_layer_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_mid_mine_rails@highlight.dds"
 	}
-
 	spriteType = {
-		name = "GFX_SM_light_hull_rear_1_mine_layer_ita"
+		name = "GFX_SM_light_hull_rear_mine_layer_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_rear_mine_rails.dds"
 	}
 	spriteType = {
-		name = "GFX_SM_light_hull_rear_1_mine_layer_ita@highlight"
+		name = "GFX_SM_light_hull_rear_mine_layer_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_rear_mine_rails@highlight.dds"
 	}
 
@@ -160,13 +116,12 @@ spriteTypes = {
 		name = "GFX_SM_light_hull_mid_1_mine_sweeper_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_mid_mine_sweeper@highlight.dds"
 	}
-
 	spriteType = {
-		name = "GFX_SM_light_hull_rear_1_mine_sweeper_ita"
+		name = "GFX_SM_light_hull_rear_mine_sweeper_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_rear_mine_sweeper.dds"
 	}
 	spriteType = {
-		name = "GFX_SM_light_hull_rear_1_mine_sweeper_ita@highlight"
+		name = "GFX_SM_light_hull_rear_mine_sweeper_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/light_hull_rear_mine_sweeper@highlight.dds"
 	}
 
@@ -180,21 +135,169 @@ spriteTypes = {
 	}
 
 ###################################################
+# Destroyer 1
+###################################################
+   ## AA
+   spriteType = {
+		name = "GFX_SM_light_hull_1_fixed_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T1/light_hull_fixed_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_1_fixed_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T1/light_hull_fixed_anti_air@highlight.dds"
+	}
+   spriteType = {
+		name = "GFX_SM_light_hull_1_rear_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T1/light_hull_rear_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_1_rear_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T1/light_hull_rear_anti_air@highlight.dds"
+	}
+
+   ## Light battery
+   spriteType = {
+		name = "GFX_SM_light_hull_1_fixed_light_battery_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T1/light_hull_fixed_light_battery.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_1_fixed_light_battery_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T1/light_hull_fixed_light_battery@highlight.dds"
+	}
+
+###################################################
+# Destroyer 2
+###################################################
+
+   spriteType = {
+		name = "GFX_SM_light_hull_2_fixed_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T2/light_hull_fixed_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_2_fixed_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T2/light_hull_fixed_anti_air@highlight.dds"
+	}
+
+   ## Depth charge
+   spriteType = {
+		name = "GFX_SM_light_hull_2_mid_1_depth_charge_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T2/light_hull_mid_depth_charge.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_2_mid_1_depth_charge_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T2/light_hull_mid_depth_charge@highlight.dds"
+	}
+
+   spriteType = {
+		name = "GFX_SM_light_hull_2_fixed_torpedo_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T2/light_hull_fixed_torpedo.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_2_fixed_torpedo_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T2/light_hull_fixed_torpedo@highlight.dds"
+	}
+
+###################################################
+# Destroyer 3
+###################################################
+
+   spriteType = {
+		name = "GFX_SM_light_hull_3_fixed_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T3/light_hull_fixed_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_3_fixed_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T3/light_hull_fixed_anti_air@highlight.dds"
+	}
+
+   spriteType = {
+		name = "GFX_SM_light_hull_3_fixed_torpedo_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T3/light_hull_fixed_torpedo.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_3_fixed_torpedo_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T3/light_hull_fixed_torpedo@highlight.dds"
+	}
+
+###################################################
+# Destroyer 4
+###################################################
+   spriteType = {
+		name = "GFX_SM_light_hull_4_fixed_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_fixed_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_4_fixed_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_fixed_anti_air@highlight.dds"
+	}
+   spriteType = {
+		name = "GFX_SM_light_hull_4_rear_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_rear_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_4_rear_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_rear_anti_air@highlight.dds"
+	}
+
+   ##light battery
+	spriteType = {
+		name = "GFX_SM_light_hull_4_fixed_light_battery_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_fixed_light_battery.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_4_fixed_light_battery_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_fixed_light_battery@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_4_rear_light_battery_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_rear_light_battery.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_4_rear_light_battery_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_rear_light_battery@highlight.dds"
+	}
+
+   spriteType = {
+		name = "GFX_SM_light_hull_4_rear_mine_layer_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_rear_mine_rails.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_4_rear_mine_layer_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_rear_mine_rails@highlight.dds"
+	}
+   ## Mine Sweeper
+   spriteType = {
+		name = "GFX_SM_light_hull_4_rear_mine_sweeper_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_rear_mine_sweeper.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_4_rear_mine_sweeper_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_rear_mine_sweeper@highlight.dds"
+	}
+
+   ## Depth charge
+   spriteType = {
+		name = "GFX_SM_light_hull_4_mid_1_depth_charge_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_mid_depth_charge.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_light_hull_4_mid_1_depth_charge_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/light_hull/T4/light_hull_mid_depth_charge@highlight.dds"
+	}
+
+###################################################
 # Cruiser
 ###################################################
 	
    ## Anti-air
-	
    spriteType = {
 		name = "GFX_SM_cruiser_hull_fixed_anti_air_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_fixed_anti_air.dds"
 	}
-
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_fixed_anti_air_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_fixed_anti_air@highlight.dds"
 	}
-
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_front_anti_air_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_anti_air.dds"
@@ -203,27 +306,22 @@ spriteTypes = {
 		name = "GFX_SM_cruiser_hull_front_anti_air_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_anti_air@highlight.dds"
 	}
-
    spriteType = {
 		name = "GFX_SM_cruiser_hull_mid_1_anti_air_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_1_anti_air.dds"
 	}
-	
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_mid_1_anti_air_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_1_anti_air@highlight.dds"
 	}
-
    spriteType = {
 		name = "GFX_SM_cruiser_hull_mid_2_anti_air_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_2_anti_air.dds"
 	}
-	
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_mid_2_anti_air_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_2_anti_air@highlight.dds"
 	}
-
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_rear_anti_air_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_anti_air.dds"
@@ -233,97 +331,7 @@ spriteTypes = {
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_anti_air@highlight.dds"
 	}
 
-   spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_2_anti_air_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_2_anti_air.dds"
-	}
-	
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_2_anti_air_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_2_anti_air@highlight.dds"
-	}
-
-
-   ## Airplane laucher
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_1_airplane_launcher_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_airplane_launcher.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_1_airplane_launcher_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_airplane_launcher@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_2_airplane_launcher_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_airplane_launcher.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_2_airplane_launcher_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_airplane_launcher@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_1_airplane_launcher_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_airplane_launcher.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_1_airplane_launcher_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_airplane_launcher@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_2_airplane_launcher_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_airplane_launcher.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_2_airplane_launcher_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_airplane_launcher@highlight.dds"
-	}
-
-
-   ## Torpedo
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_front_torpedo_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_torpedo.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_front_torpedo_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_torpedo@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_1_torpedo_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_1_torpedo.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_1_torpedo_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_1_torpedo@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_2_torpedo_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_2_torpedo.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_2_torpedo_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_2_torpedo@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_torpedo_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_torpedo.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_torpedo_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_torpedo@highlight.dds"
-	}
-
-
    ## Medium
-
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_fixed_medium_battery_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_fixed_medium_battery.dds"
@@ -332,36 +340,6 @@ spriteTypes = {
 		name = "GFX_SM_cruiser_hull_fixed_medium_battery_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_fixed_medium_battery@highlight.dds"
 	}
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_front_medium_battery_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_medium_battery.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_front_medium_battery_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_medium_battery@highlight.dds"
-	}
-
-   spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_1_medium_battery_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_medium_battery.dds"
-	}
-	
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_1_medium_battery_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_medium_battery@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_2_medium_battery_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_2_medium_battery.dds"
-	}
-	
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_2_medium_battery_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_2_medium_battery@highlight.dds"
-	}
-
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_rear_medium_battery_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_medium_battery.dds"
@@ -371,62 +349,25 @@ spriteTypes = {
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_medium_battery@highlight.dds"
 	}
 
-
    ## Medium light
-	
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_fixed_light_medium_battery_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_fixed_light_medium_battery.dds"
 	}
-	
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_fixed_light_medium_battery_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_fixed_light_medium_battery@highlight.dds"
 	}
-
-   spriteType = {
-		name = "GFX_SM_cruiser_hull_front_light_medium_battery_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_light_medium_battery.dds"
-	}
-	
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_front_light_medium_battery_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_light_medium_battery@highlight.dds"
-	}
-
-   spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_1_light_medium_battery_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_1_light_medium_battery.dds"
-	}
-	
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_1_light_medium_battery_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_1_light_medium_battery@highlight.dds"
-	}
-
-   spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_2_light_medium_battery_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_2_light_medium_battery.dds"
-	}
-	
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_mid_2_light_medium_battery_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_2_light_medium_battery@highlight.dds"
-	}
-	
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_rear_light_medium_battery_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_light_medium_battery.dds"
 	}
-	
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_rear_light_medium_battery_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_light_medium_battery@highlight.dds"
 	}
-
    
    ## light battery
-
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_front_light_battery_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_light_battery.dds"
@@ -435,7 +376,6 @@ spriteTypes = {
 		name = "GFX_SM_cruiser_hull_front_light_battery_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_light_battery@highlight.dds"
 	}
-
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_rear_light_battery_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_light_battery.dds"
@@ -445,48 +385,81 @@ spriteTypes = {
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_light_battery@highlight.dds"
 	}
 
+   ## light battery DP
+	spriteType = {
+		name = "GFX_SM_cruiser_hull_front_light_battery_dp_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_light_battery_dp.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_cruiser_hull_front_light_battery_dp_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_light_battery_dp@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_cruiser_hull_rear_light_battery_dp_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_light_battery_dp.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_cruiser_hull_rear_light_battery_dp_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_light_battery_dp@highlight.dds"
+	}
+
+   ## Airplane laucher
+	spriteType = {
+		name = "GFX_SM_cruiser_hull_mid_airplane_launcher_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_airplane_launcher.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_cruiser_hull_mid_airplane_launcher_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_airplane_launcher@highlight.dds"
+	}
+
+   ## Torpedo
+	spriteType = {
+		name = "GFX_SM_cruiser_hull_mid_1_torpedo_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_1_torpedo.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_cruiser_hull_mid_1_torpedo_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_1_torpedo@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_cruiser_hull_mid_2_torpedo_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_2_torpedo.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_cruiser_hull_mid_2_torpedo_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_2_torpedo@highlight.dds"
+	}
 
    ## Depth charge
    spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_1_depth_charge_ita"
+		name = "GFX_SM_cruiser_hull_rear_depth_charge_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_depth_charge.dds"
 	}
 	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_1_depth_charge_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_depth_charge@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_2_depth_charge_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_depth_charge.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_2_depth_charge_ita@highlight"
+		name = "GFX_SM_cruiser_hull_rear_depth_charge_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_depth_charge@highlight.dds"
 	}
 
    ## Mine layer
-
 	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_1_mine_layer_ita"
+		name = "GFX_SM_cruiser_hull_mid_mine_layer_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_mine_layer.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_cruiser_hull_mid_mine_layer_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_mine_layer@highlight.dds"
+	}
+   spriteType = {
+		name = "GFX_SM_cruiser_hull_rear_mine_layer_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_mine_layer.dds"
 	}
 	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_1_mine_layer_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_mine_layer@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_2_mine_layer_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_mine_layer.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_rear_2_mine_layer_ita@highlight"
+		name = "GFX_SM_cruiser_hull_rear_mine_layer_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_rear_mine_layer@highlight.dds"
 	}
 
    ## Secondary
-
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_fixed_secondaries_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_fixed_secondaries.dds"
@@ -495,37 +468,21 @@ spriteTypes = {
 		name = "GFX_SM_cruiser_hull_fixed_secondaries_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_fixed_secondaries@highlight.dds"
 	}
-
    spriteType = {
 		name = "GFX_SM_cruiser_hull_mid_1_secondaries_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_1_secondaries.dds"
 	}
-	
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_mid_1_secondaries_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_1_secondaries@highlight.dds"
 	}
-
    spriteType = {
 		name = "GFX_SM_cruiser_hull_mid_2_secondaries_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_2_secondaries.dds"
 	}
-	
 	spriteType = {
 		name = "GFX_SM_cruiser_hull_mid_2_secondaries_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_mid_2_secondaries@highlight.dds"
-	}
-
-   ## Heavy
-
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_front_heavy_battery_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_heavy_battery.dds"
-	}
-	
-	spriteType = {
-		name = "GFX_SM_cruiser_hull_front_heavy_battery_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/cruiser_hull/cruiser_hull_front_heavy_battery@highlight.dds"
 	}
 
 
@@ -541,27 +498,22 @@ spriteTypes = {
 		name = "GFX_SM_heavy_hull_fixed_anti_air_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_fixed_anti_air@highlight.dds"
 	}
-
    spriteType = {
-		name = "GFX_SM_heavy_hull_front1_anti_air_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_front1_anti_air.dds"
+		name = "GFX_SM_heavy_hull_front_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_front_anti_air.dds"
 	}
-	
 	spriteType = {
-		name = "GFX_SM_heavy_hull_front1_anti_air_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_front1_anti_air@highlight.dds"
+		name = "GFX_SM_heavy_hull_front_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_front_anti_air@highlight.dds"
 	}
-	
 	spriteType = {
 		name = "GFX_SM_heavy_hull_mid1_anti_air_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid1_anti_air.dds"
 	}
-	
 	spriteType = {
 		name = "GFX_SM_heavy_hull_mid1_anti_air_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid1_anti_air@highlight.dds"
 	}
-
    spriteType = {
 		name = "GFX_SM_heavy_hull_mid2_anti_air_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid2_anti_air.dds"
@@ -570,24 +522,21 @@ spriteTypes = {
 		name = "GFX_SM_heavy_hull_mid2_anti_air_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid2_anti_air@highlight.dds"
 	}
-	
 	spriteType = {
 		name = "GFX_SM_heavy_hull_mid3_anti_air_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid3_anti_air.dds"
 	}
-	
 	spriteType = {
 		name = "GFX_SM_heavy_hull_mid3_anti_air_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid3_anti_air@highlight.dds"
 	}
-
 	spriteType = {
-		name = "GFX_SM_heavy_hull_rear1_anti_air_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_rear1_anti_air.dds"
+		name = "GFX_SM_heavy_hull_rear_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_rear_anti_air.dds"
 	}
 	spriteType = {
-		name = "GFX_SM_heavy_hull_rear1_anti_air_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_rear1_anti_air@highlight.dds"
+		name = "GFX_SM_heavy_hull_rear_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_rear_anti_air@highlight.dds"
 	}
 
 	spriteType = {
@@ -599,35 +548,7 @@ spriteTypes = {
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid_airplane_launcher@highlight.dds"
 	}
 
-	spriteType = {
-		name = "GFX_SM_heavy_hull_mid1_torpedo_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid1_torpedos.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_heavy_hull_mid1_torpedo_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid1_torpedos@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_heavy_hull_mid2_torpedo_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid2_torpedos.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_heavy_hull_mid2_torpedo_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid2_torpedos@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_heavy_hull_mid3_torpedo_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid3_torpedos.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_heavy_hull_mid3_torpedo_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid3_torpedos@highlight.dds"
-	}
-
    ## Heavy
-
 	spriteType = {
 		name = "GFX_SM_heavy_hull_fixed_heavy_battery_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_fixed_heavy_battery.dds"
@@ -636,7 +557,6 @@ spriteTypes = {
 		name = "GFX_SM_heavy_hull_fixed_heavy_battery_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_fixed_heavy_battery@highlight.dds"
 	}
-
 	spriteType = {
 		name = "GFX_SM_heavy_hull_front1_heavy_battery_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_front1_heavy_battery.dds"
@@ -645,37 +565,16 @@ spriteTypes = {
 		name = "GFX_SM_heavy_hull_front1_heavy_battery_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_front1_heavy_battery@highlight.dds"
 	}
-
    spriteType = {
 		name = "GFX_SM_heavy_hull_rear_heavy_battery_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_rear_heavy_battery.dds"
 	}
-	
 	spriteType = {
 		name = "GFX_SM_heavy_hull_rear_heavy_battery_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_rear_heavy_battery@highlight.dds"
 	}
 
-	spriteType = {
-		name = "GFX_SM_heavy_hull_fixed_super_heavy_battery_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_fixed_super_heavy_battery.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_heavy_hull_fixed_super_heavy_battery_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_fixed_super_heavy_battery@highlight.dds"
-	}
-
-	spriteType = {
-		name = "GFX_SM_heavy_hull_rear1_super_heavy_battery_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_rear1_super_heavy_battery.dds"
-	}
-	spriteType = {
-		name = "GFX_SM_heavy_hull_rear1_super_heavy_battery_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_rear1_super_heavy_battery@highlight.dds"
-	}
-
    ## secondaries
-
 	spriteType = {
 		name = "GFX_SM_heavy_hull_fixed_secondaries_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_fixed_secondaries.dds"
@@ -684,7 +583,6 @@ spriteTypes = {
 		name = "GFX_SM_heavy_hull_fixed_secondaries_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_fixed_secondaries@highlight.dds"
 	}
-
 	spriteType = {
 		name = "GFX_SM_heavy_hull_mid1_secondaries_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid1_secondaries.dds"
@@ -693,7 +591,6 @@ spriteTypes = {
 		name = "GFX_SM_heavy_hull_mid1_secondaries_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid1_secondaries@highlight.dds"
 	}
-
 	spriteType = {
 		name = "GFX_SM_heavy_hull_mid2_secondaries_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid2_secondaries.dds"
@@ -702,16 +599,14 @@ spriteTypes = {
 		name = "GFX_SM_heavy_hull_mid2_secondaries_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid2_secondaries@highlight.dds"
 	}
-
 	spriteType = {
 		name = "GFX_SM_heavy_hull_mid3_secondaries_ita"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid2_secondaries.dds"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid3_secondaries.dds"
 	}
 	spriteType = {
 		name = "GFX_SM_heavy_hull_mid3_secondaries_ita@highlight"
-		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid2_secondaries@highlight.dds"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_mid3_secondaries@highlight.dds"
 	}
-
 	spriteType = {
 		name = "GFX_SM_heavy_hull_rear_secondaries_ita"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_rear_secondaries.dds"
@@ -719,6 +614,216 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_SM_heavy_hull_rear_secondaries_ita@highlight"
 		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/heavy_hull_rear_secondaries@highlight.dds"
+	}
+
+###################################################
+# Battleship 1
+###################################################
+   spriteType = {
+		name = "GFX_SM_heavy_hull_1_fixed_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_fixed_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_heavy_hull_1_fixed_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_fixed_anti_air@highlight.dds"
+	}
+   spriteType = {
+		name = "GFX_SM_heavy_hull_1_mid1_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_mid1_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_heavy_hull_1_mid1_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_mid1_anti_air@highlight.dds"
+	}
+   spriteType = {
+		name = "GFX_SM_heavy_hull_1_mid2_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_mid2_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_heavy_hull_1_mid2_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_mid2_anti_air@highlight.dds"
+	}
+
+## secondaries
+	spriteType = {
+		name = "GFX_SM_heavy_hull_1_fixed_secondaries_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_fixed_secondaries.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_heavy_hull_1_fixed_secondaries_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_fixed_secondaries@highlight.dds"
+	}
+   spriteType = {
+		name = "GFX_SM_heavy_hull_1_mid2_secondaries_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_mid2_secondaries.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_heavy_hull_1_mid2_secondaries_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_mid2_secondaries@highlight.dds"
+	}
+
+## Heavy
+	spriteType = {
+		name = "GFX_SM_heavy_hull_1_fixed_heavy_battery_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_fixed_heavy_battery.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_heavy_hull_1_fixed_heavy_battery_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_fixed_heavy_battery@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_heavy_hull_1_front_heavy_battery_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_front_heavy_battery.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_heavy_hull_1_front_heavy_battery_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_front_heavy_battery@highlight.dds"
+	}
+   spriteType = {
+		name = "GFX_SM_heavy_hull_1_rear_heavy_battery_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_rear_heavy_battery.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_heavy_hull_1_rear_heavy_battery_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_rear_heavy_battery@highlight.dds"
+	}
+
+   spriteType = {
+		name = "GFX_SM_heavy_hull_1_mid_airplane_launcher_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_mid_airplane_launcher.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_heavy_hull_1_mid_airplane_launcher_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/heavy_hull/T1/heavy_hull_mid_airplane_launcher@highlight.dds"
+	}
+
+###################################################
+# Super Heavy Battleship
+###################################################
+
+   spriteType = {
+		name = "GFX_SM_super_heavy_hull_fixed_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_fixed_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_fixed_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_fixed_anti_air@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_front1_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_front1_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_front1_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_front1_anti_air@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_front2_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_front2_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_front2_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_front2_anti_air@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_mid1_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_mid1_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_mid1_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_mid1_anti_air@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_mid2_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_mid2_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_mid2_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_mid2_anti_air@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_mid3_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_mid3_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_mid3_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_mid3_anti_air@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_rear1_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_rear1_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_rear1_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_rear1_anti_air@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_rear2_anti_air_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_rear2_anti_air.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_rear2_anti_air_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_rear2_anti_air@highlight.dds"
+	}
+
+   ## Super heavy battery
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_fixed_heavy_battery_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_fixed_super_heavy_battery.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_fixed_heavy_battery_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_fixed_super_heavy_battery@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_rear_heavy_battery_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_rear_super_heavy_battery.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_rear_heavy_battery_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_rear_super_heavy_battery@highlight.dds"
+	}
+
+   ## Secondaries
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_fixed_secondaries_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_fixed_secondaries.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_fixed_secondaries_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_fixed_secondaries@highlight.dds"
+	}
+   spriteType = {
+		name = "GFX_SM_super_heavy_hull_mid1_secondaries_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_mid1_secondaries.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_mid1_secondaries_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_mid1_secondaries@highlight.dds"
+	}
+   spriteType = {
+		name = "GFX_SM_super_heavy_hull_mid2_secondaries_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_mid2_secondaries.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_mid2_secondaries_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_mid2_secondaries@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_mid3_secondaries_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_mid3_secondaries.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_mid3_secondaries_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_mid3_secondaries@highlight.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_rear1_secondaries_ita"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_rear1_secondaries.dds"
+	}
+	spriteType = {
+		name = "GFX_SM_super_heavy_hull_rear1_secondaries_ita@highlight"
+		textureFile = "gfx/interface/equipmentdesigner/naval/topviews/ITA/super_heavy_hull/super_heavy_hull_rear1_secondaries@highlight.dds"
 	}
 
 ###################################################

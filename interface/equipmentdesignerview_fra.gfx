@@ -12,6 +12,10 @@ spriteTypes = {
       textureFile = "gfx/interface/equipmentdesigner/naval/topviews/FRA/topview_carrier.dds"
    }
    spriteType = {
+      name = "GFX_SD_tv_carrier_conversion_bb_fra"
+      textureFile = "gfx/interface/equipmentdesigner/naval/topviews/FRA/topview_carrier_bb.dds"
+   }
+   spriteType = {
       name = "GFX_SD_tv_heavy_fra"
       textureFile = "gfx/interface/equipmentdesigner/naval/topviews/FRA/topview_battleship.dds"
    }
@@ -23,8 +27,21 @@ spriteTypes = {
       name = "GFX_SD_tv_submarine_fra"
       textureFile = "gfx/interface/equipmentdesigner/naval/topviews/FRA/topview_submarine.dds"
    }
+
    spriteType = {
       name = "GFX_SD_tv_light_fra"
       textureFile = "gfx/interface/equipmentdesigner/naval/topviews/FRA/topview_destroyer.dds"
+   }
+   spriteType = {
+      name = "GFX_SD_tv_light_1_fra"
+      textureFile = "gfx/interface/equipmentdesigner/naval/topviews/FRA/topview_destroyer_1.dds"
+   }
+   spriteType = {
+      name = "GFX_SD_tv_light_2_fra"
+      textureFile = "gfx/interface/equipmentdesigner/naval/topviews/FRA/topview_destroyer_2.dds"
+   }
+   spriteType = {
+      name = "GFX_SD_tv_light_3_fra"
+      textureFile = "gfx/interface/equipmentdesigner/naval/topviews/FRA/topview_destroyer_3.dds"
    }
 }

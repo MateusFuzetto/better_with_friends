@@ -24,7 +24,11 @@ spriteTypes = {
       textureFile = "gfx/interface/equipmentdesigner/naval/topviews/HOL/topview_submarine.dds"
    }
    spriteType = {
-      name = "GFX_SD_tv_light_hol"
-      textureFile = "gfx/interface/equipmentdesigner/naval/topviews/HOL/topview_destroyer.dds"
+      name = "GFX_SD_tv_light_1_hol"
+      textureFile = "gfx/interface/equipmentdesigner/naval/topviews/HOL/topview_destroyer_1.dds"
+   }
+   spriteType = {
+      name = "GFX_SD_tv_light_2_hol"
+      textureFile = "gfx/interface/equipmentdesigner/naval/topviews/HOL/topview_destroyer_2.dds"
    }
 }

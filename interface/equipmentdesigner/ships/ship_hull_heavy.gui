@@ -119,7 +119,6 @@ guiTypes = {
 				}
 			}
 
-
 			################# MODULE SLOT: Engine #################
 			containerWindowType = {
 				name = "fixed_ship_engine_slot"
@@ -419,7 +418,6 @@ guiTypes = {
 					}
 				}
 				
-
 				containerWindowType = {
 					name = "ship_super_heavy_battery"
 					position = { x=0 y=0 }
@@ -450,30 +448,6 @@ guiTypes = {
 				name = "mid_1_custom_slot"
 				position = { x=0 y=0 }
 				size = { width=100% height=100% }
-
-				#### MODULE: Torpedo ####
-				containerWindowType = {
-					name = "ship_torpedo"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "image"
-						spriteType = "GFX_SM_heavy_hull_mid1_torpedo_ger"
-						position = { x=182 y=0 }
-					}
-				}
-				containerWindowType = {
-					name = "ship_torpedo@highlight"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "highlight"
-						spriteType = "GFX_SM_heavy_hull_mid1_torpedo_ger@highlight"
-						position = { x=182 y=0 }
-					}
-				}
 
 				#### MODULE: Airplane Launcher ####
 				containerWindowType = {
@@ -889,30 +863,6 @@ guiTypes = {
 						position = { x=292 y=0 }
 					}
 				}
-				
-				#### MODULE: Torpedo ####
-				containerWindowType = {
-					name = "ship_torpedo"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "image"
-						spriteType = "GFX_SM_heavy_hull_mid2_torpedo_ger"
-						position = { x=170 y=0 }
-					}
-				}
-				containerWindowType = {
-					name = "ship_torpedo@highlight"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "highlight"
-						spriteType = "GFX_SM_heavy_hull_mid2_torpedo_ger@highlight"
-						position = { x=170 y=0 }
-					}
-				}
 
 				#### MODULE: Anti-Air ####
 				containerWindowType = {
@@ -1041,30 +991,6 @@ guiTypes = {
 					}
 				}
 
-				#### MODULE: Torpedo ####
-				containerWindowType = {
-					name = "ship_torpedo"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "image"
-						spriteType = "GFX_SM_heavy_hull_mid3_torpedo_ger"
-						position = { x=160 y=0 }
-					}
-				}
-				containerWindowType = {
-					name = "ship_torpedo@highlight"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "highlight"
-						spriteType = "GFX_SM_heavy_hull_mid3_torpedo_ger@highlight"
-						position = { x=160 y=0 }
-					}
-				}
-
 				#### MODULE: Anti-Air ####
 				containerWindowType = {
 					name = "ship_anti_air"
@@ -1137,7 +1063,6 @@ guiTypes = {
 					}
 				}
 			}
-
 		}
 	}
 }

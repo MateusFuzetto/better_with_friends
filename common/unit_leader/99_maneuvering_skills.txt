@@ -1,24 +1,24 @@
 leader_maneuvering_skills = {										
 ### NAVY ###										
- 1 = {	cost = 	100	   type = navy	   modifier = {	   positioning = 	0.025	   naval_retreat_speed = 	0.01	  }	 }
- 2 = {	cost = 	300	   type = navy	   modifier = {	   positioning = 	0.05	   naval_retreat_speed = 	0.02	  }	 }
- 3 = {	cost = 	500	   type = navy	   modifier = {	   positioning = 	0.075	   naval_retreat_speed = 	0.03	  }	 }
- 4 = {	cost = 	1000	   type = navy	   modifier = {	   positioning = 	0.1	   naval_retreat_speed = 	0.04	  }	 }
- 5 = {	cost = 	1500	   type = navy	   modifier = {	   positioning = 	0.125	   naval_retreat_speed = 	0.05	  }	 }
- 6 = {	cost = 	2500	   type = navy	   modifier = {	   positioning = 	0.15	   naval_retreat_speed = 	0.06	  }	 }
- 7 = {	cost = 	5000	   type = navy	   modifier = {	   positioning = 	0.175	   naval_retreat_speed = 	0.07	  }	 }
- 8 = {	cost = 	7500	   type = navy	   modifier = {	   positioning = 	0.2	   naval_retreat_speed = 	0.08	  }	 }
- 9 = {	cost = 	10000	   type = navy	   modifier = {	   positioning = 	0.225	   naval_retreat_speed = 	0.09	  }	 }
- 10 = {	cost = 	15000	   type = navy	   modifier = {	   positioning = 	0.25	   naval_retreat_speed = 	0.1	  }	 }
- 11 = {	cost = 	20000	   type = navy	   modifier = {	   positioning = 	0.275	   naval_retreat_speed = 	0.11	  }	 }
- 12 = {	cost = 	25000	   type = navy	   modifier = {	   positioning = 	0.3	   naval_retreat_speed = 	0.12	  }	 }
- 13 = {	cost = 	30000	   type = navy	   modifier = {	   positioning = 	0.325	   naval_retreat_speed = 	0.13	  }	 }
- 14 = {	cost = 	35000	   type = navy	   modifier = {	   positioning = 	0.35	   naval_retreat_speed = 	0.14	  }	 }
- 15 = {	cost = 	40000	   type = navy	   modifier = {	   positioning = 	0.375	   naval_retreat_speed = 	0.15	  }	 }
- 16 = {	cost = 	50000	   type = navy	   modifier = {	   positioning = 	0.4	   naval_retreat_speed = 	0.16	  }	 }
- 17 = {	cost = 	60000	   type = navy	   modifier = {	   positioning = 	0.425	   naval_retreat_speed = 	0.17	  }	 }
- 18 = {	cost = 	70000	   type = navy	   modifier = {	   positioning = 	0.45	   naval_retreat_speed = 	0.18	  }	 }
- 19 = {	cost = 	80000	   type = navy	   modifier = {	   positioning = 	0.475	   naval_retreat_speed = 	0.19	  }	 }
- 20 = {	cost = 	90000	   type = navy	   modifier = {	   positioning = 	0.5	   naval_retreat_speed = 	0.2	  }	 }
+ 1 = {	cost = 	100	      type = navy	   modifier = {	   positioning = 	0.025	   naval_retreat_speed = 	0.01	  }	 }
+ 2 = {	cost = 	200	      type = navy	   modifier = {	   positioning = 	0.05	   naval_retreat_speed = 	0.02	  }	 }
+ 3 = {	cost = 	400	      type = navy	   modifier = {	   positioning = 	0.075	   naval_retreat_speed = 	0.03	  }	 }
+ 4 = {	cost = 	700		   type = navy	   modifier = {	   positioning = 	0.1	       naval_retreat_speed = 	0.04	  }	 }
+ 5 = {	cost = 	1200	   type = navy	   modifier = {	   positioning = 	0.125	   naval_retreat_speed = 	0.05	  }	 }
+ 6 = {	cost = 	2000	   type = navy	   modifier = {	   positioning = 	0.15	   naval_retreat_speed = 	0.06	  }	 }
+ 7 = {	cost = 	3000	   type = navy	   modifier = {	   positioning = 	0.175	   naval_retreat_speed = 	0.07	  }	 }
+ 8 = {	cost = 	4500	   type = navy	   modifier = {	   positioning = 	0.2	       naval_retreat_speed = 	0.08	  }	 }
+ 9 = {	cost = 	6500	   type = navy	   modifier = {	   positioning = 	0.225	   naval_retreat_speed = 	0.09	  }	 }
+ 10 = {	cost = 	9000	   type = navy	   modifier = {	   positioning = 	0.25	   naval_retreat_speed = 	0.1	      }	 }
+ 11 = {	cost = 	12000	   type = navy	   modifier = {	   positioning = 	0.275	   naval_retreat_speed = 	0.11	  }	 }
+ 12 = {	cost = 	16000	   type = navy	   modifier = {	   positioning = 	0.3	       naval_retreat_speed = 	0.12	  }	 }
+ 13 = {	cost = 	20000	   type = navy	   modifier = {	   positioning = 	0.325	   naval_retreat_speed = 	0.13	  }	 }
+ 14 = {	cost = 	25000	   type = navy	   modifier = {	   positioning = 	0.35	   naval_retreat_speed = 	0.14	  }	 }
+ 15 = {	cost = 	30000	   type = navy	   modifier = {	   positioning = 	0.375	   naval_retreat_speed = 	0.15	  }	 }
+ 16 = {	cost = 	40000	   type = navy	   modifier = {	   positioning = 	0.4	       naval_retreat_speed = 	0.16	  }	 }
+ 17 = {	cost = 	50000	   type = navy	   modifier = {	   positioning = 	0.425	   naval_retreat_speed = 	0.17	  }	 }
+ 18 = {	cost = 	60000	   type = navy	   modifier = {	   positioning = 	0.45	   naval_retreat_speed = 	0.18	  }	 }
+ 19 = {	cost = 	70000	   type = navy	   modifier = {	   positioning = 	0.475	   naval_retreat_speed = 	0.19	  }	 }
+ 20 = {	cost = 	80000	   type = navy	   modifier = {	   positioning = 	0.5	       naval_retreat_speed = 	0.2	      }	 }
 
 }

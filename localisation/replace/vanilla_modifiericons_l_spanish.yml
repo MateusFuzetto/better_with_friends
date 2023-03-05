@@ -842,7 +842,7 @@
  MODIFIER_COMMAND_POWER_GAIN_MULT:0 "£command_power_texticon  Multiplicador de ganancia de poder de mando diario"
  MODIFIER_MAX_COMMAND_POWER_MULT:0 "£command_power_max_texticon  Multiplicador de aumento de poder de mando máximo"
  MODIFIER_COMMAND_ABILITIES_COST_FACTOR:0 "£ability_cost_texticon  Coste de habilidades de comandante"
- MODIFIER_ATTACK_BONUS_AGAINST_A_COUNTRY:0 "£attack_texticon  Bonificación de ataque contra el país"
+ MODIFIER_ATTACK_BONUS_AGAINST_A_COUNTRY:0 " £attack_texticon  Bonificación de ataque contra el país"
  MODIFIER_ATTACK_BONUS_AGAINST_A_COUNTRY_ON_ITS_CORES:0 "£attack_core_texticon  Ataque en su territorio esencial"
  MODIFIER_DEFENSE_BONUS_AGAINST_A_COUNTRY:1 "£defence_texticon  Bonificación de defensa contra el país"
  MODIFIER_CIVILIAN_FACTORY_USE:0 "£civ_factory  Uso de fábrica civil"

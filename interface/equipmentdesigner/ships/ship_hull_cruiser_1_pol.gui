@@ -16,7 +16,7 @@ guiTypes = {
 
 		iconType = {
 			name = "equipment_image"
-			spriteType = "GFX_SD_tv_cruiser_1_eng"
+			spriteType = "GFX_SD_tv_cruiser_1_pol"
 			position = { x=0 y=0 }
 		}
 
@@ -39,7 +39,7 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_fixed_anti_air_eng"
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_anti_air_pol"
 						position = { x=214 y=0 }
 					}
 				}
@@ -51,8 +51,63 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_1_fixed_anti_air_eng@highlight"
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_anti_air_pol@highlight"
 						position = { x=214 y=0 }
+					}
+				}
+			}
+
+         ################# MODULE SLOT: Secondaries #################
+			containerWindowType = {
+				name = "fixed_ship_secondaries_slot"
+				position = { x=0 y=0 }
+				size = { width=100% height=100% }
+
+				containerWindowType = {
+					name = "ship_secondaries"
+					position = { x=0 y=0 }
+					size = { width=100% height=100% }
+					
+					iconType = {
+						name = "blueprint"
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_secondaries_pol"
+						position = { x=381 y=0 }
+					}
+				}
+
+				containerWindowType = {
+					name = "ship_secondaries@highlight"
+					position = { x=0 y=0 }
+					size = { width=100% height=100% }
+					
+					iconType = {
+						name = "highlight"
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_secondaries_pol@highlight"
+						position = { x=381 y=0 }
+					}
+				}
+
+				containerWindowType = {
+					name = "ship_dp_secondaries"
+					position = { x=0 y=0 }
+					size = { width=100% height=100% }
+					
+					iconType = {
+						name = "blueprint"
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_secondaries_pol"
+						position = { x=381 y=0 }
+					}
+				}
+
+				containerWindowType = {
+					name = "ship_dp_secondaries@highlight"
+					position = { x=0 y=0 }
+					size = { width=100% height=100% }
+					
+					iconType = {
+						name = "highlight"
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_secondaries_pol@highlight"
+						position = { x=381 y=0 }
 					}
 				}
 			}
@@ -177,7 +232,7 @@ guiTypes = {
 				size = { width=100% height=100% }
 
 				containerWindowType = {
-					name = "cruiser_ship_engine"
+					name = "cruiser_ship_poline"
 					position = { x=0 y=0 }
 					size = { width=100% height=100% }
 					
@@ -189,7 +244,7 @@ guiTypes = {
 				}
 
 				containerWindowType = {
-					name = "cruiser_ship_engine@highlight"
+					name = "cruiser_ship_poline@highlight"
 					position = { x=0 y=0 }
 					size = { width=100% height=100% }
 					
@@ -201,60 +256,6 @@ guiTypes = {
 				}
 			}
 			
-			################# MODULE SLOT: Secondaries #################
-			containerWindowType = {
-				name = "fixed_ship_secondaries_slot"
-				position = { x=0 y=0 }
-				size = { width=100% height=100% }
-
-				containerWindowType = {
-					name = "ship_secondaries"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "blueprint"
-						spriteType = "GFX_SM_cruiser_hull_mid_2_secondaries_eng"
-						position = { x=376 y=0 }
-					}
-				}
-
-				containerWindowType = {
-					name = "ship_secondaries@highlight"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_mid_2_secondaries_eng@highlight"
-						position = { x=376 y=0 }
-					}
-				}
-
-				containerWindowType = {
-					name = "ship_dp_secondaries"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "blueprint"
-						spriteType = "GFX_SM_cruiser_hull_mid_2_secondaries_eng"
-						position = { x=376 y=0 }
-					}
-				}
-
-				containerWindowType = {
-					name = "ship_dp_secondaries@highlight"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_mid_2_secondaries_eng@highlight"
-						position = { x=376 y=0 }
-					}
-				}
-			}
 
 			################# MODULE SLOT: Armor #################
 			containerWindowType = {
@@ -325,7 +326,7 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_mid_torpedo_eng"
+						spriteType = "GFX_SM_cruiser_hull_1_mid_torpedo_pol"
 						position = { x=231 y=0 }
 					}
 				}
@@ -336,7 +337,7 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_1_mid_torpedo_eng@highlight"
+						spriteType = "GFX_SM_cruiser_hull_1_mid_torpedo_pol@highlight"
 						position = { x=231 y=0 }
 					}
 				}
@@ -350,8 +351,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_medium_battery_eng"
-						position = { x=266 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_medium_battery_pol"
+						position = { x=269 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -361,8 +362,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_rear_medium_battery_eng@highlight"
-						position = { x=266 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_medium_battery_pol@highlight"
+						position = { x=269 y=0 }
 					}
 				}
 
@@ -373,8 +374,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_medium_battery_eng"
-						position = { x=270 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_medium_battery_pol"
+						position = { x=273 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -384,8 +385,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_medium_battery_eng@highlight"
-						position = { x=270 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_medium_battery_pol@highlight"
+						position = { x=273 y=0 }
 					}
 				}
 
@@ -397,8 +398,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_mid_2_secondaries_eng"
-						position = { x=270 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_secondaries_pol"
+						position = { x=274 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -408,8 +409,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_mid_2_secondaries_eng@highlight"
-						position = { x=270 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_secondaries_pol@highlight"
+						position = { x=274 y=0 }
 					}
 				}
 
@@ -420,8 +421,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_mid_2_secondaries_eng"
-						position = { x=270 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_secondaries_pol"
+						position = { x=274 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -431,8 +432,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_mid_2_secondaries_eng@highlight"
-						position = { x=270 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_secondaries_pol@highlight"
+						position = { x=274 y=0 }
 					}
 				}
 
@@ -444,8 +445,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_anti_air_eng"
-						position = { x=270 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_anti_air_pol"
+						position = { x=274 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -455,8 +456,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_rear_anti_air_eng@highlight"
-						position = { x=270 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_anti_air_pol@highlight"
+						position = { x=274 y=0 }
 					}
 				}
 				
@@ -468,8 +469,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_airplane_launcher_eng"
-						position = { x=260 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_airplane_launcher_pol"
+						position = { x=264 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -479,8 +480,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_1_airplane_launcher_eng@highlight"
-						position = { x=260 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_airplane_launcher_pol@highlight"
+						position = { x=264 y=0 }
 					}
 				}
 				
@@ -492,8 +493,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_2_mine_layer_eng"
-						position = { x=342 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_mine_layer_pol"
+						position = { x=353 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -503,8 +504,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_rear_2_mine_layer_eng@highlight"
-						position = { x=342 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_mine_layer_pol@highlight"
+						position = { x=353 y=0 }
 					}
 				}
 
@@ -516,8 +517,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_eng"
-						position = { x=270 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_pol"
+						position = { x=274 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -527,8 +528,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_eng@highlight"
-						position = { x=270 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_pol@highlight"
+						position = { x=274 y=0 }
 					}
 				}
 
@@ -539,8 +540,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_eng"
-						position = { x=270 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_pol"
+						position = { x=274 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -550,8 +551,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_eng@highlight"
-						position = { x=270 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_pol@highlight"
+						position = { x=274 y=0 }
 					}
 				}
 
@@ -571,8 +572,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_fixed_medium_battery_eng"
-						position = { x=93 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_medium_battery_pol"
+						position = { x=87 y=0 }
 					}
 				}
 
@@ -583,8 +584,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_fixed_medium_battery_eng@highlight"
-						position = { x=93 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_medium_battery_pol@highlight"
+						position = { x=87 y=0 }
 					}
 				}
 
@@ -595,8 +596,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_fixed_light_medium_battery_eng"
-						position = { x=104 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_light_medium_battery_pol"
+						position = { x=98 y=0 }
 					}
 				}
 
@@ -607,8 +608,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_1_fixed_light_medium_battery_eng@highlight"
-						position = { x=104 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_light_medium_battery_pol@highlight"
+						position = { x=98 y=0 }
 					}
 				}
 				
@@ -620,8 +621,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_fixed_light_battery_eng"
-						position = { x=142 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_light_battery_pol"
+						position = { x=138 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -631,8 +632,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_fixed_light_battery_eng@highlight"
-						position = { x=142 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_light_battery_pol@highlight"
+						position = { x=138 y=0 }
 					}
 				}
 
@@ -643,8 +644,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_fixed_light_battery_eng"
-						position = { x=142 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_light_battery_pol"
+						position = { x=138 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -654,34 +655,10 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_fixed_light_battery_eng@highlight"
-						position = { x=142 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_light_battery_pol@highlight"
+						position = { x=138 y=0 }
 					}
 				}
-
-				containerWindowType = {
-					name = "ship_heavy_battery"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_front_heavy_battery_eng"
-						position = { x=67 y=0 }
-					}
-				}
-				containerWindowType = {
-					name = "ship_heavy_battery@highlight"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_front_heavy_battery_eng@highlight"
-						position = { x=67 y=0}
-					}
-				}
-
 			}
 
 			################# MODULE SLOT: Custom, Rear #1 #################
@@ -689,30 +666,6 @@ guiTypes = {
 				name = "rear_1_custom_slot"
 				position = { x=0 y=0 }
 				size = { width=100% height=100% }
-
-				#### MODULE: Torpedo ####
-				containerWindowType = {
-					name = "ship_torpedo"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_torpedo_eng"
-						position = { x=340 y=0 }
-					}
-				}
-				containerWindowType = {
-					name = "ship_torpedo@highlight"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_torpedo_eng@highlight"
-						position = { x=340 y=0 }
-					}
-				}
 
 				#### MODULE: Mine Layer ####
 				containerWindowType = {
@@ -722,7 +675,7 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_2_mine_layer_eng"
+						spriteType = "GFX_SM_cruiser_hull_1_mine_layer_pol"
 						position = { x=342 y=0 }
 					}
 				}
@@ -733,11 +686,10 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_2_mine_layer_eng@highlight"
+						spriteType = "GFX_SM_cruiser_hull_1_mine_layer_pol@highlight"
 						position = { x=342 y=0 }
 					}
 				}
-
 
 				#### MODULE: Depth Charge ####
 				containerWindowType = {
@@ -747,8 +699,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_depth_charge_eng"
-						position = { x=438 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_depth_charge_pol"
+						position = { x=455 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -758,8 +710,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_depth_charge_eng@highlight"
-						position = { x=438 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_depth_charge_pol@highlight"
+						position = { x=455 y=0 }
 					}
 				}
 
@@ -771,8 +723,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_anti_air_eng"
-						position = { x=400 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_anti_air_pol"
+						position = { x=411 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -782,8 +734,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_anti_air_eng@highlight"
-						position = { x=400 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_anti_air_pol@highlight"
+						position = { x=411 y=0 }
 					}
 				}
 				
@@ -795,8 +747,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_airplane_launcher_eng"
-						position = { x=390 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_airplane_launcher_pol"
+						position = { x=402 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -806,11 +758,10 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_airplane_launcher_eng@highlight"
-						position = { x=390 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_airplane_launcher_pol@highlight"
+						position = { x=402 y=0 }
 					}
 				}
-
 
 				#### MODULE: Medium Battery ####
 				containerWindowType = {
@@ -820,8 +771,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_medium_battery_eng"
-						position = { x=393 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_medium_battery_pol"
+						position = { x=404 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -831,8 +782,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_medium_battery_eng@highlight"
-						position = { x=393 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_medium_battery_pol@highlight"
+						position = { x=404 y=0 }
 					}
 				}
 				
@@ -843,8 +794,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_medium_battery_eng"
-						position = { x=398 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_medium_battery_pol"
+						position = { x=410 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -854,8 +805,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_medium_battery_eng@highlight"
-						position = { x=398 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_medium_battery_pol@highlight"
+						position = { x=410 y=0 }
 					}
 				}
 				
@@ -867,8 +818,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_eng"
-						position = { x=398 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_pol"
+						position = { x=411 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -878,8 +829,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_eng@highlight"
-						position = { x=398 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_pol@highlight"
+						position = { x=411 y=0 }
 					}
 				}
 
@@ -890,8 +841,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_eng"
-						position = { x=398 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_pol"
+						position = { x=411 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -901,8 +852,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_eng@highlight"
-						position = { x=398 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_pol@highlight"
+						position = { x=411 y=0 }
 					}
 				}
 
@@ -922,7 +873,7 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_mid_torpedo_eng"
+						spriteType = "GFX_SM_cruiser_hull_1_mid_torpedo_pol"
 						position = { x=281 y=0 }
 					}
 				}
@@ -933,7 +884,7 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_1_mid_torpedo_eng@highlight"
+						spriteType = "GFX_SM_cruiser_hull_1_mid_torpedo_pol@highlight"
 						position = { x=281 y=0 }
 					}
 				}
@@ -946,8 +897,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_mid_2_secondaries_eng"
-						position = { x=350 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_secondaries_pol"
+						position = { x=359 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -957,8 +908,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_mid_2_secondaries_eng@highlight"
-						position = { x=350 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_secondaries_pol@highlight"
+						position = { x=359 y=0 }
 					}
 				}
 
@@ -969,8 +920,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_mid_2_secondaries_eng"
-						position = { x=350 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_secondaries_pol"
+						position = { x=359 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -980,8 +931,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_mid_2_secondaries_eng@highlight"
-						position = { x=350 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_fixed_secondaries_pol@highlight"
+						position = { x=359 y=0 }
 					}
 				}
 
@@ -993,8 +944,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_medium_battery_eng"
-						position = { x=346 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_medium_battery_pol"
+						position = { x=356 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -1004,8 +955,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_rear_medium_battery_eng@highlight"
-						position = { x=346 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_medium_battery_pol@highlight"
+						position = { x=356 y=0 }
 					}
 				}
 
@@ -1016,8 +967,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_medium_battery_eng"
-						position = { x=351 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_medium_battery_pol"
+						position = { x=359 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -1027,8 +978,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_medium_battery_eng@highlight"
-						position = { x=351 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_medium_battery_pol@highlight"
+						position = { x=359 y=0 }
 					}
 				}
 				
@@ -1040,8 +991,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_airplane_launcher_eng"
-						position = { x=341 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_airplane_launcher_pol"
+						position = { x=350 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -1051,11 +1002,10 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_1_airplane_launcher_eng@highlight"
-						position = { x=341 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_airplane_launcher_pol@highlight"
+						position = { x=350 y=0 }
 					}
 				}
-
 
 				#### MODULE: Anti-Air ####
 				containerWindowType = {
@@ -1065,8 +1015,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_anti_air_eng"
-						position = { x=351 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_anti_air_pol"
+						position = { x=360 y=0 }
 					}
 				}
 
@@ -1077,8 +1027,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_rear_anti_air_eng@highlight"
-						position = { x=351 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_anti_air_pol@highlight"
+						position = { x=360 y=0 }
 					}
 				}
 
@@ -1090,8 +1040,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_rear_2_mine_layer_eng"
-						position = { x=342 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_mine_layer_pol"
+						position = { x=353 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -1101,8 +1051,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "highlight"
-						spriteType = "GFX_SM_cruiser_hull_rear_2_mine_layer_eng@highlight"
-						position = { x=342 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_mine_layer_pol@highlight"
+						position = { x=353 y=0 }
 					}
 				}
 
@@ -1114,8 +1064,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_eng"
-						position = { x=350 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_pol"
+						position = { x=359 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -1125,8 +1075,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_eng@highlight"
-						position = { x=350 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_pol@highlight"
+						position = { x=359 y=0 }
 					}
 				}
 
@@ -1137,8 +1087,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_eng"
-						position = { x=350 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_pol"
+						position = { x=359 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -1148,8 +1098,8 @@ guiTypes = {
 					
 					iconType = {
 						name = "image"
-						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_eng@highlight"
-						position = { x=350 y=0 }
+						spriteType = "GFX_SM_cruiser_hull_1_rear_light_battery_pol@highlight"
+						position = { x=359 y=0 }
 					}
 				}
 

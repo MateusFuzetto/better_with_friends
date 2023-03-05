@@ -40,7 +40,7 @@ guiTypes = {
 					iconType = {
 						name = "image"
 						spriteType = "GFX_SM_carrier_hull_fixed_anti_air_jap"
-						position = { x=316 y=0 }
+						position = { x=318 y=0 }
 					}
 				}
 
@@ -52,7 +52,7 @@ guiTypes = {
 					iconType = {
 						name = "highlight"
 						spriteType = "GFX_SM_carrier_hull_fixed_anti_air_jap@highlight"
-						position = { x=316 y=0 }
+						position = { x=318 y=0 }
 					}
 				}
 			}
@@ -238,7 +238,7 @@ guiTypes = {
 					iconType = {
 						name = "blueprint"
 						spriteType = "GFX_SM_carrier_hull_fixed_secondaries_jap"
-						position = { x=322 y=0 }
+						position = { x=325 y=0 }
 					}
 				}
 
@@ -250,7 +250,7 @@ guiTypes = {
 					iconType = {
 						name = "highlight"
 						spriteType = "GFX_SM_carrier_hull_fixed_secondaries_jap@highlight"
-						position = { x=322 y=0 }
+						position = { x=325 y=0 }
 					}
 				}
 
@@ -262,7 +262,7 @@ guiTypes = {
 					iconType = {
 						name = "blueprint"
 						spriteType = "GFX_SM_carrier_hull_fixed_secondaries_jap"
-						position = { x=322 y=0 }
+						position = { x=325 y=0 }
 					}
 				}
 
@@ -274,7 +274,7 @@ guiTypes = {
 					iconType = {
 						name = "highlight"
 						spriteType = "GFX_SM_carrier_hull_fixed_secondaries_jap@highlight"
-						position = { x=322 y=0 }
+						position = { x=325 y=0 }
 					}
 				}
 			}
@@ -452,7 +452,7 @@ guiTypes = {
 					iconType = {
 						name = "image"
 						spriteType = "GFX_SM_carrier_hull_front1_anti_air_jap"
-						position = { x=206 y=0 }
+						position = { x=208 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -463,7 +463,7 @@ guiTypes = {
 					iconType = {
 						name = "highlight"
 						spriteType = "GFX_SM_carrier_hull_front1_anti_air_jap@highlight"
-						position = { x=206 y=0 }
+						position = { x=208 y=0 }
 					}
 				}
 				
@@ -533,7 +533,7 @@ guiTypes = {
 					iconType = {
 						name = "image"
 						spriteType = "GFX_SM_carrier_hull_front1_secondaries_jap"
-						position = { x=98 y=0 }
+						position = { x=102 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -544,7 +544,7 @@ guiTypes = {
 					iconType = {
 						name = "highlight"
 						spriteType = "GFX_SM_carrier_hull_front1_secondaries_jap@highlight"
-						position = { x=98 y=0 }
+						position = { x=102 y=0 }
 					}
 				}
 
@@ -556,7 +556,7 @@ guiTypes = {
 					iconType = {
 						name = "image"
 						spriteType = "GFX_SM_carrier_hull_front1_secondaries_jap"
-						position = { x=98 y=0 }
+						position = { x=102 y=0 }
 					}
 				}
 				containerWindowType = {
@@ -567,7 +567,7 @@ guiTypes = {
 					iconType = {
 						name = "highlight"
 						spriteType = "GFX_SM_carrier_hull_front1_secondaries_jap@highlight"
-						position = { x=98 y=0 }
+						position = { x=102 y=0 }
 					}
 				}
 				
@@ -619,109 +619,6 @@ guiTypes = {
 					}
 				}
 			
-			}
-
-			################# MODULE SLOT: Custom, Middle #2 #################
-			containerWindowType = {
-				name = "mid_2_custom_slot"
-				position = { x=0 y=0 }
-				size = { width=100% height=100% }
-
-            #### MODULE: Secondaries ####
-				containerWindowType = {
-					name = "ship_secondaries"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "image"
-						spriteType = "GFX_SM_carrier_hull_mid_secondaries_jap"
-						position = { x=132 y=0 }
-					}
-				}
-				containerWindowType = {
-					name = "ship_secondaries@highlight"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "highlight"
-						spriteType = "GFX_SM_carrier_hull_mid_secondaries_jap@highlight"
-						position = { x=132 y=0 }
-					}
-				}
-
-				containerWindowType = {
-					name = "ship_dp_secondaries"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "image"
-						spriteType = "GFX_SM_carrier_hull_mid_secondaries_jap"
-						position = { x=132 y=0 }
-					}
-				}
-				containerWindowType = {
-					name = "ship_dp_secondaries@highlight"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "highlight"
-						spriteType = "GFX_SM_carrier_hull_mid_secondaries_jap@highlight"
-						position = { x=132 y=0 }
-					}
-				}
-
-				#### MODULE: Deck Space ####
-				containerWindowType = {
-					name = "ship_deck_space"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "image"
-						spriteType = "GFX_SM_carrier_hull_mid2_deck_space_jap"
-						position = { x=312 y=0 }
-					}
-				}
-				containerWindowType = {
-					name = "ship_deck_space@highlight"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "highlight"
-						spriteType = "GFX_SM_carrier_hull_mid2_deck_space_jap@highlight"
-						position = { x=312 y=0 }
-					}
-				}
-
-				#### MODULE: Deck Armor ####
-				containerWindowType = {
-					name = "ship_armor_carrier_deck"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "blueprint"
-						spriteType = "GFX_SM_carrier_hull_armor"
-						position = { x=0 y=0 }
-					}
-				}
-
-				containerWindowType = {
-					name = "ship_armor_carrier_deck@highlight"
-					position = { x=0 y=0 }
-					size = { width=100% height=100% }
-					
-					iconType = {
-						name = "highlight"
-						spriteType = "GFX_SM_carrier_hull_armor@highlight"
-						position = { x=0 y=0 }
-					}
-				}
 			}
 		}
 	}
