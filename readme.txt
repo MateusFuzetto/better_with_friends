@@ -16,5 +16,3 @@ Universal Formable Nations
 将领等级上限
 Yearly Event Cards
 Technology Sharing and Integration
-Caspian Sea Unlocked
-Core With Compliance++
